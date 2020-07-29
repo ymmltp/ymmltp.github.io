@@ -1,17 +1,13 @@
 ---
 title: Bootstrap Table学习笔记
 date: 2020-07-21 14:15:54
-tags:学无止境
+tags: 学无止境
 ---
-
 ## Bootstrap Table基础用法
-
 ##### 1、使用js注册一个bootstrap-table
-
 ```html
 <table id="table"> </table> 
 ```
-
 ```javascript
 $('#table').bootstrapTable({
     columns: [{
@@ -35,9 +31,7 @@ $('#table').bootstrapTable({
 	}]
 });
 ```
-
 ##### 2、html注册bootstrap-table
-
 ```html
 <table
   data-toggle="table"
@@ -51,17 +45,11 @@ $('#table').bootstrapTable({
   </thead>
 </table>
 ```
-
-
-
 ## Bootstrap Table其他功能
 
 （参考官网文档）
-
 ##### 1、使用html开启相关功能
-
 ​	data-[属性名称]
-
 ```html
 <table
   data-toggle="table"
@@ -71,9 +59,7 @@ $('#table').bootstrapTable({
   data-sortable="true">
 </table>
 ```
-
 ##### 2、使用js配置相关功能
-
 ```javascript
 //初始化主表格
 $('#table').bootstrapTable({
@@ -162,7 +148,6 @@ function changeDateFormat(cellval) {
     }
 }
 ```
-
 ##### 2、js 动态加载数据
 
 ```javascript
@@ -179,3 +164,4 @@ $('#table').bootstrapTable('load', data); //注意：此处的data应为json格�
 
 2、[bootstrap-table父子表](https://www.cnblogs.com/landeanfen/p/4993979.html)
 
+3、[在table内添加按钮](https://blog.csdn.net/qq_39215166/article/details/74452366?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase)
