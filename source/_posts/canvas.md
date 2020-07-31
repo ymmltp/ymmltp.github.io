@@ -60,14 +60,20 @@ var context=canvas.getContext('3d');  //3d画板
 //画板左上角为原点，向右X正，向下Y正
 context.moveTo(100,100);
 context.lineTo(700,700);
-//设置绘制范围
-context.beginPath();
-context.closePath();
+//画圆-3点钟方向为0*pi/2*pi,6点钟方向0.5*pi,9点钟方向1*pi,12点钟方向1.5*pi
+context.arc(300,300,200,0,0.5*Math.PI,true); //圆心坐标(X,Y),半径，起始弧度，结束弧度，是否逆时针
+
+//设置绘制范围 不一定要同时出现
+context.beginPath(); //开始一个新的路径
+context.closePath(); //当绘制的图形不是闭合图形时，会自动闭合，对fill无效
 
 //绘制线条
 context.stroke();  
 //填充图形
 context.fill();
+
+//刷新画布内容
+cxt.clearRect(0,0,WINDOW_WIDTH,WINDOW_HEIGHT);  
 
 ```
 
@@ -81,11 +87,11 @@ window.onload=function(){
     var canvas=document.getElementById("canvas");
     //使用Context绘制
     var context=canvas.getContext('2d');
+    
     context.moveTo(100,100);
     context.lineTo(700,700);
     context.lineTo(100,700);
     context.lineTo(100,100);
-
     //设置画笔的属性
     context.fillStyle= "rgb(2,100,222)";
     context.fill();
@@ -94,11 +100,16 @@ window.onload=function(){
     context.lineWidth = 5;
     context.strokeStyle = "#ff0000";
     context.stroke();  
-
     context.moveTo(200,100);
     context.lineTo(800,700);
     context.strokeStyle = "black";  //black会覆盖上面的 "#ff0000"，所以最后都是黑色线条
     context.stroke();  
+    
+    //绘制圆弧
+    context.lineWidth = 5;
+    context.strokeStyle  ="#005588";
+    context.arc(300,300,200,0,0.5*Math.PI,true);
+    context.stroke();
 }
 ```
 
@@ -178,5 +189,42 @@ context.stroke();
         </script>
     </body>
 </html>
+```
+
+
+
+**简单的球体掉落**
+
+```javascript
+var ball = {x:512,y:100,r:20,g:2,vx:-4,vy:-10,color:"#005588"};
+window.onload=function(){
+    var canvas = document.getElementById("cv");
+    canvas.width = 1024;
+    canvas.height = 768;
+    var context = canvas.getContext("2d");
+    setInterval(
+        function(){
+            render(context);
+            update();
+        },20 //50ms执行一次，所以帧率是20
+    );
+};
+function update (){
+    ball.x+=ball.vx;
+    ball.y+=ball.vy;
+    ball.vy+=ball.g;
+    if(ball.y>=768-ball.r)
+    {
+        ball.y = 768-ball.r;
+        ball.vy = -ball.vy*0.5;  //0.5的摩擦系数
+    }
+}
+function render(cxt){
+    cxt.clearRect(0,0,cxt.canvas.width,cxt.canvas.height);
+    cxt.fillStyle = ball.color;
+    cxt.beginPath();
+    cxt.arc(ball.x,ball.y,ball.r,0,2*Math.PI);
+    cxt.fill();
+}
 ```
 
