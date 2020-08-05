@@ -33,53 +33,148 @@ tags: 学无止境
 
 ## Canvas的用法
 
-#### 1、属性  
+### 1、常用方法 
 
-```js
-//*****canvas是基于状态来绘制的，只使用最后一次赋值的属性*****//
+<span style="color:red">canvas是基于状态来绘制的</span>
 
+#### 基本方法
+
+```javascript
 //js中定义画板的大小用width和height属性，
 canvas.width=1024;
 canvas.height=768;
 
-//设置画笔的属性
-context.lineWidth = 5;
-context.strokeStyle = "#ff0000"; //支持css样式
-//设置填充属性
-context.fillStyle= "rgb(2,100,222)";
-```
-
-#### 2、主要方法
-
-```javascript
+//2D绘图
 //获取画板对象
 var context=canvas.getContext('2d');  //2d画板
-var context=canvas.getContext('3d');  //3d画板
 
 //绘图接口
 //画板左上角为原点，向右X正，向下Y正
 context.moveTo(100,100);
 context.lineTo(700,700);
-//画圆-3点钟方向为0*pi/2*pi,6点钟方向0.5*pi,9点钟方向1*pi,12点钟方向1.5*pi
-context.arc(300,300,200,0,0.5*Math.PI,true); //圆心坐标(X,Y),半径，起始弧度，结束弧度，是否逆时针
 
 //设置绘制范围 不一定要同时出现
-context.beginPath(); //开始一个新的路径
-context.closePath(); //当绘制的图形不是闭合图形时，会自动闭合，对fill无效
-
-//绘制线条
-context.stroke();  
-//填充图形
-context.fill();
-
+context.beginPath(); //开始一个新的路径，beginPath + lineTo = moveTo
+context.closePath(); //当绘制的图形不是闭合图形时，会自动闭合，对fill无效，可以避免线段宽度带来的间隙
 //刷新画布内容
 cxt.clearRect(0,0,WINDOW_WIDTH,WINDOW_HEIGHT);  
 
+//3D绘图
+var context=canvas.getContext('3d');  //3d画板
+
+```
+
+#### 图形绘制
+
+```javascript
+//线条绘制
+//设置画笔的属性
+context.lineWidth = 5;
+context.lineCap = "butt"/"round"/"square" //线条起始形状，默认，圆形，方形
+context.lineJoin = "miter"/"bevel"/"round" //线条相交部分的效果 ，尖角（默认），平角，圆角
+context.miterLimit = 10(默认值); //相交线段的内角与外角距离的最大像素差，一旦超过这个值，lineJoin默认bevel
+context.strokeStyle = "#ff0000"; //支持css样式
+//绘制线条
+context.stroke();  
+
+//图形填充
+//设置填充属性
+context.fillStyle= "rgb(2,100,222)";
+//填充图形 （如果填充发生在绘制线条之后，会使线条的宽度发生变化。所以一般要先填充再绘线）
+context.fill();
+
+//绘制矩形
+context.rect(x,y,width,height)//规划矩形路线，需要使用stroke和fill来绘图，矩形的位置，宽高
+context.strokeRect(x,y,width,height)//绘制矩形边框，使用的属性和stroke一样
+context.fillRect(x,y,width,height)//绘制填充的矩形，使用的属性和fill一样
+
+//绘制圆 
+//(3点钟方向为0*pi/2*pi,6点钟方向0.5*pi,9点钟方向1*pi,12点钟方向1.5*pi)
+context.arc(300,300,200,0,0.5*Math.PI,false); //圆心坐标(X,Y),半径，起始弧度，结束弧度，是否逆时针
+context.actTo(x1,y1,x2,y2,r); //配合moveTo(x0,y0可以绘制半径为r,同时相切与直线(x0,y0)-(x1,y1)和直线(x1,y1)-(x2,y2)的弧线(x0,y0)-(x1,y1)部分可能会有直线；起始点是(x0,y0)，但结束点是圆弧与直线(x1,y1)-(x2,y2)的切点
+```
+
+#### 贝塞尔曲线
+
+```javascript
+//二次曲线
+context.moveTo(x0,y0);
+context.quadraticCurveTo(x1,y1,x2,y2); // 绘制起始点为(x0,y0),控制点为(x1,y1),结束点为(x2,y2)的曲线
+
+//三次曲线
+context.moveTo(x0,y0);
+context.bezierCurveTo(x1,y1,x2,y2,x3,y3); // 绘制起始点为(x0,y0),控制点为(x1,y1),(x2,y2),结束点为(x3,y3)的曲线
+```
+
+#### 图形变换
+
+```javascript
+context.translate(x,y); // 位移，位移的移动是叠加的，所以移动之后需要反向移回，或者使用save,restore
+context.scale(a,b); //长宽，会放大图像的所有属性（起始点坐标，线宽,图形大小）
+context.rotate(deg); //旋转
+
+context.transform(a,b,c,d,e,f);//水平缩放，水平倾斜，垂直倾斜，垂直缩放，水平位移，垂直位移transform和位移类似，是叠加的，可以使用setTransform，将他设成初始值
+context.setTransform(1,0,0,1,100,100);//不考虑之前所有的transform
+
+//这两者应该成对出现,进行图型变换前最好先保存。
+context.save();//保存当前状态
+context.restore();//回复至前一次保存的状态
+```
+
+#### 渐变色（可作为fillStyle/strokeStyle的值）
+
+```javascript
+//线性渐变色
+var grd = context.createLinearGradient(xstart,ystart,xend,yend); // 
+grd.addColorStop(stop,color);
+//放射性渐变
+var grd = context.createRadialGradient(x0,y0,r0,x1,y1,r1); // 在两个圆中间进行渐变
+grd.addColorStop(stop,color);
+//图像做背景填充
+var pattern = context.createPattern(img/canvas/video,repeat-style); //填充对象可以是图片，canvas,或vedio;repear-stylt = no-rapeat/repeat-x/repeat-y/repeat
+```
+
+#### 文字
+
+```javascript
+//配置文字属性
+context.font = "bold 40px Arial"; //默认值20px sans-serif
+//font属性的所有值font-style(normal italic oblique),font-variant(normal small-caps),font-weight(normal/400 bold/700 ),font-size(20px 20em 100%),font-family(支持多备选字体 @font-face)
+
+//绘制填充文字
+context.fillStyle ="#058"; //可以使用渐变色和图像为背景
+context.fillText("Welcome...",40,100,200); //string,x,y,文字最大长度（选填）
+
+//绘制边框文字
+context.strokeStyle ="#058";  //可以使用渐变色和图像为背景
+context.strokeText("Hello...",500,100，200);
+
+//文字对齐
+context.textAlign = center/right/left //文字水平对齐，针对指定的x坐标
+context.textBaseline = top/middle/bottom //文字垂直对齐，针对指定的y坐标
+
+//文本的度量
+context.measureText(string).width
+
+```
+
+### 2、高级方法
+
+#### 阴影
+
+```javascript
+//可用于文字，图片
+context.shadowColor  //类似于fillStyle
+context.shadowOffsetX
+context.shadowOffsetY
+context.shadowBlur   // 阴影模糊程度，越大越模糊
 ```
 
 
 
-#### 3、实例
+
+
+## 实例
 
 ```javascript
 //canvas是基于状态来绘制的，只使用最后一次赋值的属性
@@ -113,7 +208,7 @@ window.onload=function(){
 }
 ```
 
-**如何绘制两个不同的线条**
+#### 如何绘制两个不同的线条
 
 ```javascript
 //绘制第一个图形
@@ -136,7 +231,7 @@ context.strokeStyle = "black";
 context.stroke();  
 ```
 
-**绘制七巧板**
+#### 绘制七巧板
 
 ```html
 <!DOCTYPE html>
@@ -193,7 +288,7 @@ context.stroke();
 
 
 
-**简单的球体掉落**
+#### 简单的球体掉落
 
 ```javascript
 var ball = {x:512,y:100,r:20,g:2,vx:-4,vy:-10,color:"#005588"};
@@ -225,6 +320,65 @@ function render(cxt){
     cxt.beginPath();
     cxt.arc(ball.x,ball.y,ball.r,0,2*Math.PI);
     cxt.fill();
+}
+```
+
+#### 五角星
+
+```javascript
+function drawStar(cxt,x,y,R,rot)
+{
+    cxt.save();
+
+    cxt.translate(x,y);
+    cxt.rotate(rot/180*Math.PI);
+    cxt.scale(R,R);
+    starPath(cxt);
+
+    cxt.fillStyle = "#fb3";
+    //cxt.strokeStyle = "#fd5";
+    //cxt.lineWidth = 3;
+    cxt.lineJoin = "round";
+    cxt.fill();
+    //cxt.stroke();
+
+    cxt.restore();
+}
+
+function starPath(cxt)  //标准五角星
+{
+    cxt.beginPath();
+    for(var i =0;i<5;i++)
+    {
+        cxt.lineTo(Math.cos((18+i*72)/180*Math.PI),
+                   -Math.sin((18+i*72)/180*Math.PI));
+        cxt.lineTo(Math.cos((54+i*72)/180*Math.PI)*0.5,
+                   -Math.sin((54+i*72)/180*Math.PI)*0.5);
+    }
+    cxt.closePath();
+}
+```
+
+**渐变色**
+
+```javascript
+var grd = context.createLinearGradient(0,0,800,800);
+grd.addColorStop(0.0,"#f00");
+grd.addColorStop(0.5,"#0f0");
+grd.addColorStop(1.0,"#00f");
+context.fillStyle = grd;
+context.fillRect(0,0,800,600);
+```
+
+#### 图片填充
+
+```javascript
+var backgroundImage = new Image;
+backgroundImage.src = "" ;
+backgroundImage.onload=function(){
+	var pattern = context.createPattern(backgroundImage,"no-repeat"); 
+    context.fillStyle = pattern;
+    context.fill(0,0,,widht,height);
 }
 ```
 
