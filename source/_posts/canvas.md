@@ -62,6 +62,11 @@ cxt.clearRect(0,0,WINDOW_WIDTH,WINDOW_HEIGHT);
 //3D绘图
 var context=canvas.getContext('3d');  //3d画板
 
+//点是否在画布内
+context.isPointInPath(x,y);
+
+//添加事件
+canvs.addEventListener("mouseup",function);
 ```
 
 #### 图形绘制
@@ -170,9 +175,226 @@ context.shadowOffsetY
 context.shadowBlur   // 阴影模糊程度，越大越模糊
 ```
 
+#### 全局变量
+
+```javascript
+context.globalAlpha = 0.7 //全局透明度属性
+context.globalCompositeOperation = "source-over" //全局图像覆盖属性 
+```
+
+| 图2覆盖图1                                | 图1覆盖图2                                     | 其他特性               |
+| ----------------------------------------- | ---------------------------------------------- | ---------------------- |
+| source-over                               | destination-over                               | lighter:重叠处颜色叠加 |
+| source-atop:显示图1以及图2在图1内部的部分 | destination-atop:显示图2以及图1在图2内部的部分 | copy:只绘制图2         |
+| source-in:显示图2在图1内部的部分          | destination-in:显示图1在图2内部的部分          | xor:重叠处图像挖空     |
+| source-out:显示图2在图1外部的部分         | destination-out:显示图1在图2内部的部分         |                        |
+
+#### 剪辑区域
+
+```javascript
+context.clip()  //将之前绘制的封闭图形作为新的画布环境
+```
+
+**实例**
+
+实现一个探照灯效果
+
+```javascript
+            function light(){
+                setInterval( function(){ draw(context);
+                        update(canvas.width,canvas.height); }, 40); }
+
+            function draw(cxt)
+            {
+                var canvas = cxt.canvas;
+                cxt.clearRect(0,0,canvas.width,canvas.height);
+                
+                cxt.save();
+
+                cxt.beginPath();
+                cxt.fillStyle="black";
+                cxt.fillRect(0,0,canvas.width,canvas.height);
+
+                cxt.beginPath();
+                cxt.arc(cycle.x,cycle.y,cycle.radius,0,Math.PI*2);
+                cxt.fillStyle="white";
+                cxt.fill();
+                cxt.clip();  //只会显示出圆形内部的内容
+
+                cxt.font = "bold 150px Arial";
+                cxt.textAlign = "center";
+                cxt.textBaseline = "middle";
+                cxt.fillStyle = "#058";
+                cxt.fillText("CANVAS",canvas.width/2,canvas.height/4);  //文字是画在原来的方形画布上的
+                cxt.fillText("CANVAS",canvas.width/2,canvas.height/2);
+                cxt.fillText("CANVAS",canvas.width/2,canvas.height/4*3);
+
+                cxt.restore();
+            }
+
+            function update(width,height){
+                cycle.x += cycle.vx;
+                cycle.y += cycle.vy;
+
+                if(cycle.x-cycle.radius<=0)
+                {
+                    cycle.vx = -cycle.vx;
+                    cycle.x =cycle.radius;
+                }
+                if(cycle.x+cycle.radius>=width)
+                {
+                    cycle.vx = -cycle.vx;
+                    cycle.x = width - cycle.radius;
+                }
+                if(cycle.y-cycle.radius<=0)
+                {
+                    cycle.vy = -cycle.vy;
+                    cycle.y = cycle.radius;
+                }
+                if(cycle.y+cycle.radius>=height)
+                {
+                    cycle.vy = -cycle.vy;
+                    cycle.y = height - cycle.radius;
+                }
+            }
+
+```
 
 
 
+#### 路径方向和剪纸效果
+
+<span style = "color:red">使用fill()的这个特性实现剪纸效果</span>
+
+```javascript
+context.fill();  //遵循非零环绕原则,绘图与路径方向有关
+```
+
+**例子**:
+
+```javascript
+context.beginPath();
+context.arc(400,400,300,0,2*Math.PI,false); 
+context.arc(400,400,150,0,2*Math.PI,true);  //context.arc(400,400,150,0,2*Math.PI,false); 
+context.closePath();
+context.fillStyle="blue";
+context.shadowColor= "gray";
+context.shadowOffsetX = 10;
+context.shadowOffsetY = 10;
+context.shadowBlur = 10;
+
+context.fill();
+```
+
+#### Canvas交互实例
+
+点击改变小球的颜色
+
+````javascript
+ var canvas = document.getElementById("cv");
+ var context = canvas.getContext("2d");
+ balls  = [];
+
+window.onload=function (){
+    canvas.width = 800;
+    canvas.height = 800; 
+
+    CreateBalls();
+    drawBall();
+    canvas.addEventListener("mouseup",detect);   //部署鼠标事件mousemove,mousedown
+}
+
+function CreateBalls(){
+    for(var i =0;i<20;i++)
+    {
+        var ABall = {
+        x:Math.random()*canvas.width,
+        y:Math.random()*canvas.height,
+        radius:Math.random()*20+20,
+        }
+        balls[i] = ABall;
+    }
+}
+
+function drawBall(){
+    for(var i =0;i <balls.length;i++)
+    {
+        context.beginPath();
+        context.fillStyle = "#058";
+        context.arc(balls[i].x,balls[i].y,balls[i].radius,0,2*Math.PI);
+        context.fill();
+    }
+}
+
+function detect(event){
+    var x = event.clientX - canvas.getBoundingClientRect().left;  //获取鼠标点击在画布上的位置
+    var y = event.clientY - canvas.getBoundingClientRect().top;
+    
+    for(var i = 0;i<balls.length;i++)
+    {
+        context.beginPath();
+        context.arc(balls[i].x,balls[i].y,balls[i].radius,0,2*Math.PI);
+
+        if(context.isPointInPath(x,y))  //判断(x,y)是否在所绘制的图形内部
+        {
+            context.fillStyle = "red";
+            context.fill();
+        }
+    }
+}
+````
+
+#### 在Canvas上使用HTML其他元素
+
+1、Canvas标签内部的内容只有在Canvas无效时才能看见
+
+2、使用绝对定位将一个新的div至于Canvas之上，在新的div中布置HTML元素
+
+#### 扩充Canvas函数方法
+
+增加一个方法
+
+```javascript
+CanvasRenderingContext2D.prototype.fillStar = function (r,R,x,y,rot)
+{
+    this.beginPath();
+    for(var i =0;i<5;i++)
+    {
+        this.lineTo(Math.cos((18+i*72-rot)/180*Math.PI)*R+x,
+                    -Math.sin((18+i*72-rot)/180*Math.PI)*R+y);
+        this.lineTo(Math.cos((54+i*72-rot)/180*Math.PI)*r+x,
+                    -Math.sin((54+i*72-rot)/180*Math.PI)*r+y);
+    }
+    this.closePath();
+    this.fill();
+}
+```
+
+复写一个方法（不推荐），增加一个属性
+
+```javascript
+var canvas = document.getElementById("canvas");
+var context = canvas.getContext('2d');
+var originalMoveTo = CanvasRenderingContext2D.prototype.moveTo;
+CanvasRenderingContext2D.prototype.lastMoveToLoc = {};  //增加的新属性
+CanvasRenderingContext2D.prototype.moveTo = function(x,y){
+    originalMoveTo.apply(context,[x,y]);
+    this.lastMoveToLoc.x = x;
+    this.lastMoveToLoc.y = y;
+} 
+```
+
+#### Canvas兼容
+
+1、IE6,7,8可以添加explorecanvas库来兼容。
+
+#### Canvas图形库
+
+1、[canvasplus](https://code.google.com/archive/p/canvasplus)
+
+2、[Artisan JS](https://northwardcompass.com/artisanjs-a-generative-art-and-canvas-extension/)
+
+3、[Rgraph:图表图形库](https://www.rgraph.net/)
 
 ## 实例
 
@@ -208,6 +430,8 @@ window.onload=function(){
 }
 ```
 
+
+
 #### 如何绘制两个不同的线条
 
 ```javascript
@@ -230,6 +454,8 @@ context.closePath();
 context.strokeStyle = "black";
 context.stroke();  
 ```
+
+
 
 #### 绘制七巧板
 
@@ -337,7 +563,7 @@ function drawStar(cxt,x,y,R,rot)
 
     cxt.fillStyle = "#fb3";
     //cxt.strokeStyle = "#fd5";
-    //cxt.lineWidth = 3;
+    //cxt.lineWidth = 3;  // scale()方法会影响该属性
     cxt.lineJoin = "round";
     cxt.fill();
     //cxt.stroke();
@@ -382,3 +608,8 @@ backgroundImage.onload=function(){
 }
 ```
 
+### 参考文档
+
+1、[Canvas,W3C标准](https://www.w3.org/TR/2dcontext/)
+
+2、[WHATWG标准](https://html.spec.whatwg.org/)
