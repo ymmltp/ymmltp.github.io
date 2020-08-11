@@ -56,6 +56,7 @@ context.lineTo(700,700);
 //设置绘制范围 不一定要同时出现
 context.beginPath(); //开始一个新的路径，beginPath + lineTo = moveTo
 context.closePath(); //当绘制的图形不是闭合图形时，会自动闭合，对fill无效，可以避免线段宽度带来的间隙
+
 //刷新画布内容
 cxt.clearRect(0,0,WINDOW_WIDTH,WINDOW_HEIGHT);  
 
@@ -66,7 +67,7 @@ var context=canvas.getContext('3d');  //3d画板
 context.isPointInPath(x,y);
 
 //添加事件
-canvs.addEventListener("mouseup",function);
+canvas.addEventListener("mouseup",function);
 ```
 
 #### 图形绘制
@@ -604,11 +605,11 @@ backgroundImage.src = "" ;
 backgroundImage.onload=function(){
 	var pattern = context.createPattern(backgroundImage,"no-repeat"); 
     context.fillStyle = pattern;
-    context.fill(0,0,,widht,height);
+    context.fillRect(0,0,widht,height);
 }
 ```
 
-### 参考文档
+## 参考文档
 
 1、[Canvas,W3C标准](https://www.w3.org/TR/2dcontext/)
 
