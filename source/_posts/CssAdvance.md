@@ -4,6 +4,54 @@ date: 2020-06-30 15:24:49
 tags: 学无止境
 ---
 
+# CSS布局
+
+## 尺寸
+
+1、块级元素auto,是随父元素变化的
+
+2、一旦元素被设为浮动，该元素的width就由内容元素决定
+
+### PX/EM/REM
+
+#### 1、PX(像素)
+
+#### 2、EM
+
+EM继承父元素字体大小，默认1em=16px, 0.875em=4px, 0.75em=12px, 0.625em=10px
+
+```css
+body{font-size: 62.5%;}/*简化换算*/
+p {font-size: 1.2em;}  /*这样1.2em=12px*/
+```
+
+```html
+<style>
+body{font-size: 62.5%;}	   /*简化换算 1em=10px*/
+.con1{font-size: 1.2em;}   /*这样1.2em=12px*/
+.con2{font-size: 1em;}     /*由于em继承父元素字体大小，此时font-size=1em=12px*/
+.con3{font-size: 1.2em;}   /*由于em继承父元素字体大小，此时font-size=1.2em=12px*1.2=14.4px*/
+</style>
+
+<body>
+<div class="con1">
+    <div class="con2">
+        <div class="con3">
+        </div>
+    </div>
+</div>
+</body>
+```
+
+#### 3、REM
+
+REM类似于EM，但是他的大小只相对于html的根元素，可以忽略继承的层级关系。
+
+
+
+## Grid
+
+## Flex
 
 ## [Float](https://www.imooc.com/learn/121)(少用)
 
