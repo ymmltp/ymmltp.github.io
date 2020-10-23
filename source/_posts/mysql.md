@@ -49,7 +49,25 @@ replace可以起到Insert和Update的效果，但是使用需要注意
 ```mysql
 order by
 desc
+
 ```
+
+### 4.实例
+
+##### 查询每组数据的前几个
+
+（例如：每班前三名的同学）
+
+查询每个人最近20次点检用时：
+
+```mysql
+SELECT c.DRI,c.pmTime,c.Date
+FROM pmhistory c
+WHERE(SELECT count(1) AS ID	FROM pmhistory a WHERE a.DRI = c.DRI AND a.Date >= c.Date) <= 20
+ORDER BY c.DRI,c.Date desc
+```
+
+
 
 ## Mysql进阶
 
