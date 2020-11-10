@@ -159,7 +159,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      401 字
+      641 字
     </span>
   
 
@@ -169,7 +169,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      4
+      8
        分钟
     </span>
   
@@ -209,12 +209,35 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2020年7月8日 晚上
+                  本文最后更新于：2020年11月10日 晚上
                 
               </p>
             
             <article class="markdown-body">
-              <h2 id="Float-少用"><a href="#Float-少用" class="headerlink" title="Float(少用)"></a><a href="https://www.imooc.com/learn/121" target="_blank" rel="noopener">Float</a>(少用)</h2><p>float会使父容器高度塌陷（父容器的高度无法定位和使用）</p>
+              <h1 id="CSS布局"><a href="#CSS布局" class="headerlink" title="CSS布局"></a>CSS布局</h1><h2 id="尺寸"><a href="#尺寸" class="headerlink" title="尺寸"></a>尺寸</h2><p>1、块级元素auto,是随父元素变化的</p>
+<p>2、一旦元素被设为浮动，该元素的width就由内容元素决定</p>
+<h3 id="PX-EM-REM"><a href="#PX-EM-REM" class="headerlink" title="PX/EM/REM"></a>PX/EM/REM</h3><h4 id="1、PX-像素"><a href="#1、PX-像素" class="headerlink" title="1、PX(像素)"></a>1、PX(像素)</h4><h4 id="2、EM"><a href="#2、EM" class="headerlink" title="2、EM"></a>2、EM</h4><p>EM继承父元素字体大小，默认1em=16px, 0.875em=4px, 0.75em=12px, 0.625em=10px</p>
+<pre><code class="hljs css"><span class="hljs-selector-tag">body</span>&#123;<span class="hljs-attribute">font-size</span>: <span class="hljs-number">62.5%</span>;&#125;<span class="hljs-comment">/*简化换算*/</span>
+<span class="hljs-selector-tag">p</span> &#123;<span class="hljs-attribute">font-size</span>: <span class="hljs-number">1.2em</span>;&#125;  <span class="hljs-comment">/*这样1.2em=12px*/</span></code></pre>
+
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+<span class="hljs-selector-tag">body</span>&#123;<span class="hljs-attribute">font-size</span>: <span class="hljs-number">62.5%</span>;&#125;	   <span class="hljs-comment">/*简化换算 1em=10px*/</span>
+<span class="hljs-selector-class">.con1</span>&#123;<span class="hljs-attribute">font-size</span>: <span class="hljs-number">1.2em</span>;&#125;   <span class="hljs-comment">/*这样1.2em=12px*/</span>
+<span class="hljs-selector-class">.con2</span>&#123;<span class="hljs-attribute">font-size</span>: <span class="hljs-number">1em</span>;&#125;     <span class="hljs-comment">/*由于em继承父元素字体大小，此时font-size=1em=12px*/</span>
+<span class="hljs-selector-class">.con3</span>&#123;<span class="hljs-attribute">font-size</span>: <span class="hljs-number">1.2em</span>;&#125;   <span class="hljs-comment">/*由于em继承父元素字体大小，此时font-size=1.2em=12px*1.2=14.4px*/</span>
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"con1"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"con2"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"con3"</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></code></pre>
+
+<h4 id="3、REM"><a href="#3、REM" class="headerlink" title="3、REM"></a>3、REM</h4><p>REM类似于EM，但是他的大小只相对于html的根元素，可以忽略继承的层级关系。</p>
+<h2 id="Grid"><a href="#Grid" class="headerlink" title="Grid"></a>Grid</h2><h2 id="Flex"><a href="#Flex" class="headerlink" title="Flex"></a>Flex</h2><h2 id="Float-少用"><a href="#Float-少用" class="headerlink" title="Float(少用)"></a><a href="https://www.imooc.com/learn/121" target="_blank" rel="noopener">Float</a>(少用)</h2><p>float会使父容器高度塌陷（父容器的高度无法定位和使用）</p>
 <p>float原本是用来实现文字环绕效果的</p>
 <h4 id="1-清除float的影响"><a href="#1-清除float的影响" class="headerlink" title="1.清除float的影响"></a>1.清除float的影响</h4><ul>
 <li><p>在block元素底部插入clear:both属性的元素【可以使用CSS after伪元素(IE6,IE7不识别)】 </p>
