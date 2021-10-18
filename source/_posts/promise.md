@@ -17,3 +17,5 @@ var TestFnc = new Promise(function(resolve,reject){
 })
 ```
 
+### 参考文件
+1、[Promise详解](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise)
