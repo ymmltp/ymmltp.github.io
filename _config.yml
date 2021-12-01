@@ -94,7 +94,8 @@ theme: fluid
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
+## https://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@github.com/ymmltp/ymmltp.github.io  
 deploy:
   type: git
-  repo: https://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@github.com/ymmltp/ymmltp.github.io
+  repo: git@github.com:ymmltp/ymmltp.github.io.git
   branch: master
