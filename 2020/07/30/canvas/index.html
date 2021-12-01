@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/me.ico">
+  <link rel="icon" type="image/png" href="/img/me.ico">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="半吊子">
+  <meta name="author" content="今年依旧12岁">
+  <meta name="keywords" content="">
+  <title>Canvas Learning - World is what you see</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>今年依旧12岁</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/bg2.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2020-07-30 20:55">
+      2020年7月30日 晚上
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3.2k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      49
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2021年8月3日 上午
+                
+              </p>
+            
+            <article class="markdown-body">
+              <h2 id="Canvas的定义"><a href="#Canvas的定义" class="headerlink" title="Canvas的定义"></a>Canvas的定义</h2><p><span style="color:red">html属性中的width和height，不要使用css样式，因为这个属性除了定义画板大小，还定义了画板的分辨率</span></p>
+<pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">head</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"zh-CN"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Canvas Demo<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">canvas</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"canvas"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"800"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"800"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"border:1px solid gray;margin:50px auto;display:block"</span>&gt;</span>
+            当前浏览器不支持canvas(只有浏览器不支持canvas时才会显示这段话)/或者在js中判断canvas.getContext('2d')是否为空。
+        <span class="hljs-tag">&lt;/<span class="hljs-name">canvas</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span>
+<span class="actionscript">            <span class="hljs-comment">//canvas是基于状态来绘制的</span></span>
+<span class="javascript">            <span class="hljs-built_in">window</span>.onload=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;</span>
+<span class="javascript">                <span class="hljs-keyword">var</span> canvas=<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"canvas"</span>);</span>
+<span class="actionscript">                <span class="hljs-comment">//使用Context绘制</span></span>
+<span class="actionscript">                <span class="hljs-keyword">var</span> context=canvas.getContext(<span class="hljs-string">'2d'</span>);</span>
+            &#125;
+        <span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
+
+<h2 id="Canvas的用法"><a href="#Canvas的用法" class="headerlink" title="Canvas的用法"></a>Canvas的用法</h2><h3 id="1、常用方法"><a href="#1、常用方法" class="headerlink" title="1、常用方法"></a>1、常用方法</h3><p><span style="color:red">canvas是基于状态来绘制的</span></p>
+<h4 id="基本方法"><a href="#基本方法" class="headerlink" title="基本方法"></a>基本方法</h4><pre><code class="hljs javascript"><span class="hljs-comment">//js中定义画板的大小用width和height属性，</span>
+canvas.width=<span class="hljs-number">1024</span>;
+canvas.height=<span class="hljs-number">768</span>;
+
+<span class="hljs-comment">//2D绘图</span>
+<span class="hljs-comment">//获取画板对象</span>
+<span class="hljs-keyword">var</span> context=canvas.getContext(<span class="hljs-string">'2d'</span>);  <span class="hljs-comment">//2d画板</span>
+
+<span class="hljs-comment">//绘图接口</span>
+<span class="hljs-comment">//画板左上角为原点，向右X正，向下Y正</span>
+context.moveTo(<span class="hljs-number">100</span>,<span class="hljs-number">100</span>);
+context.lineTo(<span class="hljs-number">700</span>,<span class="hljs-number">700</span>);
+
+<span class="hljs-comment">//设置绘制范围 不一定要同时出现</span>
+context.beginPath(); <span class="hljs-comment">//开始一个新的路径，beginPath + lineTo = moveTo</span>
+context.closePath(); <span class="hljs-comment">//当绘制的图形不是闭合图形时，会自动闭合，对fill无效，可以避免线段宽度带来的间隙</span>
+
+<span class="hljs-comment">//刷新画布内容</span>
+cxt.clearRect(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,WINDOW_WIDTH,WINDOW_HEIGHT);  
+
+<span class="hljs-comment">//3D绘图</span>
+<span class="hljs-keyword">var</span> context=canvas.getContext(<span class="hljs-string">'3d'</span>);  <span class="hljs-comment">//3d画板</span>
+
+<span class="hljs-comment">//点是否在画布内</span>
+context.isPointInPath(x,y);
+
+<span class="hljs-comment">//添加事件</span>
+canvas.addEventListener(<span class="hljs-string">"mouseup"</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>);</span></code></pre>
+
+<h4 id="图形绘制"><a href="#图形绘制" class="headerlink" title="图形绘制"></a>图形绘制</h4><pre><code class="hljs javascript"><span class="hljs-comment">//线条绘制</span>
+<span class="hljs-comment">//设置画笔的属性</span>
+context.lineWidth = <span class="hljs-number">5</span>;
+context.lineCap = <span class="hljs-string">"butt"</span>/<span class="hljs-string">"round"</span>/<span class="hljs-string">"square"</span> <span class="hljs-comment">//线条起始形状，默认，圆形，方形</span>
+context.lineJoin = <span class="hljs-string">"miter"</span>/<span class="hljs-string">"bevel"</span>/<span class="hljs-string">"round"</span> <span class="hljs-comment">//线条相交部分的效果 ，尖角（默认），平角，圆角</span>
+context.miterLimit = <span class="hljs-number">10</span>(默认值); <span class="hljs-comment">//相交线段的内角与外角距离的最大像素差，一旦超过这个值，lineJoin默认bevel</span>
+context.strokeStyle = <span class="hljs-string">"#ff0000"</span>; <span class="hljs-comment">//支持css样式</span>
+<span class="hljs-comment">//绘制线条</span>
+context.stroke();  
+
+<span class="hljs-comment">//图形填充</span>
+<span class="hljs-comment">//设置填充属性</span>
+context.fillStyle= <span class="hljs-string">"rgb(2,100,222)"</span>;
+<span class="hljs-comment">//填充图形 （如果填充发生在绘制线条之后，会使线条的宽度发生变化。所以一般要先填充再绘线）</span>
+context.fill();
+
+<span class="hljs-comment">//绘制矩形</span>
+context.rect(x,y,width,height)<span class="hljs-comment">//规划矩形路线，需要使用stroke和fill来绘图，矩形的位置，宽高</span>
+context.strokeRect(x,y,width,height)<span class="hljs-comment">//绘制矩形边框，使用的属性和stroke一样</span>
+context.fillRect(x,y,width,height)<span class="hljs-comment">//绘制填充的矩形，使用的属性和fill一样</span>
+
+<span class="hljs-comment">//绘制圆 </span>
+<span class="hljs-comment">//(3点钟方向为0*pi/2*pi,6点钟方向0.5*pi,9点钟方向1*pi,12点钟方向1.5*pi)</span>
+context.arc(<span class="hljs-number">300</span>,<span class="hljs-number">300</span>,<span class="hljs-number">200</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0.5</span>*<span class="hljs-built_in">Math</span>.PI,<span class="hljs-literal">false</span>); <span class="hljs-comment">//圆心坐标(X,Y),半径，起始弧度，结束弧度，是否逆时针</span>
+context.actTo(x1,y1,x2,y2,r); <span class="hljs-comment">//配合moveTo(x0,y0可以绘制半径为r,同时相切与直线(x0,y0)-(x1,y1)和直线(x1,y1)-(x2,y2)的弧线(x0,y0)-(x1,y1)部分可能会有直线；起始点是(x0,y0)，但结束点是圆弧与直线(x1,y1)-(x2,y2)的切点</span></code></pre>
+
+<h4 id="贝塞尔曲线"><a href="#贝塞尔曲线" class="headerlink" title="贝塞尔曲线"></a>贝塞尔曲线</h4><pre><code class="hljs javascript"><span class="hljs-comment">//二次曲线</span>
+context.moveTo(x0,y0);
+context.quadraticCurveTo(x1,y1,x2,y2); <span class="hljs-comment">// 绘制起始点为(x0,y0),控制点为(x1,y1),结束点为(x2,y2)的曲线</span>
+
+<span class="hljs-comment">//三次曲线</span>
+context.moveTo(x0,y0);
+context.bezierCurveTo(x1,y1,x2,y2,x3,y3); <span class="hljs-comment">// 绘制起始点为(x0,y0),控制点为(x1,y1),(x2,y2),结束点为(x3,y3)的曲线</span></code></pre>
+
+<h4 id="图形变换"><a href="#图形变换" class="headerlink" title="图形变换"></a>图形变换</h4><pre><code class="hljs javascript">context.translate(x,y); <span class="hljs-comment">// 位移，位移的移动是叠加的，所以移动之后需要反向移回，或者使用save,restore</span>
+context.scale(a,b); <span class="hljs-comment">//长宽，会放大图像的所有属性（起始点坐标，线宽,图形大小）</span>
+context.rotate(deg); <span class="hljs-comment">//旋转</span>
+
+context.transform(a,b,c,d,e,f);<span class="hljs-comment">//水平缩放，水平倾斜，垂直倾斜，垂直缩放，水平位移，垂直位移transform和位移类似，是叠加的，可以使用setTransform，将他设成初始值</span>
+context.setTransform(<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">100</span>,<span class="hljs-number">100</span>);<span class="hljs-comment">//不考虑之前所有的transform</span>
+
+<span class="hljs-comment">//这两者应该成对出现,进行图型变换前最好先保存。</span>
+context.save();<span class="hljs-comment">//保存当前状态</span>
+context.restore();<span class="hljs-comment">//回复至前一次保存的状态</span></code></pre>
+
+<h4 id="渐变色（可作为fillStyle-strokeStyle的值）"><a href="#渐变色（可作为fillStyle-strokeStyle的值）" class="headerlink" title="渐变色（可作为fillStyle/strokeStyle的值）"></a>渐变色（可作为fillStyle/strokeStyle的值）</h4><pre><code class="hljs javascript"><span class="hljs-comment">//线性渐变色</span>
+<span class="hljs-keyword">var</span> grd = context.createLinearGradient(xstart,ystart,xend,yend); <span class="hljs-comment">// </span>
+grd.addColorStop(stop,color);
+<span class="hljs-comment">//放射性渐变</span>
+<span class="hljs-keyword">var</span> grd = context.createRadialGradient(x0,y0,r0,x1,y1,r1); <span class="hljs-comment">// 在两个圆中间进行渐变</span>
+grd.addColorStop(stop,color);
+<span class="hljs-comment">//图像做背景填充</span>
+<span class="hljs-keyword">var</span> pattern = context.createPattern(img/canvas/video,repeat-style); <span class="hljs-comment">//填充对象可以是图片，canvas,或vedio;repear-stylt = no-rapeat/repeat-x/repeat-y/repeat</span></code></pre>
+
+<h4 id="文字"><a href="#文字" class="headerlink" title="文字"></a>文字</h4><pre><code class="hljs javascript"><span class="hljs-comment">//配置文字属性</span>
+context.font = <span class="hljs-string">"bold 40px Arial"</span>; <span class="hljs-comment">//默认值20px sans-serif</span>
+<span class="hljs-comment">//font属性的所有值font-style(normal italic oblique),font-variant(normal small-caps),font-weight(normal/400 bold/700 ),font-size(20px 20em 100%),font-family(支持多备选字体 @font-face)</span>
+
+<span class="hljs-comment">//绘制填充文字</span>
+context.fillStyle =<span class="hljs-string">"#058"</span>; <span class="hljs-comment">//可以使用渐变色和图像为背景</span>
+context.fillText(<span class="hljs-string">"Welcome..."</span>,<span class="hljs-number">40</span>,<span class="hljs-number">100</span>,<span class="hljs-number">200</span>); <span class="hljs-comment">//string,x,y,文字最大长度（选填）</span>
+
+<span class="hljs-comment">//绘制边框文字</span>
+context.strokeStyle =<span class="hljs-string">"#058"</span>;  <span class="hljs-comment">//可以使用渐变色和图像为背景</span>
+context.strokeText(<span class="hljs-string">"Hello..."</span>,<span class="hljs-number">500</span>,<span class="hljs-number">100</span>，<span class="hljs-number">200</span>);
+
+<span class="hljs-comment">//文字对齐</span>
+context.textAlign = center/right/left <span class="hljs-comment">//文字水平对齐，针对指定的x坐标</span>
+context.textBaseline = top/middle/bottom <span class="hljs-comment">//文字垂直对齐，针对指定的y坐标</span>
+
+<span class="hljs-comment">//文本的度量</span>
+context.measureText(string).width</code></pre>
+
+<h3 id="2、高级方法"><a href="#2、高级方法" class="headerlink" title="2、高级方法"></a>2、高级方法</h3><h4 id="阴影"><a href="#阴影" class="headerlink" title="阴影"></a>阴影</h4><pre><code class="hljs javascript"><span class="hljs-comment">//可用于文字，图片</span>
+context.shadowColor  <span class="hljs-comment">//类似于fillStyle</span>
+context.shadowOffsetX
+context.shadowOffsetY
+context.shadowBlur   <span class="hljs-comment">// 阴影模糊程度，越大越模糊</span></code></pre>
+
+<h4 id="全局变量"><a href="#全局变量" class="headerlink" title="全局变量"></a>全局变量</h4><pre><code class="hljs javascript">context.globalAlpha = <span class="hljs-number">0.7</span> <span class="hljs-comment">//全局透明度属性</span>
+context.globalCompositeOperation = <span class="hljs-string">"source-over"</span> <span class="hljs-comment">//全局图像覆盖属性</span></code></pre>
+
+<table>
+<thead>
+<tr>
+<th>图2覆盖图1</th>
+<th>图1覆盖图2</th>
+<th>其他特性</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>source-over</td>
+<td>destination-over</td>
+<td>lighter:重叠处颜色叠加</td>
+</tr>
+<tr>
+<td>source-atop:显示图1以及图2在图1内部的部分</td>
+<td>destination-atop:显示图2以及图1在图2内部的部分</td>
+<td>copy:只绘制图2</td>
+</tr>
+<tr>
+<td>source-in:显示图2在图1内部的部分</td>
+<td>destination-in:显示图1在图2内部的部分</td>
+<td>xor:重叠处图像挖空</td>
+</tr>
+<tr>
+<td>source-out:显示图2在图1外部的部分</td>
+<td>destination-out:显示图1在图2内部的部分</td>
+<td></td>
+</tr>
+</tbody></table>
+<h4 id="剪辑区域"><a href="#剪辑区域" class="headerlink" title="剪辑区域"></a>剪辑区域</h4><pre><code class="hljs javascript">context.clip()  <span class="hljs-comment">//将之前绘制的封闭图形作为新的画布环境</span></code></pre>
+
+<p><strong>实例</strong></p>
+<p>实现一个探照灯效果</p>
+<pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">light</span>(<span class="hljs-params"></span>)</span>&#123;
+    setInterval( <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123; draw(context);
+            update(canvas.width,canvas.height); &#125;, <span class="hljs-number">40</span>); &#125;
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">draw</span>(<span class="hljs-params">cxt</span>)</span>
+<span class="hljs-function"></span>&#123;
+    <span class="hljs-keyword">var</span> canvas = cxt.canvas;
+    cxt.clearRect(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,canvas.width,canvas.height);
+    
+    cxt.save();
+
+    cxt.beginPath();
+    cxt.fillStyle=<span class="hljs-string">"black"</span>;
+    cxt.fillRect(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,canvas.width,canvas.height);
+
+    cxt.beginPath();
+    cxt.arc(cycle.x,cycle.y,cycle.radius,<span class="hljs-number">0</span>,<span class="hljs-built_in">Math</span>.PI*<span class="hljs-number">2</span>);
+    cxt.fillStyle=<span class="hljs-string">"white"</span>;
+    cxt.fill();
+    cxt.clip();  <span class="hljs-comment">//只会显示出圆形内部的内容</span>
+
+    cxt.font = <span class="hljs-string">"bold 150px Arial"</span>;
+    cxt.textAlign = <span class="hljs-string">"center"</span>;
+    cxt.textBaseline = <span class="hljs-string">"middle"</span>;
+    cxt.fillStyle = <span class="hljs-string">"#058"</span>;
+    cxt.fillText(<span class="hljs-string">"CANVAS"</span>,canvas.width/<span class="hljs-number">2</span>,canvas.height/<span class="hljs-number">4</span>);  <span class="hljs-comment">//文字是画在原来的方形画布上的</span>
+    cxt.fillText(<span class="hljs-string">"CANVAS"</span>,canvas.width/<span class="hljs-number">2</span>,canvas.height/<span class="hljs-number">2</span>);
+    cxt.fillText(<span class="hljs-string">"CANVAS"</span>,canvas.width/<span class="hljs-number">2</span>,canvas.height/<span class="hljs-number">4</span>*<span class="hljs-number">3</span>);
+
+    cxt.restore();
+&#125;
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">update</span>(<span class="hljs-params">width,height</span>)</span>&#123;
+    cycle.x += cycle.vx;
+    cycle.y += cycle.vy;
+
+    <span class="hljs-keyword">if</span>(cycle.x-cycle.radius&lt;=<span class="hljs-number">0</span>)
+    &#123;
+        cycle.vx = -cycle.vx;
+        cycle.x =cycle.radius;
+    &#125;
+    <span class="hljs-keyword">if</span>(cycle.x+cycle.radius&gt;=width)
+    &#123;
+        cycle.vx = -cycle.vx;
+        cycle.x = width - cycle.radius;
+    &#125;
+    <span class="hljs-keyword">if</span>(cycle.y-cycle.radius&lt;=<span class="hljs-number">0</span>)
+    &#123;
+        cycle.vy = -cycle.vy;
+        cycle.y = cycle.radius;
+    &#125;
+    <span class="hljs-keyword">if</span>(cycle.y+cycle.radius&gt;=height)
+    &#123;
+        cycle.vy = -cycle.vy;
+        cycle.y = height - cycle.radius;
+    &#125;
+&#125;</code></pre>
+
+
+
+<h4 id="路径方向和剪纸效果"><a href="#路径方向和剪纸效果" class="headerlink" title="路径方向和剪纸效果"></a>路径方向和剪纸效果</h4><p><span style = "color:red">使用fill()的这个特性实现剪纸效果</span></p>
+<pre><code class="hljs javascript">context.fill();  <span class="hljs-comment">//遵循非零环绕原则,绘图与路径方向有关</span></code></pre>
+
+<p><strong>例子</strong>:</p>
+<pre><code class="hljs javascript">context.beginPath();
+context.arc(<span class="hljs-number">400</span>,<span class="hljs-number">400</span>,<span class="hljs-number">300</span>,<span class="hljs-number">0</span>,<span class="hljs-number">2</span>*<span class="hljs-built_in">Math</span>.PI,<span class="hljs-literal">false</span>); 
+context.arc(<span class="hljs-number">400</span>,<span class="hljs-number">400</span>,<span class="hljs-number">150</span>,<span class="hljs-number">0</span>,<span class="hljs-number">2</span>*<span class="hljs-built_in">Math</span>.PI,<span class="hljs-literal">true</span>);  <span class="hljs-comment">//context.arc(400,400,150,0,2*Math.PI,false); </span>
+context.closePath();
+context.fillStyle=<span class="hljs-string">"blue"</span>;
+context.shadowColor= <span class="hljs-string">"gray"</span>;
+context.shadowOffsetX = <span class="hljs-number">10</span>;
+context.shadowOffsetY = <span class="hljs-number">10</span>;
+context.shadowBlur = <span class="hljs-number">10</span>;
+
+context.fill();</code></pre>
+
+<h4 id="Canvas交互实例"><a href="#Canvas交互实例" class="headerlink" title="Canvas交互实例"></a>Canvas交互实例</h4><p>点击改变小球的颜色</p>
+<pre><code class="hljs javascript"> <span class="hljs-keyword">var</span> canvas = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"cv"</span>);
+ <span class="hljs-keyword">var</span> context = canvas.getContext(<span class="hljs-string">"2d"</span>);
+ balls  = [];
+
+<span class="hljs-built_in">window</span>.onload=<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)</span>&#123;
+    canvas.width = <span class="hljs-number">800</span>;
+    canvas.height = <span class="hljs-number">800</span>; 
+
+    CreateBalls();
+    drawBall();
+    canvas.addEventListener(<span class="hljs-string">"mouseup"</span>,detect);   <span class="hljs-comment">//部署鼠标事件mousemove,mousedown</span>
+&#125;
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">CreateBalls</span>(<span class="hljs-params"></span>)</span>&#123;
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i =<span class="hljs-number">0</span>;i&lt;<span class="hljs-number">20</span>;i++)
+    &#123;
+        <span class="hljs-keyword">var</span> ABall = &#123;
+        x:<span class="hljs-built_in">Math</span>.random()*canvas.width,
+        y:<span class="hljs-built_in">Math</span>.random()*canvas.height,
+        radius:<span class="hljs-built_in">Math</span>.random()*<span class="hljs-number">20</span>+<span class="hljs-number">20</span>,
+        &#125;
+        balls[i] = ABall;
+    &#125;
+&#125;
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">drawBall</span>(<span class="hljs-params"></span>)</span>&#123;
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i =<span class="hljs-number">0</span>;i &lt;balls.length;i++)
+    &#123;
+        context.beginPath();
+        context.fillStyle = <span class="hljs-string">"#058"</span>;
+        context.arc(balls[i].x,balls[i].y,balls[i].radius,<span class="hljs-number">0</span>,<span class="hljs-number">2</span>*<span class="hljs-built_in">Math</span>.PI);
+        context.fill();
+    &#125;
+&#125;
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">detect</span>(<span class="hljs-params">event</span>)</span>&#123;
+    <span class="hljs-keyword">var</span> x = event.clientX - canvas.getBoundingClientRect().left;  <span class="hljs-comment">//获取鼠标点击在画布上的位置</span>
+    <span class="hljs-keyword">var</span> y = event.clientY - canvas.getBoundingClientRect().top;
+    
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>;i&lt;balls.length;i++)
+    &#123;
+        context.beginPath();
+        context.arc(balls[i].x,balls[i].y,balls[i].radius,<span class="hljs-number">0</span>,<span class="hljs-number">2</span>*<span class="hljs-built_in">Math</span>.PI);
+
+        <span class="hljs-keyword">if</span>(context.isPointInPath(x,y))  <span class="hljs-comment">//判断(x,y)是否在所绘制的图形内部</span>
+        &#123;
+            context.fillStyle = <span class="hljs-string">"red"</span>;
+            context.fill();
+        &#125;
+    &#125;
+&#125;</code></pre>
+
+<h4 id="在Canvas上使用HTML其他元素"><a href="#在Canvas上使用HTML其他元素" class="headerlink" title="在Canvas上使用HTML其他元素"></a>在Canvas上使用HTML其他元素</h4><p>1、Canvas标签内部的内容只有在Canvas无效时才能看见</p>
+<p>2、使用绝对定位将一个新的div至于Canvas之上，在新的div中布置HTML元素</p>
+<h4 id="扩充Canvas函数方法"><a href="#扩充Canvas函数方法" class="headerlink" title="扩充Canvas函数方法"></a>扩充Canvas函数方法</h4><p>增加一个方法</p>
+<pre><code class="hljs javascript">CanvasRenderingContext2D.prototype.fillStar = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">r,R,x,y,rot</span>)</span>
+<span class="hljs-function"></span>&#123;
+    <span class="hljs-keyword">this</span>.beginPath();
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i =<span class="hljs-number">0</span>;i&lt;<span class="hljs-number">5</span>;i++)
+    &#123;
+        <span class="hljs-keyword">this</span>.lineTo(<span class="hljs-built_in">Math</span>.cos((<span class="hljs-number">18</span>+i*<span class="hljs-number">72</span>-rot)/<span class="hljs-number">180</span>*<span class="hljs-built_in">Math</span>.PI)*R+x,
+                    -<span class="hljs-built_in">Math</span>.sin((<span class="hljs-number">18</span>+i*<span class="hljs-number">72</span>-rot)/<span class="hljs-number">180</span>*<span class="hljs-built_in">Math</span>.PI)*R+y);
+        <span class="hljs-keyword">this</span>.lineTo(<span class="hljs-built_in">Math</span>.cos((<span class="hljs-number">54</span>+i*<span class="hljs-number">72</span>-rot)/<span class="hljs-number">180</span>*<span class="hljs-built_in">Math</span>.PI)*r+x,
+                    -<span class="hljs-built_in">Math</span>.sin((<span class="hljs-number">54</span>+i*<span class="hljs-number">72</span>-rot)/<span class="hljs-number">180</span>*<span class="hljs-built_in">Math</span>.PI)*r+y);
+    &#125;
+    <span class="hljs-keyword">this</span>.closePath();
+    <span class="hljs-keyword">this</span>.fill();
+&#125;</code></pre>
+
+<p>复写一个方法（不推荐），增加一个属性</p>
+<pre><code class="hljs javascript"><span class="hljs-keyword">var</span> canvas = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"canvas"</span>);
+<span class="hljs-keyword">var</span> context = canvas.getContext(<span class="hljs-string">'2d'</span>);
+<span class="hljs-keyword">var</span> originalMoveTo = CanvasRenderingContext2D.prototype.moveTo;
+CanvasRenderingContext2D.prototype.lastMoveToLoc = &#123;&#125;;  <span class="hljs-comment">//增加的新属性</span>
+CanvasRenderingContext2D.prototype.moveTo = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">x,y</span>)</span>&#123;
+    originalMoveTo.apply(context,[x,y]);
+    <span class="hljs-keyword">this</span>.lastMoveToLoc.x = x;
+    <span class="hljs-keyword">this</span>.lastMoveToLoc.y = y;
+&#125;</code></pre>
+
+<h4 id="Canvas兼容"><a href="#Canvas兼容" class="headerlink" title="Canvas兼容"></a>Canvas兼容</h4><p>1、IE6,7,8可以添加explorecanvas库来兼容。</p>
+<h4 id="Canvas图形库"><a href="#Canvas图形库" class="headerlink" title="Canvas图形库"></a>Canvas图形库</h4><p>1、<a href="https://code.google.com/archive/p/canvasplus" target="_blank" rel="noopener">canvasplus</a></p>
+<p>2、<a href="https://northwardcompass.com/artisanjs-a-generative-art-and-canvas-extension/" target="_blank" rel="noopener">Artisan JS</a></p>
+<p>3、<a href="https://www.rgraph.net/" target="_blank" rel="noopener">Rgraph:图表图形库</a></p>
+<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><pre><code class="hljs javascript"><span class="hljs-comment">//canvas是基于状态来绘制的，只使用最后一次赋值的属性</span>
+<span class="hljs-built_in">window</span>.onload=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;
+    <span class="hljs-keyword">var</span> canvas=<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"canvas"</span>);
+    <span class="hljs-comment">//使用Context绘制</span>
+    <span class="hljs-keyword">var</span> context=canvas.getContext(<span class="hljs-string">'2d'</span>);
+    
+    context.moveTo(<span class="hljs-number">100</span>,<span class="hljs-number">100</span>);
+    context.lineTo(<span class="hljs-number">700</span>,<span class="hljs-number">700</span>);
+    context.lineTo(<span class="hljs-number">100</span>,<span class="hljs-number">700</span>);
+    context.lineTo(<span class="hljs-number">100</span>,<span class="hljs-number">100</span>);
+    <span class="hljs-comment">//设置画笔的属性</span>
+    context.fillStyle= <span class="hljs-string">"rgb(2,100,222)"</span>;
+    context.fill();
+
+    <span class="hljs-comment">//设置画笔的属性</span>
+    context.lineWidth = <span class="hljs-number">5</span>;
+    context.strokeStyle = <span class="hljs-string">"#ff0000"</span>;
+    context.stroke();  
+    context.moveTo(<span class="hljs-number">200</span>,<span class="hljs-number">100</span>);
+    context.lineTo(<span class="hljs-number">800</span>,<span class="hljs-number">700</span>);
+    context.strokeStyle = <span class="hljs-string">"black"</span>;  <span class="hljs-comment">//black会覆盖上面的 "#ff0000"，所以最后都是黑色线条</span>
+    context.stroke();  
+    
+    <span class="hljs-comment">//绘制圆弧</span>
+    context.lineWidth = <span class="hljs-number">5</span>;
+    context.strokeStyle  =<span class="hljs-string">"#005588"</span>;
+    context.arc(<span class="hljs-number">300</span>,<span class="hljs-number">300</span>,<span class="hljs-number">200</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0.5</span>*<span class="hljs-built_in">Math</span>.PI,<span class="hljs-literal">true</span>);
+    context.stroke();
+&#125;</code></pre>
+
+
+
+<h4 id="如何绘制两个不同的线条"><a href="#如何绘制两个不同的线条" class="headerlink" title="如何绘制两个不同的线条"></a>如何绘制两个不同的线条</h4><pre><code class="hljs javascript"><span class="hljs-comment">//绘制第一个图形</span>
+context.beginPath();
+context.moveTo(<span class="hljs-number">100</span>,<span class="hljs-number">100</span>);
+context.lineTo(<span class="hljs-number">700</span>,<span class="hljs-number">700</span>);
+context.lineTo(<span class="hljs-number">100</span>,<span class="hljs-number">700</span>);
+context.lineTo(<span class="hljs-number">100</span>,<span class="hljs-number">100</span>);
+context.closePath();
+context.lineWidth = <span class="hljs-number">5</span>;
+context.strokeStyle = <span class="hljs-string">"#ff0000"</span>;
+context.stroke();  
+
+<span class="hljs-comment">//绘制第二个图形</span>
+context.beginPath();
+context.moveTo(<span class="hljs-number">200</span>,<span class="hljs-number">100</span>);
+context.lineTo(<span class="hljs-number">800</span>,<span class="hljs-number">700</span>);
+context.closePath();
+context.strokeStyle = <span class="hljs-string">"black"</span>;
+context.stroke();</code></pre>
+
+
+
+<h4 id="绘制七巧板"><a href="#绘制七巧板" class="headerlink" title="绘制七巧板"></a>绘制七巧板</h4><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">head</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"zh-CN"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Canvas Demo<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">canvas</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"canvas"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"800"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"800"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"border:1px solid gray;margin:50px auto;display:block"</span>&gt;</span>
+            当前浏览器不支持canvas.../或者在js中判断canvas.getContext('2d')是否为空。
+        <span class="hljs-tag">&lt;/<span class="hljs-name">canvas</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span>
+<span class="actionscript">            <span class="hljs-comment">//定义七巧板</span></span>
+<span class="javascript">            <span class="hljs-keyword">let</span> tangram = [</span>
+<span class="actionscript">                &#123;p:[&#123;x:<span class="hljs-number">0</span>,y:<span class="hljs-number">0</span>&#125;,&#123;x:<span class="hljs-number">800</span>,y:<span class="hljs-number">0</span>&#125;,&#123;x:<span class="hljs-number">400</span>,y:<span class="hljs-number">400</span>&#125;],color:<span class="hljs-string">"#caff67"</span>&#125;,</span>
+<span class="actionscript">                &#123;p:[&#123;x:<span class="hljs-number">0</span>,y:<span class="hljs-number">0</span>&#125;,&#123;x:<span class="hljs-number">400</span>,y:<span class="hljs-number">400</span>&#125;,&#123;x:<span class="hljs-number">0</span>,y:<span class="hljs-number">800</span>&#125;],color:<span class="hljs-string">"#67becf"</span>&#125;,</span>
+<span class="actionscript">                &#123;p:[&#123;x:<span class="hljs-number">800</span>,y:<span class="hljs-number">0</span>&#125;,&#123;x:<span class="hljs-number">800</span>,y:<span class="hljs-number">400</span>&#125;,&#123;x:<span class="hljs-number">600</span>,y:<span class="hljs-number">600</span>&#125;,&#123;x:<span class="hljs-number">600</span>,y:<span class="hljs-number">200</span>&#125;],color:<span class="hljs-string">"#ef2d61"</span>&#125;,</span>
+<span class="actionscript">                &#123;p:[&#123;x:<span class="hljs-number">600</span>,y:<span class="hljs-number">200</span>&#125;,&#123;x:<span class="hljs-number">600</span>,y:<span class="hljs-number">600</span>&#125;,&#123;x:<span class="hljs-number">400</span>,y:<span class="hljs-number">400</span>&#125;],color:<span class="hljs-string">"#f9f51a"</span>&#125;,</span>
+<span class="actionscript">                &#123;p:[&#123;x:<span class="hljs-number">400</span>,y:<span class="hljs-number">400</span>&#125;,&#123;x:<span class="hljs-number">600</span>,y:<span class="hljs-number">600</span>&#125;,&#123;x:<span class="hljs-number">400</span>,y:<span class="hljs-number">800</span>&#125;,&#123;x:<span class="hljs-number">200</span>,y:<span class="hljs-number">600</span>&#125;],color:<span class="hljs-string">"#a594c0"</span>&#125;,</span>
+<span class="actionscript">                &#123;p:[&#123;x:<span class="hljs-number">200</span>,y:<span class="hljs-number">600</span>&#125;,&#123;x:<span class="hljs-number">400</span>,y:<span class="hljs-number">800</span>&#125;,&#123;x:<span class="hljs-number">0</span>,y:<span class="hljs-number">800</span>&#125;],color:<span class="hljs-string">"#fa8ecc"</span>&#125;,</span>
+<span class="actionscript">                &#123;p:[&#123;x:<span class="hljs-number">800</span>,y:<span class="hljs-number">400</span>&#125;,&#123;x:<span class="hljs-number">800</span>,y:<span class="hljs-number">800</span>&#125;,&#123;x:<span class="hljs-number">400</span>,y:<span class="hljs-number">800</span>&#125;],color:<span class="hljs-string">"#f6ca29"</span>&#125;,</span>
+            ]
+
+<span class="javascript">            <span class="hljs-built_in">window</span>.onload=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;</span>
+<span class="javascript">                <span class="hljs-keyword">var</span> canvas=<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"canvas"</span>);</span>
+<span class="actionscript">                <span class="hljs-keyword">var</span> context=canvas.getContext(<span class="hljs-string">'2d'</span>);    <span class="hljs-comment">//使用Context绘制</span></span>
+<span class="actionscript">                tangram.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(item)</span></span>&#123;</span>
+                    draw(item,context);
+                &#125;)
+            &#125;
+
+<span class="actionscript">            <span class="hljs-comment">//画图方法</span></span>
+<span class="actionscript">            <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">draw</span><span class="hljs-params">(piece,cxt)</span></span></span>
+            &#123;
+                cxt.beginPath();
+                cxt.moveTo(piece.p[0].x,piece.p[0].y);
+<span class="actionscript">                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">1</span>; i &lt; piece.p.length; i++)</span>
+                &#123;
+                    cxt.lineTo(piece.p[i].x,piece.p[i].y);
+                &#125;
+                cxt.closePath();
+<span class="actionscript">                <span class="hljs-comment">//设置画笔的属性</span></span>
+                cxt.fillStyle= piece.color;
+                cxt.fill();
+<span class="actionscript">                cxt.strokeStyle=<span class="hljs-string">"black"</span>;</span>
+                cxt.lineWidth=2;
+                cxt.stroke();
+            &#125;
+        <span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
+
+
+
+<h4 id="简单的球体掉落"><a href="#简单的球体掉落" class="headerlink" title="简单的球体掉落"></a>简单的球体掉落</h4><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> ball = &#123;<span class="hljs-attr">x</span>:<span class="hljs-number">512</span>,<span class="hljs-attr">y</span>:<span class="hljs-number">100</span>,<span class="hljs-attr">r</span>:<span class="hljs-number">20</span>,<span class="hljs-attr">g</span>:<span class="hljs-number">2</span>,<span class="hljs-attr">vx</span>:<span class="hljs-number">-4</span>,<span class="hljs-attr">vy</span>:<span class="hljs-number">-10</span>,<span class="hljs-attr">color</span>:<span class="hljs-string">"#005588"</span>&#125;;
+<span class="hljs-built_in">window</span>.onload=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;
+    <span class="hljs-keyword">var</span> canvas = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"cv"</span>);
+    canvas.width = <span class="hljs-number">1024</span>;
+    canvas.height = <span class="hljs-number">768</span>;
+    <span class="hljs-keyword">var</span> context = canvas.getContext(<span class="hljs-string">"2d"</span>);
+    setInterval(
+        <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;
+            render(context);
+            update();
+        &#125;,<span class="hljs-number">20</span> <span class="hljs-comment">//50ms执行一次，所以帧率是20</span>
+    );
+&#125;;
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">update</span> (<span class="hljs-params"></span>)</span>&#123;
+    ball.x+=ball.vx;
+    ball.y+=ball.vy;
+    ball.vy+=ball.g;
+    <span class="hljs-keyword">if</span>(ball.y&gt;=<span class="hljs-number">768</span>-ball.r)
+    &#123;
+        ball.y = <span class="hljs-number">768</span>-ball.r;
+        ball.vy = -ball.vy*<span class="hljs-number">0.5</span>;  <span class="hljs-comment">//0.5的摩擦系数</span>
+    &#125;
+&#125;
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">render</span>(<span class="hljs-params">cxt</span>)</span>&#123;
+    cxt.clearRect(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,cxt.canvas.width,cxt.canvas.height);
+    cxt.fillStyle = ball.color;
+    cxt.beginPath();
+    cxt.arc(ball.x,ball.y,ball.r,<span class="hljs-number">0</span>,<span class="hljs-number">2</span>*<span class="hljs-built_in">Math</span>.PI);
+    cxt.fill();
+&#125;</code></pre>
+
+<h4 id="五角星"><a href="#五角星" class="headerlink" title="五角星"></a>五角星</h4><pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">drawStar</span>(<span class="hljs-params">cxt,x,y,R,rot</span>)</span>
+<span class="hljs-function"></span>&#123;
+    cxt.save();
+
+    cxt.translate(x,y);
+    cxt.rotate(rot/<span class="hljs-number">180</span>*<span class="hljs-built_in">Math</span>.PI);
+    cxt.scale(R,R);
+    starPath(cxt);
+
+    cxt.fillStyle = <span class="hljs-string">"#fb3"</span>;
+    <span class="hljs-comment">//cxt.strokeStyle = "#fd5";</span>
+    <span class="hljs-comment">//cxt.lineWidth = 3;  // scale()方法会影响该属性</span>
+    cxt.lineJoin = <span class="hljs-string">"round"</span>;
+    cxt.fill();
+    <span class="hljs-comment">//cxt.stroke();</span>
+
+    cxt.restore();
+&#125;
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">starPath</span>(<span class="hljs-params">cxt</span>)  //标准五角星</span>
+<span class="hljs-function"></span>&#123;
+    cxt.beginPath();
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i =<span class="hljs-number">0</span>;i&lt;<span class="hljs-number">5</span>;i++)
+    &#123;
+        cxt.lineTo(<span class="hljs-built_in">Math</span>.cos((<span class="hljs-number">18</span>+i*<span class="hljs-number">72</span>)/<span class="hljs-number">180</span>*<span class="hljs-built_in">Math</span>.PI),
+                   -<span class="hljs-built_in">Math</span>.sin((<span class="hljs-number">18</span>+i*<span class="hljs-number">72</span>)/<span class="hljs-number">180</span>*<span class="hljs-built_in">Math</span>.PI));
+        cxt.lineTo(<span class="hljs-built_in">Math</span>.cos((<span class="hljs-number">54</span>+i*<span class="hljs-number">72</span>)/<span class="hljs-number">180</span>*<span class="hljs-built_in">Math</span>.PI)*<span class="hljs-number">0.5</span>,
+                   -<span class="hljs-built_in">Math</span>.sin((<span class="hljs-number">54</span>+i*<span class="hljs-number">72</span>)/<span class="hljs-number">180</span>*<span class="hljs-built_in">Math</span>.PI)*<span class="hljs-number">0.5</span>);
+    &#125;
+    cxt.closePath();
+&#125;</code></pre>
+
+<p><strong>渐变色</strong></p>
+<pre><code class="hljs javascript"><span class="hljs-keyword">var</span> grd = context.createLinearGradient(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">800</span>,<span class="hljs-number">800</span>);
+grd.addColorStop(<span class="hljs-number">0.0</span>,<span class="hljs-string">"#f00"</span>);
+grd.addColorStop(<span class="hljs-number">0.5</span>,<span class="hljs-string">"#0f0"</span>);
+grd.addColorStop(<span class="hljs-number">1.0</span>,<span class="hljs-string">"#00f"</span>);
+context.fillStyle = grd;
+context.fillRect(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">800</span>,<span class="hljs-number">600</span>);</code></pre>
+
+<h4 id="图片填充"><a href="#图片填充" class="headerlink" title="图片填充"></a>图片填充</h4><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> backgroundImage = <span class="hljs-keyword">new</span> Image;
+backgroundImage.src = <span class="hljs-string">""</span> ;
+backgroundImage.onload=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;
+	<span class="hljs-keyword">var</span> pattern = context.createPattern(backgroundImage,<span class="hljs-string">"no-repeat"</span>); 
+    context.fillStyle = pattern;
+    context.fillRect(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,widht,height);
+&#125;</code></pre>
+
+<h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><p>1、<a href="https://www.w3.org/TR/2dcontext/" target="_blank" rel="noopener">Canvas,W3C标准</a></p>
+<p>2、<a href="https://html.spec.whatwg.org/" target="_blank" rel="noopener">WHATWG标准</a></p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%AD%A6%E6%97%A0%E6%AD%A2%E5%A2%83/">学无止境</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/08/11/mysql/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">mysql Learning</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2020/07/29/novel1/">
+                        <span class="hidden-mobile">树</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+    <!-- APlayer 音乐播放器 -->
+    <div id="aplayer"></div>
+    <script defer src="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.js" ></script>
+<link  rel="stylesheet" href="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.css" />
+<script type="text/javascript">
+  var oldLoadAp = window.onload;
+  window.onload = function () {
+    oldLoadAp && oldLoadAp();
+
+    new APlayer({
+      container: document.getElementById('aplayer'),
+      fixed: true,
+      autoplay: 'false' === 'true',
+      loop: 'all',
+      order: 'random',
+      theme: '#998796',
+      preload: 'none',
+      audio: [{"name":"おどるポンポコリン","artist":"大原樱子","url":"/music/樱桃小丸子/おどるポンポコリン.mp3","cover":"/music/樱桃小丸子/timg.jpg"},{"name":"Puff the magic dragon","artist":"Paul，Mary Peter ","url":"/music/Puff the Magic Dragon/Puff the Magic Dragon.mp3","cover":"/music/Puff the Magic Dragon/Folder.jpg"}]
+    });
+  }
+</script>
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Canvas Learning&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+      icon: "❡"
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+  
+  
+    <script>
+      !function (e, t, a) {
+        function r() {
+          for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[e].y--, s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x + "px;top:" + s[e].y + "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e].scale + ") rotate(45deg);background:" + s[e].color + ";z-index:99999");
+          requestAnimationFrame(r)
+        }
+
+        function n() {
+          var t = "function" == typeof e.onclick && e.onclick;
+          e.onclick = function (e) {
+            t && t(), o(e)
+          }
+        }
+
+        function o(e) {
+          var a = t.createElement("div");
+          a.className = "heart", s.push({
+            el: a,
+            x: e.clientX - 5,
+            y: e.clientY - 5,
+            scale: 1,
+            alpha: 1,
+            color: c()
+          }), t.body.appendChild(a)
+        }
+
+        function i(e) {
+          var a = t.createElement("style");
+          a.type = "text/css";
+          try {
+            a.appendChild(t.createTextNode(e))
+          } catch (t) {
+            a.styleSheet.cssText = e
+          }
+          t.getElementsByTagName("head")[0].appendChild(a)
+        }
+
+        function c() {
+          return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+        }
+
+        var s = [];
+        e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {
+          setTimeout(e, 1e3 / 60)
+        }, i(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), n(), r()
+      }(window, document);
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
