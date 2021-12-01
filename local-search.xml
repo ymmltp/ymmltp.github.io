@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>MarkdownLearn</title>
+    <link href="/2021/12/01/MarkdownLearn/"/>
+    <url>/2021/12/01/MarkdownLearn/</url>
+    
+    <content type="html"><![CDATA[<h2 id="Markdown语法"><a href="#Markdown语法" class="headerlink" title="Markdown语法"></a>Markdown语法</h2><p>1.<a href="https://www.runoob.com/markdown/md-advance.html" target="_blank" rel="noopener">菜鸟教程-Markdown教程</a></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>学无止尽</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>2022杂记</title>
     <link href="/2021/12/01/2022/"/>
     <url>/2021/12/01/2022/</url>
@@ -24,10 +43,10 @@
   
   <entry>
     <title>Database</title>
-    <link href="/2021/12/01/Database/"/>
-    <url>/2021/12/01/Database/</url>
+    <link href="/2021/12/01/DatabaseLearn/"/>
+    <url>/2021/12/01/DatabaseLearn/</url>
     
-    <content type="html"><![CDATA[]]></content>
+    <content type="html"><![CDATA[<h2 id="关系操作和关系数据语言-SQL"><a href="#关系操作和关系数据语言-SQL" class="headerlink" title="关系操作和关系数据语言 SQL"></a>关系操作和关系数据语言 SQL</h2><p>关系是<br>$$ 域D_1,D_2,D_3… $$<br>笛卡尔积的子集</p><p>1.SQL 是集：数据定义(DDL)，数据查询，数据控制(DCL)，数据操纵(DML) 于一体的结构化查询语言<br>2.基本的关系操作包括：增删改查，(查询包括：交并差除，连接，投影，选择，笛卡尔积)</p><blockquote><p>选择，投影，并，差，笛卡尔积，是五种基本操作</p></blockquote><p>3.关系操作的对象和结果都是集合<br>4.关系模式: R(U,D,DOM,F)<br>5.关系的完整性包括：实体完整性，参照完整性和用户定义完整性</p>]]></content>
     
     
     
