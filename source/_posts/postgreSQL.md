@@ -25,4 +25,4 @@ tags: 学无止境
 4、安装 Npgsql: Npgsql.EntityFrameworkCore.PostgreSQL
 5、Npgsql.EntityFrameworkCore.PostgreSQL.Design
 6、cmd->cd 进入工程文件.csproj所在的文件夹 -> 
-dotnet ef dbcontext scaffold "Host=cnwuxm1medb01;Database=FOF;Username=FOFUser;Password=Jabil123" Npgsql.EntityFrameworkCore.PostgreSQL -o Models
+dotnet ef dbcontext scaffold "Host=cnwuxm1medb01;Database=FOF;Username=FOFUser;Password=Jabil123" Npgsql.EntityFrameworkCore.PostgreSQL -o Model
