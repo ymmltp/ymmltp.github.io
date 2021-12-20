@@ -27,7 +27,6 @@ $.ajax({
     contentType: 'json',      //发送的文件类型 (default: 'application/x-www-form-urlencoded; charset=UTF-8')
     processData:true         //通过contentType的属性将data中的内容转义成string(default:true) If you want to send a DOMDocument, or other non-processed data, set this option to false.
     data:{},                  //传递的参数
-
     dataType:'json',          //服务器返回的文件类型（"xml","json"返回的数据不是json格式或者{}/null都会报错,"text","script"）
     converters:"* text",      //修改返回参数的类型 (default: {"* text": window.String, "text html": true, "text json": jQuery.parseJSON, "text xml": jQuery.parseXML})
     dataFilter:Function( String data, String type ){
@@ -116,6 +115,8 @@ function selectImage(file) {
     }
 }
 ```
+
+
 
 ## 参考资料
 1、[ajax库](https://api.jquery.com/category/ajax/)

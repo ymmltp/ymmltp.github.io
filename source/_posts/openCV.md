@@ -1,6 +1,8 @@
 # OpenCV
 
-参考文件：https://docs.opencv.org/4.5.2/d5/d10/tutorial_js_root.html
+[参考文件](https://docs.opencv.org/4.5.2/d5/d10/tutorial_js_root.html)
+
+[各版本.js文件下载地址](https://docs.opencv.org/_VERSION_/opencv.js)
 
 ### 1、常用方法：
 

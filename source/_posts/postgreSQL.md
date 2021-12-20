@@ -26,3 +26,8 @@ tags: 学无止境
 5、Npgsql.EntityFrameworkCore.PostgreSQL.Design
 6、cmd->cd 进入工程文件.csproj所在的文件夹 -> 
 dotnet ef dbcontext scaffold "Host=cnwuxm1medb01;Database=FOF;Username=FOFUser;Password=Jabil123" Npgsql.EntityFrameworkCore.PostgreSQL -o Model
+
+- Use dotnet build to see the errors
+    >程序编译出错了，要保证程序能够正常运行的基础上，更新数据库cs文件
+- Use the Force flag to overwrite these files
+    >dotnet ef dbcontext scaffold "Host=cnwuxm1medb01;Database=FOF;Username=FOFUser;Password=Jabil123" Npgsql.EntityFrameworkCore.PostgreSQL -o Model -f
