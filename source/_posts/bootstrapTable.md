@@ -9,7 +9,7 @@ tags: 学无止境
 <table id="table"> </table> 
 ```
 ```javascript
-$('#table').bootstrapTable({
+$('#table').bootstrapTable('destroy').bootstrapTable({
     columns: [{
         field: 'id',
         title: 'ID'
@@ -64,8 +64,18 @@ $('#table').bootstrapTable({
 //初始化主表格
 $('#table').bootstrapTable('destroy').bootstrapTable({
     url: 'Ashx/Select.ashx?type=equipmentHistory', //请求后台的URL（*）
-    method: 'get',                      //请求方式（*）
+    method/type: 'get',                      //请求方式（*）
     cache: false,                       //清除缓存
+    queryParams: {                      //参数
+        Department: $("#department-select").val(),
+        Project: $("#project-select").val(),
+        Line: $("#line-select").val(),
+        Station: $("#station-select").val(),
+    },
+    ajaxOptions: {                      //传参ajax设置
+        traditional: true,              //允许传递数组类型的参数
+    },
+    dataType: 'json',
     search: true,                       //开启搜索框
     visibleSearch: true,
     showSearchButton: true,
@@ -115,10 +125,26 @@ $('#table').bootstrapTable('destroy').bootstrapTable({
     }, {
         field: 'name',
         title: 'Name',
-        visible: false, //改行不可见，但是
+        align: 'center',    //文字水平居中
+        valign: 'middle',   //文字垂直居中
+        visible: false,     //该列不可见
     }, {
         field: 'root',
         title: 'Root'
+    }，{
+        field: 'option',
+        title: 'Option',
+        align: 'center',
+        valign: 'middle',
+        formatter: function (value, row, index) {    //自定义该列的样式
+                return ['<button type="button" class="btn bad text-light" id="start">Start</button>';           
+        },
+        events: {                                    //自定义功能
+            "click #delete": function (e, value, row, index) {
+                
+                })
+            }
+        }
     }],
      //注册加载子表的事件。注意下这里的三个参数！需要设置detailView:true
      onExpandRow: function (index, row, $detail) {
