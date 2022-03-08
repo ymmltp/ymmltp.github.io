@@ -17,7 +17,7 @@
   <meta name="description" content="半吊子">
   <meta name="author" content="今年依旧12岁">
   <meta name="keywords" content="">
-  <title>mysql Learning - World is what you see</title>
+  <title>SQL Learning - World is what you see</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -163,7 +163,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      281 字
+      304 字
     </span>
   
 
@@ -213,30 +213,30 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2021年8月3日 上午
+                  本文最后更新于：2022年2月21日 下午
                 
               </p>
             
             <article class="markdown-body">
-              <h2 id="Mysql基础用法"><a href="#Mysql基础用法" class="headerlink" title="Mysql基础用法"></a>Mysql基础用法</h2><h3 id="1-增、删、改、查"><a href="#1-增、删、改、查" class="headerlink" title="1.增、删、改、查"></a>1.增、删、改、查</h3><h4 id="查询–Select"><a href="#查询–Select" class="headerlink" title="查询–Select"></a>查询–Select</h4><pre><code class="hljs mysql">Select * from [Table]                       &#x2F;&#x2F;查询整个表
+              <h2 id="Mysql"><a href="#Mysql" class="headerlink" title="Mysql"></a>Mysql</h2><h3 id="一、基础用法"><a href="#一、基础用法" class="headerlink" title="一、基础用法"></a>一、基础用法</h3><h4 id="1-增、删、改、查"><a href="#1-增、删、改、查" class="headerlink" title="1.增、删、改、查"></a>1.增、删、改、查</h4><h5 id="查询–Select"><a href="#查询–Select" class="headerlink" title="查询–Select"></a>查询–Select</h5><pre><code class="hljs mysql">Select * from [Table]                       &#x2F;&#x2F;查询整个表
 select * from [Table] where [Project]&#x3D;&#39;A&#39; and [Equipment Number]&#x3D;&#39;b&#39; and ……   &#x2F;&#x2F;查询Project下内容为A的数据
 select distinct program FROM A            &#x2F;&#x2F;相同的program会被合并
 
 SELECT column_name(s) FROM table_name WHERE column_name BETWEEN value1 AND value2</code></pre>
 
-<h4 id="增加–Insert"><a href="#增加–Insert" class="headerlink" title="增加–Insert"></a>增加–Insert</h4><pre><code class="hljs mysql">Insert into [Table]([表头]，[表头]，[表头]) values(&#39;值&#39;,&#39;值&#39;,&#39;值&#39;)    
+<h5 id="增加–Insert"><a href="#增加–Insert" class="headerlink" title="增加–Insert"></a>增加–Insert</h5><pre><code class="hljs mysql">Insert into [Table]([表头]，[表头]，[表头]) values(&#39;值&#39;,&#39;值&#39;,&#39;值&#39;)，(&#39;值&#39;,&#39;值&#39;,&#39;值&#39;)，(&#39;值&#39;,&#39;值&#39;,&#39;值&#39;)    
 Olecmd.ExecuteNonQuery();&#x2F;&#x2F;写入表</code></pre>
 
-<h4 id="修改–Update"><a href="#修改–Update" class="headerlink" title="修改–Update"></a>修改–Update</h4><pre><code class="hljs mysql">update [Table] set [列]&#x3D;&#39;value&#39; where [Project]&#x3D;&#39;&quot; + comboBox1.Text + &quot;&#39;and [Equipment Name]&#x3D;&#39;&quot; + comboBox2.Text + &quot;&#39;and [Model]&#x3D;&#39;&quot; + comboBox3.Text + &quot;&#39;&quot;</code></pre>
+<h5 id="修改–Update"><a href="#修改–Update" class="headerlink" title="修改–Update"></a>修改–Update</h5><pre><code class="hljs mysql">update [Table] set [列]&#x3D;&#39;value&#39; where [Project]&#x3D;&#39;&quot; + comboBox1.Text + &quot;&#39;and [Equipment Name]&#x3D;&#39;&quot; + comboBox2.Text + &quot;&#39;and [Model]&#x3D;&#39;&quot; + comboBox3.Text + &quot;&#39;&quot;</code></pre>
 
-<h4 id="删除–Delete"><a href="#删除–Delete" class="headerlink" title="删除–Delete"></a>删除–Delete</h4><pre><code class="hljs mysql">delete from [table] where……;
+<h5 id="删除–Delete"><a href="#删除–Delete" class="headerlink" title="删除–Delete"></a>删除–Delete</h5><pre><code class="hljs mysql">delete from [table] where……;
 delete from [table] limit num;  &#x2F;&#x2F;删除固定几行</code></pre>
 
-<h4 id="Replace"><a href="#Replace" class="headerlink" title="Replace"></a>Replace</h4><p>replace可以起到Insert和Update的效果，但是使用需要注意</p>
-<h3 id="2-数据库操作"><a href="#2-数据库操作" class="headerlink" title="2.数据库操作"></a>2.数据库操作</h3><h3 id="3-常见方法"><a href="#3-常见方法" class="headerlink" title="3.常见方法"></a>3.常见方法</h3><pre><code class="hljs mysql">order by
+<h5 id="Replace"><a href="#Replace" class="headerlink" title="Replace"></a>Replace</h5><p>replace可以起到Insert和Update的效果，但是使用需要注意</p>
+<h4 id="2-数据库操作"><a href="#2-数据库操作" class="headerlink" title="2.数据库操作"></a>2.数据库操作</h4><h4 id="3-常见方法"><a href="#3-常见方法" class="headerlink" title="3.常见方法"></a>3.常见方法</h4><pre><code class="hljs mysql">order by
 desc</code></pre>
 
-<h3 id="4-实例"><a href="#4-实例" class="headerlink" title="4.实例"></a>4.实例</h3><h5 id="查询每组数据的前几个"><a href="#查询每组数据的前几个" class="headerlink" title="查询每组数据的前几个"></a>查询每组数据的前几个</h5><p>（例如：每班前三名的同学）</p>
+<h4 id="4-实例"><a href="#4-实例" class="headerlink" title="4.实例"></a>4.实例</h4><h6 id="查询每组数据的前几个"><a href="#查询每组数据的前几个" class="headerlink" title="查询每组数据的前几个"></a>查询每组数据的前几个</h6><p>（例如：每班前三名的同学）</p>
 <p>查询每个人最近20次点检用时：</p>
 <pre><code class="hljs mysql">SELECT c.DRI,c.pmTime,c.Date
 FROM pmhistory c
@@ -245,7 +245,8 @@ ORDER BY c.DRI,c.Date desc</code></pre>
 
 
 
-<h2 id="Mysql进阶"><a href="#Mysql进阶" class="headerlink" title="Mysql进阶"></a>Mysql进阶</h2><h3 id="1-EXPLAIN的使用与分析"><a href="#1-EXPLAIN的使用与分析" class="headerlink" title="1.EXPLAIN的使用与分析"></a>1.EXPLAIN的使用与分析</h3>
+<h3 id="二、Mysql进阶"><a href="#二、Mysql进阶" class="headerlink" title="二、Mysql进阶"></a>二、Mysql进阶</h3><h4 id="1-EXPLAIN的使用与分析"><a href="#1-EXPLAIN的使用与分析" class="headerlink" title="1.EXPLAIN的使用与分析"></a>1.EXPLAIN的使用与分析</h4><hr>
+<h2 id="SQL-Server"><a href="#SQL-Server" class="headerlink" title="SQL Server"></a>SQL Server</h2>
             </article>
             <hr>
             <div>
@@ -467,7 +468,7 @@ ORDER BY c.DRI,c.Date desc</code></pre>
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "mysql Learning&nbsp;",
+        "SQL Learning&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/me.ico">
+  <link rel="icon" type="image/png" href="/img/me.ico">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="半吊子">
+  <meta name="author" content="今年依旧12岁">
+  <meta name="keywords" content="">
+  <title>Graph - World is what you see</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_yg9cfy8wd6.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>今年依旧12岁</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/bg2.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2021-12-20 13:46">
+      2021年12月20日 下午
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      711 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      9
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2021年12月20日 下午
+                
+              </p>
+            
+            <article class="markdown-body">
+              <h2 id="Graph"><a href="#Graph" class="headerlink" title="Graph"></a>Graph</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>至少包含一个点的集合，称为图<br>| Index | 无向图 （n个顶点 e条边）| 有向图 |<br>|–|–|–|<br>|定义|  V = {A,B,C,D,E} E = {(A,B),(A,C)} | V = {A,B,C,D,E} E = {&lt;A,B&gt;,&lt;A,C&gt;}|<br>|简单图|没有重复的边，也没有连接到自身的边|–|<br>|复杂图|有重复边或者有|–|<br>|完全图|每两个顶点间都有边连接 n(n-1)/2条边|n(n-1)条边|<br>|图形|‘-’链接|‘-&gt;’链接|<br>|连通|任意两个顶点之间都互相链接（连同子图）|（强连通子图）|<br>|极大连通分量|如果本身就是(强)连通的图那么就是自身|–|<br>|极小连通分量|（连通图）n-1条边|n条边|<br>|度|该顶点的连接的边的个数 2e|出的+入度 （“出度”-&gt;“入度”）|<br>|生成树|连通无向图的极小连通子图（不唯一）|–|<br>|生成森林|非连通无向图的极小连通子图（不唯一）|–|</p>
+<h3 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h3><p><code>V = {A,B,C,D,E}</code></p>
+<p>无向图：</p>
+<pre><code class="hljs mermaid">graph LR;
+  A---B
+  A---C
+  C---D
+  D---E</code></pre>
+<p>结点数组：<br>|A|B|C|D|E|<br>|–|–|–|–|–|<br>|0|1|2|3|4|</p>
+<h4 id="1、邻接矩阵法"><a href="#1、邻接矩阵法" class="headerlink" title="1、邻接矩阵法"></a>1、邻接矩阵法</h4><p>用矩阵的方式把所有结点间的关系记录下来，适用于稠密图<br>无向图 $ A[i][j] : Vi - Vj,$ 关于主对角线对称<br>有向图 $ A[i][j] : Vi \rightarrow Vj,$<br>网     矩阵中的内容可以是权重，无连接的结点可以表示为 $ 0、 \infty $<br>||A|B|C|D|E|<br>|–|–|–|–|–|–|<br>|A|0|1|1|0|0|<br>|B|1|0|0|0|0|<br>|C|1|0|0|1|0|<br>|D|0|0|1|0|1|<br>|E|0|0|0|1|0|</p>
+<pre><code class="hljs C++"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> MaxVCount 100</span>
+typeof <span class="hljs-keyword">char</span> Vtype;
+typeof <span class="hljs-keyword">int</span> Etype;
+typeof <span class="hljs-class"><span class="hljs-keyword">struct</span>&#123;</span>
+    Vtype Vex [MaxVCount];
+    Etype Edge[MaxVCount][MaxVCount];
+    <span class="hljs-keyword">int</span> Vcount,Ecount;
+&#125;MGraph</code></pre>
+<h4 id="2、邻接表法"><a href="#2、邻接表法" class="headerlink" title="2、邻接表法"></a>2、邻接表法</h4><p>当前结点所链接的所有的结点组成一个链表，<br>链表中的内容为：结点数组的Index+指向下一个节点的指针</p>
+<pre><code class="hljs mermaid">graph LR;
+  0A--&gt;1--&gt;2</code></pre>
+
+<pre><code class="hljs mermaid">graph LR;
+  1B--&gt;0</code></pre>
+
+<pre><code class="hljs mermaid">graph LR;
+  2C--&gt;0</code></pre>
+
+<pre><code class="hljs mermaid">graph LR;
+  3D--&gt;0--&gt;3</code></pre>
+
+<pre><code class="hljs mermaid">graph LR;
+  4E--&gt;3</code></pre>
+
+<pre><code class="hljs C++"><span class="hljs-comment">//定义链表结构</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> MaxVCount 100</span>
+typeof <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ArcNode</span>&#123;</span>
+    <span class="hljs-keyword">int</span> Vindex;
+    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ArcNode</span> *<span class="hljs-title">Next</span>;</span>
+&#125;ArcNode;
+
+<span class="hljs-comment">//定义每一个节点的结构：</span>
+typeof <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">VNode</span>&#123;</span>
+    Vtype data;
+    ArcNode *first;
+&#125;VNode;
+
+<span class="hljs-comment">//定义邻接表</span>
+typeof <span class="hljs-class"><span class="hljs-keyword">struct</span>&#123;</span>
+    VNode Vlist[MaxVCount];
+    <span class="hljs-keyword">int</span> Vcount,Ecount;
+&#125;ALGraph;</code></pre>
+
+<h4 id="3、十字链表法（有向图的一种链式存储结构）"><a href="#3、十字链表法（有向图的一种链式存储结构）" class="headerlink" title="3、十字链表法（有向图的一种链式存储结构）"></a>3、十字链表法（有向图的一种链式存储结构）</h4><p>邻接表法：在有向图中根据当前结点可以方便的检索到与之链接出结点，但是要查找对应的入结点比较麻烦<br>因此引入十字链表法<br>链表内容（边的信息）<br>|Vi|Vj|同入的下一个边|同出的下一个边|<br>|–|–|–|–|</p>
+<pre><code class="hljs C++"><span class="hljs-comment">//定义链表结构</span>
+typeof <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ArcNode</span>&#123;</span>
+    <span class="hljs-keyword">int</span> i,j;
+    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ArcNode</span> *<span class="hljs-title">iNext</span>,*<span class="hljs-title">jNext</span>;</span>
+&#125;ArcNode;
+
+<span class="hljs-comment">//定义每一个节点的结构：</span>
+typeof <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">VNode</span>&#123;</span>
+    Vtype data,
+    ArcNode *firstIn,*firstOut;
+&#125;VNode;
+
+<span class="hljs-comment">//定义十字链接表</span>
+typeof <span class="hljs-class"><span class="hljs-keyword">struct</span> &#123;</span>
+    VNode VList[MaxVCount];
+    <span class="hljs-keyword">int</span> Vcount,Ecount;
+&#125;GLGraph;</code></pre>
+
+<h4 id="4、邻接多重表"><a href="#4、邻接多重表" class="headerlink" title="4、邻接多重表"></a>4、邻接多重表</h4>
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%AD%A6%E6%97%A0%E6%AD%A2%E5%B0%BD/">学无止尽</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/01/05/DontNetCore/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">DontNetCore</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2021/12/08/OpenSSL/">
+                        <span class="hidden-mobile">OpenSSL</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+    <!-- APlayer 音乐播放器 -->
+    <div id="aplayer"></div>
+    <script defer src="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.js" ></script>
+<link  rel="stylesheet" href="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.css" />
+<script type="text/javascript">
+  var oldLoadAp = window.onload;
+  window.onload = function () {
+    oldLoadAp && oldLoadAp();
+
+    new APlayer({
+      container: document.getElementById('aplayer'),
+      fixed: true,
+      autoplay: 'false' === 'true',
+      loop: 'all',
+      order: 'random',
+      theme: '#998796',
+      preload: 'none',
+      audio: [{"name":"おどるポンポコリン","artist":"大原樱子","url":"/music/樱桃小丸子/おどるポンポコリン.mp3","cover":"/music/樱桃小丸子/timg.jpg"},{"name":"Puff the magic dragon","artist":"Paul，Mary Peter ","url":"/music/Puff the Magic Dragon/Puff the Magic Dragon.mp3","cover":"/music/Puff the Magic Dragon/Folder.jpg"}]
+    });
+  }
+</script>
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Graph&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+      icon: "❡"
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+  
+  
+    <script>
+      !function (e, t, a) {
+        function r() {
+          for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[e].y--, s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x + "px;top:" + s[e].y + "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e].scale + ") rotate(45deg);background:" + s[e].color + ";z-index:99999");
+          requestAnimationFrame(r)
+        }
+
+        function n() {
+          var t = "function" == typeof e.onclick && e.onclick;
+          e.onclick = function (e) {
+            t && t(), o(e)
+          }
+        }
+
+        function o(e) {
+          var a = t.createElement("div");
+          a.className = "heart", s.push({
+            el: a,
+            x: e.clientX - 5,
+            y: e.clientY - 5,
+            scale: 1,
+            alpha: 1,
+            color: c()
+          }), t.body.appendChild(a)
+        }
+
+        function i(e) {
+          var a = t.createElement("style");
+          a.type = "text/css";
+          try {
+            a.appendChild(t.createTextNode(e))
+          } catch (t) {
+            a.styleSheet.cssText = e
+          }
+          t.getElementsByTagName("head")[0].appendChild(a)
+        }
+
+        function c() {
+          return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+        }
+
+        var s = [];
+        e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {
+          setTimeout(e, 1e3 / 60)
+        }, i(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), n(), r()
+      }(window, document);
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

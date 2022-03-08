@@ -163,7 +163,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      55 字
+      299 字
     </span>
   
 
@@ -173,7 +173,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      4
        分钟
     </span>
   
@@ -213,12 +213,13 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2021年11月10日 上午
+                  本文最后更新于：2022年2月28日 上午
                 
               </p>
             
             <article class="markdown-body">
-              <h2 id="查询语句"><a href="#查询语句" class="headerlink" title="查询语句"></a>查询语句</h2><pre><code class="hljs C++">动态条件查询
+              <h2 id="EntityFramwork"><a href="#EntityFramwork" class="headerlink" title="EntityFramwork"></a>EntityFramwork</h2><h4 id="1、查询语句"><a href="#1、查询语句" class="headerlink" title="1、查询语句"></a>1、查询语句</h4><p>可以使用linq语句，或者EF结构</p>
+<pre><code class="hljs C">动态条件查询
 var item = db.pmsheets.ToList();
     <span class="hljs-keyword">if</span> (!<span class="hljs-built_in">string</span>.IsNullOrEmpty(department))
         item = item.Where(e =&gt; e.department == department).ToList();
@@ -228,6 +229,24 @@ var item = db.pmsheets.ToList();
         paras = e.station
     &#125;).Distinct().ToList();</code></pre>
 
+<h4 id="2-1、Core-EF-链接SQL-Server"><a href="#2-1、Core-EF-链接SQL-Server" class="headerlink" title="2.1、Core EF 链接SQL Server"></a>2.1、Core EF 链接SQL Server</h4><pre><code class="hljs stylus">Scaffold-DbContext <span class="hljs-string">"data source=cnwuxg0te01;initial catalog=dbName;persist security info=True;user id=sa;password=Jabil12345;MultipleActiveResultSets=True;App=EntityFramework"</span> Microsoft<span class="hljs-selector-class">.EntityFrameworkCore</span><span class="hljs-selector-class">.SqlServer</span> -OutputDir Models -Tables Employee</code></pre>
+
+<h4 id="2-2、-net-EF-链接postgreSql"><a href="#2-2、-net-EF-链接postgreSql" class="headerlink" title="2.2、.net EF 链接postgreSql"></a>2.2、.net EF 链接postgreSql</h4><blockquote>
+<p>选择 .net 4.6.1<br>1、安装插件 Npgsql PostgreSQL Integration<br>2、安装 EF框架 无框架限制<br>3、安装 Npgsql 注意.net版本<br>4、安装 EF6 for Npgsql 提供postgresql的ADO模型，要匹配：.net 以及 2,3 的版本</p>
+</blockquote>
+<h4 id="2-3、Core-EF-链接postgreSql"><a href="#2-3、Core-EF-链接postgreSql" class="headerlink" title="2.3、Core EF 链接postgreSql"></a>2.3、Core EF 链接postgreSql</h4><blockquote>
+<p>1、安装插件 Npgsql PostgreSQL Integration<br>2、安装 EF框架：Microsoft.EntityFrameworkCore<br>3、Microsoft.EntityFrameworkCore.Design;<br>   Microsoft.EntityFrameworkCore.Tools<br>4、安装 Npgsql: Npgsql.EntityFrameworkCore.PostgreSQL<br>5、Npgsql.EntityFrameworkCore.PostgreSQL.Design<br>6、cmd-&gt;cd 进入工程文件.csproj所在的文件夹 -&gt;<br>dotnet ef dbcontext scaffold “Host=cnwuxm1medb01;Database=EC;Username=ECUser;Password=Jabil123” Npgsql.EntityFrameworkCore.PostgreSQL -o Models</p>
+</blockquote>
+<ul>
+<li>Use dotnet build to see the errors<blockquote>
+<p>程序编译出错了，要保证程序能够正常运行的基础上，更新数据库cs文件</p>
+</blockquote>
+</li>
+<li>Use the Force flag to overwrite these files<blockquote>
+<p>dotnet ef dbcontext scaffold “Host=cnwuxm1medb01;Database=FOF;Username=FOFUser;Password=Jabil123” Npgsql.EntityFrameworkCore.PostgreSQL -o Model -f</p>
+</blockquote>
+</li>
+</ul>
 
             </article>
             <hr>

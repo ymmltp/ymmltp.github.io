@@ -163,7 +163,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      979 字
+      1.1k 字
     </span>
   
 
@@ -173,7 +173,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      15
+      17
        分钟
     </span>
   
@@ -213,13 +213,13 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2021年9月8日 上午
+                  本文最后更新于：2022年3月3日 下午
                 
               </p>
             
             <article class="markdown-body">
               <h2 id="Bootstrap-Table基础用法"><a href="#Bootstrap-Table基础用法" class="headerlink" title="Bootstrap Table基础用法"></a>Bootstrap Table基础用法</h2><h5 id="1、使用js注册一个bootstrap-table"><a href="#1、使用js注册一个bootstrap-table" class="headerlink" title="1、使用js注册一个bootstrap-table"></a>1、使用js注册一个bootstrap-table</h5><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"table"</span>&gt;</span> <span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span></code></pre>
-<pre><code class="hljs javascript">$(<span class="hljs-string">'#table'</span>).bootstrapTable(&#123;
+<pre><code class="hljs javascript">$(<span class="hljs-string">'#table'</span>).bootstrapTable(<span class="hljs-string">'destroy'</span>).bootstrapTable(&#123;
     columns: [&#123;
         field: <span class="hljs-string">'id'</span>,
         title: <span class="hljs-string">'ID'</span>
@@ -263,8 +263,18 @@
 <h5 id="2、使用js配置相关功能"><a href="#2、使用js配置相关功能" class="headerlink" title="2、使用js配置相关功能"></a>2、使用js配置相关功能</h5><pre><code class="hljs javascript"><span class="hljs-comment">//初始化主表格</span>
 $(<span class="hljs-string">'#table'</span>).bootstrapTable(<span class="hljs-string">'destroy'</span>).bootstrapTable(&#123;
     url: <span class="hljs-string">'Ashx/Select.ashx?type=equipmentHistory'</span>, <span class="hljs-comment">//请求后台的URL（*）</span>
-    method: <span class="hljs-string">'get'</span>,                      <span class="hljs-comment">//请求方式（*）</span>
+    method/type: <span class="hljs-string">'get'</span>,                      <span class="hljs-comment">//请求方式（*）</span>
     cache: <span class="hljs-literal">false</span>,                       <span class="hljs-comment">//清除缓存</span>
+    queryParams: &#123;                      <span class="hljs-comment">//参数</span>
+        Department: $(<span class="hljs-string">"#department-select"</span>).val(),
+        Project: $(<span class="hljs-string">"#project-select"</span>).val(),
+        Line: $(<span class="hljs-string">"#line-select"</span>).val(),
+        Station: $(<span class="hljs-string">"#station-select"</span>).val(),
+    &#125;,
+    ajaxOptions: &#123;                      <span class="hljs-comment">//传参ajax设置</span>
+        traditional: <span class="hljs-literal">true</span>,              <span class="hljs-comment">//允许传递数组类型的参数</span>
+    &#125;,
+    dataType: <span class="hljs-string">'json'</span>,
     search: <span class="hljs-literal">true</span>,                       <span class="hljs-comment">//开启搜索框</span>
     visibleSearch: <span class="hljs-literal">true</span>,
     showSearchButton: <span class="hljs-literal">true</span>,
@@ -314,10 +324,26 @@ $(<span class="hljs-string">'#table'</span>).bootstrapTable(<span class="hljs-st
     &#125;, &#123;
         field: <span class="hljs-string">'name'</span>,
         title: <span class="hljs-string">'Name'</span>,
-        visible: <span class="hljs-literal">false</span>, <span class="hljs-comment">//改行不可见，但是</span>
+        align: <span class="hljs-string">'center'</span>,    <span class="hljs-comment">//文字水平居中</span>
+        valign: <span class="hljs-string">'middle'</span>,   <span class="hljs-comment">//文字垂直居中</span>
+        visible: <span class="hljs-literal">false</span>,     <span class="hljs-comment">//该列不可见</span>
     &#125;, &#123;
         field: <span class="hljs-string">'root'</span>,
         title: <span class="hljs-string">'Root'</span>
+    &#125;，&#123;
+        field: <span class="hljs-string">'option'</span>,
+        title: <span class="hljs-string">'Option'</span>,
+        align: <span class="hljs-string">'center'</span>,
+        valign: <span class="hljs-string">'middle'</span>,
+        formatter: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">value, row, index</span>) </span>&#123;    <span class="hljs-comment">//自定义该列的样式</span>
+                <span class="hljs-keyword">return</span> [<span class="hljs-string">'&lt;button type="button" class="btn bad text-light" id="start"&gt;Start&lt;/button&gt;'</span>;           
+        &#125;,
+        events: &#123;                                    <span class="hljs-comment">//自定义功能</span>
+            <span class="hljs-string">"click #delete"</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e, value, row, index</span>) </span>&#123;
+                
+                &#125;)
+            &#125;
+        &#125;
     &#125;],
      <span class="hljs-comment">//注册加载子表的事件。注意下这里的三个参数！需要设置detailView:true</span>
      onExpandRow: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">index, row, $detail</span>) </span>&#123;
