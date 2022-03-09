@@ -163,7 +163,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.2k 字
+      1.4k 字
     </span>
   
 
@@ -173,7 +173,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      15
+      18
        分钟
     </span>
   
@@ -213,7 +213,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2022年3月8日 下午
+                  本文最后更新于：2022年3月9日 上午
                 
               </p>
             
@@ -242,6 +242,22 @@ dom.style.visiblity = <span class="hljs-string">'hidden'</span>;
 <span class="hljs-keyword">else</span> dom.className += <span class="hljs-string">'mystyle'</span>;</code></pre>
 
 <p>4、给元素注册事件</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>dom.addEventListener</td>
+<td>给元素注册事件，且注册的事件按注册顺序依次触发</td>
+</tr>
+<tr>
+<td>dom.attachEvent</td>
+<td>给元素注册事件，不按注册顺序触发</td>
+</tr>
+</tbody></table>
 <pre><code class="hljs javascript"><span class="hljs-keyword">if</span>(image.addEventListener)
     image.addEventListener(<span class="hljs-string">'click'</span>,myfunction,params);
 <span class="hljs-keyword">else</span>
@@ -252,7 +268,10 @@ $(<span class="hljs-string">'#elementID'</span>)   <span class="hljs-comment">//
 $(<span class="hljs-string">'.elementCSS'</span>)  <span class="hljs-comment">//返回class为elementID  一组元素</span>
 $(<span class="hljs-string">'input :text'</span>)  <span class="hljs-comment">//返回类型为text的  一组input元素</span>
 $(<span class="hljs-string">"ul li:first"</span>)  <span class="hljs-comment">//ul中的第一个li</span>
-$(<span class="hljs-string">"[href$='.jpg']"</span>)  <span class="hljs-comment">//所有带有以 ".jpg" 结尾的属性值的 href 属性</span>
+$(<span class="hljs-string">"#log span"</span>)  <span class="hljs-comment">//id='log'的后代元素(包含子，孙子，重孙……元素)中所有的&lt;span&gt;</span>
+$(<span class="hljs-string">"#log&gt;span"</span>)  <span class="hljs-comment">//id='log'的子元素(内部第一层)中所有的&lt;span&gt;</span>
+$(<span class="hljs-string">"#log span"</span>)  <span class="hljs-comment">//id='log'的后代元素中所有的&lt;span&gt;</span>
+$(<span class="hljs-string">'*[name="x"]'</span>)  <span class="hljs-comment">//所有含name="x"属性的元素</span>
 
 <span class="hljs-comment">//两个参数</span>
 $(<span class="hljs-string">'&lt;img/&gt;'</span>,       <span class="hljs-comment">//创建一个img元素，并附带这些属性</span>
@@ -358,11 +377,11 @@ $(<span class="hljs-string">'.elementCSS'</span>,<span class="hljs-built_in">doc
 </thead>
 <tbody><tr>
 <td>blur()</td>
-<td><strong>不支持冒泡</strong></td>
+<td>失焦 <strong>不支持冒泡</strong></td>
 </tr>
 <tr>
 <td>click()</td>
-<td></td>
+<td>点击</td>
 </tr>
 <tr>
 <td>change()</td>
@@ -378,7 +397,7 @@ $(<span class="hljs-string">'.elementCSS'</span>,<span class="hljs-built_in">doc
 </tr>
 <tr>
 <td>focus()</td>
-<td><strong>不支持冒泡</strong></td>
+<td>获得焦点 <strong>不支持冒泡</strong></td>
 </tr>
 <tr>
 <td>focusin()</td>
@@ -390,55 +409,55 @@ $(<span class="hljs-string">'.elementCSS'</span>,<span class="hljs-built_in">doc
 </tr>
 <tr>
 <td>keydown()</td>
-<td></td>
+<td>键盘按下 <strong>支持冒泡</strong></td>
 </tr>
 <tr>
 <td>keypress()</td>
-<td></td>
+<td>按键并产生了可打印字符</td>
 </tr>
 <tr>
 <td>keyup()</td>
-<td></td>
+<td>键盘抬起 <strong>支持冒泡</strong></td>
 </tr>
 <tr>
 <td>load()</td>
-<td></td>
+<td>内容加载完成后触发</td>
 </tr>
 <tr>
 <td>mousedown()</td>
-<td></td>
+<td>按下鼠标键</td>
 </tr>
 <tr>
 <td>mouseenter()</td>
-<td></td>
+<td>鼠标悬停在某个元素上 <strong>不支持冒泡</strong></td>
 </tr>
 <tr>
 <td>mouseleave()</td>
-<td></td>
+<td>鼠标从某个悬停元素上移出 <strong>不支持冒泡</strong></td>
 </tr>
 <tr>
 <td>mousemove()</td>
-<td></td>
-</tr>
-<tr>
-<td>mouseout()</td>
-<td></td>
+<td>移动鼠标就会触发，不应该在里面触发计算密集形任务</td>
 </tr>
 <tr>
 <td>mouseover()</td>
-<td></td>
+<td>鼠标悬停在某个元素上 <strong>支持冒泡</strong></td>
+</tr>
+<tr>
+<td>mouseout()</td>
+<td>鼠标从某个悬停元素上移出 <strong>支持冒泡</strong></td>
 </tr>
 <tr>
 <td>mouseup()</td>
-<td></td>
+<td>鼠标键抬起 <strong>mousedown和mouseup之后还会触发click事件</strong></td>
 </tr>
 <tr>
 <td>resize()</td>
-<td></td>
+<td>调整界面大小</td>
 </tr>
 <tr>
 <td>scroll()</td>
-<td></td>
+<td>鼠标滚轮滑动</td>
 </tr>
 <tr>
 <td>select()</td>
@@ -450,7 +469,7 @@ $(<span class="hljs-string">'.elementCSS'</span>,<span class="hljs-built_in">doc
 </tr>
 <tr>
 <td>unload()</td>
-<td></td>
+<td>从一个界面跳转到另一界面时触发</td>
 </tr>
 </tbody></table>
 <h4 id="js原生变成jq对象"><a href="#js原生变成jq对象" class="headerlink" title="js原生变成jq对象"></a>js原生变成jq对象</h4><pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">showmessage</span>(<span class="hljs-params">msg</span>)</span>&#123;
