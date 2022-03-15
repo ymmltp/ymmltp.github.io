@@ -6,8 +6,9 @@ tags: 学无止境
 
 ### 基础知识javascript原生方法
 
-1、判断数组是否包含某个元素：indexOf
-2、添加Dom元素
+#### 判断数组是否包含某个元素：indexOf
+
+#### 添加Dom元素
 
 ```javascript
   function showmessage(msg){
@@ -25,7 +26,7 @@ tags: 学无止境
 }
 ```
 
-3、给元素添加属性
+#### 给元素添加属性
 
 ```javascript
 //添加原始属性
@@ -36,7 +37,12 @@ if(!dom.className) dom.className = 'mystyle';
 else dom.className += 'mystyle';
 ```
 
-4、给元素注册事件
+#### 给元素注册事件
+
+|方法|描述|
+|--|--|
+|dom.addEventListener|给元素注册事件，且注册的事件按注册顺序依次触发|
+|dom.attachEvent|给元素注册事件，不按注册顺序触发|
 
 ```javascript
 if(image.addEventListener)
@@ -44,6 +50,63 @@ if(image.addEventListener)
 else
     image.attachEvent('click',myfunction);  //兼容IE8及之前的版本
 ```
+
+#### Error
+
+```javascript
+throw new Error("自定义报错的内容");
+
+//异常可以使用try,catch捕捉
+try{
+    throw new Error("自定义报错的内容");
+}catch(e){
+    if(e instanceof Error){
+        alert(e.name +":"+e.message);
+    }
+}
+```
+
+#### Function
+
+##### 匿名函数
+
+```javascript
+//匿名函数
+//在匿名函数后面加(),可以直接执行。
+//可以和各个运算符一起使用
+let a = function(){
+    console.log("hahah:" + function(){
+        return("你好啊!")}() );
+};
+a();
+```
+
+##### Function.apply()
+
+将test()作为people对象的一个方法
+**apply(object,[array]) 参数一定以数组的形式传入，不然会报TypeError的错误**
+
+```javascript
+function test(args){
+    console.log(this.name);
+}
+var people = {name:"lupei",age:12};
+test.apply(people,[args]);
+
+>lupei
+```
+
+#### 函数与方法
+
+|方法|描述|
+|--|--|
+|eval()|执行字符串中的javascript代码|
+|Infinity|表示正无穷大的数:typepof(Infinity)=number|
+|NaN|表示不是数值的值:**typepof(NaN)=number**|
+|null|表示不是数值的值:**typepof(null)=object;isNaN(null)=false**|
+|undefined|表示未定义的数:typepof(undefined)=undefined|
+|isFinite()|判断数值是否有限|
+|isNaN()|判断是否非数值|
 
 ### jQuery以及一些新的方法
 
@@ -55,7 +118,10 @@ $('#elementID')   //返回id为elementID  一个元素
 $('.elementCSS')  //返回class为elementID  一组元素
 $('input :text')  //返回类型为text的  一组input元素
 $("ul li:first")  //ul中的第一个li
-$("[href$='.jpg']")  //所有带有以 ".jpg" 结尾的属性值的 href 属性
+$("#log span")  //id='log'的后代元素(包含子，孙子，重孙……元素)中所有的<span>
+$("#log>span")  //id='log'的子元素(内部第一层)中所有的<span>
+$("#log span")  //id='log'的后代元素中所有的<span>
+$('*[name="x"]')  //所有含name="x"属性的元素
 
 //两个参数
 $('<img/>',       //创建一个img元素，并附带这些属性
@@ -118,30 +184,30 @@ jq中通常函数和方法都是成对出现的，用法参考each
 
 |方法|描述|
 |--|--|
-|blur()|**不支持冒泡**|
-|click()||
+|blur()|失焦 **不支持冒泡**|
+|click()|点击|
 |change()||
 |dbclick()||
 |error()||
-|focus()|**不支持冒泡**|
+|focus()|获得焦点 **不支持冒泡**|
 |focusin()|**支持冒泡**|
 |focusout()|**支持冒泡**|
-|keydown()||
-|keypress()||
-|keyup()||
-|load()||
-|mousedown()||
-|mouseenter()||
-|mouseleave()||
-|mousemove()||
-|mouseout()||
-|mouseover()||
-|mouseup()||
-|resize()||
-|scroll()||
+|keydown()|键盘按下 **支持冒泡**|
+|keypress()|按键并产生了可打印字符|
+|keyup()|键盘抬起 **支持冒泡**|
+|load()|内容加载完成后触发|
+|mousedown()|按下鼠标键|
+|mouseenter()|鼠标悬停在某个元素上 **不支持冒泡**|
+|mouseleave()|鼠标从某个悬停元素上移出 **不支持冒泡**|
+|mousemove()|移动鼠标就会触发，不应该在里面触发计算密集形任务|
+|mouseover()|鼠标悬停在某个元素上 **支持冒泡**|
+|mouseout()|鼠标从某个悬停元素上移出 **支持冒泡**|
+|mouseup()|鼠标键抬起 **mousedown和mouseup之后还会触发click事件**|
+|resize()|调整界面大小|
+|scroll()|鼠标滚轮滑动|
 |select()||
 |submit()||
-|unload()||
+|unload()|从一个界面跳转到另一界面时触发|
 
 #### js原生变成jq对象
 
