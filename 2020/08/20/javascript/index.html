@@ -163,7 +163,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.4k 字
+      1.7k 字
     </span>
   
 
@@ -173,7 +173,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      18
+      21
        分钟
     </span>
   
@@ -213,13 +213,12 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2022年3月9日 上午
+                  本文最后更新于：2022年3月14日 下午
                 
               </p>
             
             <article class="markdown-body">
-              <h3 id="基础知识javascript原生方法"><a href="#基础知识javascript原生方法" class="headerlink" title="基础知识javascript原生方法"></a>基础知识javascript原生方法</h3><p>1、判断数组是否包含某个元素：indexOf<br>2、添加Dom元素</p>
-<pre><code class="hljs javascript">  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">showmessage</span>(<span class="hljs-params">msg</span>)</span>&#123;
+              <h3 id="基础知识javascript原生方法"><a href="#基础知识javascript原生方法" class="headerlink" title="基础知识javascript原生方法"></a>基础知识javascript原生方法</h3><h4 id="判断数组是否包含某个元素：indexOf"><a href="#判断数组是否包含某个元素：indexOf" class="headerlink" title="判断数组是否包含某个元素：indexOf"></a>判断数组是否包含某个元素：indexOf</h4><h4 id="添加Dom元素"><a href="#添加Dom元素" class="headerlink" title="添加Dom元素"></a>添加Dom元素</h4><pre><code class="hljs javascript">  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">showmessage</span>(<span class="hljs-params">msg</span>)</span>&#123;
     <span class="hljs-keyword">var</span> log = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'logdebug'</span>);
     <span class="hljs-keyword">if</span>(!log)&#123;
         <span class="hljs-keyword">var</span> log = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'div'</span>);
@@ -233,16 +232,14 @@
     log.appendChild(pre);
 &#125;</code></pre>
 
-<p>3、给元素添加属性</p>
-<pre><code class="hljs javascript"><span class="hljs-comment">//添加原始属性</span>
+<h4 id="给元素添加属性"><a href="#给元素添加属性" class="headerlink" title="给元素添加属性"></a>给元素添加属性</h4><pre><code class="hljs javascript"><span class="hljs-comment">//添加原始属性</span>
 dom.style.display = <span class="hljs-string">'none'</span>;
 dom.style.visiblity = <span class="hljs-string">'hidden'</span>;
 <span class="hljs-comment">//添加自定义css样式</span>
 <span class="hljs-keyword">if</span>(!dom.className) dom.className = <span class="hljs-string">'mystyle'</span>;
 <span class="hljs-keyword">else</span> dom.className += <span class="hljs-string">'mystyle'</span>;</code></pre>
 
-<p>4、给元素注册事件</p>
-<table>
+<h4 id="给元素注册事件"><a href="#给元素注册事件" class="headerlink" title="给元素注册事件"></a>给元素注册事件</h4><table>
 <thead>
 <tr>
 <th>方法</th>
@@ -263,6 +260,71 @@ dom.style.visiblity = <span class="hljs-string">'hidden'</span>;
 <span class="hljs-keyword">else</span>
     image.attachEvent(<span class="hljs-string">'click'</span>,myfunction);  <span class="hljs-comment">//兼容IE8及之前的版本</span></code></pre>
 
+<h4 id="Error"><a href="#Error" class="headerlink" title="Error"></a>Error</h4><pre><code class="hljs javascript"><span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">"自定义报错的内容"</span>);
+
+<span class="hljs-comment">//异常可以使用try,catch捕捉</span>
+<span class="hljs-keyword">try</span>&#123;
+    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">"自定义报错的内容"</span>);
+&#125;<span class="hljs-keyword">catch</span>(e)&#123;
+    <span class="hljs-keyword">if</span>(e <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Error</span>)&#123;
+        alert(e.name +<span class="hljs-string">":"</span>+e.message);
+    &#125;
+&#125;</code></pre>
+
+<h4 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h4><h5 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h5><pre><code class="hljs javascript"><span class="hljs-comment">//匿名函数</span>
+<span class="hljs-comment">//在匿名函数后面加(),可以直接执行。</span>
+<span class="hljs-comment">//可以和各个运算符一起使用</span>
+<span class="hljs-keyword">let</span> a = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"hahah:"</span> + <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;
+        <span class="hljs-keyword">return</span>(<span class="hljs-string">"你好啊!"</span>)&#125;() );
+&#125;;
+a();</code></pre>
+
+<h5 id="Function-apply"><a href="#Function-apply" class="headerlink" title="Function.apply()"></a>Function.apply()</h5><p>将test()作为people对象的一个方法<br><strong>apply(object,[array]) 参数一定以数组的形式传入，不然会报TypeError的错误</strong></p>
+<pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">test</span>(<span class="hljs-params">args</span>)</span>&#123;
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.name);
+&#125;
+<span class="hljs-keyword">var</span> people = &#123;<span class="hljs-attr">name</span>:<span class="hljs-string">"lupei"</span>,<span class="hljs-attr">age</span>:<span class="hljs-number">12</span>&#125;;
+test.apply(people,[args]);
+
+&gt;lupei</code></pre>
+
+<h4 id="函数与方法"><a href="#函数与方法" class="headerlink" title="函数与方法"></a>函数与方法</h4><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>eval()</td>
+<td>执行字符串中的javascript代码</td>
+</tr>
+<tr>
+<td>Infinity</td>
+<td>表示正无穷大的数:typepof(Infinity)=number</td>
+</tr>
+<tr>
+<td>NaN</td>
+<td>表示不是数值的值:<strong>typepof(NaN)=number</strong></td>
+</tr>
+<tr>
+<td>null</td>
+<td>表示不是数值的值:<strong>typepof(null)=object;isNaN(null)=false</strong></td>
+</tr>
+<tr>
+<td>undefined</td>
+<td>表示未定义的数:typepof(undefined)=undefined</td>
+</tr>
+<tr>
+<td>isFinite()</td>
+<td>判断数值是否有限</td>
+</tr>
+<tr>
+<td>isNaN()</td>
+<td>判断是否非数值</td>
+</tr>
+</tbody></table>
 <h3 id="jQuery以及一些新的方法"><a href="#jQuery以及一些新的方法" class="headerlink" title="jQuery以及一些新的方法"></a>jQuery以及一些新的方法</h3><h4 id="注册jQuery对象"><a href="#注册jQuery对象" class="headerlink" title="注册jQuery对象"></a>注册jQuery对象</h4><pre><code class="hljs javascript"><span class="hljs-comment">//一个参数</span>
 $(<span class="hljs-string">'#elementID'</span>)   <span class="hljs-comment">//返回id为elementID  一个元素</span>
 $(<span class="hljs-string">'.elementCSS'</span>)  <span class="hljs-comment">//返回class为elementID  一组元素</span>
@@ -289,7 +351,7 @@ $(<span class="hljs-string">'&lt;img/&gt;'</span>,       <span class="hljs-comme
 &#125;)
 $(<span class="hljs-string">'.elementCSS'</span>,<span class="hljs-built_in">document</span>.body) <span class="hljs-comment">//查询出document.body中所有css='elementCSS'的元素。</span></code></pre>
 
-<h4 id="函数与方法"><a href="#函数与方法" class="headerlink" title="函数与方法"></a>函数与方法</h4><p>jq中通常函数和方法都是成对出现的，用法参考each</p>
+<h4 id="函数与方法-1"><a href="#函数与方法-1" class="headerlink" title="函数与方法"></a>函数与方法</h4><p>jq中通常函数和方法都是成对出现的，用法参考each</p>
 <table>
 <thead>
 <tr>

@@ -163,7 +163,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      0 字
+      308 字
     </span>
   
 
@@ -173,7 +173,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      4
        分钟
     </span>
   
@@ -213,12 +213,80 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2022年3月9日 上午
+                  本文最后更新于：2022年3月10日 下午
                 
               </p>
             
             <article class="markdown-body">
-              
+              <h2 id="eCharts"><a href="#eCharts" class="headerlink" title="eCharts"></a>eCharts</h2><h3 id="配置项"><a href="#配置项" class="headerlink" title="配置项"></a>配置项</h3><pre><code class="hljs javascript">option = &#123;
+  title: &#123;            <span class="hljs-comment">//坐标的title</span>
+    text: <span class="hljs-string">'Stacked Line'</span>
+  &#125;,
+  tooltip: &#123;
+    trigger: <span class="hljs-string">'item'</span>,  <span class="hljs-comment">//悬浮提示框:"axis":显示该列所有数据;"item":显示当前悬浮对象的内容</span>
+    formatter:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>)</span>&#123;   <span class="hljs-comment">//自定义显示内容</span>
+      <span class="hljs-keyword">if</span>(e.data.value)
+        <span class="hljs-keyword">return</span> e.name+<span class="hljs-string">":"</span>+e.data.value+<span class="hljs-string">":"</span>+e.data.label;
+      <span class="hljs-keyword">else</span>
+        <span class="hljs-keyword">return</span> e.name+<span class="hljs-string">":"</span>+e.value;
+    &#125;
+  &#125;,
+  legend: &#123;   <span class="hljs-comment">//图例/系列</span>
+    data: [<span class="hljs-string">'Email'</span>, <span class="hljs-string">'Union Ads'</span>, <span class="hljs-string">'Video Ads'</span>, <span class="hljs-string">'Direct'</span>, <span class="hljs-string">'Search Engine'</span>]
+  &#125;,
+  grid: &#123; <span class="hljs-comment">//可以使用数组，表示多个坐标轴</span>
+    left: <span class="hljs-string">'3%'</span>,
+    right: <span class="hljs-string">'4%'</span>,
+    bottom: <span class="hljs-string">'3%'</span>,
+    width:<span class="hljs-string">'80%'</span>,
+    height:<span class="hljs-string">'80%'</span>,
+    containLabel: <span class="hljs-literal">true</span>,<span class="hljs-comment">//是否将坐标轴包含在内</span>
+  &#125;,  
+  toolbox: &#123;
+    feature: &#123;
+      saveAsImage: &#123;&#125;
+    &#125;
+  &#125;,
+  xAxis: &#123;   <span class="hljs-comment">//如果grid为多个坐标轴，也可以使用数组，增加&#123;gridIndex: 0&#125;属性，对每个坐标轴进行设置。</span>
+    type: <span class="hljs-string">'category'</span>,
+    boundaryGap: <span class="hljs-literal">false</span>,
+    data: [<span class="hljs-string">'Mon'</span>, <span class="hljs-string">'Tue'</span>, <span class="hljs-string">'Wed'</span>, <span class="hljs-string">'Thu'</span>, <span class="hljs-string">'Fri'</span>, <span class="hljs-string">'Sat'</span>, <span class="hljs-string">'Sun'</span>]
+  &#125;,
+  yAxis: &#123;   <span class="hljs-comment">//同xAxis</span>
+    type: <span class="hljs-string">'value'</span>
+  &#125;,
+  series: [
+    &#123;
+      name: <span class="hljs-string">'Email'</span>,
+      type: <span class="hljs-string">'line'</span>,
+      data: [&#123;<span class="hljs-attr">value</span>:<span class="hljs-number">200</span>,<span class="hljs-attr">label</span>:<span class="hljs-string">"hahahha"</span>&#125;, <span class="hljs-number">132</span>, <span class="hljs-number">101</span>, <span class="hljs-number">134</span>, <span class="hljs-number">90</span>, <span class="hljs-number">230</span>, <span class="hljs-number">210</span>]       <span class="hljs-comment">//data中的内容可以是对象，但是值的属性一定要是Value,其他可以自定义一些属性。</span>
+    &#125;,
+    &#123;
+      name: <span class="hljs-string">'Union Ads'</span>,
+      type: <span class="hljs-string">'line'</span>,
+
+      data: [<span class="hljs-number">220</span>, <span class="hljs-number">182</span>, <span class="hljs-number">190</span>, <span class="hljs-number">234</span>, <span class="hljs-number">290</span>, <span class="hljs-number">330</span>, <span class="hljs-number">310</span>]
+    &#125;,
+    &#123;
+      name: <span class="hljs-string">'Video Ads'</span>,
+      type: <span class="hljs-string">'line'</span>,
+
+      data: [<span class="hljs-number">150</span>, <span class="hljs-number">232</span>, <span class="hljs-number">201</span>, <span class="hljs-number">154</span>, <span class="hljs-number">190</span>, <span class="hljs-number">330</span>, <span class="hljs-number">410</span>]
+    &#125;,
+    &#123;
+      name: <span class="hljs-string">'Direct'</span>,
+      type: <span class="hljs-string">'line'</span>,
+
+      data: [<span class="hljs-number">320</span>, <span class="hljs-number">332</span>, <span class="hljs-number">301</span>, <span class="hljs-number">334</span>, <span class="hljs-number">390</span>, <span class="hljs-number">330</span>, <span class="hljs-number">320</span>]
+    &#125;,
+    &#123;
+      name: <span class="hljs-string">'Search Engine'</span>,
+      type: <span class="hljs-string">'line'</span>,
+      data: [<span class="hljs-number">820</span>, <span class="hljs-number">932</span>, <span class="hljs-number">901</span>, <span class="hljs-number">934</span>, <span class="hljs-number">1290</span>, <span class="hljs-number">1330</span>, <span class="hljs-number">1320</span>]
+    &#125;
+  ]
+&#125;;</code></pre>
+
             </article>
             <hr>
             <div>
@@ -240,6 +308,12 @@
                 <div class="post-prevnext row">
                   <div class="post-prev col-6">
                     
+                    
+                      <a href="/2022/03/10/Vue/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Vue</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </div>
                   <div class="post-next col-6">
