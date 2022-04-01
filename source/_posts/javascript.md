@@ -140,6 +140,12 @@ $('<img/>',       //创建一个img元素，并附带这些属性
 $('.elementCSS',document.body) //查询出document.body中所有css='elementCSS'的元素。
 ```
 
+#### 对象属性
+
+|方法|描述|
+|--|--|
+|||
+
 #### 函数与方法
 
 jq中通常函数和方法都是成对出现的，用法参考each
