@@ -5,8 +5,10 @@ tags: 学无止境
 ---
 ## EntityFramwork
 
-#### 1、查询语句
+### 1、查询语句
+
 可以使用linq语句，或者EF结构
+
 ``` C
 动态条件查询
 var item = db.pmsheets.ToList();
@@ -20,12 +22,16 @@ var item = db.pmsheets.ToList();
 
 ```
 
+### 2、EF 链接各类型数据库
+
 #### 2.1、Core EF 链接SQL Server
-```
+
+```C
 Scaffold-DbContext "data source=cnwuxg0te01;initial catalog=dbName;persist security info=True;user id=sa;password=Jabil12345;MultipleActiveResultSets=True;App=EntityFramework" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Tables Employee
 ```
 
 #### 2.2、.net EF 链接postgreSql
+
 > 选择 .net 4.6.1
 1、安装插件 Npgsql PostgreSQL Integration
 2、安装 EF框架 无框架限制
@@ -34,6 +40,7 @@ Scaffold-DbContext "data source=cnwuxg0te01;initial catalog=dbName;persist secur
 
 
 #### 2.3、Core EF 链接postgreSql
+
 >1、安装插件 Npgsql PostgreSQL Integration
 2、安装 EF框架：Microsoft.EntityFrameworkCore
 3、Microsoft.EntityFrameworkCore.Design;
@@ -48,10 +55,11 @@ dotnet ef dbcontext scaffold "Host=cnwuxm1medb01;Database=EC;Username=ECUser;Pas
 - Use the Force flag to overwrite these files
     >dotnet ef dbcontext scaffold "Host=cnwuxm1medb01;Database=FOF;Username=FOFUser;Password=Jabil123" Npgsql.EntityFrameworkCore.PostgreSQL -o Model -f
 
+#### 2.4、Core EF 链接MySQL
 
-
-
-
-
-
-
+>1.安装 EF框架：Microsoft.EntityFrameworkCore
+>2.Microsoft.EntityFrameworkCore.Tools
+>3.安装 Mysql.Data
+>4.安装 Pomelo.EntityFrameworkCore.MySql(官方插件有问题，使用这个社区版本)
+>5.cmd->cd 进入工程文件.csproj所在的文件夹 -> 
+Scaffold-DbContext "server=cnwuxg0te01;uid=root;pwd=Jabil12345;port=3306;database=sparepart_current;" Pomelo.EntityFrameworkCore.MySql -OutputDir Models -f

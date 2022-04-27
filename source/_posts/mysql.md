@@ -4,6 +4,7 @@ date: 2020-08-11 13:57:39
 tags: 学无止境
 ---
 ## Mysql
+
 ### 一、基础用法
 
 #### 1.增、删、改、查
@@ -46,35 +47,43 @@ replace可以起到Insert和Update的效果，但是使用需要注意
 
 #### 3.常见方法
 
-```mysql
+```sql
 order by
+group by
 desc
-
+count
+sum
+case when then else end
+having
 ```
 
 #### 4.实例
 
-###### 查询每组数据的前几个
+##### 查询每组数据的前几个
 
 （例如：每班前三名的同学）
 
 查询每个人最近20次点检用时：
 
-```mysql
+```sql
 SELECT c.DRI,c.pmTime,c.Date
 FROM pmhistory c
-WHERE(SELECT count(1) AS ID	FROM pmhistory a WHERE a.DRI = c.DRI AND a.Date >= c.Date) <= 20
+WHERE(SELECT count(1) AS ID FROM pmhistory a WHERE a.DRI = c.DRI AND a.Date >= c.Date) <= 20
 ORDER BY c.DRI,c.Date desc
 ```
-
-
 
 ### 二、Mysql进阶
 
 #### 1.EXPLAIN的使用与分析
----
+
+#### 2.Case When
+
+```sql
+select Fixture_ID,
+SUM(CASE `Status` WHEN 'Backend ME' then 1 end )AS 'Backend ME',
+SUM(CASE `Status` WHEN 'Production Line' then 1 end) AS 'Production Line'
+from fixturelist where Fixture_ID in(
+select fixture_id from fixture where Department='TE' AND Project="FATP Common")
+```
 
 ## SQL Server
-
-
-
