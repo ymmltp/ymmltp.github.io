@@ -86,4 +86,17 @@ from fixturelist where Fixture_ID in(
 select fixture_id from fixture where Department='TE' AND Project="FATP Common")
 ```
 
+#### 3.时间比较
+
+now()函数返回的是当前时间的年月日时分秒，如：2008-12-29 16:25:46
+
+CURDATE()函数返回的是年月日信息： 如：2008-12-29
+
+CURTIME()函数返回的是当前时间的时分秒信息，如：16:25:46
+
+```sql
+SELECT TIMESTAMPDIFF(MONTH,'2012-10-01','2013-01-13');  //Day
+select DATEDIFF('2013-01-13','2012-10-01');
+```
+
 ## SQL Server
