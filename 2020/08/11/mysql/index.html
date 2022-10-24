@@ -163,7 +163,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      304 字
+      574 字
     </span>
   
 
@@ -173,7 +173,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      4
+      9
        分钟
     </span>
   
@@ -213,7 +213,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2022年2月21日 下午
+                  本文最后更新于：2022年10月18日 上午
                 
               </p>
             
@@ -233,19 +233,64 @@ Olecmd.ExecuteNonQuery();&#x2F;&#x2F;写入表</code></pre>
 delete from [table] limit num;  &#x2F;&#x2F;删除固定几行</code></pre>
 
 <h5 id="Replace"><a href="#Replace" class="headerlink" title="Replace"></a>Replace</h5><p>replace可以起到Insert和Update的效果，但是使用需要注意</p>
-<h4 id="2-数据库操作"><a href="#2-数据库操作" class="headerlink" title="2.数据库操作"></a>2.数据库操作</h4><h4 id="3-常见方法"><a href="#3-常见方法" class="headerlink" title="3.常见方法"></a>3.常见方法</h4><pre><code class="hljs mysql">order by
-desc</code></pre>
+<h4 id="2-数据库操作"><a href="#2-数据库操作" class="headerlink" title="2.数据库操作"></a>2.数据库操作</h4><h4 id="3-常见方法"><a href="#3-常见方法" class="headerlink" title="3.常见方法"></a>3.常见方法</h4><pre><code class="hljs sql">order by
+group by
+desc
+count
+sum
+case when then else <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">having</span></code></pre>
 
-<h4 id="4-实例"><a href="#4-实例" class="headerlink" title="4.实例"></a>4.实例</h4><h6 id="查询每组数据的前几个"><a href="#查询每组数据的前几个" class="headerlink" title="查询每组数据的前几个"></a>查询每组数据的前几个</h6><p>（例如：每班前三名的同学）</p>
+<h4 id="4-实例"><a href="#4-实例" class="headerlink" title="4.实例"></a>4.实例</h4><h5 id="查询每组数据的前几个"><a href="#查询每组数据的前几个" class="headerlink" title="查询每组数据的前几个"></a>查询每组数据的前几个</h5><p>（例如：每班前三名的同学）</p>
 <p>查询每个人最近20次点检用时：</p>
-<pre><code class="hljs mysql">SELECT c.DRI,c.pmTime,c.Date
-FROM pmhistory c
-WHERE(SELECT count(1) AS ID	FROM pmhistory a WHERE a.DRI &#x3D; c.DRI AND a.Date &gt;&#x3D; c.Date) &lt;&#x3D; 20
-ORDER BY c.DRI,c.Date desc</code></pre>
+<pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> c.DRI,c.pmTime,c.Date
+<span class="hljs-keyword">FROM</span> pmhistory c
+<span class="hljs-keyword">WHERE</span>(<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">count</span>(<span class="hljs-number">1</span>) <span class="hljs-keyword">AS</span> <span class="hljs-keyword">ID</span> <span class="hljs-keyword">FROM</span> pmhistory a <span class="hljs-keyword">WHERE</span> a.DRI = c.DRI <span class="hljs-keyword">AND</span> a.Date &gt;= c.Date) &lt;= <span class="hljs-number">20</span>
+<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> c.DRI,c.Date <span class="hljs-keyword">desc</span></code></pre>
 
+<h3 id="二、Mysql进阶"><a href="#二、Mysql进阶" class="headerlink" title="二、Mysql进阶"></a>二、Mysql进阶</h3><h4 id="1-EXPLAIN的使用与分析"><a href="#1-EXPLAIN的使用与分析" class="headerlink" title="1.EXPLAIN的使用与分析"></a>1.EXPLAIN的使用与分析</h4><h4 id="2-Case-When"><a href="#2-Case-When" class="headerlink" title="2.Case When"></a>2.Case When</h4><pre><code class="hljs sql"><span class="hljs-keyword">select</span> Fixture_ID,
+<span class="hljs-keyword">SUM</span>(<span class="hljs-keyword">CASE</span> <span class="hljs-string">`Status`</span> <span class="hljs-keyword">WHEN</span> <span class="hljs-string">'Backend ME'</span> <span class="hljs-keyword">then</span> <span class="hljs-number">1</span> <span class="hljs-keyword">end</span> )<span class="hljs-keyword">AS</span> <span class="hljs-string">'Backend ME'</span>,
+<span class="hljs-keyword">SUM</span>(<span class="hljs-keyword">CASE</span> <span class="hljs-string">`Status`</span> <span class="hljs-keyword">WHEN</span> <span class="hljs-string">'Production Line'</span> <span class="hljs-keyword">then</span> <span class="hljs-number">1</span> <span class="hljs-keyword">end</span>) <span class="hljs-keyword">AS</span> <span class="hljs-string">'Production Line'</span>
+<span class="hljs-keyword">from</span> fixturelist <span class="hljs-keyword">where</span> Fixture_ID <span class="hljs-keyword">in</span>(
+<span class="hljs-keyword">select</span> fixture_id <span class="hljs-keyword">from</span> fixture <span class="hljs-keyword">where</span> Department=<span class="hljs-string">'TE'</span> <span class="hljs-keyword">AND</span> <span class="hljs-keyword">Project</span>=<span class="hljs-string">"FATP Common"</span>)</code></pre>
 
+<h4 id="3-时间比较"><a href="#3-时间比较" class="headerlink" title="3.时间比较"></a>3.时间比较</h4><p>now()函数返回的是当前时间的年月日时分秒，如：2008-12-29 16:25:46</p>
+<p>CURDATE()函数返回的是年月日信息： 如：2008-12-29</p>
+<p>CURTIME()函数返回的是当前时间的时分秒信息，如：16:25:46</p>
+<pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">TIMESTAMPDIFF</span>(<span class="hljs-keyword">MONTH</span>,<span class="hljs-string">'2012-10-01'</span>,<span class="hljs-string">'2013-01-13'</span>);  //Day
+<span class="hljs-keyword">select</span> <span class="hljs-keyword">DATEDIFF</span>(<span class="hljs-string">'2013-01-13'</span>,<span class="hljs-string">'2012-10-01'</span>);</code></pre>
 
-<h3 id="二、Mysql进阶"><a href="#二、Mysql进阶" class="headerlink" title="二、Mysql进阶"></a>二、Mysql进阶</h3><h4 id="1-EXPLAIN的使用与分析"><a href="#1-EXPLAIN的使用与分析" class="headerlink" title="1.EXPLAIN的使用与分析"></a>1.EXPLAIN的使用与分析</h4><hr>
+<h4 id="4-创建存储过程"><a href="#4-创建存储过程" class="headerlink" title="4.创建存储过程"></a>4.创建存储过程</h4><pre><code class="hljs sql">delimiter $
+<span class="hljs-keyword">create</span> <span class="hljs-keyword">PROCEDURE</span> Update_FxitureBinCount()
+
+<span class="hljs-keyword">BEGIN</span>
+    <span class="hljs-keyword">DECLARE</span>  FixtureID1  <span class="hljs-built_in">varchar</span>(<span class="hljs-number">50</span>); <span class="hljs-comment">-- FixtureID</span>
+    <span class="hljs-keyword">DECLARE</span>  Bin1  <span class="hljs-built_in">varchar</span>(<span class="hljs-number">32</span>); <span class="hljs-comment">-- Bin</span>
+    <span class="hljs-keyword">DECLARE</span>  BinQTY <span class="hljs-built_in">INT</span>(<span class="hljs-number">11</span>);   <span class="hljs-comment">-- QTY</span>
+    <span class="hljs-comment">-- 遍历数据结束标志</span>
+    <span class="hljs-keyword">DECLARE</span> done <span class="hljs-built_in">INT</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-literal">FALSE</span>;
+    <span class="hljs-comment">-- 游标</span>
+    <span class="hljs-keyword">DECLARE</span> cur_account <span class="hljs-keyword">CURSOR</span> <span class="hljs-keyword">FOR</span> <span class="hljs-keyword">select</span> Fixture_ID,<span class="hljs-string">`Status`</span> <span class="hljs-keyword">AS</span> <span class="hljs-keyword">BIN</span>,<span class="hljs-keyword">COUNT</span>(*) <span class="hljs-keyword">as</span> QTY <span class="hljs-keyword">from</span> fixturelist <span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> Fixture_ID,<span class="hljs-string">`Status`</span>;
+    <span class="hljs-comment">-- 将结束标志绑定到游标</span>
+    <span class="hljs-keyword">DECLARE</span> CONTINUE <span class="hljs-keyword">HANDLER</span> <span class="hljs-keyword">FOR</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">FOUND</span> <span class="hljs-keyword">SET</span> done = <span class="hljs-literal">TRUE</span>;
+
+    <span class="hljs-comment">-- 打开游标</span>
+    OPEN  cur_account;     
+    <span class="hljs-comment">-- 遍历</span>
+    read_loop: LOOP
+            <span class="hljs-comment">-- 取值 取多个字段</span>
+            FETCH  NEXT from cur_account INTO FixtureID1,Bin1,BinQTY;
+            IF done THEN
+                LEAVE read_loop;
+             <span class="hljs-keyword">END</span> <span class="hljs-keyword">IF</span>;
+
+        <span class="hljs-comment">-- 你自己想做的操作</span>
+        <span class="hljs-keyword">UPDATE</span> fixturebin_count <span class="hljs-keyword">set</span> qty = BinQTY <span class="hljs-keyword">where</span> Fixture_ID=FixtureID1 <span class="hljs-keyword">and</span> <span class="hljs-keyword">bin</span>=Bin1;
+
+    <span class="hljs-keyword">END</span> <span class="hljs-keyword">LOOP</span>;
+    CLOSE cur_account;
+<span class="hljs-keyword">END</span> $</code></pre>
+
 <h2 id="SQL-Server"><a href="#SQL-Server" class="headerlink" title="SQL Server"></a>SQL Server</h2>
             </article>
             <hr>

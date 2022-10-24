@@ -163,7 +163,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.1k 字
+      1.5k 字
     </span>
   
 
@@ -173,7 +173,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      17
+      24
        分钟
     </span>
   
@@ -213,12 +213,13 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2022年3月3日 下午
+                  本文最后更新于：2022年9月6日 上午
                 
               </p>
             
             <article class="markdown-body">
               <h2 id="Bootstrap-Table基础用法"><a href="#Bootstrap-Table基础用法" class="headerlink" title="Bootstrap Table基础用法"></a>Bootstrap Table基础用法</h2><h5 id="1、使用js注册一个bootstrap-table"><a href="#1、使用js注册一个bootstrap-table" class="headerlink" title="1、使用js注册一个bootstrap-table"></a>1、使用js注册一个bootstrap-table</h5><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"table"</span>&gt;</span> <span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span></code></pre>
+
 <pre><code class="hljs javascript">$(<span class="hljs-string">'#table'</span>).bootstrapTable(<span class="hljs-string">'destroy'</span>).bootstrapTable(&#123;
     columns: [&#123;
         field: <span class="hljs-string">'id'</span>,
@@ -240,6 +241,7 @@
     	root:<span class="hljs-string">"Admin"</span>
 	&#125;]
 &#125;);</code></pre>
+
 <h5 id="2、html注册bootstrap-table"><a href="#2、html注册bootstrap-table" class="headerlink" title="2、html注册bootstrap-table"></a>2、html注册bootstrap-table</h5><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">table</span></span>
 <span class="hljs-tag">  <span class="hljs-attr">data-toggle</span>=<span class="hljs-string">"table"</span></span>
 <span class="hljs-tag">  <span class="hljs-attr">data-url</span>=<span class="hljs-string">"data1.json"</span>&gt;</span>
@@ -251,8 +253,9 @@
     <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">thead</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span></code></pre>
+
 <h2 id="Bootstrap-Table其他功能"><a href="#Bootstrap-Table其他功能" class="headerlink" title="Bootstrap Table其他功能"></a>Bootstrap Table其他功能</h2><p>（参考官网文档）</p>
-<h5 id="1、使用html开启相关功能"><a href="#1、使用html开启相关功能" class="headerlink" title="1、使用html开启相关功能"></a>1、使用html开启相关功能</h5><p>​    data-[属性名称]</p>
+<h5 id="1、使用html开启相关功能"><a href="#1、使用html开启相关功能" class="headerlink" title="1、使用html开启相关功能"></a>1、使用html开启相关功能</h5><p>data-[属性名称]</p>
 <pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">table</span></span>
 <span class="hljs-tag">  <span class="hljs-attr">data-toggle</span>=<span class="hljs-string">"table"</span></span>
 <span class="hljs-tag">  <span class="hljs-attr">data-url</span>=<span class="hljs-string">"data1.json"</span>  </span>
@@ -260,6 +263,7 @@
 <span class="hljs-tag">  <span class="hljs-attr">data-search</span>=<span class="hljs-string">"true"</span></span>
 <span class="hljs-tag">  <span class="hljs-attr">data-sortable</span>=<span class="hljs-string">"true"</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span></code></pre>
+
 <h5 id="2、使用js配置相关功能"><a href="#2、使用js配置相关功能" class="headerlink" title="2、使用js配置相关功能"></a>2、使用js配置相关功能</h5><pre><code class="hljs javascript"><span class="hljs-comment">//初始化主表格</span>
 $(<span class="hljs-string">'#table'</span>).bootstrapTable(<span class="hljs-string">'destroy'</span>).bootstrapTable(&#123;
     url: <span class="hljs-string">'Ashx/Select.ashx?type=equipmentHistory'</span>, <span class="hljs-comment">//请求后台的URL（*）</span>
@@ -316,9 +320,18 @@ $(<span class="hljs-string">'#table'</span>).bootstrapTable(<span class="hljs-st
         tableName: <span class="hljs-string">'Laeq&amp;Lex'</span>,
         excelstyles: [<span class="hljs-string">'background-color'</span>, <span class="hljs-string">'color'</span>, <span class="hljs-string">'font-size'</span>, <span class="hljs-string">'font-weight'</span>],
     &#125;,
-    columns: [&#123;
+    columns: [
+    [&#123;    <span class="hljs-comment">//增加表头</span>
+            title: <span class="hljs-string">'已绑定的设备'</span>,
+            colspan: <span class="hljs-number">6</span>,
+            align: <span class="hljs-string">'center'</span>,
+            rowStyle: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">row, index</span>) </span>&#123;
+                <span class="hljs-keyword">return</span> &#123; <span class="hljs-attr">css</span>: &#123; <span class="hljs-string">"color"</span>: <span class="hljs-string">"#888"</span>, <span class="hljs-string">"background-color"</span>:<span class="hljs-string">"white"</span> &#125; &#125;;
+            &#125;
+        &#125;
+    ],[&#123;
         checkbox: <span class="hljs-literal">true</span>
-    &#125;, 
+    &#125;, &#123;
         field: <span class="hljs-string">'id'</span>,
         title: <span class="hljs-string">'ID'</span>
     &#125;, &#123;
@@ -336,15 +349,14 @@ $(<span class="hljs-string">'#table'</span>).bootstrapTable(<span class="hljs-st
         align: <span class="hljs-string">'center'</span>,
         valign: <span class="hljs-string">'middle'</span>,
         formatter: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">value, row, index</span>) </span>&#123;    <span class="hljs-comment">//自定义该列的样式</span>
-                <span class="hljs-keyword">return</span> [<span class="hljs-string">'&lt;button type="button" class="btn bad text-light" id="start"&gt;Start&lt;/button&gt;'</span>;           
+                <span class="hljs-keyword">return</span> [<span class="hljs-string">'&lt;button type="button" class="btn bad text-light" id="start"&gt;Start&lt;/button&gt;'</span>];           
         &#125;,
         events: &#123;                                    <span class="hljs-comment">//自定义功能</span>
             <span class="hljs-string">"click #delete"</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e, value, row, index</span>) </span>&#123;
                 
-                &#125;)
+                &#125;
             &#125;
-        &#125;
-    &#125;],
+    &#125;]],
      <span class="hljs-comment">//注册加载子表的事件。注意下这里的三个参数！需要设置detailView:true</span>
      onExpandRow: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">index, row, $detail</span>) </span>&#123;
          InitSubTable(index, row, $detail);
@@ -414,6 +426,108 @@ $(<span class="hljs-string">'#table'</span>).bootstrapTable(<span class="hljs-st
     field: <span class="hljs-string">'DRI'</span>,
     value: data.DisplayName,
 &#125;); <span class="hljs-comment">//formatter中不支持ajax异步查询更换值，只能加载完table之后再使用updateCell方法。更新</span></code></pre>
+
+<h5 id="3、edit-Table"><a href="#3、edit-Table" class="headerlink" title="3、edit Table"></a>3、edit Table</h5><p>插件 bootstrap-editable.js 和 bootstrap-table-editable.js</p>
+<pre><code class="hljs javascript">&lt;script src=<span class="hljs-string">"~/Scripts/bootstrap-table.min.js"</span>&gt;<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span>
+&lt;script src=<span class="hljs-string">"~/Scripts/bootstrap-editable.js"</span>&gt;<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span>
+&lt;script src=<span class="hljs-string">"~/Scripts/bootstrap-table-editable.js"</span>&gt;<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span>
+
+$(<span class="hljs-string">"#table"</span>).bootstrapTable(<span class="hljs-string">'destroy'</span>).bootstrapTable(&#123;
+    cache: <span class="hljs-literal">false</span>,
+    type: <span class="hljs-string">'GET'</span>,
+    url: <span class="hljs-string">'/User/QuerybyRange'</span>,
+    queryParams: &#123;
+        NTID: $(<span class="hljs-string">"#ntid-input"</span>).val(),
+        EmployeeID: $(<span class="hljs-string">"#epid-input"</span>).val(),
+        Department: $(<span class="hljs-string">"#departsele"</span>).val()[<span class="hljs-number">0</span>] == <span class="hljs-literal">null</span> ? getCookie(<span class="hljs-string">"epm-Department"</span>) == <span class="hljs-string">"ALL"</span> ? <span class="hljs-literal">null</span> : getCookie(<span class="hljs-string">"epm-Department"</span>) : $(<span class="hljs-string">"#departsele"</span>).val(),
+    &#125;,
+    dataType: <span class="hljs-string">'json'</span>,
+    pagination: <span class="hljs-literal">true</span>,  <span class="hljs-comment">//设置为 true 会在表格底部显示分页条。</span>
+    paginationLoop: <span class="hljs-literal">false</span>, <span class="hljs-comment">//设置为 true 启用分页条无限循环的功能。</span>
+    pageSize: <span class="hljs-number">10</span>,<span class="hljs-comment">//每页初始显示的条数</span>
+    pageList: [<span class="hljs-number">10</span>, <span class="hljs-number">15</span>, <span class="hljs-number">20</span>],
+    columns: [
+        &#123;
+            field: <span class="hljs-string">'Index'</span>,
+            title: <span class="hljs-string">'Index'</span>,
+            formatter: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">value, row, index</span>) </span>&#123;
+                <span class="hljs-keyword">return</span> index + <span class="hljs-number">1</span>;
+            &#125;
+        &#125;, &#123;
+            field: <span class="hljs-string">'UserName'</span>,
+            title: <span class="hljs-string">'User Name'</span>
+        &#125;, &#123;
+            field: <span class="hljs-string">'EmployeeID'</span>,
+            title: <span class="hljs-string">'Employee ID'</span>
+        &#125;, &#123;
+            field: <span class="hljs-string">'NTID'</span>,
+            title: <span class="hljs-string">'NTID'</span>
+        &#125;, &#123;
+            field: <span class="hljs-string">'Department'</span>,
+            title: <span class="hljs-string">'Department'</span>
+        &#125;, &#123;
+            field: <span class="hljs-string">'Project'</span>,
+            title: <span class="hljs-string">'Project'</span>,
+            editable: &#123;
+                title: <span class="hljs-string">'Project'</span>,
+                type: <span class="hljs-string">'checklist'</span>,
+                separator: <span class="hljs-string">","</span>,
+                source: res[<span class="hljs-number">0</span>],
+                mode: <span class="hljs-string">'inline'</span>,
+                validate: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">value</span>) </span>&#123;
+                    <span class="hljs-keyword">if</span> ($.trim(value) == <span class="hljs-string">''</span>) <span class="hljs-keyword">return</span> <span class="hljs-string">'Value can not be empty.'</span>;
+                &#125;
+            &#125;
+        &#125;, &#123;
+            field: <span class="hljs-string">'eMail'</span>,
+            title: <span class="hljs-string">'e-Mail'</span>
+        &#125;, &#123;
+            field: <span class="hljs-string">'PhoneNum'</span>,
+            title: <span class="hljs-string">'Phone'</span>
+        &#125;, &#123;
+            field: <span class="hljs-string">'role'</span>,
+            title: <span class="hljs-string">'Role'</span>,
+            editable: &#123;
+                title: <span class="hljs-string">'Role'</span>,
+                type: <span class="hljs-string">'select'</span>,
+                separator: <span class="hljs-string">","</span>,
+                source: res[<span class="hljs-number">1</span>],
+                mode: <span class="hljs-string">'inline'</span>,
+                validate: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">value</span>) </span>&#123;
+                    <span class="hljs-keyword">if</span> ($.trim(value) == <span class="hljs-string">''</span>) <span class="hljs-keyword">return</span> <span class="hljs-string">'Value can not be empty.'</span>;
+                &#125;
+            &#125;
+        &#125;, &#123;
+            field: <span class="hljs-string">'Operate'</span>,
+            title: <span class="hljs-string">'Operate'</span>,
+            events: operateEvents,
+            formatter: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">value, row, index</span>) </span>&#123;
+                <span class="hljs-keyword">return</span> [<span class="hljs-string">'&lt;a href="#" id="delete"&gt;Delete&lt;/a&gt;'</span>];
+            &#125;
+        &#125;],
+    onEditableSave: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">field, row, oldValue, $el</span>) </span>&#123;
+        <span class="hljs-built_in">console</span>.log(field);
+        <span class="hljs-keyword">var</span> tmp = &#123;
+            id: row[<span class="hljs-string">'id'</span>],
+            NTID: row[<span class="hljs-string">'id'</span>],
+        &#125;
+        tmp[field] = field == <span class="hljs-string">'Project'</span> ?  row[field].join(<span class="hljs-string">','</span>) : row[field];
+        $.ajax(&#123;
+            url: <span class="hljs-string">'/User/Edit'</span>,
+            method: <span class="hljs-string">'POST'</span>,
+            data: tmp,
+            success: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">data</span>) </span>&#123;
+                <span class="hljs-built_in">console</span>.log(data);
+            &#125;,
+            error: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err</span>) </span>&#123;
+                alert(err.responseText);
+            &#125;,
+            complete: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">res</span>) </span>&#123;
+                $(<span class="hljs-string">"#table"</span>).bootstrapTable(<span class="hljs-string">"refreshOptions"</span>, &#123; <span class="hljs-attr">url</span>: <span class="hljs-string">"/User/QuerybyRange"</span> &#125;);
+            &#125;
+        &#125;)
+    &#125;,
+&#125;);</code></pre>
 
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>1、<a href="https://www.bootstrap-table.com.cn/examples/options/table-height/" target="_blank" rel="noopener">Bootstrap Table官网实例</a></p>
 <p>2、<a href="https://www.cnblogs.com/landeanfen/p/4993979.html" target="_blank" rel="noopener">bootstrap-table父子表</a></p>

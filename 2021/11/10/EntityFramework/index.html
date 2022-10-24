@@ -163,7 +163,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      299 字
+      553 字
     </span>
   
 
@@ -173,7 +173,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      4
+      9
        分钟
     </span>
   
@@ -213,28 +213,17 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2022年2月28日 上午
+                  本文最后更新于：2022年10月21日 下午
                 
               </p>
             
             <article class="markdown-body">
-              <h2 id="EntityFramwork"><a href="#EntityFramwork" class="headerlink" title="EntityFramwork"></a>EntityFramwork</h2><h4 id="1、查询语句"><a href="#1、查询语句" class="headerlink" title="1、查询语句"></a>1、查询语句</h4><p>可以使用linq语句，或者EF结构</p>
-<pre><code class="hljs C">动态条件查询
-var item = db.pmsheets.ToList();
-    <span class="hljs-keyword">if</span> (!<span class="hljs-built_in">string</span>.IsNullOrEmpty(department))
-        item = item.Where(e =&gt; e.department == department).ToList();
-    <span class="hljs-keyword">if</span> (!<span class="hljs-built_in">string</span>.IsNullOrEmpty(project))
-        item = item.Where(e =&gt; e.project == project).ToList();
-    var items = item.Select(e =&gt; <span class="hljs-keyword">new</span> &#123;
-        paras = e.station
-    &#125;).Distinct().ToList();</code></pre>
+              <h2 id="EntityFramwork"><a href="#EntityFramwork" class="headerlink" title="EntityFramwork"></a>EntityFramwork</h2><h3 id="1、EF-链接各类型数据库"><a href="#1、EF-链接各类型数据库" class="headerlink" title="1、EF 链接各类型数据库"></a>1、EF 链接各类型数据库</h3><h4 id="1-1、Core-EF-链接SQL-Server"><a href="#1-1、Core-EF-链接SQL-Server" class="headerlink" title="1.1、Core EF 链接SQL Server"></a>1.1、Core EF 链接SQL Server</h4><pre><code class="hljs C">Scaffold-DbContext <span class="hljs-string">"data source=cnwuxg0te01;initial catalog=dbName;persist security info=True;user id=sa;password=Jabil12345;MultipleActiveResultSets=True;App=EntityFramework"</span> Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Tables Employee</code></pre>
 
-<h4 id="2-1、Core-EF-链接SQL-Server"><a href="#2-1、Core-EF-链接SQL-Server" class="headerlink" title="2.1、Core EF 链接SQL Server"></a>2.1、Core EF 链接SQL Server</h4><pre><code class="hljs stylus">Scaffold-DbContext <span class="hljs-string">"data source=cnwuxg0te01;initial catalog=dbName;persist security info=True;user id=sa;password=Jabil12345;MultipleActiveResultSets=True;App=EntityFramework"</span> Microsoft<span class="hljs-selector-class">.EntityFrameworkCore</span><span class="hljs-selector-class">.SqlServer</span> -OutputDir Models -Tables Employee</code></pre>
-
-<h4 id="2-2、-net-EF-链接postgreSql"><a href="#2-2、-net-EF-链接postgreSql" class="headerlink" title="2.2、.net EF 链接postgreSql"></a>2.2、.net EF 链接postgreSql</h4><blockquote>
+<h4 id="1-2、-net-EF-链接postgreSql"><a href="#1-2、-net-EF-链接postgreSql" class="headerlink" title="1.2、.net EF 链接postgreSql"></a>1.2、.net EF 链接postgreSql</h4><blockquote>
 <p>选择 .net 4.6.1<br>1、安装插件 Npgsql PostgreSQL Integration<br>2、安装 EF框架 无框架限制<br>3、安装 Npgsql 注意.net版本<br>4、安装 EF6 for Npgsql 提供postgresql的ADO模型，要匹配：.net 以及 2,3 的版本</p>
 </blockquote>
-<h4 id="2-3、Core-EF-链接postgreSql"><a href="#2-3、Core-EF-链接postgreSql" class="headerlink" title="2.3、Core EF 链接postgreSql"></a>2.3、Core EF 链接postgreSql</h4><blockquote>
+<h4 id="1-3、Core-EF-链接postgreSql"><a href="#1-3、Core-EF-链接postgreSql" class="headerlink" title="1.3、Core EF 链接postgreSql"></a>1.3、Core EF 链接postgreSql</h4><blockquote>
 <p>1、安装插件 Npgsql PostgreSQL Integration<br>2、安装 EF框架：Microsoft.EntityFrameworkCore<br>3、Microsoft.EntityFrameworkCore.Design;<br>   Microsoft.EntityFrameworkCore.Tools<br>4、安装 Npgsql: Npgsql.EntityFrameworkCore.PostgreSQL<br>5、Npgsql.EntityFrameworkCore.PostgreSQL.Design<br>6、cmd-&gt;cd 进入工程文件.csproj所在的文件夹 -&gt;<br>dotnet ef dbcontext scaffold “Host=cnwuxm1medb01;Database=EC;Username=ECUser;Password=Jabil123” Npgsql.EntityFrameworkCore.PostgreSQL -o Models</p>
 </blockquote>
 <ul>
@@ -247,6 +236,40 @@ var item = db.pmsheets.ToList();
 </blockquote>
 </li>
 </ul>
+<h4 id="1-4、Core-EF-链接MySQL"><a href="#1-4、Core-EF-链接MySQL" class="headerlink" title="1.4、Core EF 链接MySQL"></a>1.4、Core EF 链接MySQL</h4><blockquote>
+<p>1.安装 EF框架：Microsoft.EntityFrameworkCore<br>2.Microsoft.EntityFrameworkCore.Tools<br>3.安装 Mysql.Data<br>4.安装 Pomelo.EntityFrameworkCore.MySql(官方插件有问题，使用这个社区版本)<br>5.cmd-&gt;cd 进入工程文件.csproj所在的文件夹 -&gt;<br>Scaffold-DbContext “server=cnwuxg0te01;uid=root;pwd=Jabil12345;port=3306;database=sparepart_current;” Pomelo.EntityFrameworkCore.MySql -OutputDir Models -f</p>
+</blockquote>
+<h3 id="2、查询语句"><a href="#2、查询语句" class="headerlink" title="2、查询语句"></a>2、查询语句</h3><p>可以使用linq语句，或者EF结构</p>
+<h4 id="动态条件查询"><a href="#动态条件查询" class="headerlink" title="动态条件查询"></a>动态条件查询</h4><pre><code class="hljs C#">var item &#x3D; db.pmsheets.ToList();
+    if (!string.IsNullOrEmpty(department))
+        item &#x3D; item.Where(e &#x3D;&gt; e.department &#x3D;&#x3D; department).ToList();
+    if (!string.IsNullOrEmpty(project))
+        item &#x3D; item.Where(e &#x3D;&gt; e.project &#x3D;&#x3D; project).ToList();
+    var items &#x3D; item.Select(e &#x3D;&gt; new &#123;
+        paras &#x3D; e.station
+    &#125;).Distinct().ToList();</code></pre>
+
+<h4 id="两表链接"><a href="#两表链接" class="headerlink" title="两表链接"></a>两表链接</h4><pre><code class="hljs C#">var pmitems &#x3D; db.PMItems
+        .Join(db.EQs, pm &#x3D;&gt; pm.EQID, eq &#x3D;&gt; eq.EQID, (pm, eq) &#x3D;&gt; new &#123; 
+            pmid&#x3D;pm.pmid,
+            EQID&#x3D;pm.pmid,
+            owner &#x3D; eq.Owners,
+        &#125;)
+        .Where(e &#x3D;&gt; pmid.Contains(e.pmid)).ToList();</code></pre>
+
+<h4 id="Where-不执行"><a href="#Where-不执行" class="headerlink" title="Where 不执行"></a>Where 不执行</h4><pre><code class="hljs C#">pmms pmmsdb &#x3D; new pmms();
+inspect db &#x3D; new inspect();
+var eqwhere &#x3D; pmmsdb.EQs.Where(e &#x3D;&gt; true);
+if (department.Length&gt;0) eqwhere &#x3D; eqwhere.Where(e &#x3D;&gt; department.Contains(e.Department));
+if (line.Length &gt; 0) eqwhere &#x3D; eqwhere.Where(e &#x3D;&gt; line.Contains(e.Line));
+if (project.Length &gt; 0) eqwhere &#x3D; eqwhere.Where(e &#x3D;&gt; project.Contains(e.Workcell));
+var eqlist &#x3D; eqwhere.Select(e &#x3D;&gt; new &#123;
+    Line &#x3D; e.Line,
+    EQID &#x3D; e.EQID
+&#125;).ToList();</code></pre>
+
+<h4 id="EF-实现sql中的方法"><a href="#EF-实现sql中的方法" class="headerlink" title="EF 实现sql中的方法"></a>EF 实现sql中的方法</h4><pre><code class="hljs C#">using Microsoft.EntityFrameworkCore;
+EF.Functions</code></pre>
 
             </article>
             <hr>
