@@ -3,11 +3,15 @@ title: Bootstrap Table学习笔记
 date: 2020-07-21 14:15:54
 tags: 学无止境
 ---
+
 ## Bootstrap Table基础用法
+
 ##### 1、使用js注册一个bootstrap-table
+
 ```html
 <table id="table"> </table> 
 ```
+
 ```javascript
 $('#table').bootstrapTable('destroy').bootstrapTable({
     columns: [{
@@ -31,7 +35,9 @@ $('#table').bootstrapTable('destroy').bootstrapTable({
 	}]
 });
 ```
+
 ##### 2、html注册bootstrap-table
+
 ```html
 <table
   data-toggle="table"
@@ -45,11 +51,15 @@ $('#table').bootstrapTable('destroy').bootstrapTable({
   </thead>
 </table>
 ```
+
 ## Bootstrap Table其他功能
 
 （参考官网文档）
+
 ##### 1、使用html开启相关功能
-​	data-[属性名称]
+
+data-[属性名称]
+
 ```html
 <table
   data-toggle="table"
@@ -59,7 +69,9 @@ $('#table').bootstrapTable('destroy').bootstrapTable({
   data-sortable="true">
 </table>
 ```
+
 ##### 2、使用js配置相关功能
+
 ```javascript
 //初始化主表格
 $('#table').bootstrapTable('destroy').bootstrapTable({
@@ -117,9 +129,18 @@ $('#table').bootstrapTable('destroy').bootstrapTable({
         tableName: 'Laeq&Lex',
         excelstyles: ['background-color', 'color', 'font-size', 'font-weight'],
     },
-    columns: [{
+    columns: [
+    [{    //增加表头
+            title: '已绑定的设备',
+            colspan: 6,
+            align: 'center',
+            rowStyle: function (row, index) {
+                return { css: { "color": "#888", "background-color":"white" } };
+            }
+        }
+    ],[{
         checkbox: true
-    }, 
+    }, {
         field: 'id',
         title: 'ID'
     }, {
@@ -137,15 +158,14 @@ $('#table').bootstrapTable('destroy').bootstrapTable({
         align: 'center',
         valign: 'middle',
         formatter: function (value, row, index) {    //自定义该列的样式
-                return ['<button type="button" class="btn bad text-light" id="start">Start</button>';           
+                return ['<button type="button" class="btn bad text-light" id="start">Start</button>'];           
         },
         events: {                                    //自定义功能
             "click #delete": function (e, value, row, index) {
                 
-                })
+                }
             }
-        }
-    }],
+    }]],
      //注册加载子表的事件。注意下这里的三个参数！需要设置detailView:true
      onExpandRow: function (index, row, $detail) {
          InitSubTable(index, row, $detail);
@@ -219,6 +239,113 @@ $('#table').bootstrapTable('updateCell', {
     field: 'DRI',
     value: data.DisplayName,
 }); //formatter中不支持ajax异步查询更换值，只能加载完table之后再使用updateCell方法。更新
+```
+
+##### 3、edit Table
+
+插件 bootstrap-editable.js 和 bootstrap-table-editable.js
+
+```javascript
+<script src="~/Scripts/bootstrap-table.min.js"></script>
+<script src="~/Scripts/bootstrap-editable.js"></script>
+<script src="~/Scripts/bootstrap-table-editable.js"></script>
+
+$("#table").bootstrapTable('destroy').bootstrapTable({
+    cache: false,
+    type: 'GET',
+    url: '/User/QuerybyRange',
+    queryParams: {
+        NTID: $("#ntid-input").val(),
+        EmployeeID: $("#epid-input").val(),
+        Department: $("#departsele").val()[0] == null ? getCookie("epm-Department") == "ALL" ? null : getCookie("epm-Department") : $("#departsele").val(),
+    },
+    dataType: 'json',
+    pagination: true,  //设置为 true 会在表格底部显示分页条。
+    paginationLoop: false, //设置为 true 启用分页条无限循环的功能。
+    pageSize: 10,//每页初始显示的条数
+    pageList: [10, 15, 20],
+    columns: [
+        {
+            field: 'Index',
+            title: 'Index',
+            formatter: function (value, row, index) {
+                return index + 1;
+            }
+        }, {
+            field: 'UserName',
+            title: 'User Name'
+        }, {
+            field: 'EmployeeID',
+            title: 'Employee ID'
+        }, {
+            field: 'NTID',
+            title: 'NTID'
+        }, {
+            field: 'Department',
+            title: 'Department'
+        }, {
+            field: 'Project',
+            title: 'Project',
+            editable: {
+                title: 'Project',
+                type: 'checklist',
+                separator: ",",
+                source: res[0],
+                mode: 'inline',
+                validate: function (value) {
+                    if ($.trim(value) == '') return 'Value can not be empty.';
+                }
+            }
+        }, {
+            field: 'eMail',
+            title: 'e-Mail'
+        }, {
+            field: 'PhoneNum',
+            title: 'Phone'
+        }, {
+            field: 'role',
+            title: 'Role',
+            editable: {
+                title: 'Role',
+                type: 'select',
+                separator: ",",
+                source: res[1],
+                mode: 'inline',
+                validate: function (value) {
+                    if ($.trim(value) == '') return 'Value can not be empty.';
+                }
+            }
+        }, {
+            field: 'Operate',
+            title: 'Operate',
+            events: operateEvents,
+            formatter: function (value, row, index) {
+                return ['<a href="#" id="delete">Delete</a>'];
+            }
+        }],
+    onEditableSave: function (field, row, oldValue, $el) {
+        console.log(field);
+        var tmp = {
+            id: row['id'],
+            NTID: row['id'],
+        }
+        tmp[field] = field == 'Project' ?  row[field].join(',') : row[field];
+        $.ajax({
+            url: '/User/Edit',
+            method: 'POST',
+            data: tmp,
+            success: function (data) {
+                console.log(data);
+            },
+            error: function (err) {
+                alert(err.responseText);
+            },
+            complete: function (res) {
+                $("#table").bootstrapTable("refreshOptions", { url: "/User/QuerybyRange" });
+            }
+        })
+    },
+});
 ```
 
 ## 参考资料

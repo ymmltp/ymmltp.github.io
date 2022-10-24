@@ -5,32 +5,15 @@ tags: 学无止境
 ---
 ## EntityFramwork
 
-### 1、查询语句
+### 1、EF 链接各类型数据库
 
-可以使用linq语句，或者EF结构
-
-``` C
-动态条件查询
-var item = db.pmsheets.ToList();
-    if (!string.IsNullOrEmpty(department))
-        item = item.Where(e => e.department == department).ToList();
-    if (!string.IsNullOrEmpty(project))
-        item = item.Where(e => e.project == project).ToList();
-    var items = item.Select(e => new {
-        paras = e.station
-    }).Distinct().ToList();
-
-```
-
-### 2、EF 链接各类型数据库
-
-#### 2.1、Core EF 链接SQL Server
+#### 1.1、Core EF 链接SQL Server
 
 ```C
 Scaffold-DbContext "data source=cnwuxg0te01;initial catalog=dbName;persist security info=True;user id=sa;password=Jabil12345;MultipleActiveResultSets=True;App=EntityFramework" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Tables Employee
 ```
 
-#### 2.2、.net EF 链接postgreSql
+#### 1.2、.net EF 链接postgreSql
 
 > 选择 .net 4.6.1
 1、安装插件 Npgsql PostgreSQL Integration
@@ -38,8 +21,7 @@ Scaffold-DbContext "data source=cnwuxg0te01;initial catalog=dbName;persist secur
 3、安装 Npgsql 注意.net版本
 4、安装 EF6 for Npgsql 提供postgresql的ADO模型，要匹配：.net 以及 2,3 的版本
 
-
-#### 2.3、Core EF 链接postgreSql
+#### 1.3、Core EF 链接postgreSql
 
 >1、安装插件 Npgsql PostgreSQL Integration
 2、安装 EF框架：Microsoft.EntityFrameworkCore
@@ -55,7 +37,7 @@ dotnet ef dbcontext scaffold "Host=cnwuxm1medb01;Database=EC;Username=ECUser;Pas
 - Use the Force flag to overwrite these files
     >dotnet ef dbcontext scaffold "Host=cnwuxm1medb01;Database=FOF;Username=FOFUser;Password=Jabil123" Npgsql.EntityFrameworkCore.PostgreSQL -o Model -f
 
-#### 2.4、Core EF 链接MySQL
+#### 1.4、Core EF 链接MySQL
 
 >1.安装 EF框架：Microsoft.EntityFrameworkCore
 >2.Microsoft.EntityFrameworkCore.Tools
@@ -63,3 +45,54 @@ dotnet ef dbcontext scaffold "Host=cnwuxm1medb01;Database=EC;Username=ECUser;Pas
 >4.安装 Pomelo.EntityFrameworkCore.MySql(官方插件有问题，使用这个社区版本)
 >5.cmd->cd 进入工程文件.csproj所在的文件夹 -> 
 Scaffold-DbContext "server=cnwuxg0te01;uid=root;pwd=Jabil12345;port=3306;database=sparepart_current;" Pomelo.EntityFrameworkCore.MySql -OutputDir Models -f
+
+### 2、查询语句
+
+可以使用linq语句，或者EF结构
+
+#### 动态条件查询
+
+```C#
+var item = db.pmsheets.ToList();
+    if (!string.IsNullOrEmpty(department))
+        item = item.Where(e => e.department == department).ToList();
+    if (!string.IsNullOrEmpty(project))
+        item = item.Where(e => e.project == project).ToList();
+    var items = item.Select(e => new {
+        paras = e.station
+    }).Distinct().ToList();
+```
+
+#### 两表链接
+
+```C#
+var pmitems = db.PMItems
+        .Join(db.EQs, pm => pm.EQID, eq => eq.EQID, (pm, eq) => new { 
+            pmid=pm.pmid,
+            EQID=pm.pmid,
+            owner = eq.Owners,
+        })
+        .Where(e => pmid.Contains(e.pmid)).ToList();
+```
+
+#### Where 不执行
+
+```C#
+pmms pmmsdb = new pmms();
+inspect db = new inspect();
+var eqwhere = pmmsdb.EQs.Where(e => true);
+if (department.Length>0) eqwhere = eqwhere.Where(e => department.Contains(e.Department));
+if (line.Length > 0) eqwhere = eqwhere.Where(e => line.Contains(e.Line));
+if (project.Length > 0) eqwhere = eqwhere.Where(e => project.Contains(e.Workcell));
+var eqlist = eqwhere.Select(e => new {
+    Line = e.Line,
+    EQID = e.EQID
+}).ToList();
+```
+
+#### EF 实现sql中的方法
+
+```C#
+using Microsoft.EntityFrameworkCore;
+EF.Functions
+```

@@ -29,7 +29,7 @@ tags: 学无止境
 6、cmd->cd 进入工程文件.csproj所在的文件夹 -> 运行如下语句
 
 ```C
-dotnet ef dbcontext scaffold "Host=cnwuxm1medb01;Database=FOF;Username=FOFUser;Password=Jabil123" Npgsql.EntityFrameworkCore.PostgreSQL -o Model
+dotnet ef dbcontext scaffold "Host=cnwuxm1medb01;Database=EC;Username=ECUser;Password=Jabil123" Npgsql.EntityFrameworkCore.PostgreSQL -o Model
 ```
 
 - Use dotnet build to see the errors

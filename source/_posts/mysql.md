@@ -99,4 +99,39 @@ SELECT TIMESTAMPDIFF(MONTH,'2012-10-01','2013-01-13');  //Day
 select DATEDIFF('2013-01-13','2012-10-01');
 ```
 
+#### 4.创建存储过程
+
+```sql
+delimiter $
+create PROCEDURE Update_FxitureBinCount()
+
+BEGIN
+    DECLARE  FixtureID1  varchar(50); -- FixtureID
+    DECLARE  Bin1  varchar(32); -- Bin
+    DECLARE  BinQTY INT(11);   -- QTY
+    -- 遍历数据结束标志
+    DECLARE done INT DEFAULT FALSE;
+    -- 游标
+    DECLARE cur_account CURSOR FOR select Fixture_ID,`Status` AS BIN,COUNT(*) as QTY from fixturelist GROUP BY Fixture_ID,`Status`;
+    -- 将结束标志绑定到游标
+    DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
+
+    -- 打开游标
+    OPEN  cur_account;     
+    -- 遍历
+    read_loop: LOOP
+            -- 取值 取多个字段
+            FETCH  NEXT from cur_account INTO FixtureID1,Bin1,BinQTY;
+            IF done THEN
+                LEAVE read_loop;
+             END IF;
+
+        -- 你自己想做的操作
+        UPDATE fixturebin_count set qty = BinQTY where Fixture_ID=FixtureID1 and bin=Bin1;
+
+    END LOOP;
+    CLOSE cur_account;
+END $
+```
+
 ## SQL Server
