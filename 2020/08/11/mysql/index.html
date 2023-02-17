@@ -163,7 +163,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      574 字
+      625 字
     </span>
   
 
@@ -173,7 +173,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      9
+      10
        分钟
     </span>
   
@@ -213,7 +213,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2022年10月18日 上午
+                  本文最后更新于：2022年12月14日 上午
                 
               </p>
             
@@ -290,6 +290,10 @@ case when then else <span class="hljs-keyword">end</span>
     <span class="hljs-keyword">END</span> <span class="hljs-keyword">LOOP</span>;
     CLOSE cur_account;
 <span class="hljs-keyword">END</span> $</code></pre>
+
+<h4 id="5-根据特殊字符，将一行内容拆分为多行"><a href="#5-根据特殊字符，将一行内容拆分为多行" class="headerlink" title="5.根据特殊字符，将一行内容拆分为多行"></a>5.根据特殊字符，将一行内容拆分为多行</h4><pre><code class="hljs sql"><span class="hljs-comment">--使用 mysql.help_topic 库</span>
+<span class="hljs-keyword">select</span> <span class="hljs-keyword">distinct</span> substring_index(substring_index(a.column1,<span class="hljs-string">','</span>,b.help_topic_id+<span class="hljs-number">1</span>),<span class="hljs-string">','</span>,<span class="hljs-number">-1</span>)
+<span class="hljs-keyword">from</span> table1 a <span class="hljs-keyword">join</span> mysql.help_topic b <span class="hljs-keyword">on</span> b.help_topic_id&lt;(<span class="hljs-keyword">length</span>(a.column1)-<span class="hljs-keyword">LENGTH</span>(<span class="hljs-keyword">REPLACE</span>(a.column1,<span class="hljs-string">','</span>,<span class="hljs-string">''</span>))+<span class="hljs-number">1</span>)</code></pre>
 
 <h2 id="SQL-Server"><a href="#SQL-Server" class="headerlink" title="SQL Server"></a>SQL Server</h2>
             </article>

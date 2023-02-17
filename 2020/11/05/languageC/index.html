@@ -163,7 +163,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      82 字
+      341 字
     </span>
   
 
@@ -173,7 +173,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      4
        分钟
     </span>
   
@@ -213,15 +213,36 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2022年4月12日 下午
+                  本文最后更新于：2022年10月25日 中午
                 
               </p>
             
             <article class="markdown-body">
-              <h1 id="C"><a href="#C" class="headerlink" title="C#"></a>C#</h1><h2 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h2><p>override(重写):与父类函数特征（函数名、参数类型与个数）相同</p>
+              <h1 id="C"><a href="#C" class="headerlink" title="C"></a>C</h1><h2 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h2><p>override(重写):与父类函数特征（函数名、参数类型与个数）相同</p>
 <p>overload(重载):同一个类中的方法名相同，但函数特征不同，可省略</p>
 <p>new(overwrite覆写):与父类中同名的方法，也称为覆盖，覆盖不会改变父类方法的功能。</p>
-<h2 id="invoke"><a href="#invoke" class="headerlink" title="invoke"></a>invoke</h2><h2 id="delegate"><a href="#delegate" class="headerlink" title="delegate"></a>delegate</h2>
+<h2 id="delegate委托"><a href="#delegate委托" class="headerlink" title="delegate委托"></a>delegate委托</h2><p>[^注释1]<br><strong>委托，可以将方法当作参数使用</strong><br>可以增加方法的复用性，帮助程序解耦</p>
+<h2 id="Struct声明-VS-Class声明"><a href="#Struct声明-VS-Class声明" class="headerlink" title="Struct声明 VS Class声明"></a>Struct声明 VS Class声明</h2><p>Class 声明一个引用类型<br>Struct 声明一个值类型</p>
+<p>Class 实体的赋值，是把地址赋值给了其他对象（任意对象被修改就改变了该地址下的内容）<br>Struct 实体的赋值，只是把实际值拷贝了一份放到新的地址下</p>
+<p>[^注释2]</p>
+<h2 id="Lambda表达式"><a href="#Lambda表达式" class="headerlink" title="Lambda表达式"></a>Lambda表达式</h2><p>方法的简化写法,可以直接用于 list,array 等集合中</p>
+<pre><code class="hljs C"><span class="hljs-comment">//定义一个lambda对象</span>
+<span class="hljs-comment">//有返回值的用Func&lt;&gt;</span>
+Func&lt;<span class="hljs-built_in">string</span>&gt; fnc2 = () =&gt;  <span class="hljs-string">"你好"</span>;  <span class="hljs-comment">//无参数</span>
+
+Func&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>, <span class="hljs-keyword">bool</span>&gt; fnc1 = (x, y) =&gt; x == y;  <span class="hljs-comment">//有两个参数，最后一个是返回值类型</span>
+
+<span class="hljs-comment">//无返回值的用Action</span>
+Action callback = () =&gt;  <span class="hljs-built_in">Console</span>.WriteLine();  <span class="hljs-comment">//无参数</span>
+
+Action&lt;<span class="hljs-built_in">string</span>&gt; callback = hha =&gt;   <span class="hljs-comment">//有一个参数</span>
+&#123;
+<span class="hljs-built_in">Console</span>.WriteLine(hha);
+<span class="hljs-built_in">Console</span>.ReadKey();
+&#125;;</code></pre>
+
+<h2 id="参考文件"><a href="#参考文件" class="headerlink" title="参考文件"></a>参考文件</h2><p>[^注释1]： <a href="https://www.cnblogs.com/zcqiand/p/13656161.html" target="_blank" rel="noopener">委托，事件和Lambda表达式</a><br>[^注释2]： <a href="https://www.cnblogs.com/jjg0519/p/10341010.html" target="_blank" rel="noopener">C#中 struct 和 class 的区别详解</a></p>
+
             </article>
             <hr>
             <div>
