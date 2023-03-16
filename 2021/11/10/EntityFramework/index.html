@@ -163,7 +163,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      553 字
+      635 字
     </span>
   
 
@@ -173,7 +173,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      9
+      10
        分钟
     </span>
   
@@ -213,18 +213,30 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2022年10月21日 下午
+                  本文最后更新于：2023年3月16日 下午
                 
               </p>
             
             <article class="markdown-body">
-              <h2 id="EntityFramwork"><a href="#EntityFramwork" class="headerlink" title="EntityFramwork"></a>EntityFramwork</h2><h3 id="1、EF-链接各类型数据库"><a href="#1、EF-链接各类型数据库" class="headerlink" title="1、EF 链接各类型数据库"></a>1、EF 链接各类型数据库</h3><h4 id="1-1、Core-EF-链接SQL-Server"><a href="#1-1、Core-EF-链接SQL-Server" class="headerlink" title="1.1、Core EF 链接SQL Server"></a>1.1、Core EF 链接SQL Server</h4><pre><code class="hljs C">Scaffold-DbContext <span class="hljs-string">"data source=cnwuxg0te01;initial catalog=dbName;persist security info=True;user id=sa;password=Jabil12345;MultipleActiveResultSets=True;App=EntityFramework"</span> Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Tables Employee</code></pre>
-
-<h4 id="1-2、-net-EF-链接postgreSql"><a href="#1-2、-net-EF-链接postgreSql" class="headerlink" title="1.2、.net EF 链接postgreSql"></a>1.2、.net EF 链接postgreSql</h4><blockquote>
-<p>选择 .net 4.6.1<br>1、安装插件 Npgsql PostgreSQL Integration<br>2、安装 EF框架 无框架限制<br>3、安装 Npgsql 注意.net版本<br>4、安装 EF6 for Npgsql 提供postgresql的ADO模型，要匹配：.net 以及 2,3 的版本</p>
+              <h2 id="EntityFramwork"><a href="#EntityFramwork" class="headerlink" title="EntityFramwork"></a>EntityFramwork</h2><h3 id="1、EF-链接各类型数据库"><a href="#1、EF-链接各类型数据库" class="headerlink" title="1、EF 链接各类型数据库"></a>1、EF 链接各类型数据库</h3><p><a href="https://www.cnblogs.com/mhc860217/articles/11919563.html" target="_blank" rel="noopener">Scaaffold-DbContext指令解释</a></p>
+<h4 id="1-1、-net-EF-链接postgreSql"><a href="#1-1、-net-EF-链接postgreSql" class="headerlink" title="1.1、.net EF 链接postgreSql"></a>1.1、.net EF 链接postgreSql</h4><blockquote>
+<p>选择 .net 4.6.1</p>
+<ol>
+<li>安装插件 Npgsql PostgreSQL Integration</li>
+<li>安装 EF框架 无框架限制</li>
+<li>安装 Npgsql 注意.net版本</li>
+<li>安装 EF6 for Npgsql 提供postgresql的ADO模型，要匹配：.net 以及 2,3 的版本</li>
+</ol>
 </blockquote>
-<h4 id="1-3、Core-EF-链接postgreSql"><a href="#1-3、Core-EF-链接postgreSql" class="headerlink" title="1.3、Core EF 链接postgreSql"></a>1.3、Core EF 链接postgreSql</h4><blockquote>
-<p>1、安装插件 Npgsql PostgreSQL Integration<br>2、安装 EF框架：Microsoft.EntityFrameworkCore<br>3、Microsoft.EntityFrameworkCore.Design;<br>   Microsoft.EntityFrameworkCore.Tools<br>4、安装 Npgsql: Npgsql.EntityFrameworkCore.PostgreSQL<br>5、Npgsql.EntityFrameworkCore.PostgreSQL.Design<br>6、cmd-&gt;cd 进入工程文件.csproj所在的文件夹 -&gt;<br>dotnet ef dbcontext scaffold “Host=cnwuxm1medb01;Database=EC;Username=ECUser;Password=Jabil123” Npgsql.EntityFrameworkCore.PostgreSQL -o Models</p>
+<h4 id="1-2、Core-EF-链接postgreSql"><a href="#1-2、Core-EF-链接postgreSql" class="headerlink" title="1.2、Core EF 链接postgreSql"></a>1.2、Core EF 链接postgreSql</h4><blockquote>
+<ol>
+<li>安装插件 Npgsql PostgreSQL Integration</li>
+<li>安装 EF框架：Microsoft.EntityFrameworkCore</li>
+<li>Microsoft.EntityFrameworkCore.Design;<br>Microsoft.EntityFrameworkCore.Tools</li>
+<li>安装 Npgsql: Npgsql.EntityFrameworkCore.PostgreSQL</li>
+<li>Npgsql.EntityFrameworkCore.PostgreSQL.Design</li>
+<li>cmd-&gt;cd 进入工程文件.csproj所在的文件夹 -&gt;<br>dotnet ef dbcontext scaffold “Host=cnwuxm1medb01;Database=EC;Username=ECUser;Password=Jabil123” Npgsql.EntityFrameworkCore.PostgreSQL -o Models</li>
+</ol>
 </blockquote>
 <ul>
 <li>Use dotnet build to see the errors<blockquote>
@@ -236,8 +248,28 @@
 </blockquote>
 </li>
 </ul>
-<h4 id="1-4、Core-EF-链接MySQL"><a href="#1-4、Core-EF-链接MySQL" class="headerlink" title="1.4、Core EF 链接MySQL"></a>1.4、Core EF 链接MySQL</h4><blockquote>
-<p>1.安装 EF框架：Microsoft.EntityFrameworkCore<br>2.Microsoft.EntityFrameworkCore.Tools<br>3.安装 Mysql.Data<br>4.安装 Pomelo.EntityFrameworkCore.MySql(官方插件有问题，使用这个社区版本)<br>5.cmd-&gt;cd 进入工程文件.csproj所在的文件夹 -&gt;<br>Scaffold-DbContext “server=cnwuxg0te01;uid=root;pwd=Jabil12345;port=3306;database=sparepart_current;” Pomelo.EntityFrameworkCore.MySql -OutputDir Models -f</p>
+<h4 id="1-3、Core-EF-链接-MySQL"><a href="#1-3、Core-EF-链接-MySQL" class="headerlink" title="1.3、Core EF 链接 MySQL"></a>1.3、Core EF 链接 MySQL</h4><blockquote>
+<ol>
+<li>安装 EF框架：Microsoft.EntityFrameworkCore</li>
+<li>Microsoft.EntityFrameworkCore.Tools</li>
+<li>安装 Mysql.Data</li>
+<li>安装 Pomelo.EntityFrameworkCore.MySql(官方插件有问题，使用这个社区版本)</li>
+<li>cmd-&gt;cd 进入工程文件.csproj所在的文件夹 -&gt;<br>Scaffold-DbContext “server=cnwuxg0te01;uid=root;pwd=Jabil12345;port=3306;database=sparepart_current;” Pomelo.EntityFrameworkCore.MySql -OutputDir Models -f</li>
+</ol>
+</blockquote>
+<h4 id="1-4、Core-EF-链接-SQL-Server"><a href="#1-4、Core-EF-链接-SQL-Server" class="headerlink" title="1.4、Core EF 链接 SQL Server"></a>1.4、Core EF 链接 SQL Server</h4><blockquote>
+<p>通过数据库结构建立实体：</p>
+<ol>
+<li>Install-Package Microsoft.EntityFrameworkCore.SqlServer<br>Install-Package Microsoft.EntityFrameworkCore.Tools<br>Install-Package Microsoft.EntityFrameworkCore.SqlServer.Design</li>
+<li>cmd-&gt;cd 进入工程文件.csproj所在的文件夹 -&gt;<br>Scaffold-DbContext ‘Data Source=cnwuxm0lsql01;Initial Catalog=PMMS;User ID=pmms_readonly;Password=Jabil123;MultipleActiveResultSets=True;Connection Timeout=120’ Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models\PMMS -Table EQ,PMrecord,PMItems</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>更新数据库：</p>
+<ol>
+<li>add-migration AddUserDetails </li>
+<li>update-database AddUserDetails </li>
+</ol>
 </blockquote>
 <h3 id="2、查询语句"><a href="#2、查询语句" class="headerlink" title="2、查询语句"></a>2、查询语句</h3><p>可以使用linq语句，或者EF结构</p>
 <h4 id="动态条件查询"><a href="#动态条件查询" class="headerlink" title="动态条件查询"></a>动态条件查询</h4><pre><code class="hljs C#">var item &#x3D; db.pmsheets.ToList();
@@ -268,8 +300,10 @@ var eqlist &#x3D; eqwhere.Select(e &#x3D;&gt; new &#123;
     EQID &#x3D; e.EQID
 &#125;).ToList();</code></pre>
 
-<h4 id="EF-实现sql中的方法"><a href="#EF-实现sql中的方法" class="headerlink" title="EF 实现sql中的方法"></a>EF 实现sql中的方法</h4><pre><code class="hljs C#">using Microsoft.EntityFrameworkCore;
+<h4 id="EF-实现sql中的方法"><a href="#EF-实现sql中的方法" class="headerlink" title="EF 实现sql中的方法"></a>EF 实现sql中的方法</h4><pre><code class="hljs C"><span class="hljs-keyword">using</span> Microsoft.EntityFrameworkCore;
 EF.Functions</code></pre>
+
+<pre><code class="hljs C">EF 中 Equals方法，只能用于引用类型(例如：<span class="hljs-built_in">string</span>)，不能用于值类型(例如：<span class="hljs-keyword">int</span>)</code></pre>
 
             </article>
             <hr>
