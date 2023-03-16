@@ -22,6 +22,7 @@ $.ajax({
     url: "https://www.e-pm.com.cn/api/user/Adduser",
     type: "POST/GET",         //jquery-1.9.0及之后改为method
     cache:false,              //只在Get方法中生效 It works by appending "_={timestamp}" to the GET parameters
+    traditional: true,        //是否传递数组类型的参数
     crossDomain:false,         //是否跨域  crossDomain (default: false)
     asycn: true,             //是否异步  async (default: true)
     contentType: 'json',      //发送的文件类型 (default: 'application/x-www-form-urlencoded; charset=UTF-8')

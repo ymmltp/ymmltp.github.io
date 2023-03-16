@@ -134,4 +134,10 @@ BEGIN
 END $
 ```
 
-## SQL Server
+#### 5.根据特殊字符，将一行内容拆分为多行
+
+```sql
+--使用 mysql.help_topic 库
+select distinct substring_index(substring_index(a.column1,',',b.help_topic_id+1),',',-1)
+from table1 a join mysql.help_topic b on b.help_topic_id<(length(a.column1)-LENGTH(REPLACE(a.column1,',',''))+1)
+```
