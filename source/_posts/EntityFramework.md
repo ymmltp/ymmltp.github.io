@@ -51,6 +51,8 @@ Install-Package Microsoft.EntityFrameworkCore.SqlServer.Design
 > 2. cmd->cd 进入工程文件.csproj所在的文件夹 -> 
 Scaffold-DbContext 'Data Source=cnwuxm0lsql01;Initial Catalog=PMMS;User ID=pmms_readonly;Password=Jabil123;MultipleActiveResultSets=True;Connection Timeout=120' Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models\PMMS -Table EQ,PMrecord,PMItems
 
+Scaffold-DbContext "Data Source=cnwuxg0te01;Initial Catalog=Apps;User ID=sa;Password=Jabil12345;MultipleActiveResultSets=True;Connection Timeout=120;TrustServerCertificate=true" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models\Common -Table Calendar
+
 > 更新数据库：
 >1. add-migration AddUserDetails 
 >2. update-database AddUserDetails 
@@ -102,11 +104,11 @@ var eqlist = eqwhere.Select(e => new {
 
 #### EF 实现sql中的方法
 
-```C
+```C#
 using Microsoft.EntityFrameworkCore;
 EF.Functions
 ```
 
-```C
+```C#
 EF 中 Equals方法，只能用于引用类型(例如：string)，不能用于值类型(例如：int)
 ```

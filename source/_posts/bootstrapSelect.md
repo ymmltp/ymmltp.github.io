@@ -17,3 +17,7 @@ bootstrap-select js 控制选择
 ```javascript
 
 ```
+
+
+### 参考文件
+[bootstrap-select Document](https://developer.snapappointments.com/bootstrap-select/examples/)

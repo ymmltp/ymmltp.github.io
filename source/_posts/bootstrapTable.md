@@ -6,7 +6,7 @@ tags: 学无止境
 
 ## Bootstrap Table基础用法
 
-##### 1、使用js注册一个bootstrap-table
+### 1、使用js注册一个bootstrap-table
 
 ```html
 <table id="table"> </table> 
@@ -36,7 +36,7 @@ $('#table').bootstrapTable('destroy').bootstrapTable({
 });
 ```
 
-##### 2、html注册bootstrap-table
+### 2、html注册bootstrap-table
 
 ```html
 <table
@@ -56,7 +56,7 @@ $('#table').bootstrapTable('destroy').bootstrapTable({
 
 （参考官网文档）
 
-##### 1、使用html开启相关功能
+### 1、使用html开启相关功能
 
 data-[属性名称]
 
@@ -70,7 +70,7 @@ data-[属性名称]
 </table>
 ```
 
-##### 2、使用js配置相关功能
+### 2、使用js配置相关功能
 
 ```javascript
 //初始化主表格
@@ -225,7 +225,7 @@ function changeDateFormat(cellval) {
     }
 }
 ```
-##### 2、js 动态加载数据
+### 3、js 动态加载数据
 
 ```javascript
 //方法1
@@ -241,7 +241,7 @@ $('#table').bootstrapTable('updateCell', {
 }); //formatter中不支持ajax异步查询更换值，只能加载完table之后再使用updateCell方法。更新
 ```
 
-##### 3、edit Table
+### 4、edit Table
 
 插件 bootstrap-editable.js 和 bootstrap-table-editable.js
 
@@ -347,6 +347,56 @@ $("#table").bootstrapTable('destroy').bootstrapTable({
     },
 });
 ```
+
+### 5、添加自定义按钮
+
+```html
+<div id="toolbar" class="toolbar" style="display:none">
+    <button id="NewPN" class="btn btn-success " type="button"> 新增 </button>
+</div>
+<table id="table" class="table table-hover table-striped"></table>
+
+<script>
+        function GetPNTable() {
+        $("#toolbar").removeAttr("style");
+        $("#table").bootstrapTable('destroy').bootstrapTable({
+            toolbar: "#toolbar",
+            cache: false,
+            type: 'GET',
+            url: 'http://cnwuxg0te01:9000/api/SparepartDescription/GetSparepartDescription_byCategory',
+            queryParams: {
+                Category: $("#category").val(),
+                subCategory: $("#subcategory").val(),
+                iskeypart: $("#iskeypart").val(),
+                pn: $("#pn").val(),
+            },
+            ajaxOptions: {
+                traditional: true,
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
+                },
+            },
+            search: true,                       //开启搜索框
+            visibleSearch: true,
+            showColumns: true,
+            dataType: 'json',
+            pagination: true,  //设置为 true 会在表格底部显示分页条。
+            paginationLoop: false, //设置为 true 启用分页条无限循环的功能。
+            pageSize: 10,//每页初始显示的条数
+            pageList: '[10, 15, 20,All]',
+            showLoading: false,
+            columns: [{
+                field: 'Index',
+                title: 'NO.',
+                formatter: function (value, row, index) {
+                    return index + 1;
+                }
+            }],          
+        })
+    }
+</script>
+```
+
 
 ## 参考资料
 

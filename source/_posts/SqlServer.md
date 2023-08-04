@@ -3,6 +3,7 @@ title: SqlServer
 date: 2023-03-02 10:52:59
 tags: 学无止境
 ---
+
 # SQL Server
 
 ## 触发器 （Triggers）
@@ -37,4 +38,15 @@ update Calendar set [Week] =RIGHT('00'+ @weekNo,2) where [Week]=@weekNo
     -- Insert statements for trigger here
 END
 
+```
+
+## Update 回撤
+
+```sql
+BEGIN TRANSACTION;
+
+UPDATE your_table SET column1 = 'new_value' WHERE id = 1;
+
+-- 如果您想要撤销更新，请使用以下命令：
+ROLLBACK TRANSACTION;
 ```

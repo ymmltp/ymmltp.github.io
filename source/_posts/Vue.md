@@ -16,3 +16,10 @@ tags: 学无止境
 4、配置信息
 5、进入创建的项目目录运行project
 >npm run dev
+
+### vite创建Vue项目
+
+```js
+npm init vite@latest
+
+```
