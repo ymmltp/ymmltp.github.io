@@ -17,7 +17,7 @@
   <meta name="description" content="半吊子">
   <meta name="author" content="今年依旧12岁">
   <meta name="keywords" content="">
-  <title>openCV - World is what you see</title>
+  <title>World is what you see</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -47,7 +47,7 @@
 
 
   <script  src="/js/utils.js" ></script>
-<meta name="generator" content="Hexo 4.2.1"></head>
+<meta name="generator" content="Hexo 7.0.0-rc2"></head>
 
 
 <body>
@@ -163,7 +163,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      225 字
+      229 字
     </span>
   
 
@@ -218,38 +218,39 @@
               </p>
             
             <article class="markdown-body">
-              <h1 id="OpenCV"><a href="#OpenCV" class="headerlink" title="OpenCV"></a>OpenCV</h1><p><a href="https://docs.opencv.org/4.5.2/d5/d10/tutorial_js_root.html" target="_blank" rel="noopener">参考文件</a></p>
-<p><a href="https://docs.opencv.org/_VERSION_/opencv.js" target="_blank" rel="noopener">各版本.js文件下载地址</a></p>
+              <h1 id="OpenCV"><a href="#OpenCV" class="headerlink" title="OpenCV"></a>OpenCV</h1><p><a target="_blank" rel="noopener" href="https://docs.opencv.org/4.5.2/d5/d10/tutorial_js_root.html">参考文件</a></p>
+<p><a target="_blank" rel="noopener" href="https://docs.opencv.org/_VERSION_/opencv.js">各版本.js文件下载地址</a></p>
 <h3 id="1、常用方法："><a href="#1、常用方法：" class="headerlink" title="1、常用方法："></a>1、常用方法：</h3><pre><code class="hljs javascript"><span class="hljs-comment">//读取图片-&gt; mat对象</span>
-cv.imread(<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'imageSrc'</span>))
+cv.<span class="hljs-title function_">imread</span>(<span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;imageSrc&#x27;</span>))
 
 <span class="hljs-comment">//输出到canvas</span>
-cv.inshow(<span class="hljs-string">'canvasOutput2'</span>,dst)  <span class="hljs-comment">//element id,mat类型的对象</span>
+cv.<span class="hljs-title function_">inshow</span>(<span class="hljs-string">&#x27;canvasOutput2&#x27;</span>,dst)  <span class="hljs-comment">//element id,mat类型的对象</span>
 
 <span class="hljs-comment">//设置画布大小</span>
-cv.Size(<span class="hljs-number">800</span>, <span class="hljs-number">600</span>)
-cv.resize(src, src, dsize);  <span class="hljs-comment">// 输入对象，输出对象，输出对象的大小</span>
+cv.<span class="hljs-title class_">Size</span>(<span class="hljs-number">800</span>, <span class="hljs-number">600</span>)
+cv.<span class="hljs-title function_">resize</span>(src, src, dsize);  <span class="hljs-comment">// 输入对象，输出对象，输出对象的大小</span>
 
 <span class="hljs-comment">//设置画面颜色 (对画面操作前最好将其转换成RGB)</span>
 <span class="hljs-comment">//https://blog.csdn.net/keith_bb/article/details/53470170</span>
-cv.cvtColor(src, src, cv.COLOR_RGBA2GRAY, <span class="hljs-number">0</span>);
-cv.threshold(src, src, <span class="hljs-number">100</span>, <span class="hljs-number">255</span>, cv.THRESH_OTSU);
+cv.<span class="hljs-title function_">cvtColor</span>(src, src, cv.<span class="hljs-property">COLOR_RGBA2GRAY</span>, <span class="hljs-number">0</span>);
+cv.<span class="hljs-title function_">threshold</span>(src, src, <span class="hljs-number">100</span>, <span class="hljs-number">255</span>, cv.<span class="hljs-property">THRESH_OTSU</span>);
 <span class="hljs-comment">//cvtColor+threshold 将图片转为二进制图像</span>
 
 <span class="hljs-comment">//轮廓检索</span>
 <span class="hljs-comment">//https://blog.csdn.net/dcrmg/article/details/51987348</span>
- cv.findContours(src, contours, hierarchy, cv.RETR_TREE, cv.CHAIN_APPROX_NONE); 
+ cv.<span class="hljs-title function_">findContours</span>(src, contours, hierarchy, cv.<span class="hljs-property">RETR_TREE</span>, cv.<span class="hljs-property">CHAIN_APPROX_NONE</span>); 
 <span class="hljs-comment">//灰度图片或二进制图像，存储轮廓，存储每个轮廓的相对关系，轮廓检索模式，轮廓近似方法</span>
 
 <span class="hljs-comment">//绘制轮廓</span>
 <span class="hljs-comment">//https://blog.csdn.net/qq_18343569/article/details/47982167</span>
-cv.drawContours(src_clone, contours, i, color, <span class="hljs-number">1</span>);
+cv.<span class="hljs-title function_">drawContours</span>(src_clone, contours, i, color, <span class="hljs-number">1</span>);
 
 <span class="hljs-comment">//图片描线</span>
-cv.Canny()
+cv.<span class="hljs-title class_">Canny</span>()
 <span class="hljs-comment">//图片模糊</span>
-cv.blur()
-cv.filter()</code></pre>
+cv.<span class="hljs-title function_">blur</span>()
+cv.<span class="hljs-title function_">filter</span>() 
+</code></pre>
 
 
             </article>
@@ -260,7 +261,7 @@ cv.filter()</code></pre>
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">
@@ -269,7 +270,7 @@ cv.filter()</code></pre>
                     
                       <a href="/2021/11/04/bootstrapSelect/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">bootstrapSelect</span>
+                        <span class="hidden-mobile"></span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -466,7 +467,7 @@ cv.filter()</code></pre>
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "openCV&nbsp;",
+        "&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

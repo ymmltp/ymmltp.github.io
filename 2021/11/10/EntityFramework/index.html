@@ -47,7 +47,7 @@
 
 
   <script  src="/js/utils.js" ></script>
-<meta name="generator" content="Hexo 4.2.1"></head>
+<meta name="generator" content="Hexo 7.0.0-rc2"></head>
 
 
 <body>
@@ -163,7 +163,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      635 字
+      655 字
     </span>
   
 
@@ -213,12 +213,12 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2023年3月16日 下午
+                  本文最后更新于：2023年5月23日 下午
                 
               </p>
             
             <article class="markdown-body">
-              <h2 id="EntityFramwork"><a href="#EntityFramwork" class="headerlink" title="EntityFramwork"></a>EntityFramwork</h2><h3 id="1、EF-链接各类型数据库"><a href="#1、EF-链接各类型数据库" class="headerlink" title="1、EF 链接各类型数据库"></a>1、EF 链接各类型数据库</h3><p><a href="https://www.cnblogs.com/mhc860217/articles/11919563.html" target="_blank" rel="noopener">Scaaffold-DbContext指令解释</a></p>
+              <h2 id="EntityFramwork"><a href="#EntityFramwork" class="headerlink" title="EntityFramwork"></a>EntityFramwork</h2><h3 id="1、EF-链接各类型数据库"><a href="#1、EF-链接各类型数据库" class="headerlink" title="1、EF 链接各类型数据库"></a>1、EF 链接各类型数据库</h3><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/mhc860217/articles/11919563.html">Scaaffold-DbContext指令解释</a></p>
 <h4 id="1-1、-net-EF-链接postgreSql"><a href="#1-1、-net-EF-链接postgreSql" class="headerlink" title="1.1、.net EF 链接postgreSql"></a>1.1、.net EF 链接postgreSql</h4><blockquote>
 <p>选择 .net 4.6.1</p>
 <ol>
@@ -235,7 +235,7 @@
 <li>Microsoft.EntityFrameworkCore.Design;<br>Microsoft.EntityFrameworkCore.Tools</li>
 <li>安装 Npgsql: Npgsql.EntityFrameworkCore.PostgreSQL</li>
 <li>Npgsql.EntityFrameworkCore.PostgreSQL.Design</li>
-<li>cmd-&gt;cd 进入工程文件.csproj所在的文件夹 -&gt;<br>dotnet ef dbcontext scaffold “Host=cnwuxm1medb01;Database=EC;Username=ECUser;Password=Jabil123” Npgsql.EntityFrameworkCore.PostgreSQL -o Models</li>
+<li>cmd-&gt;cd 进入工程文件.csproj所在的文件夹 -&gt;<br>dotnet ef dbcontext scaffold “Host&#x3D;cnwuxm1medb01;Database&#x3D;EC;Username&#x3D;ECUser;Password&#x3D;Jabil123” Npgsql.EntityFrameworkCore.PostgreSQL -o Models</li>
 </ol>
 </blockquote>
 <ul>
@@ -244,7 +244,7 @@
 </blockquote>
 </li>
 <li>Use the Force flag to overwrite these files<blockquote>
-<p>dotnet ef dbcontext scaffold “Host=cnwuxm1medb01;Database=FOF;Username=FOFUser;Password=Jabil123” Npgsql.EntityFrameworkCore.PostgreSQL -o Model -f</p>
+<p>dotnet ef dbcontext scaffold “Host&#x3D;cnwuxm1medb01;Database&#x3D;FOF;Username&#x3D;FOFUser;Password&#x3D;Jabil123” Npgsql.EntityFrameworkCore.PostgreSQL -o Model -f</p>
 </blockquote>
 </li>
 </ul>
@@ -254,56 +254,57 @@
 <li>Microsoft.EntityFrameworkCore.Tools</li>
 <li>安装 Mysql.Data</li>
 <li>安装 Pomelo.EntityFrameworkCore.MySql(官方插件有问题，使用这个社区版本)</li>
-<li>cmd-&gt;cd 进入工程文件.csproj所在的文件夹 -&gt;<br>Scaffold-DbContext “server=cnwuxg0te01;uid=root;pwd=Jabil12345;port=3306;database=sparepart_current;” Pomelo.EntityFrameworkCore.MySql -OutputDir Models -f</li>
+<li>cmd-&gt;cd 进入工程文件.csproj所在的文件夹 -&gt;<br>Scaffold-DbContext “server&#x3D;cnwuxg0te01;uid&#x3D;root;pwd&#x3D;Jabil12345;port&#x3D;3306;database&#x3D;sparepart_current;” Pomelo.EntityFrameworkCore.MySql -OutputDir Models -f</li>
 </ol>
 </blockquote>
 <h4 id="1-4、Core-EF-链接-SQL-Server"><a href="#1-4、Core-EF-链接-SQL-Server" class="headerlink" title="1.4、Core EF 链接 SQL Server"></a>1.4、Core EF 链接 SQL Server</h4><blockquote>
 <p>通过数据库结构建立实体：</p>
 <ol>
 <li>Install-Package Microsoft.EntityFrameworkCore.SqlServer<br>Install-Package Microsoft.EntityFrameworkCore.Tools<br>Install-Package Microsoft.EntityFrameworkCore.SqlServer.Design</li>
-<li>cmd-&gt;cd 进入工程文件.csproj所在的文件夹 -&gt;<br>Scaffold-DbContext ‘Data Source=cnwuxm0lsql01;Initial Catalog=PMMS;User ID=pmms_readonly;Password=Jabil123;MultipleActiveResultSets=True;Connection Timeout=120’ Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models\PMMS -Table EQ,PMrecord,PMItems</li>
+<li>cmd-&gt;cd 进入工程文件.csproj所在的文件夹 -&gt;<br>Scaffold-DbContext ‘Data Source&#x3D;cnwuxm0lsql01;Initial Catalog&#x3D;PMMS;User ID&#x3D;pmms_readonly;Password&#x3D;Jabil123;MultipleActiveResultSets&#x3D;True;Connection Timeout&#x3D;120’ Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models\PMMS -Table EQ,PMrecord,PMItems</li>
 </ol>
 </blockquote>
+<p>Scaffold-DbContext “Data Source&#x3D;cnwuxg0te01;Initial Catalog&#x3D;Apps;User ID&#x3D;sa;Password&#x3D;Jabil12345;MultipleActiveResultSets&#x3D;True;Connection Timeout&#x3D;120;TrustServerCertificate&#x3D;true” Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models\Common -Table Calendar</p>
 <blockquote>
 <p>更新数据库：</p>
 <ol>
-<li>add-migration AddUserDetails </li>
-<li>update-database AddUserDetails </li>
+<li>add-migration AddUserDetails </li>
+<li>update-database AddUserDetails</li>
 </ol>
 </blockquote>
 <h3 id="2、查询语句"><a href="#2、查询语句" class="headerlink" title="2、查询语句"></a>2、查询语句</h3><p>可以使用linq语句，或者EF结构</p>
-<h4 id="动态条件查询"><a href="#动态条件查询" class="headerlink" title="动态条件查询"></a>动态条件查询</h4><pre><code class="hljs C#">var item &#x3D; db.pmsheets.ToList();
-    if (!string.IsNullOrEmpty(department))
-        item &#x3D; item.Where(e &#x3D;&gt; e.department &#x3D;&#x3D; department).ToList();
-    if (!string.IsNullOrEmpty(project))
-        item &#x3D; item.Where(e &#x3D;&gt; e.project &#x3D;&#x3D; project).ToList();
-    var items &#x3D; item.Select(e &#x3D;&gt; new &#123;
-        paras &#x3D; e.station
+<h4 id="动态条件查询"><a href="#动态条件查询" class="headerlink" title="动态条件查询"></a>动态条件查询</h4><pre><code class="hljs C#"><span class="hljs-keyword">var</span> item = db.pmsheets.ToList();
+    <span class="hljs-keyword">if</span> (!<span class="hljs-built_in">string</span>.IsNullOrEmpty(department))
+        item = item.Where(e =&gt; e.department == department).ToList();
+    <span class="hljs-keyword">if</span> (!<span class="hljs-built_in">string</span>.IsNullOrEmpty(project))
+        item = item.Where(e =&gt; e.project == project).ToList();
+    <span class="hljs-keyword">var</span> items = item.Select(e =&gt; <span class="hljs-keyword">new</span> &#123;
+        paras = e.station
     &#125;).Distinct().ToList();</code></pre>
 
-<h4 id="两表链接"><a href="#两表链接" class="headerlink" title="两表链接"></a>两表链接</h4><pre><code class="hljs C#">var pmitems &#x3D; db.PMItems
-        .Join(db.EQs, pm &#x3D;&gt; pm.EQID, eq &#x3D;&gt; eq.EQID, (pm, eq) &#x3D;&gt; new &#123; 
-            pmid&#x3D;pm.pmid,
-            EQID&#x3D;pm.pmid,
-            owner &#x3D; eq.Owners,
+<h4 id="两表链接"><a href="#两表链接" class="headerlink" title="两表链接"></a>两表链接</h4><pre><code class="hljs C#"><span class="hljs-keyword">var</span> pmitems = db.PMItems
+        .Join(db.EQs, pm =&gt; pm.EQID, eq =&gt; eq.EQID, (pm, eq) =&gt; <span class="hljs-keyword">new</span> &#123; 
+            pmid=pm.pmid,
+            EQID=pm.pmid,
+            owner = eq.Owners,
         &#125;)
-        .Where(e &#x3D;&gt; pmid.Contains(e.pmid)).ToList();</code></pre>
+        .Where(e =&gt; pmid.Contains(e.pmid)).ToList();</code></pre>
 
-<h4 id="Where-不执行"><a href="#Where-不执行" class="headerlink" title="Where 不执行"></a>Where 不执行</h4><pre><code class="hljs C#">pmms pmmsdb &#x3D; new pmms();
-inspect db &#x3D; new inspect();
-var eqwhere &#x3D; pmmsdb.EQs.Where(e &#x3D;&gt; true);
-if (department.Length&gt;0) eqwhere &#x3D; eqwhere.Where(e &#x3D;&gt; department.Contains(e.Department));
-if (line.Length &gt; 0) eqwhere &#x3D; eqwhere.Where(e &#x3D;&gt; line.Contains(e.Line));
-if (project.Length &gt; 0) eqwhere &#x3D; eqwhere.Where(e &#x3D;&gt; project.Contains(e.Workcell));
-var eqlist &#x3D; eqwhere.Select(e &#x3D;&gt; new &#123;
-    Line &#x3D; e.Line,
-    EQID &#x3D; e.EQID
+<h4 id="Where-不执行"><a href="#Where-不执行" class="headerlink" title="Where 不执行"></a>Where 不执行</h4><pre><code class="hljs C#">pmms pmmsdb = <span class="hljs-keyword">new</span> pmms();
+inspect db = <span class="hljs-keyword">new</span> inspect();
+<span class="hljs-keyword">var</span> eqwhere = pmmsdb.EQs.Where(e =&gt; <span class="hljs-literal">true</span>);
+<span class="hljs-keyword">if</span> (department.Length&gt;<span class="hljs-number">0</span>) eqwhere = eqwhere.Where(e =&gt; department.Contains(e.Department));
+<span class="hljs-keyword">if</span> (line.Length &gt; <span class="hljs-number">0</span>) eqwhere = eqwhere.Where(e =&gt; line.Contains(e.Line));
+<span class="hljs-keyword">if</span> (project.Length &gt; <span class="hljs-number">0</span>) eqwhere = eqwhere.Where(e =&gt; project.Contains(e.Workcell));
+<span class="hljs-keyword">var</span> eqlist = eqwhere.Select(e =&gt; <span class="hljs-keyword">new</span> &#123;
+    Line = e.Line,
+    EQID = e.EQID
 &#125;).ToList();</code></pre>
 
-<h4 id="EF-实现sql中的方法"><a href="#EF-实现sql中的方法" class="headerlink" title="EF 实现sql中的方法"></a>EF 实现sql中的方法</h4><pre><code class="hljs C"><span class="hljs-keyword">using</span> Microsoft.EntityFrameworkCore;
+<h4 id="EF-实现sql中的方法"><a href="#EF-实现sql中的方法" class="headerlink" title="EF 实现sql中的方法"></a>EF 实现sql中的方法</h4><pre><code class="hljs C#"><span class="hljs-keyword">using</span> Microsoft.EntityFrameworkCore;
 EF.Functions</code></pre>
 
-<pre><code class="hljs C">EF 中 Equals方法，只能用于引用类型(例如：<span class="hljs-built_in">string</span>)，不能用于值类型(例如：<span class="hljs-keyword">int</span>)</code></pre>
+<pre><code class="hljs C#">EF 中 Equals方法，只能用于引用类型(例如：<span class="hljs-built_in">string</span>)，不能用于值类型(例如：<span class="hljs-built_in">int</span>)</code></pre>
 
             </article>
             <hr>
@@ -320,7 +321,7 @@ EF.Functions</code></pre>
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">
@@ -338,7 +339,7 @@ EF.Functions</code></pre>
                     
                     
                       <a href="/2021/11/04/bootstrapSelect/">
-                        <span class="hidden-mobile">bootstrapSelect</span>
+                        <span class="hidden-mobile"></span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

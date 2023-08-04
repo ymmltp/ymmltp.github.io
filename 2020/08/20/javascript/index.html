@@ -47,7 +47,7 @@
 
 
   <script  src="/js/utils.js" ></script>
-<meta name="generator" content="Hexo 4.2.1"></head>
+<meta name="generator" content="Hexo 7.0.0-rc2"></head>
 
 
 <body>
@@ -163,7 +163,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.7k 字
+      1.8k 字
     </span>
   
 
@@ -173,7 +173,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      21
+      23
        分钟
     </span>
   
@@ -218,26 +218,26 @@
               </p>
             
             <article class="markdown-body">
-              <h3 id="基础知识javascript原生方法"><a href="#基础知识javascript原生方法" class="headerlink" title="基础知识javascript原生方法"></a>基础知识javascript原生方法</h3><h4 id="判断数组是否包含某个元素：indexOf"><a href="#判断数组是否包含某个元素：indexOf" class="headerlink" title="判断数组是否包含某个元素：indexOf"></a>判断数组是否包含某个元素：indexOf</h4><h4 id="添加Dom元素"><a href="#添加Dom元素" class="headerlink" title="添加Dom元素"></a>添加Dom元素</h4><pre><code class="hljs javascript">  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">showmessage</span>(<span class="hljs-params">msg</span>)</span>&#123;
-    <span class="hljs-keyword">var</span> log = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'logdebug'</span>);
+              <h3 id="基础知识javascript原生方法"><a href="#基础知识javascript原生方法" class="headerlink" title="基础知识javascript原生方法"></a>基础知识javascript原生方法</h3><h4 id="判断数组是否包含某个元素：indexOf"><a href="#判断数组是否包含某个元素：indexOf" class="headerlink" title="判断数组是否包含某个元素：indexOf"></a>判断数组是否包含某个元素：indexOf</h4><h4 id="添加Dom元素"><a href="#添加Dom元素" class="headerlink" title="添加Dom元素"></a>添加Dom元素</h4><pre><code class="hljs javascript">  <span class="hljs-keyword">function</span> <span class="hljs-title function_">showmessage</span>(<span class="hljs-params">msg</span>)&#123;
+    <span class="hljs-keyword">var</span> log = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;logdebug&#x27;</span>);
     <span class="hljs-keyword">if</span>(!log)&#123;
-        <span class="hljs-keyword">var</span> log = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'div'</span>);
-        log.id=<span class="hljs-string">'logdebug'</span>;
-        log.innerHTML=<span class="hljs-string">'&lt;h2&gt;Log Debug&lt;/h2&gt;'</span>;
-        <span class="hljs-built_in">document</span>.body.appendChild(log);
+        <span class="hljs-keyword">var</span> log = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;div&#x27;</span>);
+        log.<span class="hljs-property">id</span>=<span class="hljs-string">&#x27;logdebug&#x27;</span>;
+        log.<span class="hljs-property">innerHTML</span>=<span class="hljs-string">&#x27;&lt;h2&gt;Log Debug&lt;/h2&gt;&#x27;</span>;
+        <span class="hljs-variable language_">document</span>.<span class="hljs-property">body</span>.<span class="hljs-title function_">appendChild</span>(log);
     &#125;
-    <span class="hljs-keyword">var</span> pre = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'pre'</span>);
-    <span class="hljs-keyword">var</span> text = <span class="hljs-built_in">document</span>.createTextNode(msg);
-    pre.appendChild(text);
-    log.appendChild(pre);
+    <span class="hljs-keyword">var</span> pre = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;pre&#x27;</span>);
+    <span class="hljs-keyword">var</span> text = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createTextNode</span>(msg);
+    pre.<span class="hljs-title function_">appendChild</span>(text);
+    log.<span class="hljs-title function_">appendChild</span>(pre);
 &#125;</code></pre>
 
 <h4 id="给元素添加属性"><a href="#给元素添加属性" class="headerlink" title="给元素添加属性"></a>给元素添加属性</h4><pre><code class="hljs javascript"><span class="hljs-comment">//添加原始属性</span>
-dom.style.display = <span class="hljs-string">'none'</span>;
-dom.style.visiblity = <span class="hljs-string">'hidden'</span>;
+dom.<span class="hljs-property">style</span>.<span class="hljs-property">display</span> = <span class="hljs-string">&#x27;none&#x27;</span>;
+dom.<span class="hljs-property">style</span>.<span class="hljs-property">visiblity</span> = <span class="hljs-string">&#x27;hidden&#x27;</span>;
 <span class="hljs-comment">//添加自定义css样式</span>
-<span class="hljs-keyword">if</span>(!dom.className) dom.className = <span class="hljs-string">'mystyle'</span>;
-<span class="hljs-keyword">else</span> dom.className += <span class="hljs-string">'mystyle'</span>;</code></pre>
+<span class="hljs-keyword">if</span>(!dom.<span class="hljs-property">className</span>) dom.<span class="hljs-property">className</span> = <span class="hljs-string">&#x27;mystyle&#x27;</span>;
+<span class="hljs-keyword">else</span> dom.<span class="hljs-property">className</span> += <span class="hljs-string">&#x27;mystyle&#x27;</span>;</code></pre>
 
 <h4 id="给元素注册事件"><a href="#给元素注册事件" class="headerlink" title="给元素注册事件"></a>给元素注册事件</h4><table>
 <thead>
@@ -255,37 +255,37 @@ dom.style.visiblity = <span class="hljs-string">'hidden'</span>;
 <td>给元素注册事件，不按注册顺序触发</td>
 </tr>
 </tbody></table>
-<pre><code class="hljs javascript"><span class="hljs-keyword">if</span>(image.addEventListener)
-    image.addEventListener(<span class="hljs-string">'click'</span>,myfunction,params);
+<pre><code class="hljs javascript"><span class="hljs-keyword">if</span>(image.<span class="hljs-property">addEventListener</span>)
+    image.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;click&#x27;</span>,myfunction,params);
 <span class="hljs-keyword">else</span>
-    image.attachEvent(<span class="hljs-string">'click'</span>,myfunction);  <span class="hljs-comment">//兼容IE8及之前的版本</span></code></pre>
+    image.<span class="hljs-title function_">attachEvent</span>(<span class="hljs-string">&#x27;click&#x27;</span>,myfunction);  <span class="hljs-comment">//兼容IE8及之前的版本</span></code></pre>
 
-<h4 id="Error"><a href="#Error" class="headerlink" title="Error"></a>Error</h4><pre><code class="hljs javascript"><span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">"自定义报错的内容"</span>);
+<h4 id="Error"><a href="#Error" class="headerlink" title="Error"></a>Error</h4><pre><code class="hljs javascript"><span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(<span class="hljs-string">&quot;自定义报错的内容&quot;</span>);
 
 <span class="hljs-comment">//异常可以使用try,catch捕捉</span>
 <span class="hljs-keyword">try</span>&#123;
-    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">"自定义报错的内容"</span>);
+    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(<span class="hljs-string">&quot;自定义报错的内容&quot;</span>);
 &#125;<span class="hljs-keyword">catch</span>(e)&#123;
-    <span class="hljs-keyword">if</span>(e <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Error</span>)&#123;
-        alert(e.name +<span class="hljs-string">":"</span>+e.message);
+    <span class="hljs-keyword">if</span>(e <span class="hljs-keyword">instanceof</span> <span class="hljs-title class_">Error</span>)&#123;
+        <span class="hljs-title function_">alert</span>(e.<span class="hljs-property">name</span> +<span class="hljs-string">&quot;:&quot;</span>+e.<span class="hljs-property">message</span>);
     &#125;
 &#125;</code></pre>
 
 <h4 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h4><h5 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h5><pre><code class="hljs javascript"><span class="hljs-comment">//匿名函数</span>
 <span class="hljs-comment">//在匿名函数后面加(),可以直接执行。</span>
 <span class="hljs-comment">//可以和各个运算符一起使用</span>
-<span class="hljs-keyword">let</span> a = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"hahah:"</span> + <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;
-        <span class="hljs-keyword">return</span>(<span class="hljs-string">"你好啊!"</span>)&#125;() );
+<span class="hljs-keyword">let</span> a = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;hahah:&quot;</span> + <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;
+        <span class="hljs-keyword">return</span>(<span class="hljs-string">&quot;你好啊!&quot;</span>)&#125;() );
 &#125;;
-a();</code></pre>
+<span class="hljs-title function_">a</span>();</code></pre>
 
 <h5 id="Function-apply"><a href="#Function-apply" class="headerlink" title="Function.apply()"></a>Function.apply()</h5><p>将test()作为people对象的一个方法<br><strong>apply(object,[array]) 参数一定以数组的形式传入，不然会报TypeError的错误</strong></p>
-<pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">test</span>(<span class="hljs-params">args</span>)</span>&#123;
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.name);
+<pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">test</span>(<span class="hljs-params">args</span>)&#123;
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">name</span>);
 &#125;
-<span class="hljs-keyword">var</span> people = &#123;<span class="hljs-attr">name</span>:<span class="hljs-string">"lupei"</span>,<span class="hljs-attr">age</span>:<span class="hljs-number">12</span>&#125;;
-test.apply(people,[args]);
+<span class="hljs-keyword">var</span> people = &#123;<span class="hljs-attr">name</span>:<span class="hljs-string">&quot;lupei&quot;</span>,<span class="hljs-attr">age</span>:<span class="hljs-number">12</span>&#125;;
+test.<span class="hljs-title function_">apply</span>(people,[args]);
 
 &gt;lupei</code></pre>
 
@@ -302,19 +302,19 @@ test.apply(people,[args]);
 </tr>
 <tr>
 <td>Infinity</td>
-<td>表示正无穷大的数:typepof(Infinity)=number</td>
+<td>表示正无穷大的数:typepof(Infinity)&#x3D;number</td>
 </tr>
 <tr>
 <td>NaN</td>
-<td>表示不是数值的值:<strong>typepof(NaN)=number</strong></td>
+<td>表示不是数值的值:<strong>typepof(NaN)&#x3D;number</strong></td>
 </tr>
 <tr>
 <td>null</td>
-<td>表示不是数值的值:<strong>typepof(null)=object;isNaN(null)=false</strong></td>
+<td>表示不是数值的值:<strong>typepof(null)&#x3D;object;isNaN(null)&#x3D;false</strong></td>
 </tr>
 <tr>
 <td>undefined</td>
-<td>表示未定义的数:typepof(undefined)=undefined</td>
+<td>表示未定义的数:typepof(undefined)&#x3D;undefined</td>
 </tr>
 <tr>
 <td>isFinite()</td>
@@ -326,30 +326,30 @@ test.apply(people,[args]);
 </tr>
 </tbody></table>
 <h3 id="jQuery以及一些新的方法"><a href="#jQuery以及一些新的方法" class="headerlink" title="jQuery以及一些新的方法"></a>jQuery以及一些新的方法</h3><h4 id="注册jQuery对象"><a href="#注册jQuery对象" class="headerlink" title="注册jQuery对象"></a>注册jQuery对象</h4><pre><code class="hljs javascript"><span class="hljs-comment">//一个参数</span>
-$(<span class="hljs-string">'#elementID'</span>)   <span class="hljs-comment">//返回id为elementID  一个元素</span>
-$(<span class="hljs-string">'.elementCSS'</span>)  <span class="hljs-comment">//返回class为elementID  一组元素</span>
-$(<span class="hljs-string">'input :text'</span>)  <span class="hljs-comment">//返回类型为text的  一组input元素</span>
-$(<span class="hljs-string">"ul li:first"</span>)  <span class="hljs-comment">//ul中的第一个li</span>
-$(<span class="hljs-string">"#log span"</span>)  <span class="hljs-comment">//id='log'的后代元素(包含子，孙子，重孙……元素)中所有的&lt;span&gt;</span>
-$(<span class="hljs-string">"#log&gt;span"</span>)  <span class="hljs-comment">//id='log'的子元素(内部第一层)中所有的&lt;span&gt;</span>
-$(<span class="hljs-string">"#log span"</span>)  <span class="hljs-comment">//id='log'的后代元素中所有的&lt;span&gt;</span>
-$(<span class="hljs-string">'*[name="x"]'</span>)  <span class="hljs-comment">//所有含name="x"属性的元素</span>
+$(<span class="hljs-string">&#x27;#elementID&#x27;</span>)   <span class="hljs-comment">//返回id为elementID  一个元素</span>
+$(<span class="hljs-string">&#x27;.elementCSS&#x27;</span>)  <span class="hljs-comment">//返回class为elementID  一组元素</span>
+$(<span class="hljs-string">&#x27;input :text&#x27;</span>)  <span class="hljs-comment">//返回类型为text的  一组input元素</span>
+$(<span class="hljs-string">&quot;ul li:first&quot;</span>)  <span class="hljs-comment">//ul中的第一个li</span>
+$(<span class="hljs-string">&quot;#log span&quot;</span>)  <span class="hljs-comment">//id=&#x27;log&#x27;的后代元素(包含子，孙子，重孙……元素)中所有的&lt;span&gt;</span>
+$(<span class="hljs-string">&quot;#log&gt;span&quot;</span>)  <span class="hljs-comment">//id=&#x27;log&#x27;的子元素(内部第一层)中所有的&lt;span&gt;</span>
+$(<span class="hljs-string">&quot;#log span&quot;</span>)  <span class="hljs-comment">//id=&#x27;log&#x27;的后代元素中所有的&lt;span&gt;</span>
+$(<span class="hljs-string">&#x27;*[name=&quot;x&quot;]&#x27;</span>)  <span class="hljs-comment">//所有含name=&quot;x&quot;属性的元素</span>
 
 <span class="hljs-comment">//两个参数</span>
-$(<span class="hljs-string">'&lt;img/&gt;'</span>,       <span class="hljs-comment">//创建一个img元素，并附带这些属性</span>
+$(<span class="hljs-string">&#x27;&lt;img/&gt;&#x27;</span>,       <span class="hljs-comment">//创建一个img元素，并附带这些属性</span>
 &#123;
-    src:url,
-    css:&#123;<span class="hljs-string">'border'</span>: <span class="hljs-string">'blue solid 15px'</span>&#125;,   
-    text:,
-    val:,
-    html:,
-    width:,
-    height:,
-    offset:,
-    data:, 
-    click:myfunction(),
+    <span class="hljs-attr">src</span>:url,
+    <span class="hljs-attr">css</span>:&#123;<span class="hljs-string">&#x27;border&#x27;</span>: <span class="hljs-string">&#x27;blue solid 15px&#x27;</span>&#125;,   
+    <span class="hljs-attr">text</span>:,
+    <span class="hljs-attr">val</span>:,
+    <span class="hljs-attr">html</span>:,
+    <span class="hljs-attr">width</span>:,
+    <span class="hljs-attr">height</span>:,
+    <span class="hljs-attr">offset</span>:,
+    <span class="hljs-attr">data</span>:, 
+    <span class="hljs-attr">click</span>:<span class="hljs-title function_">myfunction</span>(),
 &#125;)
-$(<span class="hljs-string">'.elementCSS'</span>,<span class="hljs-built_in">document</span>.body) <span class="hljs-comment">//查询出document.body中所有css='elementCSS'的元素。</span></code></pre>
+$(<span class="hljs-string">&#x27;.elementCSS&#x27;</span>,<span class="hljs-variable language_">document</span>.<span class="hljs-property">body</span>) <span class="hljs-comment">//查询出document.body中所有css=&#x27;elementCSS&#x27;的元素。</span></code></pre>
 
 <h4 id="对象属性"><a href="#对象属性" class="headerlink" title="对象属性"></a>对象属性</h4><table>
 <thead>
@@ -416,7 +416,35 @@ $(<span class="hljs-string">'.elementCSS'</span>,<span class="hljs-built_in">doc
 <td>移除 <code>&lt;div data-x=&quot;我的数据&quot;&gt;&lt;/div&gt;</code>中的data-x标签，不赋值则移除所有data标签</td>
 </tr>
 </tbody></table>
-<h4 id="插入和替换"><a href="#插入和替换" class="headerlink" title="插入和替换"></a>插入和替换</h4><p>当插入的对象已经是页面中的一部分时，此时如果只插入一个位置，那么会直接移动这个对象，而不会执行复制并添加的动作，执行复制动作，<code>$(&#39;追加的内容&#39;).clone().appendTo($myele)</code><br>|方法|描述|<br>|–|–|<br>|$myele.append(‘追加的内容’)|在对象内，尾部 追加内容;对调主宾的用法：appendTo|<br>|$myele.prepend(‘追加的内容’)|在对象内，头部 追加内容;对调主宾的用法：prependTo|<br>|$myele.before(‘追加的内容’)|在对象外，前面 追加内容;对调主宾的用法：insertBefore|<br>|$myele.after(‘追加的内容’)|在对象外，后面 追加内容;对调主宾的用法：insertAfter|<br>|$(‘hr’).replaceWith(‘<code>&lt;br/&gt;</code>‘)|将<code>&#39;&lt;hr/&gt;&#39;</code>替换成<code>&lt;br/&gt;</code>;对调主宾的用法：replaceAll|</p>
+<h4 id="插入和替换"><a href="#插入和替换" class="headerlink" title="插入和替换"></a>插入和替换</h4><p>当插入的对象已经是页面中的一部分时，此时如果只插入一个位置，那么会直接移动这个对象，而不会执行复制并添加的动作，执行复制动作，<code>$(&#39;追加的内容&#39;).clone().appendTo($myele)</code></p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$myele.append(‘追加的内容’)</td>
+<td>在对象内，尾部 追加内容;对调主宾的用法：appendTo</td>
+</tr>
+<tr>
+<td>$myele.prepend(‘追加的内容’)</td>
+<td>在对象内，头部 追加内容;对调主宾的用法：prependTo</td>
+</tr>
+<tr>
+<td>$myele.before(‘追加的内容’)</td>
+<td>在对象外，前面 追加内容;对调主宾的用法：insertBefore</td>
+</tr>
+<tr>
+<td>$myele.after(‘追加的内容’)</td>
+<td>在对象外，后面 追加内容;对调主宾的用法：insertAfter</td>
+</tr>
+<tr>
+<td>$(‘hr’).replaceWith(‘<code>&lt;br/&gt;</code>‘)</td>
+<td>将<code>&#39;&lt;hr/&gt;&#39;</code>替换成<code>&lt;br/&gt;</code>;对调主宾的用法：replaceAll</td>
+</tr>
+</tbody></table>
 <h4 id="删除元素"><a href="#删除元素" class="headerlink" title="删除元素"></a>删除元素</h4><table>
 <thead>
 <tr>
@@ -546,34 +574,34 @@ $(<span class="hljs-string">'.elementCSS'</span>,<span class="hljs-built_in">doc
 <td>从一个界面跳转到另一界面时触发</td>
 </tr>
 </tbody></table>
-<h4 id="js原生变成jq对象"><a href="#js原生变成jq对象" class="headerlink" title="js原生变成jq对象"></a>js原生变成jq对象</h4><pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">showmessage</span>(<span class="hljs-params">msg</span>)</span>&#123;
-    <span class="hljs-keyword">var</span> log = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'logdebug'</span>);
+<h4 id="js原生变成jq对象"><a href="#js原生变成jq对象" class="headerlink" title="js原生变成jq对象"></a>js原生变成jq对象</h4><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">showmessage</span>(<span class="hljs-params">msg</span>)&#123;
+    <span class="hljs-keyword">var</span> log = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;logdebug&#x27;</span>);
     <span class="hljs-keyword">if</span>(!log)&#123;
-        <span class="hljs-keyword">var</span> log = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'div'</span>);
-        log.id=<span class="hljs-string">'logdebug'</span>;
-        log.innerHTML=<span class="hljs-string">'&lt;h2&gt;Log Debug&lt;/h2&gt;'</span>;
-        <span class="hljs-built_in">document</span>.body.appendChild(log);
+        <span class="hljs-keyword">var</span> log = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;div&#x27;</span>);
+        log.<span class="hljs-property">id</span>=<span class="hljs-string">&#x27;logdebug&#x27;</span>;
+        log.<span class="hljs-property">innerHTML</span>=<span class="hljs-string">&#x27;&lt;h2&gt;Log Debug&lt;/h2&gt;&#x27;</span>;
+        <span class="hljs-variable language_">document</span>.<span class="hljs-property">body</span>.<span class="hljs-title function_">appendChild</span>(log);
     &#125;
-    <span class="hljs-keyword">var</span> pre = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'pre'</span>);
-    <span class="hljs-keyword">var</span> text = <span class="hljs-built_in">document</span>.createTextNode(msg);
-    <span class="hljs-keyword">var</span> img = $(<span class="hljs-string">'&lt;input/&gt;'</span>,       <span class="hljs-comment">//创建一个img元素，并附带这些属性</span>
+    <span class="hljs-keyword">var</span> pre = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;pre&#x27;</span>);
+    <span class="hljs-keyword">var</span> text = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createTextNode</span>(msg);
+    <span class="hljs-keyword">var</span> img = $(<span class="hljs-string">&#x27;&lt;input/&gt;&#x27;</span>,       <span class="hljs-comment">//创建一个img元素，并附带这些属性</span>
     &#123;
-        value:<span class="hljs-string">"hahaha"</span>,
-        src:<span class="hljs-string">'mypic.png'</span>,
-        css:&#123;<span class="hljs-string">'border'</span>: <span class="hljs-string">'blue solid 15px'</span>&#125;,                   
+        <span class="hljs-attr">value</span>:<span class="hljs-string">&quot;hahaha&quot;</span>,
+        <span class="hljs-attr">src</span>:<span class="hljs-string">&#x27;mypic.png&#x27;</span>,
+        <span class="hljs-attr">css</span>:&#123;<span class="hljs-string">&#x27;border&#x27;</span>: <span class="hljs-string">&#x27;blue solid 15px&#x27;</span>&#125;,                   
     &#125;)
     <span class="hljs-comment">//用$()将js对象变成jquery对象</span>
-    $(pre).append(text);
-    $(pre).append(img);
-    $(log).append(pre);
+    $(pre).<span class="hljs-title function_">append</span>(text);
+    $(pre).<span class="hljs-title function_">append</span>(img);
+    $(log).<span class="hljs-title function_">append</span>(pre);
 &#125;</code></pre>
 
 <h3 id="知识提升"><a href="#知识提升" class="headerlink" title="知识提升"></a>知识提升</h3><p>1、a标签不跳转<br>2、js直接给input元素赋值不能触发onchange事件：</p>
 <pre><code class="hljs javascript">使用trigger方法，手动触发
- $(<span class="hljs-string">"input"</span>).trigger(<span class="hljs-string">"focus"</span>);  <span class="hljs-comment">//触发focus的事件，也实际执行了focus方法，input获得焦点</span>
- $(<span class="hljs-string">"input"</span>).triggerHandler( <span class="hljs-string">"focus"</span> );  <span class="hljs-comment">//触发focus的事件，不执行focus方法，input不获得焦点</span></code></pre>
+ $(<span class="hljs-string">&quot;input&quot;</span>).<span class="hljs-title function_">trigger</span>(<span class="hljs-string">&quot;focus&quot;</span>);  <span class="hljs-comment">//触发focus的事件，也实际执行了focus方法，input获得焦点</span>
+ $(<span class="hljs-string">&quot;input&quot;</span>).<span class="hljs-title function_">triggerHandler</span>( <span class="hljs-string">&quot;focus&quot;</span> );  <span class="hljs-comment">//触发focus的事件，不执行focus方法，input不获得焦点</span></code></pre>
 
-<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a href="https://www.cnblogs.com/zhaoxiaoying/p/9031890.html" target="_blank" rel="noopener">1、const,var,let的区别</a></p>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/zhaoxiaoying/p/9031890.html">1、const,var,let的区别</a></p>
 
             </article>
             <hr>
@@ -590,7 +618,7 @@ $(<span class="hljs-string">'.elementCSS'</span>,<span class="hljs-built_in">doc
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">

@@ -47,7 +47,7 @@
 
 
   <script  src="/js/utils.js" ></script>
-<meta name="generator" content="Hexo 4.2.1"></head>
+<meta name="generator" content="Hexo 7.0.0-rc2"></head>
 
 
 <body>
@@ -163,7 +163,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      341 字
+      343 字
     </span>
   
 
@@ -228,20 +228,21 @@
 <h2 id="Lambda表达式"><a href="#Lambda表达式" class="headerlink" title="Lambda表达式"></a>Lambda表达式</h2><p>方法的简化写法,可以直接用于 list,array 等集合中</p>
 <pre><code class="hljs C"><span class="hljs-comment">//定义一个lambda对象</span>
 <span class="hljs-comment">//有返回值的用Func&lt;&gt;</span>
-Func&lt;<span class="hljs-built_in">string</span>&gt; fnc2 = () =&gt;  <span class="hljs-string">"你好"</span>;  <span class="hljs-comment">//无参数</span>
+Func&lt;<span class="hljs-built_in">string</span>&gt; fnc2 = () =&gt;  <span class="hljs-string">&quot;你好&quot;</span>;  <span class="hljs-comment">//无参数</span>
 
-Func&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>, <span class="hljs-keyword">bool</span>&gt; fnc1 = (x, y) =&gt; x == y;  <span class="hljs-comment">//有两个参数，最后一个是返回值类型</span>
+Func&lt;<span class="hljs-type">int</span>, <span class="hljs-type">int</span>, <span class="hljs-type">bool</span>&gt; fnc1 = (x, y) =&gt; x == y;  <span class="hljs-comment">//有两个参数，最后一个是返回值类型</span>
 
 <span class="hljs-comment">//无返回值的用Action</span>
-Action callback = () =&gt;  <span class="hljs-built_in">Console</span>.WriteLine();  <span class="hljs-comment">//无参数</span>
+Action callback = () =&gt;  Console.WriteLine();  <span class="hljs-comment">//无参数</span>
 
 Action&lt;<span class="hljs-built_in">string</span>&gt; callback = hha =&gt;   <span class="hljs-comment">//有一个参数</span>
 &#123;
-<span class="hljs-built_in">Console</span>.WriteLine(hha);
-<span class="hljs-built_in">Console</span>.ReadKey();
-&#125;;</code></pre>
+Console.WriteLine(hha);
+Console.ReadKey();
+&#125;;
+</code></pre>
 
-<h2 id="参考文件"><a href="#参考文件" class="headerlink" title="参考文件"></a>参考文件</h2><p>[^注释1]： <a href="https://www.cnblogs.com/zcqiand/p/13656161.html" target="_blank" rel="noopener">委托，事件和Lambda表达式</a><br>[^注释2]： <a href="https://www.cnblogs.com/jjg0519/p/10341010.html" target="_blank" rel="noopener">C#中 struct 和 class 的区别详解</a></p>
+<h2 id="参考文件"><a href="#参考文件" class="headerlink" title="参考文件"></a>参考文件</h2><p>[^注释1]： <a target="_blank" rel="noopener" href="https://www.cnblogs.com/zcqiand/p/13656161.html">委托，事件和Lambda表达式</a><br>[^注释2]： <a target="_blank" rel="noopener" href="https://www.cnblogs.com/jjg0519/p/10341010.html">C#中 struct 和 class 的区别详解</a></p>
 
             </article>
             <hr>
@@ -258,7 +259,7 @@ Action&lt;<span class="hljs-built_in">string</span>&gt; callback = hha =&gt;   <
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">

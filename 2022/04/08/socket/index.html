@@ -47,7 +47,7 @@
 
 
   <script  src="/js/utils.js" ></script>
-<meta name="generator" content="Hexo 4.2.1"></head>
+<meta name="generator" content="Hexo 7.0.0-rc2"></head>
 
 
 <body>
@@ -163,7 +163,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      217 字
+      226 字
     </span>
   
 
@@ -218,30 +218,30 @@
               </p>
             
             <article class="markdown-body">
-              <h2 id="Socket-套接字"><a href="#Socket-套接字" class="headerlink" title="Socket(套接字)"></a>Socket(套接字)</h2><h3 id="Define"><a href="#Define" class="headerlink" title="Define"></a>Define</h3><p>TCP/IP的上层接口<br>有两种传输文件的方式<br>1、TCP 数据流传输，需要定义主机和客机<br>2、UDP 报文传输，不稳定，但是实时性强</p>
+              <h2 id="Socket-套接字"><a href="#Socket-套接字" class="headerlink" title="Socket(套接字)"></a>Socket(套接字)</h2><h3 id="Define"><a href="#Define" class="headerlink" title="Define"></a>Define</h3><p>TCP&#x2F;IP的上层接口<br>有两种传输文件的方式<br>1、TCP 数据流传输，需要定义主机和客机<br>2、UDP 报文传输，不稳定，但是实时性强</p>
 <pre><code class="hljs python"><span class="hljs-keyword">import</span> socket
 
 <span class="hljs-comment"># 服务器</span>
 <span class="hljs-keyword">with</span> socket.socket(socket.AF_INET, socket.SOCK_STREAM) <span class="hljs-keyword">as</span> s:   <span class="hljs-comment"># AF_INET:使用IPv4;SOCK_STREAM:TCP协议</span>
-    s.bind((<span class="hljs-string">''</span>, <span class="hljs-number">1234</span>))   <span class="hljs-comment"># 关联网卡和端口</span>
+    s.bind((<span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-number">1234</span>))   <span class="hljs-comment"># 关联网卡和端口</span>
     s.listen()   <span class="hljs-comment">#开始监听</span>
     conn, addr = s.accept()   <span class="hljs-comment"># 接受客户端链接，返回客户端ip(addr)和新的socket(conn) </span>
     <span class="hljs-comment"># *socket s用于监听连接，c用于和客户端通信</span>
     <span class="hljs-keyword">with</span> conn:
-        print(<span class="hljs-string">'Connected by'</span>, addr)
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;Connected by&#x27;</span>, addr)
         <span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:
             data = conn.recv(<span class="hljs-number">1024</span>)  <span class="hljs-comment"># 接受客户端传递的信息，一次最大信息量为1024字节</span>
             <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> data:
                 <span class="hljs-keyword">break</span>
             conn.sendall(data)  <span class="hljs-comment"># 发送数据给客户端</span>
-            print(data)
+            <span class="hljs-built_in">print</span>(data)
 
 <span class="hljs-comment"># 客户端</span>
 <span class="hljs-keyword">with</span> socket.socket(socket.AF_INET, socket.SOCK_STREAM) <span class="hljs-keyword">as</span> s:
-    s.connect((<span class="hljs-string">'localhost'</span>, <span class="hljs-number">1234</span>))   <span class="hljs-comment"># 链接服务器地址和端口号</span>
-    s.sendall(<span class="hljs-string">b'Hello, world'</span>)
+    s.connect((<span class="hljs-string">&#x27;localhost&#x27;</span>, <span class="hljs-number">1234</span>))   <span class="hljs-comment"># 链接服务器地址和端口号</span>
+    s.sendall(<span class="hljs-string">b&#x27;Hello, world&#x27;</span>)
     data = s.recv(<span class="hljs-number">1024</span>)
-    print(data)</code></pre>
+    <span class="hljs-built_in">print</span>(data)</code></pre>
             </article>
             <hr>
             <div>
@@ -257,7 +257,7 @@
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">

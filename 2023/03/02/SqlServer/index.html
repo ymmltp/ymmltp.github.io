@@ -47,7 +47,7 @@
 
 
   <script  src="/js/utils.js" ></script>
-<meta name="generator" content="Hexo 4.2.1"></head>
+<meta name="generator" content="Hexo 7.0.0-rc2"></head>
 
 
 <body>
@@ -163,7 +163,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      141 字
+      176 字
     </span>
   
 
@@ -213,39 +213,47 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2023年3月2日 上午
+                  本文最后更新于：2023年8月4日 上午
                 
               </p>
             
             <article class="markdown-body">
               <h1 id="SQL-Server"><a href="#SQL-Server" class="headerlink" title="SQL Server"></a>SQL Server</h1><h2 id="触发器-（Triggers）"><a href="#触发器-（Triggers）" class="headerlink" title="触发器 （Triggers）"></a>触发器 （Triggers）</h2><pre><code class="hljs sql"><span class="hljs-comment">-- 创建 Trigger</span>
 
-<span class="hljs-keyword">USE</span> [e_DMS]
-<span class="hljs-keyword">GO</span>
+USE [e_DMS]
+GO
 <span class="hljs-comment">/****** Object:  Trigger [dbo].[updateWeekLength]    Script Date: 3/2/2023 11:03:17 AM ******/</span>
 <span class="hljs-keyword">SET</span> ANSI_NULLS <span class="hljs-keyword">ON</span>
-<span class="hljs-keyword">GO</span>
+GO
 <span class="hljs-keyword">SET</span> QUOTED_IDENTIFIER <span class="hljs-keyword">ON</span>
-<span class="hljs-keyword">GO</span>
+GO
 <span class="hljs-comment">-- =============================================</span>
 <span class="hljs-comment">-- Author: Adele lu</span>
 <span class="hljs-comment">-- Create date: 2023-03-02</span>
 <span class="hljs-comment">-- Description:	确保 Calender 中的周别都是两位，不足两位的，在前面补 0</span>
 <span class="hljs-comment">-- =============================================</span>
 <span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TRIGGER</span> 触发器名字
-   <span class="hljs-keyword">ON</span> 作用的表格或者视图 <span class="hljs-keyword">FOR</span> [<span class="hljs-keyword">INSERT</span>/<span class="hljs-keyword">Update</span>/<span class="hljs-keyword">Delete</span>]
+   <span class="hljs-keyword">ON</span> 作用的表格或者视图 <span class="hljs-keyword">FOR</span> [<span class="hljs-keyword">INSERT</span><span class="hljs-operator">/</span><span class="hljs-keyword">Update</span><span class="hljs-operator">/</span><span class="hljs-keyword">Delete</span>]
 <span class="hljs-keyword">AS</span> 
-    <span class="hljs-keyword">declare</span> @weekNo <span class="hljs-built_in">varchar</span>
-    <span class="hljs-keyword">select</span> @weekNo = [<span class="hljs-keyword">Week</span>] <span class="hljs-keyword">from</span> inserted
-    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">len</span>(@weekNo)&lt;<span class="hljs-number">2</span>)  <span class="hljs-comment">--触发条件</span>
+    <span class="hljs-keyword">declare</span> <span class="hljs-variable">@weekNo</span> <span class="hljs-type">varchar</span>
+    <span class="hljs-keyword">select</span> <span class="hljs-variable">@weekNo</span> <span class="hljs-operator">=</span> [Week] <span class="hljs-keyword">from</span> inserted
+    if(len(<span class="hljs-variable">@weekNo</span>)<span class="hljs-operator">&lt;</span><span class="hljs-number">2</span>)  <span class="hljs-comment">--触发条件</span>
 <span class="hljs-keyword">BEGIN</span>
     <span class="hljs-comment">-- 执行过程</span>
-<span class="hljs-keyword">update</span> Calendar <span class="hljs-keyword">set</span> [<span class="hljs-keyword">Week</span>] =<span class="hljs-keyword">RIGHT</span>(<span class="hljs-string">'00'</span>+ @weekNo,<span class="hljs-number">2</span>) <span class="hljs-keyword">where</span> [<span class="hljs-keyword">Week</span>]=@weekNo
+<span class="hljs-keyword">update</span> Calendar <span class="hljs-keyword">set</span> [Week] <span class="hljs-operator">=</span><span class="hljs-keyword">RIGHT</span>(<span class="hljs-string">&#x27;00&#x27;</span><span class="hljs-operator">+</span> <span class="hljs-variable">@weekNo</span>,<span class="hljs-number">2</span>) <span class="hljs-keyword">where</span> [Week]<span class="hljs-operator">=</span><span class="hljs-variable">@weekNo</span>
 	<span class="hljs-comment">-- SET NOCOUNT ON added to prevent extra result sets from</span>
 	<span class="hljs-comment">-- interfering with SELECT statements.</span>
 	<span class="hljs-keyword">SET</span> NOCOUNT <span class="hljs-keyword">ON</span>;
     <span class="hljs-comment">-- Insert statements for trigger here</span>
-<span class="hljs-keyword">END</span></code></pre>
+<span class="hljs-keyword">END</span>
+</code></pre>
+
+<h2 id="Update-回撤"><a href="#Update-回撤" class="headerlink" title="Update 回撤"></a>Update 回撤</h2><pre><code class="hljs sql"><span class="hljs-keyword">BEGIN</span> TRANSACTION;
+
+<span class="hljs-keyword">UPDATE</span> your_table <span class="hljs-keyword">SET</span> column1 <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;new_value&#x27;</span> <span class="hljs-keyword">WHERE</span> id <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;
+
+<span class="hljs-comment">-- 如果您想要撤销更新，请使用以下命令：</span>
+<span class="hljs-keyword">ROLLBACK</span> TRANSACTION;</code></pre>
             </article>
             <hr>
             <div>
@@ -261,7 +269,7 @@
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">

@@ -47,7 +47,7 @@
 
 
   <script  src="/js/utils.js" ></script>
-<meta name="generator" content="Hexo 4.2.1"></head>
+<meta name="generator" content="Hexo 7.0.0-rc2"></head>
 
 
 <body>
@@ -163,7 +163,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      222 字
+      230 字
     </span>
   
 
@@ -218,7 +218,7 @@
               </p>
             
             <article class="markdown-body">
-              <h1 id="Windows-Service程序"><a href="#Windows-Service程序" class="headerlink" title="Windows Service程序"></a>Windows Service程序</h1><h2 id="安装、拆卸、调试Windows服务"><a href="#安装、拆卸、调试Windows服务" class="headerlink" title="安装、拆卸、调试Windows服务"></a>安装、拆卸、调试Windows服务</h2><h3 id="1、安装"><a href="#1、安装" class="headerlink" title="1、安装"></a>1、安装</h3><pre><code class="hljs c">New-Service -Name <span class="hljs-string">"WorkingHoursDataSyncer"</span> -BinaryPathName <span class="hljs-string">"C:\Working Hour Data Syncer\WorkingHoursDataSyncer.exe"</span></code></pre>
+              <h1 id="Windows-Service程序"><a href="#Windows-Service程序" class="headerlink" title="Windows Service程序"></a>Windows Service程序</h1><h2 id="安装、拆卸、调试Windows服务"><a href="#安装、拆卸、调试Windows服务" class="headerlink" title="安装、拆卸、调试Windows服务"></a>安装、拆卸、调试Windows服务</h2><h3 id="1、安装"><a href="#1、安装" class="headerlink" title="1、安装"></a>1、安装</h3><pre><code class="hljs c">New-Service -Name <span class="hljs-string">&quot;WorkingHoursDataSyncer&quot;</span> -BinaryPathName <span class="hljs-string">&quot;C:\Working Hour Data Syncer\WorkingHoursDataSyncer.exe&quot;</span></code></pre>
 
 <h3 id="2、拆卸"><a href="#2、拆卸" class="headerlink" title="2、拆卸"></a>2、拆卸</h3><ul>
 <li>查看PowerShell版本 <code>$PSVersionTable</code></li>
@@ -226,14 +226,14 @@
 <li>PowerShell V5.1或更低版本 <code>Get-Item HKLM:\SYSTEM\CurrentControlSet\Services\服务名 | Remove-Item -Force -Verbose</code> -&gt; <code>sc.exe delete &quot;服务名&quot;</code></li>
 </ul>
 <h3 id="3、调试"><a href="#3、调试" class="headerlink" title="3、调试"></a>3、调试</h3><ul>
-<li>将 Windows服务，改成 Console 程序调试。具体步骤参考<a href="https://learn.microsoft.com/zh-cn/dotnet/framework/windows-services/how-to-debug-windows-service-applications" target="_blank" rel="noopener">如何：调试 Windows 服务应用程序</a></li>
+<li>将 Windows服务，改成 Console 程序调试。具体步骤参考<a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/dotnet/framework/windows-services/how-to-debug-windows-service-applications">如何：调试 Windows 服务应用程序</a></li>
 </ul>
-<h2 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h2><p><strong>1、 windows服务启动时：The system cannot find the file specified.</strong></p>
+<h2 id="Q-A"><a href="#Q-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h2><p><strong>1、 windows服务启动时：The system cannot find the file specified.</strong></p>
 <p>在 properties 查看该服务的运行路径是否是完整路径，如果不是，拆卸当前服务，重新安装</p>
-<pre><code class="hljs c">New-Service -Name <span class="hljs-string">"WorkingHoursDataSyncer"</span> -BinaryPathName <span class="hljs-string">"C:\Working Hour Data Syncer\WorkingHoursDataSyncer.exe"</span></code></pre>
+<pre><code class="hljs c">New-Service -Name <span class="hljs-string">&quot;WorkingHoursDataSyncer&quot;</span> -BinaryPathName <span class="hljs-string">&quot;C:\Working Hour Data Syncer\WorkingHoursDataSyncer.exe&quot;</span></code></pre>
 
 <p>在 <code>BinaryPathName</code> 中使用完整路径。</p>
-<h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><p><a href="https://learn.microsoft.com/zh-cn/dotnet/framework/windows-services/how-to-install-and-uninstall-services" target="_blank" rel="noopener">1、如何：安装和卸载 Windows 服务</a><br><a href="https://www.mianshigee.com/note/detail/116499afo/" target="_blank" rel="noopener">2、如何使用PowerShell删除Windows服务</a><br><a href="https://jingyan.baidu.com/article/6c67b1d68c70be6687bb1ee8.html" target="_blank" rel="noopener">3、查看PowerShell版本</a><br><a href="https://learn.microsoft.com/zh-cn/dotnet/framework/windows-services/how-to-debug-windows-service-applications" target="_blank" rel="noopener">4、如何：调试 Windows 服务应用程序</a></p>
+<h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><p><a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/dotnet/framework/windows-services/how-to-install-and-uninstall-services">1、如何：安装和卸载 Windows 服务</a><br><a target="_blank" rel="noopener" href="https://www.mianshigee.com/note/detail/116499afo/">2、如何使用PowerShell删除Windows服务</a><br><a target="_blank" rel="noopener" href="https://jingyan.baidu.com/article/6c67b1d68c70be6687bb1ee8.html">3、查看PowerShell版本</a><br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/dotnet/framework/windows-services/how-to-debug-windows-service-applications">4、如何：调试 Windows 服务应用程序</a></p>
 
             </article>
             <hr>
@@ -250,7 +250,7 @@
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">

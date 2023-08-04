@@ -47,7 +47,7 @@
 
 
   <script  src="/js/utils.js" ></script>
-<meta name="generator" content="Hexo 4.2.1"></head>
+<meta name="generator" content="Hexo 7.0.0-rc2"></head>
 
 
 <body>
@@ -163,7 +163,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      364 字
+      372 字
     </span>
   
 
@@ -227,7 +227,7 @@
 <h3 id="2-2、postgreSql-in-VS-net-Core"><a href="#2-2、postgreSql-in-VS-net-Core" class="headerlink" title="2.2、postgreSql in VS .net Core"></a>2.2、postgreSql in VS .net Core</h3><blockquote>
 <p>1、安装插件 Npgsql PostgreSQL Integration<br>2、安装 EF框架：Microsoft.EntityFrameworkCore<br>3、Microsoft.EntityFrameworkCore.Tools<br>4、安装 Npgsql: Npgsql.EntityFrameworkCore.PostgreSQL<br>5、Npgsql.EntityFrameworkCore.PostgreSQL.Design<br>6、cmd-&gt;cd 进入工程文件.csproj所在的文件夹 -&gt; 运行如下语句</p>
 </blockquote>
-<pre><code class="hljs C">dotnet ef dbcontext scaffold <span class="hljs-string">"Host=cnwuxm1medb01;Database=EC;Username=ECUser;Password=Jabil123"</span> Npgsql.EntityFrameworkCore.PostgreSQL -o Model</code></pre>
+<pre><code class="hljs C">dotnet ef dbcontext scaffold <span class="hljs-string">&quot;Host=cnwuxm1medb01;Database=EC;Username=ECUser;Password=Jabil123&quot;</span> Npgsql.EntityFrameworkCore.PostgreSQL -o Model</code></pre>
 
 <ul>
 <li>Use dotnet build to see the errors<blockquote>
@@ -235,18 +235,18 @@
 </blockquote>
 </li>
 <li>Use the Force flag to overwrite these files<blockquote>
-<p>dotnet ef dbcontext scaffold “Host=cnwuxm1medb01;Database=FOF;Username=FOFUser;Password=Jabil123” Npgsql.EntityFrameworkCore.PostgreSQL -o Model -f</p>
+<p>dotnet ef dbcontext scaffold “Host&#x3D;cnwuxm1medb01;Database&#x3D;FOF;Username&#x3D;FOFUser;Password&#x3D;Jabil123” Npgsql.EntityFrameworkCore.PostgreSQL -o Model -f</p>
 </blockquote>
 </li>
 </ul>
-<h3 id="3、postgresql-sql-语法"><a href="#3、postgresql-sql-语法" class="headerlink" title="3、postgresql sql 语法"></a>3、postgresql sql 语法</h3><h4 id="（1）将数组类型的数据拆分为多行"><a href="#（1）将数组类型的数据拆分为多行" class="headerlink" title="（1）将数组类型的数据拆分为多行"></a>（1）将数组类型的数据拆分为多行</h4><pre><code class="hljs sql"><span class="hljs-keyword">select</span> x.* <span class="hljs-keyword">from</span>(
-<span class="hljs-keyword">select</span> machine,line,station,<span class="hljs-keyword">unnest</span>(dparametername)<span class="hljs-keyword">as</span> dparametername,<span class="hljs-keyword">unnest</span>(dparametervalue)<span class="hljs-keyword">as</span> dparametervalue 
-<span class="hljs-keyword">from</span> ct_det <span class="hljs-keyword">where</span> machine =<span class="hljs-string">'5CG4412DY9'</span>)x
-<span class="hljs-keyword">where</span> x.dparametername <span class="hljs-keyword">IS</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span></code></pre>
+<h3 id="3、postgresql-sql-语法"><a href="#3、postgresql-sql-语法" class="headerlink" title="3、postgresql sql 语法"></a>3、postgresql sql 语法</h3><h4 id="（1）将数组类型的数据拆分为多行"><a href="#（1）将数组类型的数据拆分为多行" class="headerlink" title="（1）将数组类型的数据拆分为多行"></a>（1）将数组类型的数据拆分为多行</h4><pre><code class="hljs sql"><span class="hljs-keyword">select</span> x.<span class="hljs-operator">*</span> <span class="hljs-keyword">from</span>(
+<span class="hljs-keyword">select</span> machine,line,station,<span class="hljs-built_in">unnest</span>(dparametername)<span class="hljs-keyword">as</span> dparametername,<span class="hljs-built_in">unnest</span>(dparametervalue)<span class="hljs-keyword">as</span> dparametervalue 
+<span class="hljs-keyword">from</span> ct_det <span class="hljs-keyword">where</span> machine <span class="hljs-operator">=</span><span class="hljs-string">&#x27;5CG4412DY9&#x27;</span>)x
+<span class="hljs-keyword">where</span> x.dparametername <span class="hljs-keyword">IS</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span></code></pre>
 
-<h4 id="（2）保留小数"><a href="#（2）保留小数" class="headerlink" title="（2）保留小数"></a>（2）保留小数</h4><pre><code class="hljs sql">round(8/3::numeric,2)</code></pre>
+<h4 id="（2）保留小数"><a href="#（2）保留小数" class="headerlink" title="（2）保留小数"></a>（2）保留小数</h4><pre><code class="hljs sql">round(<span class="hljs-number">8</span><span class="hljs-operator">/</span><span class="hljs-number">3</span>::<span class="hljs-type">numeric</span>,<span class="hljs-number">2</span>)</code></pre>
 
-<h3 id="4、Core-EF使用原生sql"><a href="#4、Core-EF使用原生sql" class="headerlink" title="4、Core EF使用原生sql"></a>4、Core EF使用原生sql</h3><pre><code class="hljs C"><span class="hljs-keyword">using</span> Microsoft.EntityFrameworkCore;
+<h3 id="4、Core-EF使用原生sql"><a href="#4、Core-EF使用原生sql" class="headerlink" title="4、Core EF使用原生sql"></a>4、Core EF使用原生sql</h3><pre><code class="hljs C">using Microsoft.EntityFrameworkCore;
 var items = db.CtDet.FromSqlRaw(sql).ToList();<span class="hljs-comment">//只能查询实体类，不能查询自定义类 select</span>
 <span class="hljs-comment">//如果查询自定义类，需要在model中写出实体并注册到dataset中</span>
 
@@ -267,7 +267,7 @@ var items = db.Database.ExecuteSqlRaw(sql);<span class="hljs-comment">//返回�
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">
@@ -285,7 +285,7 @@ var items = db.Database.ExecuteSqlRaw(sql);<span class="hljs-comment">//返回�
                     
                     
                       <a href="/2021/08/26/MVC/">
-                        <span class="hidden-mobile">MVC</span>
+                        <span class="hidden-mobile"></span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

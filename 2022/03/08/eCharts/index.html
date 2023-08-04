@@ -47,7 +47,7 @@
 
 
   <script  src="/js/utils.js" ></script>
-<meta name="generator" content="Hexo 4.2.1"></head>
+<meta name="generator" content="Hexo 7.0.0-rc2"></head>
 
 
 <body>
@@ -163,7 +163,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      714 字
+      890 字
     </span>
   
 
@@ -173,7 +173,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      12
+      16
        分钟
     </span>
   
@@ -219,156 +219,157 @@
             
             <article class="markdown-body">
               <h2 id="eCharts"><a href="#eCharts" class="headerlink" title="eCharts"></a>eCharts</h2><h3 id="配置项"><a href="#配置项" class="headerlink" title="配置项"></a>配置项</h3><pre><code class="hljs javascript">option = &#123;
-  title: &#123;            <span class="hljs-comment">//坐标的title</span>
-    text: <span class="hljs-string">'Stacked Line'</span>,
+  <span class="hljs-attr">title</span>: &#123;            <span class="hljs-comment">//坐标的title</span>
+    <span class="hljs-attr">text</span>: <span class="hljs-string">&#x27;Stacked Line&#x27;</span>,
     subtext
   &#125;,
-  tooltip: &#123;
-    trigger: <span class="hljs-string">'item'</span>,  <span class="hljs-comment">//悬浮提示框:"axis":显示该列所有数据;"item":显示当前悬浮对象的内容</span>
-    formatter:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>)</span>&#123;   <span class="hljs-comment">//自定义显示内容</span>
-      <span class="hljs-keyword">if</span>(e.data.value)
-        <span class="hljs-keyword">return</span> e.name+<span class="hljs-string">":"</span>+e.data.value+<span class="hljs-string">":"</span>+e.data.label;
+  <span class="hljs-attr">tooltip</span>: &#123;
+    <span class="hljs-attr">trigger</span>: <span class="hljs-string">&#x27;item&#x27;</span>,  <span class="hljs-comment">//悬浮提示框:&quot;axis&quot;:显示该列所有数据;&quot;item&quot;:显示当前悬浮对象的内容</span>
+    <span class="hljs-attr">formatter</span>:<span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>)&#123;   <span class="hljs-comment">//自定义显示内容</span>
+      <span class="hljs-keyword">if</span>(e.<span class="hljs-property">data</span>.<span class="hljs-property">value</span>)
+        <span class="hljs-keyword">return</span> e.<span class="hljs-property">name</span>+<span class="hljs-string">&quot;:&quot;</span>+e.<span class="hljs-property">data</span>.<span class="hljs-property">value</span>+<span class="hljs-string">&quot;:&quot;</span>+e.<span class="hljs-property">data</span>.<span class="hljs-property">label</span>;
       <span class="hljs-keyword">else</span>
-        <span class="hljs-keyword">return</span> e.name+<span class="hljs-string">":"</span>+e.value;
+        <span class="hljs-keyword">return</span> e.<span class="hljs-property">name</span>+<span class="hljs-string">&quot;:&quot;</span>+e.<span class="hljs-property">value</span>;
     &#125;
   &#125;,
-  legend: &#123;   <span class="hljs-comment">//图例/系列</span>
-    data: [<span class="hljs-string">'Email'</span>, <span class="hljs-string">'Union Ads'</span>, <span class="hljs-string">'Video Ads'</span>, <span class="hljs-string">'Direct'</span>, <span class="hljs-string">'Search Engine'</span>]
+  <span class="hljs-attr">legend</span>: &#123;   <span class="hljs-comment">//图例/系列</span>
+    <span class="hljs-attr">data</span>: [<span class="hljs-string">&#x27;Email&#x27;</span>, <span class="hljs-string">&#x27;Union Ads&#x27;</span>, <span class="hljs-string">&#x27;Video Ads&#x27;</span>, <span class="hljs-string">&#x27;Direct&#x27;</span>, <span class="hljs-string">&#x27;Search Engine&#x27;</span>]
   &#125;,
-  grid: &#123; <span class="hljs-comment">//可以使用数组，表示多个坐标轴</span>
-    left: <span class="hljs-string">'3%'</span>,
-    right: <span class="hljs-string">'4%'</span>,
-    bottom: <span class="hljs-string">'3%'</span>,
-    width:<span class="hljs-string">'80%'</span>,
-    height:<span class="hljs-string">'80%'</span>,
-    containLabel: <span class="hljs-literal">true</span>,<span class="hljs-comment">//是否将坐标轴包含在内</span>
+  <span class="hljs-attr">grid</span>: &#123; <span class="hljs-comment">//可以使用数组，表示多个坐标轴</span>
+    <span class="hljs-attr">left</span>: <span class="hljs-string">&#x27;3%&#x27;</span>,
+    <span class="hljs-attr">right</span>: <span class="hljs-string">&#x27;4%&#x27;</span>,
+    <span class="hljs-attr">bottom</span>: <span class="hljs-string">&#x27;3%&#x27;</span>,
+    <span class="hljs-attr">width</span>:<span class="hljs-string">&#x27;80%&#x27;</span>,
+    <span class="hljs-attr">height</span>:<span class="hljs-string">&#x27;80%&#x27;</span>,
+    <span class="hljs-attr">containLabel</span>: <span class="hljs-literal">true</span>,<span class="hljs-comment">//是否将坐标轴包含在内</span>
   &#125;,  
-  toolbox: &#123;
-    feature: &#123;
-      saveAsImage: &#123;&#125;
+  <span class="hljs-attr">toolbox</span>: &#123;
+    <span class="hljs-attr">feature</span>: &#123;
+      <span class="hljs-attr">saveAsImage</span>: &#123;&#125;
     &#125;
   &#125;,
-  xAxis: &#123;   <span class="hljs-comment">//如果grid为多个坐标轴，也可以使用数组，增加&#123;gridIndex: 0&#125;属性，对每个坐标轴进行设置。</span>
-    type: <span class="hljs-string">'category'</span>,
-    boundaryGap: <span class="hljs-literal">false</span>,
-    data: [<span class="hljs-string">'Mon'</span>, <span class="hljs-string">'Tue'</span>, <span class="hljs-string">'Wed'</span>, <span class="hljs-string">'Thu'</span>, <span class="hljs-string">'Fri'</span>, <span class="hljs-string">'Sat'</span>, <span class="hljs-string">'Sun'</span>]
+  <span class="hljs-attr">xAxis</span>: &#123;   <span class="hljs-comment">//如果grid为多个坐标轴，也可以使用数组，增加&#123;gridIndex: 0&#125;属性，对每个坐标轴进行设置。</span>
+    <span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;category&#x27;</span>,
+    <span class="hljs-attr">boundaryGap</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-attr">data</span>: [<span class="hljs-string">&#x27;Mon&#x27;</span>, <span class="hljs-string">&#x27;Tue&#x27;</span>, <span class="hljs-string">&#x27;Wed&#x27;</span>, <span class="hljs-string">&#x27;Thu&#x27;</span>, <span class="hljs-string">&#x27;Fri&#x27;</span>, <span class="hljs-string">&#x27;Sat&#x27;</span>, <span class="hljs-string">&#x27;Sun&#x27;</span>]
   &#125;,
-  yAxis: &#123;   <span class="hljs-comment">//同xAxis</span>
-    type: <span class="hljs-string">'value'</span>
+  <span class="hljs-attr">yAxis</span>: &#123;   <span class="hljs-comment">//同xAxis</span>
+    <span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;value&#x27;</span>
   &#125;,
-  series: [
+  <span class="hljs-attr">series</span>: [
     &#123;
-      name: <span class="hljs-string">'Email'</span>,
-      type: <span class="hljs-string">'line'</span>,
-      data: [&#123;<span class="hljs-attr">value</span>:<span class="hljs-number">200</span>,<span class="hljs-attr">label</span>:<span class="hljs-string">"hahahha"</span>&#125;, <span class="hljs-number">132</span>, <span class="hljs-number">101</span>, <span class="hljs-number">134</span>, <span class="hljs-number">90</span>, <span class="hljs-number">230</span>, <span class="hljs-number">210</span>]       <span class="hljs-comment">//data中的内容可以是对象，但是值的属性一定要是Value,其他可以自定义一些属性。</span>
+      <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Email&#x27;</span>,
+      <span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;line&#x27;</span>,
+      <span class="hljs-attr">data</span>: [&#123;<span class="hljs-attr">value</span>:<span class="hljs-number">200</span>,<span class="hljs-attr">label</span>:<span class="hljs-string">&quot;hahahha&quot;</span>&#125;, <span class="hljs-number">132</span>, <span class="hljs-number">101</span>, <span class="hljs-number">134</span>, <span class="hljs-number">90</span>, <span class="hljs-number">230</span>, <span class="hljs-number">210</span>]       <span class="hljs-comment">//data中的内容可以是对象，但是值的属性一定要是Value,其他可以自定义一些属性。</span>
     &#125;,
     &#123;
-      name: <span class="hljs-string">'Union Ads'</span>,
-      type: <span class="hljs-string">'line'</span>,
-      data: [<span class="hljs-number">220</span>, <span class="hljs-number">182</span>, <span class="hljs-number">190</span>, <span class="hljs-number">234</span>, <span class="hljs-number">290</span>, <span class="hljs-number">330</span>, <span class="hljs-number">310</span>]
+      <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Union Ads&#x27;</span>,
+      <span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;line&#x27;</span>,
+      <span class="hljs-attr">data</span>: [<span class="hljs-number">220</span>, <span class="hljs-number">182</span>, <span class="hljs-number">190</span>, <span class="hljs-number">234</span>, <span class="hljs-number">290</span>, <span class="hljs-number">330</span>, <span class="hljs-number">310</span>]
     &#125;,
     &#123;
-      name: <span class="hljs-string">'Video Ads'</span>,
-      type: <span class="hljs-string">'line'</span>,
+      <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Video Ads&#x27;</span>,
+      <span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;line&#x27;</span>,
 
-      data: [<span class="hljs-number">150</span>, <span class="hljs-number">232</span>, <span class="hljs-number">201</span>, <span class="hljs-number">154</span>, <span class="hljs-number">190</span>, <span class="hljs-number">330</span>, <span class="hljs-number">410</span>]
+      <span class="hljs-attr">data</span>: [<span class="hljs-number">150</span>, <span class="hljs-number">232</span>, <span class="hljs-number">201</span>, <span class="hljs-number">154</span>, <span class="hljs-number">190</span>, <span class="hljs-number">330</span>, <span class="hljs-number">410</span>]
     &#125;,
     &#123;
-      name: <span class="hljs-string">'Direct'</span>,
-      type: <span class="hljs-string">'line'</span>,
+      <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Direct&#x27;</span>,
+      <span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;line&#x27;</span>,
 
-      data: [<span class="hljs-number">320</span>, <span class="hljs-number">332</span>, <span class="hljs-number">301</span>, <span class="hljs-number">334</span>, <span class="hljs-number">390</span>, <span class="hljs-number">330</span>, <span class="hljs-number">320</span>]
+      <span class="hljs-attr">data</span>: [<span class="hljs-number">320</span>, <span class="hljs-number">332</span>, <span class="hljs-number">301</span>, <span class="hljs-number">334</span>, <span class="hljs-number">390</span>, <span class="hljs-number">330</span>, <span class="hljs-number">320</span>]
     &#125;,
     &#123;
-      name: <span class="hljs-string">'Search Engine'</span>,
-      type: <span class="hljs-string">'line'</span>,
-      data: [<span class="hljs-number">820</span>, <span class="hljs-number">932</span>, <span class="hljs-number">901</span>, <span class="hljs-number">934</span>, <span class="hljs-number">1290</span>, <span class="hljs-number">1330</span>, <span class="hljs-number">1320</span>]
+      <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Search Engine&#x27;</span>,
+      <span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;line&#x27;</span>,
+      <span class="hljs-attr">data</span>: [<span class="hljs-number">820</span>, <span class="hljs-number">932</span>, <span class="hljs-number">901</span>, <span class="hljs-number">934</span>, <span class="hljs-number">1290</span>, <span class="hljs-number">1330</span>, <span class="hljs-number">1320</span>]
     &#125;
   ]
 &#125;;</code></pre>
 
 <h3 id="使用数据集作为Data"><a href="#使用数据集作为Data" class="headerlink" title="使用数据集作为Data"></a>使用数据集作为Data</h3><pre><code class="hljs javascript">option = &#123;
-  dataset: [
+  <span class="hljs-attr">dataset</span>: [
     &#123;
-      dimensions: [<span class="hljs-string">'name'</span>, <span class="hljs-string">'age'</span>, <span class="hljs-string">'profession'</span>, <span class="hljs-string">'score'</span>, <span class="hljs-string">'date'</span>],
-      source: [
-        [<span class="hljs-string">'Hannah Krause'</span>, <span class="hljs-number">41</span>, <span class="hljs-string">'Engineer'</span>, <span class="hljs-number">314</span>, <span class="hljs-string">'2011-02-12'</span>],
-        [<span class="hljs-string">'Zhao Qian'</span>, <span class="hljs-number">20</span>, <span class="hljs-string">'Teacher'</span>, <span class="hljs-number">351</span>, <span class="hljs-string">'2011-03-01'</span>],
-        [<span class="hljs-string">'Jasmin Krause '</span>, <span class="hljs-number">52</span>, <span class="hljs-string">'Musician'</span>, <span class="hljs-number">287</span>, <span class="hljs-string">'2011-02-14'</span>],
-        [<span class="hljs-string">'Li Lei'</span>, <span class="hljs-number">37</span>, <span class="hljs-string">'Teacher'</span>, <span class="hljs-number">219</span>, <span class="hljs-string">'2011-02-18'</span>],
-        [<span class="hljs-string">'Karle Neumann'</span>, <span class="hljs-number">25</span>, <span class="hljs-string">'Engineer'</span>, <span class="hljs-number">253</span>, <span class="hljs-string">'2011-04-02'</span>],
-        [<span class="hljs-string">'Adrian Groß'</span>, <span class="hljs-number">19</span>, <span class="hljs-string">'Teacher'</span>, <span class="hljs-string">'-'</span>, <span class="hljs-string">'2011-01-16'</span>],
-        [<span class="hljs-string">'Mia Neumann'</span>, <span class="hljs-number">71</span>, <span class="hljs-string">'Engineer'</span>, <span class="hljs-number">165</span>, <span class="hljs-string">'2011-03-19'</span>],
-        [<span class="hljs-string">'Böhm Fuchs'</span>, <span class="hljs-number">36</span>, <span class="hljs-string">'Musician'</span>, <span class="hljs-number">318</span>, <span class="hljs-string">'2011-02-24'</span>],
-        [<span class="hljs-string">'Han Meimei'</span>, <span class="hljs-number">67</span>, <span class="hljs-string">'Engineer'</span>, <span class="hljs-number">366</span>, <span class="hljs-string">'2011-03-12'</span>]
+      <span class="hljs-attr">dimensions</span>: [<span class="hljs-string">&#x27;name&#x27;</span>, <span class="hljs-string">&#x27;age&#x27;</span>, <span class="hljs-string">&#x27;profession&#x27;</span>, <span class="hljs-string">&#x27;score&#x27;</span>, <span class="hljs-string">&#x27;date&#x27;</span>],
+      <span class="hljs-attr">source</span>: [
+        [<span class="hljs-string">&#x27;Hannah Krause&#x27;</span>, <span class="hljs-number">41</span>, <span class="hljs-string">&#x27;Engineer&#x27;</span>, <span class="hljs-number">314</span>, <span class="hljs-string">&#x27;2011-02-12&#x27;</span>],
+        [<span class="hljs-string">&#x27;Zhao Qian&#x27;</span>, <span class="hljs-number">20</span>, <span class="hljs-string">&#x27;Teacher&#x27;</span>, <span class="hljs-number">351</span>, <span class="hljs-string">&#x27;2011-03-01&#x27;</span>],
+        [<span class="hljs-string">&#x27;Jasmin Krause &#x27;</span>, <span class="hljs-number">52</span>, <span class="hljs-string">&#x27;Musician&#x27;</span>, <span class="hljs-number">287</span>, <span class="hljs-string">&#x27;2011-02-14&#x27;</span>],
+        [<span class="hljs-string">&#x27;Li Lei&#x27;</span>, <span class="hljs-number">37</span>, <span class="hljs-string">&#x27;Teacher&#x27;</span>, <span class="hljs-number">219</span>, <span class="hljs-string">&#x27;2011-02-18&#x27;</span>],
+        [<span class="hljs-string">&#x27;Karle Neumann&#x27;</span>, <span class="hljs-number">25</span>, <span class="hljs-string">&#x27;Engineer&#x27;</span>, <span class="hljs-number">253</span>, <span class="hljs-string">&#x27;2011-04-02&#x27;</span>],
+        [<span class="hljs-string">&#x27;Adrian Groß&#x27;</span>, <span class="hljs-number">19</span>, <span class="hljs-string">&#x27;Teacher&#x27;</span>, <span class="hljs-string">&#x27;-&#x27;</span>, <span class="hljs-string">&#x27;2011-01-16&#x27;</span>],
+        [<span class="hljs-string">&#x27;Mia Neumann&#x27;</span>, <span class="hljs-number">71</span>, <span class="hljs-string">&#x27;Engineer&#x27;</span>, <span class="hljs-number">165</span>, <span class="hljs-string">&#x27;2011-03-19&#x27;</span>],
+        [<span class="hljs-string">&#x27;Böhm Fuchs&#x27;</span>, <span class="hljs-number">36</span>, <span class="hljs-string">&#x27;Musician&#x27;</span>, <span class="hljs-number">318</span>, <span class="hljs-string">&#x27;2011-02-24&#x27;</span>],
+        [<span class="hljs-string">&#x27;Han Meimei&#x27;</span>, <span class="hljs-number">67</span>, <span class="hljs-string">&#x27;Engineer&#x27;</span>, <span class="hljs-number">366</span>, <span class="hljs-string">&#x27;2011-03-12&#x27;</span>]
       ]
     &#125;,
     &#123;
-      transform: &#123;
-        type: <span class="hljs-string">'sort'</span>,
-        config: &#123; <span class="hljs-attr">dimension</span>: <span class="hljs-string">'age'</span>, <span class="hljs-attr">order</span>: <span class="hljs-string">'desc'</span> &#125;
+      <span class="hljs-attr">transform</span>: &#123;
+        <span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;sort&#x27;</span>,
+        <span class="hljs-attr">config</span>: &#123; <span class="hljs-attr">dimension</span>: <span class="hljs-string">&#x27;age&#x27;</span>, <span class="hljs-attr">order</span>: <span class="hljs-string">&#x27;desc&#x27;</span> &#125;
       &#125;
     &#125;
   ],
-  xAxis: &#123;
-    type: <span class="hljs-string">'category'</span>,
-    axisLabel: &#123; <span class="hljs-attr">interval</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">rotate</span>: <span class="hljs-number">30</span> &#125;
+  <span class="hljs-attr">xAxis</span>: &#123;
+    <span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;category&#x27;</span>,
+    <span class="hljs-attr">axisLabel</span>: &#123; <span class="hljs-attr">interval</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">rotate</span>: <span class="hljs-number">30</span> &#125;
   &#125;,
-  yAxis: &#123;&#125;,
-  series:[ &#123;
-    type: <span class="hljs-string">'bar'</span>,
-    encode: &#123; <span class="hljs-attr">x</span>: <span class="hljs-string">'name'</span>, <span class="hljs-attr">y</span>: <span class="hljs-string">'age'</span> &#125;,
-    datasetIndex: <span class="hljs-number">1</span>
+  <span class="hljs-attr">yAxis</span>: &#123;&#125;,
+  <span class="hljs-attr">series</span>:[ &#123;
+    <span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;bar&#x27;</span>,
+    <span class="hljs-attr">encode</span>: &#123; <span class="hljs-attr">x</span>: <span class="hljs-string">&#x27;name&#x27;</span>, <span class="hljs-attr">y</span>: <span class="hljs-string">&#x27;age&#x27;</span> &#125;,
+    <span class="hljs-attr">datasetIndex</span>: <span class="hljs-number">1</span>
   &#125;,
    &#123;
-    type: <span class="hljs-string">'bar'</span>,
-    encode: &#123; <span class="hljs-attr">x</span>: <span class="hljs-string">'name'</span>, <span class="hljs-attr">y</span>: <span class="hljs-string">'score'</span> &#125;,
-    datasetIndex: <span class="hljs-number">1</span>
+    <span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;bar&#x27;</span>,
+    <span class="hljs-attr">encode</span>: &#123; <span class="hljs-attr">x</span>: <span class="hljs-string">&#x27;name&#x27;</span>, <span class="hljs-attr">y</span>: <span class="hljs-string">&#x27;score&#x27;</span> &#125;,
+    <span class="hljs-attr">datasetIndex</span>: <span class="hljs-number">1</span>
   &#125;]
 &#125;;</code></pre>
 
 <h2 id="点击事件"><a href="#点击事件" class="headerlink" title="点击事件"></a>点击事件</h2><p>自定义按钮</p>
-<pre><code class="hljs javascript">toolbox: &#123;
-    feature: &#123;
-        myTool1: &#123;
-            show: <span class="hljs-literal">true</span>,
-            title: <span class="hljs-string">'自定义扩展方法1'</span>,
-            icon: <span class="hljs-string">'path://M432.45,595.444c0,2.177-4.661,6.82-11.305,6.82c-6.475,0-11.306-4.567-11.306-6.82s4.852-6.812,11.306-6.812C427.841,588.632,432.452,593.191,432.45,595.444L432.45,595.444z M421.155,589.876c-3.009,0-5.448,2.495-5.448,5.572s2.439,5.572,5.448,5.572c3.01,0,5.449-2.495,5.449-5.572C426.604,592.371,424.165,589.876,421.155,589.876L421.155,589.876z M421.146,591.891c-1.916,0-3.47,1.589-3.47,3.549c0,1.959,1.554,3.548,3.47,3.548s3.469-1.589,3.469-3.548C424.614,593.479,423.062,591.891,421.146,591.891L421.146,591.891zM421.146,591.891'</span>,
-            onclick: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)</span>&#123;
-                alert(<span class="hljs-string">'myToolHandler1'</span>)
+<pre><code class="hljs javascript"><span class="hljs-attr">toolbox</span>: &#123;
+    <span class="hljs-attr">feature</span>: &#123;
+        <span class="hljs-attr">myTool1</span>: &#123;
+            <span class="hljs-attr">show</span>: <span class="hljs-literal">true</span>,
+            <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;自定义扩展方法1&#x27;</span>,
+            <span class="hljs-attr">icon</span>: <span class="hljs-string">&#x27;path://M432.45,595.444c0,2.177-4.661,6.82-11.305,6.82c-6.475,0-11.306-4.567-11.306-6.82s4.852-6.812,11.306-6.812C427.841,588.632,432.452,593.191,432.45,595.444L432.45,595.444z M421.155,589.876c-3.009,0-5.448,2.495-5.448,5.572s2.439,5.572,5.448,5.572c3.01,0,5.449-2.495,5.449-5.572C426.604,592.371,424.165,589.876,421.155,589.876L421.155,589.876z M421.146,591.891c-1.916,0-3.47,1.589-3.47,3.549c0,1.959,1.554,3.548,3.47,3.548s3.469-1.589,3.469-3.548C424.614,593.479,423.062,591.891,421.146,591.891L421.146,591.891zM421.146,591.891&#x27;</span>,
+            <span class="hljs-attr">onclick</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)&#123;
+                <span class="hljs-title function_">alert</span>(<span class="hljs-string">&#x27;myToolHandler1&#x27;</span>)
             &#125;
         &#125;,
-        myTool2: &#123;
-            show: <span class="hljs-literal">true</span>,
-            title: <span class="hljs-string">'自定义扩展方法'</span>,
-            icon: <span class="hljs-string">'image://https://echarts.apache.org/zh/images/favicon.png'</span>,
-            onclick: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)</span>&#123;
-                alert(<span class="hljs-string">'myToolHandler2'</span>)
+        <span class="hljs-attr">myTool2</span>: &#123;
+            <span class="hljs-attr">show</span>: <span class="hljs-literal">true</span>,
+            <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;自定义扩展方法&#x27;</span>,
+            <span class="hljs-attr">icon</span>: <span class="hljs-string">&#x27;image://https://echarts.apache.org/zh/images/favicon.png&#x27;</span>,
+            <span class="hljs-attr">onclick</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)&#123;
+                <span class="hljs-title function_">alert</span>(<span class="hljs-string">&#x27;myToolHandler2&#x27;</span>)
             &#125;
         &#125;
     &#125;
 &#125;</code></pre>
 
 <p>自定义界面图形、文本……</p>
-<pre><code class="hljs javascript">graphic: [
+<pre><code class="hljs javascript"><span class="hljs-attr">graphic</span>: [
   &#123;
-      type: <span class="hljs-string">'image'</span>,
-      right: <span class="hljs-number">40</span>,
-      top: <span class="hljs-number">20</span>,
-      style: &#123;
-          image: <span class="hljs-string">'/img/arrowleft.png'</span>,
+      <span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;image&#x27;</span>,
+      <span class="hljs-attr">right</span>: <span class="hljs-number">40</span>,
+      <span class="hljs-attr">top</span>: <span class="hljs-number">20</span>,
+      <span class="hljs-attr">style</span>: &#123;
+          <span class="hljs-attr">image</span>: <span class="hljs-string">&#x27;/img/arrowleft.png&#x27;</span>,
       &#125;, 
-      invisible: <span class="hljs-literal">false</span>,                                       
-      onclick: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+      <span class="hljs-attr">invisible</span>: <span class="hljs-literal">false</span>,                                       
+      <span class="hljs-attr">onclick</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;
           <span class="hljs-keyword">if</span> (dataFloor) &#123;
               dataFloor -= <span class="hljs-number">1</span>;
           &#125;
-          myChart1.setOption(optionArray[dataFloor]);
+          myChart1.<span class="hljs-title function_">setOption</span>(optionArray[dataFloor]);
       &#125;
   &#125;
-]</code></pre>
+]
+</code></pre>
 
-<h2 id="参考文件"><a href="#参考文件" class="headerlink" title="参考文件"></a>参考文件</h2><p>1、<a href="https://echarts.apache.org/examples/zh/index.html" target="_blank" rel="noopener">echart官网</a></p>
+<h2 id="参考文件"><a href="#参考文件" class="headerlink" title="参考文件"></a>参考文件</h2><p>1、<a target="_blank" rel="noopener" href="https://echarts.apache.org/examples/zh/index.html">echart官网</a></p>
 
             </article>
             <hr>
@@ -385,7 +386,7 @@
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">

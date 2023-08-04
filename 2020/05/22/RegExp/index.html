@@ -47,7 +47,7 @@
 
 
   <script  src="/js/utils.js" ></script>
-<meta name="generator" content="Hexo 4.2.1"></head>
+<meta name="generator" content="Hexo 7.0.0-rc2"></head>
 
 
 <body>
@@ -163,7 +163,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.7k 字
+      1.9k 字
     </span>
   
 
@@ -173,7 +173,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      22
+      26
        分钟
     </span>
   
@@ -218,9 +218,9 @@
               </p>
             
             <article class="markdown-body">
-              <h2 id="1-定义"><a href="#1-定义" class="headerlink" title="1.定义"></a>1.定义</h2><p>使用RegExp对象，或者直接在一对 ‘/ /‘中</p>
-<pre><code class="hljs javascript"><span class="hljs-keyword">var</span> a = <span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(<span class="hljs-string">"\\d&#123;5&#125;"</span>,<span class="hljs-string">"g"</span>);  <span class="hljs-comment">//第一个参数：正则表达式主体部分；第二个参数：修饰符（选填）</span>
-								   <span class="hljs-comment">//注意：转义字符'\'-&gt;'\\'.例如：'\d'-&gt;'\\d'</span>
+              <h2 id="1-定义"><a href="#1-定义" class="headerlink" title="1.定义"></a>1.定义</h2><p>使用RegExp对象，或者直接在一对 ‘&#x2F; &#x2F;‘中</p>
+<pre><code class="hljs javascript"><span class="hljs-keyword">var</span> a = <span class="hljs-keyword">new</span> <span class="hljs-title class_">RegExp</span>(<span class="hljs-string">&quot;\\d&#123;5&#125;&quot;</span>,<span class="hljs-string">&quot;g&quot;</span>);  <span class="hljs-comment">//第一个参数：正则表达式主体部分；第二个参数：修饰符（选填）</span>
+								   <span class="hljs-comment">//注意：转义字符&#x27;\&#x27;-&gt;&#x27;\\&#x27;.例如：&#x27;\d&#x27;-&gt;&#x27;\\d&#x27;</span>
 <span class="hljs-keyword">var</span> a = <span class="hljs-regexp">/\d&#123;5&#125;/g</span>;             	   <span class="hljs-comment">//与第一种定义方式等价</span></code></pre>
 
 
@@ -261,19 +261,19 @@
 </tr>
 <tr>
 <td align="center">\xnn</td>
-<td align="center">由16进制数nn指定的拉丁字符；例：\x0A=\n</td>
+<td align="center">由16进制数nn指定的拉丁字符；例：\x0A&#x3D;\n</td>
 </tr>
 <tr>
 <td align="center">\uxxxx</td>
-<td align="center">由16进制数xxxx指定的Unicode字符；例：\u000A=\n</td>
+<td align="center">由16进制数xxxx指定的Unicode字符；例：\u000A&#x3D;\n</td>
 </tr>
 <tr>
 <td align="center">\cX</td>
-<td align="center">控制字符^X；例：\cJ=\n</td>
+<td align="center">控制字符^X；例：\cJ&#x3D;\n</td>
 </tr>
 </tbody></table>
 <h4 id="2-具有特殊含义的符号"><a href="#2-具有特殊含义的符号" class="headerlink" title="2.具有特殊含义的符号"></a>2.具有特殊含义的符号</h4><blockquote>
-<p>^  $  .  *  +  ?  =  !  :  |  \  /  ( )  [ ]  { }</p>
+<p>^  $  .  *  +  ?  &#x3D;  !  :  |  \  &#x2F;  ( )  [ ]  { }</p>
 </blockquote>
 <p>如果想使用这类字符的直接量，需要在前面加上，转义字符 &#39;\&#39; ；否则作为特殊字符使用。没有特殊含义的字符可直接使用。</p>
 <h4 id="3-字符类"><a href="#3-字符类" class="headerlink" title="3.字符类"></a>3.字符类</h4><table>
@@ -297,11 +297,11 @@
 </tr>
 <tr>
 <td align="center">\w</td>
-<td align="center">ASCII码，=[a-zA-Z0-9]</td>
+<td align="center">ASCII码，&#x3D;[a-zA-Z0-9]</td>
 </tr>
 <tr>
 <td align="center">\W</td>
-<td align="center">非ASCII码,=[ ^a-zA-Z0-9]</td>
+<td align="center">非ASCII码,&#x3D;[ ^a-zA-Z0-9]</td>
 </tr>
 <tr>
 <td align="center">\s</td>
@@ -313,11 +313,11 @@
 </tr>
 <tr>
 <td align="center">\d</td>
-<td align="center">ASCII码数字，=[0-9]</td>
+<td align="center">ASCII码数字，&#x3D;[0-9]</td>
 </tr>
 <tr>
 <td align="center">\D</td>
-<td align="center">非ASCII码数字，=[ ^0-9]</td>
+<td align="center">非ASCII码数字，&#x3D;[ ^0-9]</td>
 </tr>
 <tr>
 <td align="center">[\b]</td>
@@ -346,26 +346,26 @@
 </tr>
 <tr>
 <td align="center">?</td>
-<td align="center">重复0或1次，={0，1}(及该项可选)</td>
+<td align="center">重复0或1次，&#x3D;{0，1}(及该项可选)</td>
 </tr>
 <tr>
 <td align="center">+</td>
-<td align="center">重复至少一次，={1，}</td>
+<td align="center">重复至少一次，&#x3D;{1，}</td>
 </tr>
 <tr>
 <td align="center">*</td>
-<td align="center">重复至少0次，={0,}</td>
+<td align="center">重复至少0次，&#x3D;{0,}</td>
 </tr>
 </tbody></table>
 <p>以上字符都是尽可能多的匹配（贪婪的匹配），如果要实现非贪婪的匹配，可以在语句后添加’？‘</p>
 <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> a = <span class="hljs-regexp">/\d&#123;3&#125;|[a-z]&#123;4&#125;/</span>;   <span class="hljs-comment">//匹配前三个数字，后四个是小写字母</span>
 
-<span class="hljs-keyword">var</span> kat=<span class="hljs-string">"12345678"</span>.match(<span class="hljs-regexp">/[0-9]&#123;1,6&#125;?/</span>);    <span class="hljs-comment">//=&gt;[ '1', index: 0, input: '12345678', groups: undefined ]</span>
-<span class="hljs-keyword">var</span> kat=<span class="hljs-string">"12345678"</span>.match(<span class="hljs-regexp">/[0-9]&#123;1,6&#125;/</span>);     <span class="hljs-comment">//=&gt;[ '123456', index: 0, input: '12345678', groups: undefined ]</span></code></pre>
+<span class="hljs-keyword">var</span> kat=<span class="hljs-string">&quot;12345678&quot;</span>.<span class="hljs-title function_">match</span>(<span class="hljs-regexp">/[0-9]&#123;1,6&#125;?/</span>);    <span class="hljs-comment">//=&gt;[ &#x27;1&#x27;, index: 0, input: &#x27;12345678&#x27;, groups: undefined ]</span>
+<span class="hljs-keyword">var</span> kat=<span class="hljs-string">&quot;12345678&quot;</span>.<span class="hljs-title function_">match</span>(<span class="hljs-regexp">/[0-9]&#123;1,6&#125;/</span>);     <span class="hljs-comment">//=&gt;[ &#x27;123456&#x27;, index: 0, input: &#x27;12345678&#x27;, groups: undefined ]</span></code></pre>
 
 <p>正则表达式的匹配，总是会寻找字符串中第一个可能匹配的位置，所以下面的两种写法，查询到的结果是一样的</p>
-<pre><code class="hljs javascript"><span class="hljs-keyword">var</span> kat=<span class="hljs-string">"aaab"</span>.match(<span class="hljs-regexp">/a+?b/</span>);     <span class="hljs-comment">//=&gt;[ 'aaab', index: 0, input: 'aaab', groups: undefined ]</span>
-<span class="hljs-keyword">var</span> kat=<span class="hljs-string">"aaab"</span>.match(<span class="hljs-regexp">/a+b/</span>);      <span class="hljs-comment">//=&gt;[ 'aaab', index: 0, input: 'aaab', groups: undefined ]</span></code></pre>
+<pre><code class="hljs javascript"><span class="hljs-keyword">var</span> kat=<span class="hljs-string">&quot;aaab&quot;</span>.<span class="hljs-title function_">match</span>(<span class="hljs-regexp">/a+?b/</span>);     <span class="hljs-comment">//=&gt;[ &#x27;aaab&#x27;, index: 0, input: &#x27;aaab&#x27;, groups: undefined ]</span>
+<span class="hljs-keyword">var</span> kat=<span class="hljs-string">&quot;aaab&quot;</span>.<span class="hljs-title function_">match</span>(<span class="hljs-regexp">/a+b/</span>);      <span class="hljs-comment">//=&gt;[ &#x27;aaab&#x27;, index: 0, input: &#x27;aaab&#x27;, groups: undefined ]</span></code></pre>
 
 
 
@@ -393,27 +393,27 @@
 <td align="left">(n是数字)，和第n个分组第一次匹配的字符串相匹配，索引从左到右</td>
 </tr>
 </tbody></table>
-<pre><code class="hljs javascript"><span class="hljs-keyword">var</span> txt3=<span class="hljs-string">'\"fakacnfma\''</span>.match(<span class="hljs-regexp">/(['"])[^'"]*\1/</span>);   <span class="hljs-comment">//=&gt;null</span>
+<pre><code class="hljs javascript"><span class="hljs-keyword">var</span> txt3=<span class="hljs-string">&#x27;\&quot;fakacnfma\&#x27;&#x27;</span>.<span class="hljs-title function_">match</span>(<span class="hljs-regexp">/([&#x27;&quot;])[^&#x27;&quot;]*\1/</span>);   <span class="hljs-comment">//=&gt;null</span>
 
-<span class="hljs-keyword">var</span> txt3=<span class="hljs-string">'\"fakacnfma\''</span>.match(<span class="hljs-regexp">/(['"])[^'"]*['"]/</span>);   
-<span class="hljs-comment">//=&gt;[  `"fakacnfma'`,</span>
-<span class="hljs-comment">//      '"',</span>
+<span class="hljs-keyword">var</span> txt3=<span class="hljs-string">&#x27;\&quot;fakacnfma\&#x27;&#x27;</span>.<span class="hljs-title function_">match</span>(<span class="hljs-regexp">/([&#x27;&quot;])[^&#x27;&quot;]*[&#x27;&quot;]/</span>);   
+<span class="hljs-comment">//=&gt;[  `&quot;fakacnfma&#x27;`,</span>
+<span class="hljs-comment">//      &#x27;&quot;&#x27;,</span>
 <span class="hljs-comment">//      index: 0,</span>
-<span class="hljs-comment">//      input: `"fakacnfma'`,</span>
+<span class="hljs-comment">//      input: `&quot;fakacnfma&#x27;`,</span>
 <span class="hljs-comment">//      groups: undefined</span>
 <span class="hljs-comment">//  ]</span></code></pre>
 
 <p>正则表达式不允许在“ ”中有‘ ’，反之亦然。如下实例，匹配到的是里面的‘ ’，而非外面的“ ”</p>
-<pre><code class="hljs javascript"><span class="hljs-keyword">var</span> txt3=<span class="hljs-string">'\"\'fakacnfma\'\"'</span>.match(<span class="hljs-regexp">/(['"])[^'"]*\1/</span>);
-<span class="hljs-comment">//=&gt;  [  "'fakacnfma'",    </span>
-<span class="hljs-comment">//       "'",</span>
+<pre><code class="hljs javascript"><span class="hljs-keyword">var</span> txt3=<span class="hljs-string">&#x27;\&quot;\&#x27;fakacnfma\&#x27;\&quot;&#x27;</span>.<span class="hljs-title function_">match</span>(<span class="hljs-regexp">/([&#x27;&quot;])[^&#x27;&quot;]*\1/</span>);
+<span class="hljs-comment">//=&gt;  [  &quot;&#x27;fakacnfma&#x27;&quot;,    </span>
+<span class="hljs-comment">//       &quot;&#x27;&quot;,</span>
 <span class="hljs-comment">//       index: 1,</span>
-<span class="hljs-comment">//       input: `"'fakacnfma'"`,</span>
+<span class="hljs-comment">//       input: `&quot;&#x27;fakacnfma&#x27;&quot;`,</span>
 <span class="hljs-comment">//       groups: undefined</span>
 <span class="hljs-comment">//     ]</span></code></pre>
 
 <p>不允许在字符类中使用\n的引用。如下实例是错误的:</p>
-<pre><code class="hljs javascript"><span class="hljs-keyword">var</span> d = <span class="hljs-regexp">/(['"])[^\1]*\1/</span>;</code></pre>
+<pre><code class="hljs javascript"><span class="hljs-keyword">var</span> d = <span class="hljs-regexp">/([&#x27;&quot;])[^\1]*\1/</span>;</code></pre>
 
 
 
@@ -434,29 +434,29 @@
 </tr>
 <tr>
 <td align="center">\b</td>
-<td>匹配单词边界 =&gt; 位于\w和\W之间的位置（*[\b]匹配退格符）</td>
+<td>匹配单词边界 &#x3D;&gt; 位于\w和\W之间的位置（*[\b]匹配退格符）</td>
 </tr>
 <tr>
 <td align="center">\B</td>
 <td>匹配非单词边界的位置</td>
 </tr>
 <tr>
-<td align="center">(?=p)</td>
-<td>零宽正向先行断言 =&gt;接下来的字符都和p匹配，但p不会出现在查询结果中</td>
+<td align="center">(?&#x3D;p)</td>
+<td>零宽正向先行断言 &#x3D;&gt;接下来的字符都和p匹配，但p不会出现在查询结果中</td>
 </tr>
 <tr>
-<td align="center">(?!=p)</td>
-<td>零宽负向先行断言 =&gt;接下来的字符不和p匹配</td>
+<td align="center">(?!&#x3D;p)</td>
+<td>零宽负向先行断言 &#x3D;&gt;接下来的字符不和p匹配</td>
 </tr>
 </tbody></table>
 <pre><code class="hljs javascript"><span class="hljs-keyword">var</span> c=<span class="hljs-regexp">/^JavaScript$/</span>;      <span class="hljs-comment">//纯JavaScript字符串</span>
 
-<span class="hljs-keyword">var</span> txt5=<span class="hljs-string">'javascript JavaScript: Is A LANGUAGE'</span>.match(<span class="hljs-regexp">/[Jj]ava([Ss]cript)?(?=\:)/</span>);  <span class="hljs-comment">//先行正向断言,javascript后须带有‘：’，但‘：’不会被匹配到结果中</span>
+<span class="hljs-keyword">var</span> txt5=<span class="hljs-string">&#x27;javascript JavaScript: Is A LANGUAGE&#x27;</span>.<span class="hljs-title function_">match</span>(<span class="hljs-regexp">/[Jj]ava([Ss]cript)?(?=\:)/</span>);  <span class="hljs-comment">//先行正向断言,javascript后须带有‘：’，但‘：’不会被匹配到结果中</span>
 <span class="hljs-comment">//=&gt;[</span>
-<span class="hljs-comment">//     'JavaScript',</span>
-<span class="hljs-comment">//     'Script',</span>
+<span class="hljs-comment">//     &#x27;JavaScript&#x27;,</span>
+<span class="hljs-comment">//     &#x27;Script&#x27;,</span>
 <span class="hljs-comment">//     index: 0,</span>
-<span class="hljs-comment">//     input: 'JavaScript: Is A LANGUAGE',</span>
+<span class="hljs-comment">//     input: &#x27;JavaScript: Is A LANGUAGE&#x27;,</span>
 <span class="hljs-comment">//     groups: undefined</span>
 <span class="hljs-comment">//   ]</span></code></pre>
 
@@ -482,53 +482,54 @@
 <td>多行匹配模式，主要针对‘^’和’$’</td>
 </tr>
 </tbody></table>
-<pre><code class="hljs javascript"><span class="hljs-keyword">var</span> txt2=<span class="hljs-string">"java12das45"</span>.match(<span class="hljs-regexp">/[a-z]+(\d+)/g</span>);  <span class="hljs-comment">//=&gt;[ 'java12', 'das45' ]</span>
-<span class="hljs-keyword">var</span> txt2=<span class="hljs-string">"java12das45"</span>.match(<span class="hljs-regexp">/[a-z]+(\d+)/</span>);   <span class="hljs-comment">//=&gt;[ 'java12', '12', index: 0, input: 'java12das45', groups: undefined ]</span></code></pre>
+<pre><code class="hljs javascript"><span class="hljs-keyword">var</span> txt2=<span class="hljs-string">&quot;java12das45&quot;</span>.<span class="hljs-title function_">match</span>(<span class="hljs-regexp">/[a-z]+(\d+)/g</span>);  <span class="hljs-comment">//=&gt;[ &#x27;java12&#x27;, &#x27;das45&#x27; ]</span>
+<span class="hljs-keyword">var</span> txt2=<span class="hljs-string">&quot;java12das45&quot;</span>.<span class="hljs-title function_">match</span>(<span class="hljs-regexp">/[a-z]+(\d+)/</span>);   <span class="hljs-comment">//=&gt;[ &#x27;java12&#x27;, &#x27;12&#x27;, index: 0, input: &#x27;java12das45&#x27;, groups: undefined ]</span></code></pre>
 
 
 
-<h2 id="3-可使用匹配模式的String方法"><a href="#3-可使用匹配模式的String方法" class="headerlink" title="3.可使用匹配模式的String方法"></a>3.可使用匹配模式的String方法</h2><h4 id="1-search"><a href="#1-search" class="headerlink" title="1.search"></a>1.search</h4><p>查询<code>string.search(x)</code>返回匹配字串的第一个字符的位置。该方法不支持全局检索，会忽略修饰符g，及无法返回数组</p>
+<h2 id="3-可使用匹配模式的String方法"><a href="#3-可使用匹配模式的String方法" class="headerlink" title="3.可使用匹配模式的String方法"></a>3.可使用匹配模式的String方法</h2><h4 id="1-search"><a href="#1-search" class="headerlink" title="1.search"></a>1.search</h4><p>查询<code> string.search(x)</code>返回匹配字串的第一个字符的位置。该方法不支持全局检索，会忽略修饰符g，及无法返回数组</p>
 <p>如果找不到匹配的字串会返回-1</p>
-<pre><code class="hljs javascript"><span class="hljs-keyword">var</span> txt2=<span class="hljs-string">"132java12das45"</span>.search(<span class="hljs-regexp">/[a-z]+(\d+)/g</span>);  <span class="hljs-comment">//=&gt;3</span></code></pre>
+<pre><code class="hljs javascript"><span class="hljs-keyword">var</span> txt2=<span class="hljs-string">&quot;132java12das45&quot;</span>.<span class="hljs-title function_">search</span>(<span class="hljs-regexp">/[a-z]+(\d+)/g</span>);  <span class="hljs-comment">//=&gt;3</span></code></pre>
 
 
 
 <h4 id="2-replace"><a href="#2-replace" class="headerlink" title="2.replace"></a>2.replace</h4><p>执行检索与替换操作<code>string.replace(x,y)第一个参数可以是 正则表达式 或 字符串，第二个参数可以是 进行替换的字符串 或 函数</code></p>
-<pre><code class="hljs javascript"><span class="hljs-keyword">var</span> txt5=<span class="hljs-string">'javascript  javaScript: Is A LANGUAGE'</span>.replace(<span class="hljs-regexp">/javascript/ig</span>,<span class="hljs-string">"JavaScript"</span>); <span class="hljs-comment">//=&gt;JavaScript JavaScript: Is A LANGUAGE</span></code></pre>
+<pre><code class="hljs javascript"><span class="hljs-keyword">var</span> txt5=<span class="hljs-string">&#x27;javascript  javaScript: Is A LANGUAGE&#x27;</span>.<span class="hljs-title function_">replace</span>(<span class="hljs-regexp">/javascript/ig</span>,<span class="hljs-string">&quot;JavaScript&quot;</span>); <span class="hljs-comment">//=&gt;JavaScript JavaScript: Is A LANGUAGE</span>
+</code></pre>
 
 <p>在replace中，第二个参数可以是正则表达式‘(’，‘)’中匹配的内容，使用‘$’，。具体用法如下：</p>
-<pre><code class="hljs javascript"><span class="hljs-keyword">var</span> quote = <span class="hljs-regexp">/"([^"]*)"/g</span>;
-<span class="hljs-keyword">var</span> txt = <span class="hljs-string">'"fdajfoa"ckajc"fdadasd"231"da34fav"'</span>.replace(quote,<span class="hljs-string">"“$1”"</span>);
-<span class="hljs-comment">//=&gt; “fdajfoa”ckajc“fdadasd”231“da34fav”  将所有的英文的 ""，替换成中文的 “”</span></code></pre>
+<pre><code class="hljs javascript"><span class="hljs-keyword">var</span> quote = <span class="hljs-regexp">/&quot;([^&quot;]*)&quot;/g</span>;
+<span class="hljs-keyword">var</span> txt = <span class="hljs-string">&#x27;&quot;fdajfoa&quot;ckajc&quot;fdadasd&quot;231&quot;da34fav&quot;&#x27;</span>.<span class="hljs-title function_">replace</span>(quote,<span class="hljs-string">&quot;“$1”&quot;</span>);
+<span class="hljs-comment">//=&gt; “fdajfoa”ckajc“fdadasd”231“da34fav”  将所有的英文的 &quot;&quot;，替换成中文的 “”</span></code></pre>
 
 
 
 <h4 id="3-match"><a href="#3-match" class="headerlink" title="3.match"></a>3.match</h4><p><code>match(x)</code>返回一个数组</p>
 <p>match返回数组的三种情况</p>
 <pre><code class="hljs javascript"><span class="hljs-comment">//没有修饰词g,没有括号</span>
-<span class="hljs-keyword">var</span> kat = <span class="hljs-string">"aaab"</span>.match(<span class="hljs-regexp">/a+b/</span>);      <span class="hljs-comment">//=&gt;[ 'aaab', index: 0, input: 'aaab', groups: undefined ]</span>
+<span class="hljs-keyword">var</span> kat = <span class="hljs-string">&quot;aaab&quot;</span>.<span class="hljs-title function_">match</span>(<span class="hljs-regexp">/a+b/</span>);      <span class="hljs-comment">//=&gt;[ &#x27;aaab&#x27;, index: 0, input: &#x27;aaab&#x27;, groups: undefined ]</span>
 
 <span class="hljs-comment">//有修饰词g有括号</span>
-<span class="hljs-keyword">var</span> kat = <span class="hljs-string">'fdajfoackajcfdadasd231da34fav'</span>.match(<span class="hljs-regexp">/f(d)a/g</span>)    <span class="hljs-comment">//=&gt;[ 'fda', 'fda' ]</span>
+<span class="hljs-keyword">var</span> kat = <span class="hljs-string">&#x27;fdajfoackajcfdadasd231da34fav&#x27;</span>.<span class="hljs-title function_">match</span>(<span class="hljs-regexp">/f(d)a/g</span>)    <span class="hljs-comment">//=&gt;[ &#x27;fda&#x27;, &#x27;fda&#x27; ]</span>
 
 <span class="hljs-comment">//没有g有括号</span>
-<span class="hljs-keyword">var</span> kat = <span class="hljs-string">'fdajfoackajcfdadasd231da34fav'</span>.match(<span class="hljs-regexp">/f(d)a/</span>)    <span class="hljs-comment">//a[n],存放的是$n的内容</span>
+<span class="hljs-keyword">var</span> kat = <span class="hljs-string">&#x27;fdajfoackajcfdadasd231da34fav&#x27;</span>.<span class="hljs-title function_">match</span>(<span class="hljs-regexp">/f(d)a/</span>)    <span class="hljs-comment">//a[n],存放的是$n的内容</span>
 <span class="hljs-comment">//=&gt;[</span>
-<span class="hljs-comment">//     'fda',</span>
-<span class="hljs-comment">//     'd',</span>
+<span class="hljs-comment">//     &#x27;fda&#x27;,</span>
+<span class="hljs-comment">//     &#x27;d&#x27;,</span>
 <span class="hljs-comment">//     index: 0,</span>
-<span class="hljs-comment">//     input: 'fdajfoackajcfdadasd231da34fav',</span>
+<span class="hljs-comment">//     input: &#x27;fdajfoackajcfdadasd231da34fav&#x27;,</span>
 <span class="hljs-comment">//     groups: undefined</span>
 <span class="hljs-comment">//   ]</span></code></pre>
 
 
 
 <h4 id="4-split"><a href="#4-split" class="headerlink" title="4.split"></a>4.split</h4><p><code>split(x)</code>将一个字符串拆分成数组，分隔符为split的参数</p>
-<pre><code class="hljs javascript"><span class="hljs-keyword">var</span> kat = <span class="hljs-string">"1, 2, 3, 4, 5"</span>.split(<span class="hljs-regexp">/\s*,\s*/</span>);  <span class="hljs-comment">//=&gt;[1,2,3,4,5]   允许两边留任意多的空格符</span></code></pre>
+<pre><code class="hljs javascript"><span class="hljs-keyword">var</span> kat = <span class="hljs-string">&quot;1, 2, 3, 4, 5&quot;</span>.<span class="hljs-title function_">split</span>(<span class="hljs-regexp">/\s*,\s*/</span>);  <span class="hljs-comment">//=&gt;[1,2,3,4,5]   允许两边留任意多的空格符</span></code></pre>
 
 
 
-<h2 id="4-RegExp对象"><a href="#4-RegExp对象" class="headerlink" title="4.RegExp对象"></a>4.RegExp对象</h2><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> a= <span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(<span class="hljs-string">"f(d)a"</span>,<span class="hljs-string">"g"</span>);</code></pre>
+<h2 id="4-RegExp对象"><a href="#4-RegExp对象" class="headerlink" title="4.RegExp对象"></a>4.RegExp对象</h2><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> a= <span class="hljs-keyword">new</span> <span class="hljs-title class_">RegExp</span>(<span class="hljs-string">&quot;f(d)a&quot;</span>,<span class="hljs-string">&quot;g&quot;</span>);</code></pre>
 
 <h4 id="1-属性"><a href="#1-属性" class="headerlink" title="1.属性"></a>1.属性</h4><table>
 <thead>
@@ -559,31 +560,31 @@
 </tr>
 </tbody></table>
 <h4 id="2-方法"><a href="#2-方法" class="headerlink" title="2.方法"></a>2.方法</h4><p><code>RegExp.exce()对指定的字符串执行一个正则表达式</code>，类似于<code>string.match()</code>,但是g修饰符对他不起作用</p>
-<pre><code class="hljs javascript"><span class="hljs-keyword">var</span> a= <span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(<span class="hljs-string">"f(d)a"</span>,<span class="hljs-string">"g"</span>);
-a.exec(<span class="hljs-string">'fdajfoackajcfdadasd231da34fav'</span>)  
+<pre><code class="hljs javascript"><span class="hljs-keyword">var</span> a= <span class="hljs-keyword">new</span> <span class="hljs-title class_">RegExp</span>(<span class="hljs-string">&quot;f(d)a&quot;</span>,<span class="hljs-string">&quot;g&quot;</span>);
+a.<span class="hljs-title function_">exec</span>(<span class="hljs-string">&#x27;fdajfoackajcfdadasd231da34fav&#x27;</span>)  
 <span class="hljs-comment">//=&gt;[</span>
-<span class="hljs-comment">//     'fda',</span>
-<span class="hljs-comment">//     'd',</span>
+<span class="hljs-comment">//     &#x27;fda&#x27;,</span>
+<span class="hljs-comment">//     &#x27;d&#x27;,</span>
 <span class="hljs-comment">//     index: 0,</span>
-<span class="hljs-comment">//     input: 'fdajfoackajcfdadasd231da34fav',</span>
+<span class="hljs-comment">//     input: &#x27;fdajfoackajcfdadasd231da34fav&#x27;,</span>
 <span class="hljs-comment">//     groups: undefined</span>
 <span class="hljs-comment">//   ]</span></code></pre>
 
-<p><code>RegExp.test()只返回true/false</code></p>
+<p><code>RegExp.test()只返回true/false </code></p>
 <p><code>test()和exce()方法，都会修改lastIndex的值</code>当最后一次检索失败时，要手动将<code>lastIndex</code>的值置0，否则下一次检索将不会从字符串的起始位置开始。</p>
 <h2 id="参考代码"><a href="#参考代码" class="headerlink" title="参考代码"></a>参考代码</h2><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> b= <span class="hljs-regexp">/[a-z]+(\d+)/g</span>;     <span class="hljs-comment">//前面是小写字母，后面是数字</span>
 <span class="hljs-keyword">var</span> c=<span class="hljs-regexp">/^JavaScript$/</span>;      <span class="hljs-comment">//纯JavaScript字符串</span>
-<span class="hljs-keyword">var</span> d=<span class="hljs-regexp">/Java(?!Script)([A-Z]\w*)/</span>;      <span class="hljs-comment">//Java后面不是" Script",而是以大写字母开头的字符串</span>
+<span class="hljs-keyword">var</span> d=<span class="hljs-regexp">/Java(?!Script)([A-Z]\w*)/</span>;      <span class="hljs-comment">//Java后面不是&quot; Script&quot;,而是以大写字母开头的字符串</span>
 <span class="hljs-keyword">var</span> e=<span class="hljs-regexp">/[Jj]ava([Ss]cript)?(?=\:)/</span>;    <span class="hljs-comment">//先行正向断言 </span>
 <span class="hljs-keyword">var</span> g=<span class="hljs-regexp">/(\w+)\:\/\/([\w.]+)\/(\S*)/</span>;    <span class="hljs-comment">//解析一个url </span>
-<span class="hljs-built_in">console</span>.log(<span class="hljs-string">'This Blog http://ymmltp.github.com/test.html'</span>);
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;This Blog http://ymmltp.github.com/test.html&#x27;</span>);
 <span class="hljs-comment">//=&gt;[</span>
-<span class="hljs-comment">//     'http://ymmltp.github.com/test.html',</span>
-<span class="hljs-comment">//     'http',</span>
-<span class="hljs-comment">//     'ymmltp.github.com',</span>
-<span class="hljs-comment">//     'test.html',</span>
+<span class="hljs-comment">//     &#x27;http://ymmltp.github.com/test.html&#x27;,</span>
+<span class="hljs-comment">//     &#x27;http&#x27;,</span>
+<span class="hljs-comment">//     &#x27;ymmltp.github.com&#x27;,</span>
+<span class="hljs-comment">//     &#x27;test.html&#x27;,</span>
 <span class="hljs-comment">//    index: 10,</span>
-<span class="hljs-comment">//     input: 'This Blog http://ymmltp.github.com/test.html',</span>
+<span class="hljs-comment">//     input: &#x27;This Blog http://ymmltp.github.com/test.html&#x27;,</span>
 <span class="hljs-comment">//     groups: undefined</span>
 <span class="hljs-comment">//   ]</span></code></pre>
 
@@ -602,7 +603,7 @@ a.exec(<span class="hljs-string">'fdajfoackajcfdadasd231da34fav'</span>)
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">

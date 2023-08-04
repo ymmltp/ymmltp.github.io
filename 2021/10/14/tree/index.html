@@ -47,7 +47,7 @@
 
 
   <script  src="/js/utils.js" ></script>
-<meta name="generator" content="Hexo 4.2.1"></head>
+<meta name="generator" content="Hexo 7.0.0-rc2"></head>
 
 
 <body>
@@ -163,7 +163,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      726 字
+      732 字
     </span>
   
 
@@ -219,10 +219,10 @@
             
             <article class="markdown-body">
               <h2 id="Tree"><a href="#Tree" class="headerlink" title="Tree"></a>Tree</h2><h3 id="二叉排序树（二叉查找树）（BST）："><a href="#二叉排序树（二叉查找树）（BST）：" class="headerlink" title="二叉排序树（二叉查找树）（BST）："></a>二叉排序树（二叉查找树）（BST）：</h3><p>左节点&lt;根节点&lt;右节点 </p>
-<h3 id="平衡二叉树（AVL）"><a href="#平衡二叉树（AVL）" class="headerlink" title="平衡二叉树（AVL）:"></a>平衡二叉树（AVL）:</h3><p>左右子树的高度差的绝对值&lt;=1</p>
-<h3 id="哈夫曼树："><a href="#哈夫曼树：" class="headerlink" title="哈夫曼树："></a>哈夫曼树：</h3><p>带权路径长度 = 权<em>根到节点的边数<br>所有 *</em>叶子节点** 的带权路径长度之和（WPL）最小的树</p>
-<h3 id="B树（多路平衡查找树）绝对平衡"><a href="#B树（多路平衡查找树）绝对平衡" class="headerlink" title="B树（多路平衡查找树）绝对平衡"></a>B树（多路平衡查找树）绝对平衡</h3><p>1、最多的<strong>分叉</strong>，称为树的阶：5阶B树：一个节点最多有5个分叉，最少有3个分叉；最多4个元素。最少有2个元素<br>2、节点中的的元素是有序的<br>3、非根节点(ceil(m/2),m)个子树，（ceil(m/2)-1，m-1）个元素<br>   根节点（1，m）个子树，（1，m-1）个元素<br>4、所有的叶节点（其实都是null,就是查找失败的节点）都出现在同一层，叶节点的上一层，称为终端节点<br>5、B树的高度，通常不包含叶子节点（失败节点，null）<br>6、各个节点的关键字是不重复的<br>7、每个关键字中还包含指向内容的指针。</p>
-<h3 id="B-树-绝对平衡"><a href="#B-树-绝对平衡" class="headerlink" title="B+树 绝对平衡"></a>B+树 绝对平衡</h3><p>类似分块查找<br>根节点也至少需要两个子树，否则不是B+树<br>1、节点中的关键字个数和子树个数相同<br>2、所有的叶子节点，包含所有的关键字，及指向对应记录的指针，<br>3、叶节点中关键字按大小顺序排列，且相邻的叶节点按大小顺序链接起来（<strong>支持顺序查找</strong>）<br>4、所有分支节点中仅包含子节点关键字的最大值以及指向子节点的指针<br>5、非根节点：(ceil(m/2),m)，分支数=元素个数<br>   根节点（1，m）<br>6、分支节点中出现过的数字，还会在子节点中出现<br>7、分支节点，只起到索引的作用。并不包含指向内容的指针</p>
+<h3 id="平衡二叉树（AVL）"><a href="#平衡二叉树（AVL）" class="headerlink" title="平衡二叉树（AVL）:"></a>平衡二叉树（AVL）:</h3><p>左右子树的高度差的绝对值&lt;&#x3D;1</p>
+<h3 id="哈夫曼树："><a href="#哈夫曼树：" class="headerlink" title="哈夫曼树："></a>哈夫曼树：</h3><p>带权路径长度 &#x3D; 权*根到节点的边数<br>所有 <strong>叶子节点</strong> 的带权路径长度之和（WPL）最小的树</p>
+<h3 id="B树（多路平衡查找树）绝对平衡"><a href="#B树（多路平衡查找树）绝对平衡" class="headerlink" title="B树（多路平衡查找树）绝对平衡"></a>B树（多路平衡查找树）绝对平衡</h3><p>1、最多的<strong>分叉</strong>，称为树的阶：5阶B树：一个节点最多有5个分叉，最少有3个分叉；最多4个元素。最少有2个元素<br>2、节点中的的元素是有序的<br>3、非根节点(ceil(m&#x2F;2),m)个子树，（ceil(m&#x2F;2)-1，m-1）个元素<br>   根节点（1，m）个子树，（1，m-1）个元素<br>4、所有的叶节点（其实都是null,就是查找失败的节点）都出现在同一层，叶节点的上一层，称为终端节点<br>5、B树的高度，通常不包含叶子节点（失败节点，null）<br>6、各个节点的关键字是不重复的<br>7、每个关键字中还包含指向内容的指针。</p>
+<h3 id="B-树-绝对平衡"><a href="#B-树-绝对平衡" class="headerlink" title="B+树 绝对平衡"></a>B+树 绝对平衡</h3><p>类似分块查找<br>根节点也至少需要两个子树，否则不是B+树<br>1、节点中的关键字个数和子树个数相同<br>2、所有的叶子节点，包含所有的关键字，及指向对应记录的指针，<br>3、叶节点中关键字按大小顺序排列，且相邻的叶节点按大小顺序链接起来（<strong>支持顺序查找</strong>）<br>4、所有分支节点中仅包含子节点关键字的最大值以及指向子节点的指针<br>5、非根节点：(ceil(m&#x2F;2),m)，分支数&#x3D;元素个数<br>   根节点（1，m）<br>6、分支节点中出现过的数字，还会在子节点中出现<br>7、分支节点，只起到索引的作用。并不包含指向内容的指针</p>
 <h3 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h3><p>平衡二叉查找树的变体,左右子树高度差可以大于一,不一定平衡，但一定是二叉查找树<br>1、 结点是红色或黑色。<br>2、根结点是黑色。<br>3、所有叶子都是黑色。（叶子是NIL结点）<br>4、每个红色结点的两个子结点都是黑色。（从每个叶子到根的所有路径上不能有两个连续的红色结点）<br>5、从任一节结点其每个叶子的所有路径都包含相同数目的黑色结点</p>
 <h3 id="堆-必须插满一层，才能进入第二层，但各层左右节点之间不满足二叉排序树的性质"><a href="#堆-必须插满一层，才能进入第二层，但各层左右节点之间不满足二叉排序树的性质" class="headerlink" title="堆 必须插满一层，才能进入第二层，但各层左右节点之间不满足二叉排序树的性质"></a>堆 必须插满一层，才能进入第二层，但各层左右节点之间不满足二叉排序树的性质</h3><p>堆的插入：<br>永远插入最后一个位置，再进行排序，和交换，使当前堆满足堆的属性<br>堆的删除：<br>使用最后一个数填补被删除的数，再进行排序，交换，使当前堆满足堆的属性</p>
 
@@ -241,7 +241,7 @@
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">
@@ -250,7 +250,7 @@
                     
                       <a href="/2021/10/18/openCV/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">openCV</span>
+                        <span class="hidden-mobile"></span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     

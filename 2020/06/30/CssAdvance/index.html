@@ -47,7 +47,7 @@
 
 
   <script  src="/js/utils.js" ></script>
-<meta name="generator" content="Hexo 4.2.1"></head>
+<meta name="generator" content="Hexo 7.0.0-rc2"></head>
 
 
 <body>
@@ -163,7 +163,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      641 字
+      660 字
     </span>
   
 
@@ -220,37 +220,35 @@
             <article class="markdown-body">
               <h1 id="CSS布局"><a href="#CSS布局" class="headerlink" title="CSS布局"></a>CSS布局</h1><h2 id="尺寸"><a href="#尺寸" class="headerlink" title="尺寸"></a>尺寸</h2><p>1、块级元素auto,是随父元素变化的</p>
 <p>2、一旦元素被设为浮动，该元素的width就由内容元素决定</p>
-<h3 id="PX-EM-REM"><a href="#PX-EM-REM" class="headerlink" title="PX/EM/REM"></a>PX/EM/REM</h3><h4 id="1、PX-像素"><a href="#1、PX-像素" class="headerlink" title="1、PX(像素)"></a>1、PX(像素)</h4><h4 id="2、EM"><a href="#2、EM" class="headerlink" title="2、EM"></a>2、EM</h4><p>EM继承父元素字体大小，默认1em=16px, 0.875em=4px, 0.75em=12px, 0.625em=10px</p>
+<h3 id="PX-EM-REM"><a href="#PX-EM-REM" class="headerlink" title="PX&#x2F;EM&#x2F;REM"></a>PX&#x2F;EM&#x2F;REM</h3><h4 id="1、PX-像素"><a href="#1、PX-像素" class="headerlink" title="1、PX(像素)"></a>1、PX(像素)</h4><h4 id="2、EM"><a href="#2、EM" class="headerlink" title="2、EM"></a>2、EM</h4><p>EM继承父元素字体大小，默认1em&#x3D;16px, 0.875em&#x3D;4px, 0.75em&#x3D;12px, 0.625em&#x3D;10px</p>
 <pre><code class="hljs css"><span class="hljs-selector-tag">body</span>&#123;<span class="hljs-attribute">font-size</span>: <span class="hljs-number">62.5%</span>;&#125;<span class="hljs-comment">/*简化换算*/</span>
 <span class="hljs-selector-tag">p</span> &#123;<span class="hljs-attribute">font-size</span>: <span class="hljs-number">1.2em</span>;&#125;  <span class="hljs-comment">/*这样1.2em=12px*/</span></code></pre>
 
-<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span>
-<span class="css"><span class="hljs-selector-tag">body</span>&#123;<span class="hljs-attribute">font-size</span>: <span class="hljs-number">62.5%</span>;&#125;	   <span class="hljs-comment">/*简化换算 1em=10px*/</span></span>
-<span class="css"><span class="hljs-selector-class">.con1</span>&#123;<span class="hljs-attribute">font-size</span>: <span class="hljs-number">1.2em</span>;&#125;   <span class="hljs-comment">/*这样1.2em=12px*/</span></span>
-<span class="css"><span class="hljs-selector-class">.con2</span>&#123;<span class="hljs-attribute">font-size</span>: <span class="hljs-number">1em</span>;&#125;     <span class="hljs-comment">/*由于em继承父元素字体大小，此时font-size=1em=12px*/</span></span>
-<span class="css"><span class="hljs-selector-class">.con3</span>&#123;<span class="hljs-attribute">font-size</span>: <span class="hljs-number">1.2em</span>;&#125;   <span class="hljs-comment">/*由于em继承父元素字体大小，此时font-size=1.2em=12px*1.2=14.4px*/</span></span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="language-css"></span>
+<span class="language-css"><span class="hljs-selector-tag">body</span>&#123;<span class="hljs-attribute">font-size</span>: <span class="hljs-number">62.5%</span>;&#125;	   <span class="hljs-comment">/*简化换算 1em=10px*/</span></span>
+<span class="language-css"><span class="hljs-selector-class">.con1</span>&#123;<span class="hljs-attribute">font-size</span>: <span class="hljs-number">1.2em</span>;&#125;   <span class="hljs-comment">/*这样1.2em=12px*/</span></span>
+<span class="language-css"><span class="hljs-selector-class">.con2</span>&#123;<span class="hljs-attribute">font-size</span>: <span class="hljs-number">1em</span>;&#125;     <span class="hljs-comment">/*由于em继承父元素字体大小，此时font-size=1em=12px*/</span></span>
+<span class="language-css"><span class="hljs-selector-class">.con3</span>&#123;<span class="hljs-attribute">font-size</span>: <span class="hljs-number">1.2em</span>;&#125;   <span class="hljs-comment">/*由于em继承父元素字体大小，此时font-size=1.2em=12px*1.2=14.4px*/</span></span>
+<span class="language-css"></span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
 
 <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"con1"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"con2"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"con3"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;con1&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;con2&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;con3&quot;</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></code></pre>
 
 <h4 id="3、REM"><a href="#3、REM" class="headerlink" title="3、REM"></a>3、REM</h4><p>REM类似于EM，但是他的大小只相对于html的根元素，可以忽略继承的层级关系。</p>
-<h2 id="Grid"><a href="#Grid" class="headerlink" title="Grid"></a>Grid</h2><h2 id="Flex"><a href="#Flex" class="headerlink" title="Flex"></a>Flex</h2><h2 id="Float-少用"><a href="#Float-少用" class="headerlink" title="Float(少用)"></a><a href="https://www.imooc.com/learn/121" target="_blank" rel="noopener">Float</a>(少用)</h2><p>float会使父容器高度塌陷（父容器的高度无法定位和使用）</p>
+<h2 id="Grid"><a href="#Grid" class="headerlink" title="Grid"></a>Grid</h2><h2 id="Flex"><a href="#Flex" class="headerlink" title="Flex"></a>Flex</h2><h2 id="Float-少用"><a href="#Float-少用" class="headerlink" title="Float(少用)"></a><a target="_blank" rel="noopener" href="https://www.imooc.com/learn/121">Float</a>(少用)</h2><p>float会使父容器高度塌陷（父容器的高度无法定位和使用）</p>
 <p>float原本是用来实现文字环绕效果的</p>
 <h4 id="1-清除float的影响"><a href="#1-清除float的影响" class="headerlink" title="1.清除float的影响"></a>1.清除float的影响</h4><ul>
 <li><p>在block元素底部插入clear:both属性的元素【可以使用CSS after伪元素(IE6,IE7不识别)】 </p>
 </li>
-<li><p>BFC/haslayout(IE6/IE7)：使内部元素和外部完全隔绝</p>
-<pre><code class="hljs css"><span class="hljs-selector-tag">IE8</span>及以上浏览器：<span class="hljs-selector-class">.clearfix</span><span class="hljs-selector-pseudo">:after</span>&#123;<span class="hljs-attribute">content</span>:<span class="hljs-string">''</span>;<span class="hljs-attribute">display</span>:table;<span class="hljs-attribute">clear</span>:both&#125;
-IE6/IE7使用：.clearfix&#123;*zoom:1;&#125;</code></pre>
-
-</li>
+<li><p>BFC&#x2F;haslayout(IE6&#x2F;IE7)：使内部元素和外部完全隔绝</p>
+<pre><code class="hljs css">IE8及以上浏览器：<span class="hljs-selector-class">.clearfix</span><span class="hljs-selector-pseudo">:after</span>&#123;<span class="hljs-attribute">content</span>:<span class="hljs-string">&#x27;&#x27;</span>;<span class="hljs-attribute">display</span>:table;<span class="hljs-attribute">clear</span>:both&#125;
+IE6/IE7使用：<span class="hljs-selector-class">.clearfix</span>&#123;*zoom:<span class="hljs-number">1</span>;&#125;</code></pre></li>
 </ul>
 <p style="color:red">.clearfix只应该用在包含浮动子元素的父级元素上</p>
 
@@ -259,23 +257,23 @@ IE6/IE7使用：.clearfix&#123;*zoom:1;&#125;</code></pre>
 <li>去空格化,使元素紧密排列(将空格的文字元素置后了,实现文字环绕)</li>
 <li>float在低版本的IE(6,7)下会有很多问题</li>
 </ul>
-<h4 id="3-float与流体布局"><a href="#3-float与流体布局" class="headerlink" title="3.float与流体布局"></a>3.float与流体布局</h4><pre><code class="hljs css">左侧：<span class="hljs-selector-tag">width</span> + <span class="hljs-selector-tag">float</span><span class="hljs-selector-pseudo">:left</span>;
-右侧：padding-left/margin-left =  width</code></pre>
+<h4 id="3-float与流体布局"><a href="#3-float与流体布局" class="headerlink" title="3.float与流体布局"></a>3.float与流体布局</h4><pre><code class="hljs css">左侧：<span class="hljs-attribute">width</span> + <span class="hljs-attribute">float</span><span class="hljs-selector-pseudo">:left</span>;
+右侧：<span class="hljs-attribute">padding-left</span>/<span class="hljs-attribute">margin-left</span> =  <span class="hljs-attribute">width</span></code></pre>
 
 <p>自适应的流体布局:</p>
-<pre><code class="hljs css">左侧：<span class="hljs-selector-tag">float</span>
-右侧：display:table-cell(IE8+)/inline-block(IE7)</code></pre>
+<pre><code class="hljs css">左侧：<span class="hljs-attribute">float</span>
+右侧：<span class="hljs-attribute">display</span>:<span class="hljs-built_in">table-cell</span>(IE8+)/<span class="hljs-built_in">inline-block</span>(IE7)</code></pre>
 
 
 
-<h2 id="Absolute"><a href="#Absolute" class="headerlink" title="Absolute"></a><a href="https://www.imooc.com/learn/192" target="_blank" rel="noopener">Absolute</a></h2><h2 id="Margin"><a href="#Margin" class="headerlink" title="Margin"></a><a href="https://www.imooc.com/learn/680" target="_blank" rel="noopener">Margin</a></h2><h4 id="1-百分比margin的计算规则"><a href="#1-百分比margin的计算规则" class="headerlink" title="1. 百分比margin的计算规则"></a>1. 百分比margin的计算规则</h4><ul>
+<h2 id="Absolute"><a href="#Absolute" class="headerlink" title="Absolute"></a><a target="_blank" rel="noopener" href="https://www.imooc.com/learn/192">Absolute</a></h2><h2 id="Margin"><a href="#Margin" class="headerlink" title="Margin"></a><a target="_blank" rel="noopener" href="https://www.imooc.com/learn/680">Margin</a></h2><h4 id="1-百分比margin的计算规则"><a href="#1-百分比margin的计算规则" class="headerlink" title="1. 百分比margin的计算规则"></a>1. 百分比margin的计算规则</h4><ul>
 <li>普通元素：不管是何种margin(margin-top;margin-bottom;margin-left;mergin-right)都是相对于父级元素的width计算的</li>
-<li>绝对定位(position:absolute)元素：相对于第一个具有定位属性的祖先元素（relative/absolute/fixed）的width计算</li>
+<li>绝对定位(position:absolute)元素：相对于第一个具有定位属性的祖先元素（relative&#x2F;absolute&#x2F;fixed）的width计算</li>
 </ul>
 <h4 id="2-margin重叠"><a href="#2-margin重叠" class="headerlink" title="2. margin重叠"></a>2. margin重叠</h4><ul>
 <li><p><strong>通常特性：</strong><br>  只发生在block属性的元素上(不含float,absolute元素)<br>  不考虑writing-mode,只发生在垂直方向上(只有margin-top和margin-bottom会有此现象)</p>
 </li>
-<li><p><strong>种情景</strong><br>相邻的兄弟元素<br>父级和第一个/最后一个子元素<br>空block元素</p>
+<li><p><strong>种情景</strong><br>相邻的兄弟元素<br>父级和第一个&#x2F;最后一个子元素<br>空block元素</p>
 </li>
 <li><p><strong>margin计算法则</strong><br> 正正取最大<br> 正负取相加<br> 负负取最负</p>
 </li>
@@ -296,7 +294,7 @@ IE6/IE7使用：.clearfix&#123;*zoom:1;&#125;</code></pre>
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">

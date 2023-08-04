@@ -47,7 +47,7 @@
 
 
   <script  src="/js/utils.js" ></script>
-<meta name="generator" content="Hexo 4.2.1"></head>
+<meta name="generator" content="Hexo 7.0.0-rc2"></head>
 
 
 <body>
@@ -163,7 +163,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      3.2k 字
+      3.4k 字
     </span>
   
 
@@ -173,7 +173,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      49
+      52
        分钟
     </span>
   
@@ -219,138 +219,139 @@
             
             <article class="markdown-body">
               <h2 id="Canvas的定义"><a href="#Canvas的定义" class="headerlink" title="Canvas的定义"></a>Canvas的定义</h2><p><span style="color:red">html属性中的width和height，不要使用css样式，因为这个属性除了定义画板大小，还定义了画板的分辨率</span></p>
-<pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">head</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"zh-CN"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">head</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;zh-CN&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Canvas Demo<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">canvas</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"canvas"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"800"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"800"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"border:1px solid gray;margin:50px auto;display:block"</span>&gt;</span>
-            当前浏览器不支持canvas(只有浏览器不支持canvas时才会显示这段话)/或者在js中判断canvas.getContext('2d')是否为空。
+        <span class="hljs-tag">&lt;<span class="hljs-name">canvas</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;canvas&quot;</span> <span class="hljs-attr">width</span>=<span class="hljs-string">&quot;800&quot;</span> <span class="hljs-attr">height</span>=<span class="hljs-string">&quot;800&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;border:1px solid gray;margin:50px auto;display:block&quot;</span>&gt;</span>
+            当前浏览器不支持canvas(只有浏览器不支持canvas时才会显示这段话)/或者在js中判断canvas.getContext(&#x27;2d&#x27;)是否为空。
         <span class="hljs-tag">&lt;/<span class="hljs-name">canvas</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span>
-<span class="actionscript">            <span class="hljs-comment">//canvas是基于状态来绘制的</span></span>
-<span class="javascript">            <span class="hljs-built_in">window</span>.onload=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;</span>
-<span class="javascript">                <span class="hljs-keyword">var</span> canvas=<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"canvas"</span>);</span>
-<span class="actionscript">                <span class="hljs-comment">//使用Context绘制</span></span>
-<span class="actionscript">                <span class="hljs-keyword">var</span> context=canvas.getContext(<span class="hljs-string">'2d'</span>);</span>
-            &#125;
-        <span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span>
+<span class="language-javascript">            <span class="hljs-comment">//canvas是基于状态来绘制的</span></span>
+<span class="language-javascript">            <span class="hljs-variable language_">window</span>.<span class="hljs-property">onload</span>=<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;</span>
+<span class="language-javascript">                <span class="hljs-keyword">var</span> canvas=<span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&quot;canvas&quot;</span>);</span>
+<span class="language-javascript">                <span class="hljs-comment">//使用Context绘制</span></span>
+<span class="language-javascript">                <span class="hljs-keyword">var</span> context=canvas.<span class="hljs-title function_">getContext</span>(<span class="hljs-string">&#x27;2d&#x27;</span>);</span>
+<span class="language-javascript">            &#125;</span>
+<span class="language-javascript">        </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
 
 <h2 id="Canvas的用法"><a href="#Canvas的用法" class="headerlink" title="Canvas的用法"></a>Canvas的用法</h2><h3 id="1、常用方法"><a href="#1、常用方法" class="headerlink" title="1、常用方法"></a>1、常用方法</h3><p><span style="color:red">canvas是基于状态来绘制的</span></p>
 <h4 id="基本方法"><a href="#基本方法" class="headerlink" title="基本方法"></a>基本方法</h4><pre><code class="hljs javascript"><span class="hljs-comment">//js中定义画板的大小用width和height属性，</span>
-canvas.width=<span class="hljs-number">1024</span>;
-canvas.height=<span class="hljs-number">768</span>;
+canvas.<span class="hljs-property">width</span>=<span class="hljs-number">1024</span>;
+canvas.<span class="hljs-property">height</span>=<span class="hljs-number">768</span>;
 
 <span class="hljs-comment">//2D绘图</span>
 <span class="hljs-comment">//获取画板对象</span>
-<span class="hljs-keyword">var</span> context=canvas.getContext(<span class="hljs-string">'2d'</span>);  <span class="hljs-comment">//2d画板</span>
+<span class="hljs-keyword">var</span> context=canvas.<span class="hljs-title function_">getContext</span>(<span class="hljs-string">&#x27;2d&#x27;</span>);  <span class="hljs-comment">//2d画板</span>
 
 <span class="hljs-comment">//绘图接口</span>
 <span class="hljs-comment">//画板左上角为原点，向右X正，向下Y正</span>
-context.moveTo(<span class="hljs-number">100</span>,<span class="hljs-number">100</span>);
-context.lineTo(<span class="hljs-number">700</span>,<span class="hljs-number">700</span>);
+context.<span class="hljs-title function_">moveTo</span>(<span class="hljs-number">100</span>,<span class="hljs-number">100</span>);
+context.<span class="hljs-title function_">lineTo</span>(<span class="hljs-number">700</span>,<span class="hljs-number">700</span>);
 
 <span class="hljs-comment">//设置绘制范围 不一定要同时出现</span>
-context.beginPath(); <span class="hljs-comment">//开始一个新的路径，beginPath + lineTo = moveTo</span>
-context.closePath(); <span class="hljs-comment">//当绘制的图形不是闭合图形时，会自动闭合，对fill无效，可以避免线段宽度带来的间隙</span>
+context.<span class="hljs-title function_">beginPath</span>(); <span class="hljs-comment">//开始一个新的路径，beginPath + lineTo = moveTo</span>
+context.<span class="hljs-title function_">closePath</span>(); <span class="hljs-comment">//当绘制的图形不是闭合图形时，会自动闭合，对fill无效，可以避免线段宽度带来的间隙</span>
 
 <span class="hljs-comment">//刷新画布内容</span>
-cxt.clearRect(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,WINDOW_WIDTH,WINDOW_HEIGHT);  
+cxt.<span class="hljs-title function_">clearRect</span>(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-variable constant_">WINDOW_WIDTH</span>,<span class="hljs-variable constant_">WINDOW_HEIGHT</span>);  
 
 <span class="hljs-comment">//3D绘图</span>
-<span class="hljs-keyword">var</span> context=canvas.getContext(<span class="hljs-string">'3d'</span>);  <span class="hljs-comment">//3d画板</span>
+<span class="hljs-keyword">var</span> context=canvas.<span class="hljs-title function_">getContext</span>(<span class="hljs-string">&#x27;3d&#x27;</span>);  <span class="hljs-comment">//3d画板</span>
 
 <span class="hljs-comment">//点是否在画布内</span>
-context.isPointInPath(x,y);
+context.<span class="hljs-title function_">isPointInPath</span>(x,y);
 
 <span class="hljs-comment">//添加事件</span>
-canvas.addEventListener(<span class="hljs-string">"mouseup"</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>);</span></code></pre>
+canvas.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&quot;mouseup&quot;</span>,<span class="hljs-keyword">function</span>);</code></pre>
 
 <h4 id="图形绘制"><a href="#图形绘制" class="headerlink" title="图形绘制"></a>图形绘制</h4><pre><code class="hljs javascript"><span class="hljs-comment">//线条绘制</span>
 <span class="hljs-comment">//设置画笔的属性</span>
-context.lineWidth = <span class="hljs-number">5</span>;
-context.lineCap = <span class="hljs-string">"butt"</span>/<span class="hljs-string">"round"</span>/<span class="hljs-string">"square"</span> <span class="hljs-comment">//线条起始形状，默认，圆形，方形</span>
-context.lineJoin = <span class="hljs-string">"miter"</span>/<span class="hljs-string">"bevel"</span>/<span class="hljs-string">"round"</span> <span class="hljs-comment">//线条相交部分的效果 ，尖角（默认），平角，圆角</span>
-context.miterLimit = <span class="hljs-number">10</span>(默认值); <span class="hljs-comment">//相交线段的内角与外角距离的最大像素差，一旦超过这个值，lineJoin默认bevel</span>
-context.strokeStyle = <span class="hljs-string">"#ff0000"</span>; <span class="hljs-comment">//支持css样式</span>
+context.<span class="hljs-property">lineWidth</span> = <span class="hljs-number">5</span>;
+context.<span class="hljs-property">lineCap</span> = <span class="hljs-string">&quot;butt&quot;</span>/<span class="hljs-string">&quot;round&quot;</span>/<span class="hljs-string">&quot;square&quot;</span> <span class="hljs-comment">//线条起始形状，默认，圆形，方形</span>
+context.<span class="hljs-property">lineJoin</span> = <span class="hljs-string">&quot;miter&quot;</span>/<span class="hljs-string">&quot;bevel&quot;</span>/<span class="hljs-string">&quot;round&quot;</span> <span class="hljs-comment">//线条相交部分的效果 ，尖角（默认），平角，圆角</span>
+context.<span class="hljs-property">miterLimit</span> = <span class="hljs-number">10</span>(默认值); <span class="hljs-comment">//相交线段的内角与外角距离的最大像素差，一旦超过这个值，lineJoin默认bevel</span>
+context.<span class="hljs-property">strokeStyle</span> = <span class="hljs-string">&quot;#ff0000&quot;</span>; <span class="hljs-comment">//支持css样式</span>
 <span class="hljs-comment">//绘制线条</span>
-context.stroke();  
+context.<span class="hljs-title function_">stroke</span>();  
 
 <span class="hljs-comment">//图形填充</span>
 <span class="hljs-comment">//设置填充属性</span>
-context.fillStyle= <span class="hljs-string">"rgb(2,100,222)"</span>;
+context.<span class="hljs-property">fillStyle</span>= <span class="hljs-string">&quot;rgb(2,100,222)&quot;</span>;
 <span class="hljs-comment">//填充图形 （如果填充发生在绘制线条之后，会使线条的宽度发生变化。所以一般要先填充再绘线）</span>
-context.fill();
+context.<span class="hljs-title function_">fill</span>();
 
 <span class="hljs-comment">//绘制矩形</span>
-context.rect(x,y,width,height)<span class="hljs-comment">//规划矩形路线，需要使用stroke和fill来绘图，矩形的位置，宽高</span>
-context.strokeRect(x,y,width,height)<span class="hljs-comment">//绘制矩形边框，使用的属性和stroke一样</span>
-context.fillRect(x,y,width,height)<span class="hljs-comment">//绘制填充的矩形，使用的属性和fill一样</span>
+context.<span class="hljs-title function_">rect</span>(x,y,width,height)<span class="hljs-comment">//规划矩形路线，需要使用stroke和fill来绘图，矩形的位置，宽高</span>
+context.<span class="hljs-title function_">strokeRect</span>(x,y,width,height)<span class="hljs-comment">//绘制矩形边框，使用的属性和stroke一样</span>
+context.<span class="hljs-title function_">fillRect</span>(x,y,width,height)<span class="hljs-comment">//绘制填充的矩形，使用的属性和fill一样</span>
 
 <span class="hljs-comment">//绘制圆 </span>
 <span class="hljs-comment">//(3点钟方向为0*pi/2*pi,6点钟方向0.5*pi,9点钟方向1*pi,12点钟方向1.5*pi)</span>
-context.arc(<span class="hljs-number">300</span>,<span class="hljs-number">300</span>,<span class="hljs-number">200</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0.5</span>*<span class="hljs-built_in">Math</span>.PI,<span class="hljs-literal">false</span>); <span class="hljs-comment">//圆心坐标(X,Y),半径，起始弧度，结束弧度，是否逆时针</span>
-context.actTo(x1,y1,x2,y2,r); <span class="hljs-comment">//配合moveTo(x0,y0可以绘制半径为r,同时相切与直线(x0,y0)-(x1,y1)和直线(x1,y1)-(x2,y2)的弧线(x0,y0)-(x1,y1)部分可能会有直线；起始点是(x0,y0)，但结束点是圆弧与直线(x1,y1)-(x2,y2)的切点</span></code></pre>
+context.<span class="hljs-title function_">arc</span>(<span class="hljs-number">300</span>,<span class="hljs-number">300</span>,<span class="hljs-number">200</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0.5</span>*<span class="hljs-title class_">Math</span>.<span class="hljs-property">PI</span>,<span class="hljs-literal">false</span>); <span class="hljs-comment">//圆心坐标(X,Y),半径，起始弧度，结束弧度，是否逆时针</span>
+context.<span class="hljs-title function_">actTo</span>(x1,y1,x2,y2,r); <span class="hljs-comment">//配合moveTo(x0,y0可以绘制半径为r,同时相切与直线(x0,y0)-(x1,y1)和直线(x1,y1)-(x2,y2)的弧线(x0,y0)-(x1,y1)部分可能会有直线；起始点是(x0,y0)，但结束点是圆弧与直线(x1,y1)-(x2,y2)的切点</span></code></pre>
 
 <h4 id="贝塞尔曲线"><a href="#贝塞尔曲线" class="headerlink" title="贝塞尔曲线"></a>贝塞尔曲线</h4><pre><code class="hljs javascript"><span class="hljs-comment">//二次曲线</span>
-context.moveTo(x0,y0);
-context.quadraticCurveTo(x1,y1,x2,y2); <span class="hljs-comment">// 绘制起始点为(x0,y0),控制点为(x1,y1),结束点为(x2,y2)的曲线</span>
+context.<span class="hljs-title function_">moveTo</span>(x0,y0);
+context.<span class="hljs-title function_">quadraticCurveTo</span>(x1,y1,x2,y2); <span class="hljs-comment">// 绘制起始点为(x0,y0),控制点为(x1,y1),结束点为(x2,y2)的曲线</span>
 
 <span class="hljs-comment">//三次曲线</span>
-context.moveTo(x0,y0);
-context.bezierCurveTo(x1,y1,x2,y2,x3,y3); <span class="hljs-comment">// 绘制起始点为(x0,y0),控制点为(x1,y1),(x2,y2),结束点为(x3,y3)的曲线</span></code></pre>
+context.<span class="hljs-title function_">moveTo</span>(x0,y0);
+context.<span class="hljs-title function_">bezierCurveTo</span>(x1,y1,x2,y2,x3,y3); <span class="hljs-comment">// 绘制起始点为(x0,y0),控制点为(x1,y1),(x2,y2),结束点为(x3,y3)的曲线</span></code></pre>
 
-<h4 id="图形变换"><a href="#图形变换" class="headerlink" title="图形变换"></a>图形变换</h4><pre><code class="hljs javascript">context.translate(x,y); <span class="hljs-comment">// 位移，位移的移动是叠加的，所以移动之后需要反向移回，或者使用save,restore</span>
-context.scale(a,b); <span class="hljs-comment">//长宽，会放大图像的所有属性（起始点坐标，线宽,图形大小）</span>
-context.rotate(deg); <span class="hljs-comment">//旋转</span>
+<h4 id="图形变换"><a href="#图形变换" class="headerlink" title="图形变换"></a>图形变换</h4><pre><code class="hljs javascript">context.<span class="hljs-title function_">translate</span>(x,y); <span class="hljs-comment">// 位移，位移的移动是叠加的，所以移动之后需要反向移回，或者使用save,restore</span>
+context.<span class="hljs-title function_">scale</span>(a,b); <span class="hljs-comment">//长宽，会放大图像的所有属性（起始点坐标，线宽,图形大小）</span>
+context.<span class="hljs-title function_">rotate</span>(deg); <span class="hljs-comment">//旋转</span>
 
-context.transform(a,b,c,d,e,f);<span class="hljs-comment">//水平缩放，水平倾斜，垂直倾斜，垂直缩放，水平位移，垂直位移transform和位移类似，是叠加的，可以使用setTransform，将他设成初始值</span>
-context.setTransform(<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">100</span>,<span class="hljs-number">100</span>);<span class="hljs-comment">//不考虑之前所有的transform</span>
+context.<span class="hljs-title function_">transform</span>(a,b,c,d,e,f);<span class="hljs-comment">//水平缩放，水平倾斜，垂直倾斜，垂直缩放，水平位移，垂直位移transform和位移类似，是叠加的，可以使用setTransform，将他设成初始值</span>
+context.<span class="hljs-title function_">setTransform</span>(<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">100</span>,<span class="hljs-number">100</span>);<span class="hljs-comment">//不考虑之前所有的transform</span>
 
 <span class="hljs-comment">//这两者应该成对出现,进行图型变换前最好先保存。</span>
-context.save();<span class="hljs-comment">//保存当前状态</span>
-context.restore();<span class="hljs-comment">//回复至前一次保存的状态</span></code></pre>
+context.<span class="hljs-title function_">save</span>();<span class="hljs-comment">//保存当前状态</span>
+context.<span class="hljs-title function_">restore</span>();<span class="hljs-comment">//回复至前一次保存的状态</span></code></pre>
 
-<h4 id="渐变色（可作为fillStyle-strokeStyle的值）"><a href="#渐变色（可作为fillStyle-strokeStyle的值）" class="headerlink" title="渐变色（可作为fillStyle/strokeStyle的值）"></a>渐变色（可作为fillStyle/strokeStyle的值）</h4><pre><code class="hljs javascript"><span class="hljs-comment">//线性渐变色</span>
-<span class="hljs-keyword">var</span> grd = context.createLinearGradient(xstart,ystart,xend,yend); <span class="hljs-comment">// </span>
-grd.addColorStop(stop,color);
+<h4 id="渐变色（可作为fillStyle-strokeStyle的值）"><a href="#渐变色（可作为fillStyle-strokeStyle的值）" class="headerlink" title="渐变色（可作为fillStyle&#x2F;strokeStyle的值）"></a>渐变色（可作为fillStyle&#x2F;strokeStyle的值）</h4><pre><code class="hljs javascript"><span class="hljs-comment">//线性渐变色</span>
+<span class="hljs-keyword">var</span> grd = context.<span class="hljs-title function_">createLinearGradient</span>(xstart,ystart,xend,yend); <span class="hljs-comment">// </span>
+grd.<span class="hljs-title function_">addColorStop</span>(stop,color);
 <span class="hljs-comment">//放射性渐变</span>
-<span class="hljs-keyword">var</span> grd = context.createRadialGradient(x0,y0,r0,x1,y1,r1); <span class="hljs-comment">// 在两个圆中间进行渐变</span>
-grd.addColorStop(stop,color);
+<span class="hljs-keyword">var</span> grd = context.<span class="hljs-title function_">createRadialGradient</span>(x0,y0,r0,x1,y1,r1); <span class="hljs-comment">// 在两个圆中间进行渐变</span>
+grd.<span class="hljs-title function_">addColorStop</span>(stop,color);
 <span class="hljs-comment">//图像做背景填充</span>
-<span class="hljs-keyword">var</span> pattern = context.createPattern(img/canvas/video,repeat-style); <span class="hljs-comment">//填充对象可以是图片，canvas,或vedio;repear-stylt = no-rapeat/repeat-x/repeat-y/repeat</span></code></pre>
+<span class="hljs-keyword">var</span> pattern = context.<span class="hljs-title function_">createPattern</span>(img/canvas/video,repeat-style); <span class="hljs-comment">//填充对象可以是图片，canvas,或vedio;repear-stylt = no-rapeat/repeat-x/repeat-y/repeat</span></code></pre>
 
 <h4 id="文字"><a href="#文字" class="headerlink" title="文字"></a>文字</h4><pre><code class="hljs javascript"><span class="hljs-comment">//配置文字属性</span>
-context.font = <span class="hljs-string">"bold 40px Arial"</span>; <span class="hljs-comment">//默认值20px sans-serif</span>
+context.<span class="hljs-property">font</span> = <span class="hljs-string">&quot;bold 40px Arial&quot;</span>; <span class="hljs-comment">//默认值20px sans-serif</span>
 <span class="hljs-comment">//font属性的所有值font-style(normal italic oblique),font-variant(normal small-caps),font-weight(normal/400 bold/700 ),font-size(20px 20em 100%),font-family(支持多备选字体 @font-face)</span>
 
 <span class="hljs-comment">//绘制填充文字</span>
-context.fillStyle =<span class="hljs-string">"#058"</span>; <span class="hljs-comment">//可以使用渐变色和图像为背景</span>
-context.fillText(<span class="hljs-string">"Welcome..."</span>,<span class="hljs-number">40</span>,<span class="hljs-number">100</span>,<span class="hljs-number">200</span>); <span class="hljs-comment">//string,x,y,文字最大长度（选填）</span>
+context.<span class="hljs-property">fillStyle</span> =<span class="hljs-string">&quot;#058&quot;</span>; <span class="hljs-comment">//可以使用渐变色和图像为背景</span>
+context.<span class="hljs-title function_">fillText</span>(<span class="hljs-string">&quot;Welcome...&quot;</span>,<span class="hljs-number">40</span>,<span class="hljs-number">100</span>,<span class="hljs-number">200</span>); <span class="hljs-comment">//string,x,y,文字最大长度（选填）</span>
 
 <span class="hljs-comment">//绘制边框文字</span>
-context.strokeStyle =<span class="hljs-string">"#058"</span>;  <span class="hljs-comment">//可以使用渐变色和图像为背景</span>
-context.strokeText(<span class="hljs-string">"Hello..."</span>,<span class="hljs-number">500</span>,<span class="hljs-number">100</span>，<span class="hljs-number">200</span>);
+context.<span class="hljs-property">strokeStyle</span> =<span class="hljs-string">&quot;#058&quot;</span>;  <span class="hljs-comment">//可以使用渐变色和图像为背景</span>
+context.<span class="hljs-title function_">strokeText</span>(<span class="hljs-string">&quot;Hello...&quot;</span>,<span class="hljs-number">500</span>,<span class="hljs-number">100</span>，<span class="hljs-number">200</span>);
 
 <span class="hljs-comment">//文字对齐</span>
-context.textAlign = center/right/left <span class="hljs-comment">//文字水平对齐，针对指定的x坐标</span>
-context.textBaseline = top/middle/bottom <span class="hljs-comment">//文字垂直对齐，针对指定的y坐标</span>
+context.<span class="hljs-property">textAlign</span> = center/right/left <span class="hljs-comment">//文字水平对齐，针对指定的x坐标</span>
+context.<span class="hljs-property">textBaseline</span> = top/middle/bottom <span class="hljs-comment">//文字垂直对齐，针对指定的y坐标</span>
 
 <span class="hljs-comment">//文本的度量</span>
-context.measureText(string).width</code></pre>
+context.<span class="hljs-title function_">measureText</span>(string).<span class="hljs-property">width</span>
+</code></pre>
 
 <h3 id="2、高级方法"><a href="#2、高级方法" class="headerlink" title="2、高级方法"></a>2、高级方法</h3><h4 id="阴影"><a href="#阴影" class="headerlink" title="阴影"></a>阴影</h4><pre><code class="hljs javascript"><span class="hljs-comment">//可用于文字，图片</span>
-context.shadowColor  <span class="hljs-comment">//类似于fillStyle</span>
-context.shadowOffsetX
-context.shadowOffsetY
-context.shadowBlur   <span class="hljs-comment">// 阴影模糊程度，越大越模糊</span></code></pre>
+context.<span class="hljs-property">shadowColor</span>  <span class="hljs-comment">//类似于fillStyle</span>
+context.<span class="hljs-property">shadowOffsetX</span>
+context.<span class="hljs-property">shadowOffsetY</span>
+context.<span class="hljs-property">shadowBlur</span>   <span class="hljs-comment">// 阴影模糊程度，越大越模糊</span></code></pre>
 
-<h4 id="全局变量"><a href="#全局变量" class="headerlink" title="全局变量"></a>全局变量</h4><pre><code class="hljs javascript">context.globalAlpha = <span class="hljs-number">0.7</span> <span class="hljs-comment">//全局透明度属性</span>
-context.globalCompositeOperation = <span class="hljs-string">"source-over"</span> <span class="hljs-comment">//全局图像覆盖属性</span></code></pre>
+<h4 id="全局变量"><a href="#全局变量" class="headerlink" title="全局变量"></a>全局变量</h4><pre><code class="hljs javascript">context.<span class="hljs-property">globalAlpha</span> = <span class="hljs-number">0.7</span> <span class="hljs-comment">//全局透明度属性</span>
+context.<span class="hljs-property">globalCompositeOperation</span> = <span class="hljs-string">&quot;source-over&quot;</span> <span class="hljs-comment">//全局图像覆盖属性 </span></code></pre>
 
 <table>
 <thead>
@@ -381,135 +382,136 @@ context.globalCompositeOperation = <span class="hljs-string">"source-over"</span
 <td></td>
 </tr>
 </tbody></table>
-<h4 id="剪辑区域"><a href="#剪辑区域" class="headerlink" title="剪辑区域"></a>剪辑区域</h4><pre><code class="hljs javascript">context.clip()  <span class="hljs-comment">//将之前绘制的封闭图形作为新的画布环境</span></code></pre>
+<h4 id="剪辑区域"><a href="#剪辑区域" class="headerlink" title="剪辑区域"></a>剪辑区域</h4><pre><code class="hljs javascript">context.<span class="hljs-title function_">clip</span>()  <span class="hljs-comment">//将之前绘制的封闭图形作为新的画布环境</span></code></pre>
 
 <p><strong>实例</strong></p>
 <p>实现一个探照灯效果</p>
-<pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">light</span>(<span class="hljs-params"></span>)</span>&#123;
-    setInterval( <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123; draw(context);
-            update(canvas.width,canvas.height); &#125;, <span class="hljs-number">40</span>); &#125;
+<pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">light</span>(<span class="hljs-params"></span>)&#123;
+    <span class="hljs-built_in">setInterval</span>( <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123; <span class="hljs-title function_">draw</span>(context);
+            <span class="hljs-title function_">update</span>(canvas.<span class="hljs-property">width</span>,canvas.<span class="hljs-property">height</span>); &#125;, <span class="hljs-number">40</span>); &#125;
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">draw</span>(<span class="hljs-params">cxt</span>)</span>
-<span class="hljs-function"></span>&#123;
-    <span class="hljs-keyword">var</span> canvas = cxt.canvas;
-    cxt.clearRect(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,canvas.width,canvas.height);
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">draw</span>(<span class="hljs-params">cxt</span>)
+&#123;
+    <span class="hljs-keyword">var</span> canvas = cxt.<span class="hljs-property">canvas</span>;
+    cxt.<span class="hljs-title function_">clearRect</span>(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,canvas.<span class="hljs-property">width</span>,canvas.<span class="hljs-property">height</span>);
     
-    cxt.save();
+    cxt.<span class="hljs-title function_">save</span>();
 
-    cxt.beginPath();
-    cxt.fillStyle=<span class="hljs-string">"black"</span>;
-    cxt.fillRect(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,canvas.width,canvas.height);
+    cxt.<span class="hljs-title function_">beginPath</span>();
+    cxt.<span class="hljs-property">fillStyle</span>=<span class="hljs-string">&quot;black&quot;</span>;
+    cxt.<span class="hljs-title function_">fillRect</span>(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,canvas.<span class="hljs-property">width</span>,canvas.<span class="hljs-property">height</span>);
 
-    cxt.beginPath();
-    cxt.arc(cycle.x,cycle.y,cycle.radius,<span class="hljs-number">0</span>,<span class="hljs-built_in">Math</span>.PI*<span class="hljs-number">2</span>);
-    cxt.fillStyle=<span class="hljs-string">"white"</span>;
-    cxt.fill();
-    cxt.clip();  <span class="hljs-comment">//只会显示出圆形内部的内容</span>
+    cxt.<span class="hljs-title function_">beginPath</span>();
+    cxt.<span class="hljs-title function_">arc</span>(cycle.<span class="hljs-property">x</span>,cycle.<span class="hljs-property">y</span>,cycle.<span class="hljs-property">radius</span>,<span class="hljs-number">0</span>,<span class="hljs-title class_">Math</span>.<span class="hljs-property">PI</span>*<span class="hljs-number">2</span>);
+    cxt.<span class="hljs-property">fillStyle</span>=<span class="hljs-string">&quot;white&quot;</span>;
+    cxt.<span class="hljs-title function_">fill</span>();
+    cxt.<span class="hljs-title function_">clip</span>();  <span class="hljs-comment">//只会显示出圆形内部的内容</span>
 
-    cxt.font = <span class="hljs-string">"bold 150px Arial"</span>;
-    cxt.textAlign = <span class="hljs-string">"center"</span>;
-    cxt.textBaseline = <span class="hljs-string">"middle"</span>;
-    cxt.fillStyle = <span class="hljs-string">"#058"</span>;
-    cxt.fillText(<span class="hljs-string">"CANVAS"</span>,canvas.width/<span class="hljs-number">2</span>,canvas.height/<span class="hljs-number">4</span>);  <span class="hljs-comment">//文字是画在原来的方形画布上的</span>
-    cxt.fillText(<span class="hljs-string">"CANVAS"</span>,canvas.width/<span class="hljs-number">2</span>,canvas.height/<span class="hljs-number">2</span>);
-    cxt.fillText(<span class="hljs-string">"CANVAS"</span>,canvas.width/<span class="hljs-number">2</span>,canvas.height/<span class="hljs-number">4</span>*<span class="hljs-number">3</span>);
+    cxt.<span class="hljs-property">font</span> = <span class="hljs-string">&quot;bold 150px Arial&quot;</span>;
+    cxt.<span class="hljs-property">textAlign</span> = <span class="hljs-string">&quot;center&quot;</span>;
+    cxt.<span class="hljs-property">textBaseline</span> = <span class="hljs-string">&quot;middle&quot;</span>;
+    cxt.<span class="hljs-property">fillStyle</span> = <span class="hljs-string">&quot;#058&quot;</span>;
+    cxt.<span class="hljs-title function_">fillText</span>(<span class="hljs-string">&quot;CANVAS&quot;</span>,canvas.<span class="hljs-property">width</span>/<span class="hljs-number">2</span>,canvas.<span class="hljs-property">height</span>/<span class="hljs-number">4</span>);  <span class="hljs-comment">//文字是画在原来的方形画布上的</span>
+    cxt.<span class="hljs-title function_">fillText</span>(<span class="hljs-string">&quot;CANVAS&quot;</span>,canvas.<span class="hljs-property">width</span>/<span class="hljs-number">2</span>,canvas.<span class="hljs-property">height</span>/<span class="hljs-number">2</span>);
+    cxt.<span class="hljs-title function_">fillText</span>(<span class="hljs-string">&quot;CANVAS&quot;</span>,canvas.<span class="hljs-property">width</span>/<span class="hljs-number">2</span>,canvas.<span class="hljs-property">height</span>/<span class="hljs-number">4</span>*<span class="hljs-number">3</span>);
 
-    cxt.restore();
+    cxt.<span class="hljs-title function_">restore</span>();
 &#125;
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">update</span>(<span class="hljs-params">width,height</span>)</span>&#123;
-    cycle.x += cycle.vx;
-    cycle.y += cycle.vy;
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">update</span>(<span class="hljs-params">width,height</span>)&#123;
+    cycle.<span class="hljs-property">x</span> += cycle.<span class="hljs-property">vx</span>;
+    cycle.<span class="hljs-property">y</span> += cycle.<span class="hljs-property">vy</span>;
 
-    <span class="hljs-keyword">if</span>(cycle.x-cycle.radius&lt;=<span class="hljs-number">0</span>)
+    <span class="hljs-keyword">if</span>(cycle.<span class="hljs-property">x</span>-cycle.<span class="hljs-property">radius</span>&lt;=<span class="hljs-number">0</span>)
     &#123;
-        cycle.vx = -cycle.vx;
-        cycle.x =cycle.radius;
+        cycle.<span class="hljs-property">vx</span> = -cycle.<span class="hljs-property">vx</span>;
+        cycle.<span class="hljs-property">x</span> =cycle.<span class="hljs-property">radius</span>;
     &#125;
-    <span class="hljs-keyword">if</span>(cycle.x+cycle.radius&gt;=width)
+    <span class="hljs-keyword">if</span>(cycle.<span class="hljs-property">x</span>+cycle.<span class="hljs-property">radius</span>&gt;=width)
     &#123;
-        cycle.vx = -cycle.vx;
-        cycle.x = width - cycle.radius;
+        cycle.<span class="hljs-property">vx</span> = -cycle.<span class="hljs-property">vx</span>;
+        cycle.<span class="hljs-property">x</span> = width - cycle.<span class="hljs-property">radius</span>;
     &#125;
-    <span class="hljs-keyword">if</span>(cycle.y-cycle.radius&lt;=<span class="hljs-number">0</span>)
+    <span class="hljs-keyword">if</span>(cycle.<span class="hljs-property">y</span>-cycle.<span class="hljs-property">radius</span>&lt;=<span class="hljs-number">0</span>)
     &#123;
-        cycle.vy = -cycle.vy;
-        cycle.y = cycle.radius;
+        cycle.<span class="hljs-property">vy</span> = -cycle.<span class="hljs-property">vy</span>;
+        cycle.<span class="hljs-property">y</span> = cycle.<span class="hljs-property">radius</span>;
     &#125;
-    <span class="hljs-keyword">if</span>(cycle.y+cycle.radius&gt;=height)
+    <span class="hljs-keyword">if</span>(cycle.<span class="hljs-property">y</span>+cycle.<span class="hljs-property">radius</span>&gt;=height)
     &#123;
-        cycle.vy = -cycle.vy;
-        cycle.y = height - cycle.radius;
+        cycle.<span class="hljs-property">vy</span> = -cycle.<span class="hljs-property">vy</span>;
+        cycle.<span class="hljs-property">y</span> = height - cycle.<span class="hljs-property">radius</span>;
     &#125;
-&#125;</code></pre>
+&#125;
+</code></pre>
 
 
 
 <h4 id="路径方向和剪纸效果"><a href="#路径方向和剪纸效果" class="headerlink" title="路径方向和剪纸效果"></a>路径方向和剪纸效果</h4><p><span style = "color:red">使用fill()的这个特性实现剪纸效果</span></p>
-<pre><code class="hljs javascript">context.fill();  <span class="hljs-comment">//遵循非零环绕原则,绘图与路径方向有关</span></code></pre>
+<pre><code class="hljs javascript">context.<span class="hljs-title function_">fill</span>();  <span class="hljs-comment">//遵循非零环绕原则,绘图与路径方向有关</span></code></pre>
 
 <p><strong>例子</strong>:</p>
-<pre><code class="hljs javascript">context.beginPath();
-context.arc(<span class="hljs-number">400</span>,<span class="hljs-number">400</span>,<span class="hljs-number">300</span>,<span class="hljs-number">0</span>,<span class="hljs-number">2</span>*<span class="hljs-built_in">Math</span>.PI,<span class="hljs-literal">false</span>); 
-context.arc(<span class="hljs-number">400</span>,<span class="hljs-number">400</span>,<span class="hljs-number">150</span>,<span class="hljs-number">0</span>,<span class="hljs-number">2</span>*<span class="hljs-built_in">Math</span>.PI,<span class="hljs-literal">true</span>);  <span class="hljs-comment">//context.arc(400,400,150,0,2*Math.PI,false); </span>
-context.closePath();
-context.fillStyle=<span class="hljs-string">"blue"</span>;
-context.shadowColor= <span class="hljs-string">"gray"</span>;
-context.shadowOffsetX = <span class="hljs-number">10</span>;
-context.shadowOffsetY = <span class="hljs-number">10</span>;
-context.shadowBlur = <span class="hljs-number">10</span>;
+<pre><code class="hljs javascript">context.<span class="hljs-title function_">beginPath</span>();
+context.<span class="hljs-title function_">arc</span>(<span class="hljs-number">400</span>,<span class="hljs-number">400</span>,<span class="hljs-number">300</span>,<span class="hljs-number">0</span>,<span class="hljs-number">2</span>*<span class="hljs-title class_">Math</span>.<span class="hljs-property">PI</span>,<span class="hljs-literal">false</span>); 
+context.<span class="hljs-title function_">arc</span>(<span class="hljs-number">400</span>,<span class="hljs-number">400</span>,<span class="hljs-number">150</span>,<span class="hljs-number">0</span>,<span class="hljs-number">2</span>*<span class="hljs-title class_">Math</span>.<span class="hljs-property">PI</span>,<span class="hljs-literal">true</span>);  <span class="hljs-comment">//context.arc(400,400,150,0,2*Math.PI,false); </span>
+context.<span class="hljs-title function_">closePath</span>();
+context.<span class="hljs-property">fillStyle</span>=<span class="hljs-string">&quot;blue&quot;</span>;
+context.<span class="hljs-property">shadowColor</span>= <span class="hljs-string">&quot;gray&quot;</span>;
+context.<span class="hljs-property">shadowOffsetX</span> = <span class="hljs-number">10</span>;
+context.<span class="hljs-property">shadowOffsetY</span> = <span class="hljs-number">10</span>;
+context.<span class="hljs-property">shadowBlur</span> = <span class="hljs-number">10</span>;
 
-context.fill();</code></pre>
+context.<span class="hljs-title function_">fill</span>();</code></pre>
 
 <h4 id="Canvas交互实例"><a href="#Canvas交互实例" class="headerlink" title="Canvas交互实例"></a>Canvas交互实例</h4><p>点击改变小球的颜色</p>
-<pre><code class="hljs javascript"> <span class="hljs-keyword">var</span> canvas = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"cv"</span>);
- <span class="hljs-keyword">var</span> context = canvas.getContext(<span class="hljs-string">"2d"</span>);
+<pre><code class="hljs javascript"> <span class="hljs-keyword">var</span> canvas = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&quot;cv&quot;</span>);
+ <span class="hljs-keyword">var</span> context = canvas.<span class="hljs-title function_">getContext</span>(<span class="hljs-string">&quot;2d&quot;</span>);
  balls  = [];
 
-<span class="hljs-built_in">window</span>.onload=<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)</span>&#123;
-    canvas.width = <span class="hljs-number">800</span>;
-    canvas.height = <span class="hljs-number">800</span>; 
+<span class="hljs-variable language_">window</span>.<span class="hljs-property">onload</span>=<span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)&#123;
+    canvas.<span class="hljs-property">width</span> = <span class="hljs-number">800</span>;
+    canvas.<span class="hljs-property">height</span> = <span class="hljs-number">800</span>; 
 
-    CreateBalls();
-    drawBall();
-    canvas.addEventListener(<span class="hljs-string">"mouseup"</span>,detect);   <span class="hljs-comment">//部署鼠标事件mousemove,mousedown</span>
+    <span class="hljs-title class_">CreateBalls</span>();
+    <span class="hljs-title function_">drawBall</span>();
+    canvas.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&quot;mouseup&quot;</span>,detect);   <span class="hljs-comment">//部署鼠标事件mousemove,mousedown</span>
 &#125;
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">CreateBalls</span>(<span class="hljs-params"></span>)</span>&#123;
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">CreateBalls</span>(<span class="hljs-params"></span>)&#123;
     <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i =<span class="hljs-number">0</span>;i&lt;<span class="hljs-number">20</span>;i++)
     &#123;
-        <span class="hljs-keyword">var</span> ABall = &#123;
-        x:<span class="hljs-built_in">Math</span>.random()*canvas.width,
-        y:<span class="hljs-built_in">Math</span>.random()*canvas.height,
-        radius:<span class="hljs-built_in">Math</span>.random()*<span class="hljs-number">20</span>+<span class="hljs-number">20</span>,
+        <span class="hljs-keyword">var</span> <span class="hljs-title class_">ABall</span> = &#123;
+        <span class="hljs-attr">x</span>:<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>()*canvas.<span class="hljs-property">width</span>,
+        <span class="hljs-attr">y</span>:<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>()*canvas.<span class="hljs-property">height</span>,
+        <span class="hljs-attr">radius</span>:<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>()*<span class="hljs-number">20</span>+<span class="hljs-number">20</span>,
         &#125;
-        balls[i] = ABall;
+        balls[i] = <span class="hljs-title class_">ABall</span>;
     &#125;
 &#125;
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">drawBall</span>(<span class="hljs-params"></span>)</span>&#123;
-    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i =<span class="hljs-number">0</span>;i &lt;balls.length;i++)
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">drawBall</span>(<span class="hljs-params"></span>)&#123;
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i =<span class="hljs-number">0</span>;i &lt;balls.<span class="hljs-property">length</span>;i++)
     &#123;
-        context.beginPath();
-        context.fillStyle = <span class="hljs-string">"#058"</span>;
-        context.arc(balls[i].x,balls[i].y,balls[i].radius,<span class="hljs-number">0</span>,<span class="hljs-number">2</span>*<span class="hljs-built_in">Math</span>.PI);
-        context.fill();
+        context.<span class="hljs-title function_">beginPath</span>();
+        context.<span class="hljs-property">fillStyle</span> = <span class="hljs-string">&quot;#058&quot;</span>;
+        context.<span class="hljs-title function_">arc</span>(balls[i].<span class="hljs-property">x</span>,balls[i].<span class="hljs-property">y</span>,balls[i].<span class="hljs-property">radius</span>,<span class="hljs-number">0</span>,<span class="hljs-number">2</span>*<span class="hljs-title class_">Math</span>.<span class="hljs-property">PI</span>);
+        context.<span class="hljs-title function_">fill</span>();
     &#125;
 &#125;
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">detect</span>(<span class="hljs-params">event</span>)</span>&#123;
-    <span class="hljs-keyword">var</span> x = event.clientX - canvas.getBoundingClientRect().left;  <span class="hljs-comment">//获取鼠标点击在画布上的位置</span>
-    <span class="hljs-keyword">var</span> y = event.clientY - canvas.getBoundingClientRect().top;
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">detect</span>(<span class="hljs-params">event</span>)&#123;
+    <span class="hljs-keyword">var</span> x = event.<span class="hljs-property">clientX</span> - canvas.<span class="hljs-title function_">getBoundingClientRect</span>().<span class="hljs-property">left</span>;  <span class="hljs-comment">//获取鼠标点击在画布上的位置</span>
+    <span class="hljs-keyword">var</span> y = event.<span class="hljs-property">clientY</span> - canvas.<span class="hljs-title function_">getBoundingClientRect</span>().<span class="hljs-property">top</span>;
     
-    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>;i&lt;balls.length;i++)
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>;i&lt;balls.<span class="hljs-property">length</span>;i++)
     &#123;
-        context.beginPath();
-        context.arc(balls[i].x,balls[i].y,balls[i].radius,<span class="hljs-number">0</span>,<span class="hljs-number">2</span>*<span class="hljs-built_in">Math</span>.PI);
+        context.<span class="hljs-title function_">beginPath</span>();
+        context.<span class="hljs-title function_">arc</span>(balls[i].<span class="hljs-property">x</span>,balls[i].<span class="hljs-property">y</span>,balls[i].<span class="hljs-property">radius</span>,<span class="hljs-number">0</span>,<span class="hljs-number">2</span>*<span class="hljs-title class_">Math</span>.<span class="hljs-property">PI</span>);
 
-        <span class="hljs-keyword">if</span>(context.isPointInPath(x,y))  <span class="hljs-comment">//判断(x,y)是否在所绘制的图形内部</span>
+        <span class="hljs-keyword">if</span>(context.<span class="hljs-title function_">isPointInPath</span>(x,y))  <span class="hljs-comment">//判断(x,y)是否在所绘制的图形内部</span>
         &#123;
-            context.fillStyle = <span class="hljs-string">"red"</span>;
-            context.fill();
+            context.<span class="hljs-property">fillStyle</span> = <span class="hljs-string">&quot;red&quot;</span>;
+            context.<span class="hljs-title function_">fill</span>();
         &#125;
     &#125;
 &#125;</code></pre>
@@ -517,222 +519,222 @@ context.fill();</code></pre>
 <h4 id="在Canvas上使用HTML其他元素"><a href="#在Canvas上使用HTML其他元素" class="headerlink" title="在Canvas上使用HTML其他元素"></a>在Canvas上使用HTML其他元素</h4><p>1、Canvas标签内部的内容只有在Canvas无效时才能看见</p>
 <p>2、使用绝对定位将一个新的div至于Canvas之上，在新的div中布置HTML元素</p>
 <h4 id="扩充Canvas函数方法"><a href="#扩充Canvas函数方法" class="headerlink" title="扩充Canvas函数方法"></a>扩充Canvas函数方法</h4><p>增加一个方法</p>
-<pre><code class="hljs javascript">CanvasRenderingContext2D.prototype.fillStar = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">r,R,x,y,rot</span>)</span>
-<span class="hljs-function"></span>&#123;
-    <span class="hljs-keyword">this</span>.beginPath();
+<pre><code class="hljs javascript"><span class="hljs-title class_">CanvasRenderingContext2D</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">fillStar</span> = <span class="hljs-keyword">function</span> (<span class="hljs-params">r,R,x,y,rot</span>)
+&#123;
+    <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">beginPath</span>();
     <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i =<span class="hljs-number">0</span>;i&lt;<span class="hljs-number">5</span>;i++)
     &#123;
-        <span class="hljs-keyword">this</span>.lineTo(<span class="hljs-built_in">Math</span>.cos((<span class="hljs-number">18</span>+i*<span class="hljs-number">72</span>-rot)/<span class="hljs-number">180</span>*<span class="hljs-built_in">Math</span>.PI)*R+x,
-                    -<span class="hljs-built_in">Math</span>.sin((<span class="hljs-number">18</span>+i*<span class="hljs-number">72</span>-rot)/<span class="hljs-number">180</span>*<span class="hljs-built_in">Math</span>.PI)*R+y);
-        <span class="hljs-keyword">this</span>.lineTo(<span class="hljs-built_in">Math</span>.cos((<span class="hljs-number">54</span>+i*<span class="hljs-number">72</span>-rot)/<span class="hljs-number">180</span>*<span class="hljs-built_in">Math</span>.PI)*r+x,
-                    -<span class="hljs-built_in">Math</span>.sin((<span class="hljs-number">54</span>+i*<span class="hljs-number">72</span>-rot)/<span class="hljs-number">180</span>*<span class="hljs-built_in">Math</span>.PI)*r+y);
+        <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">lineTo</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">cos</span>((<span class="hljs-number">18</span>+i*<span class="hljs-number">72</span>-rot)/<span class="hljs-number">180</span>*<span class="hljs-title class_">Math</span>.<span class="hljs-property">PI</span>)*R+x,
+                    -<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">sin</span>((<span class="hljs-number">18</span>+i*<span class="hljs-number">72</span>-rot)/<span class="hljs-number">180</span>*<span class="hljs-title class_">Math</span>.<span class="hljs-property">PI</span>)*R+y);
+        <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">lineTo</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">cos</span>((<span class="hljs-number">54</span>+i*<span class="hljs-number">72</span>-rot)/<span class="hljs-number">180</span>*<span class="hljs-title class_">Math</span>.<span class="hljs-property">PI</span>)*r+x,
+                    -<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">sin</span>((<span class="hljs-number">54</span>+i*<span class="hljs-number">72</span>-rot)/<span class="hljs-number">180</span>*<span class="hljs-title class_">Math</span>.<span class="hljs-property">PI</span>)*r+y);
     &#125;
-    <span class="hljs-keyword">this</span>.closePath();
-    <span class="hljs-keyword">this</span>.fill();
+    <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">closePath</span>();
+    <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">fill</span>();
 &#125;</code></pre>
 
 <p>复写一个方法（不推荐），增加一个属性</p>
-<pre><code class="hljs javascript"><span class="hljs-keyword">var</span> canvas = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"canvas"</span>);
-<span class="hljs-keyword">var</span> context = canvas.getContext(<span class="hljs-string">'2d'</span>);
-<span class="hljs-keyword">var</span> originalMoveTo = CanvasRenderingContext2D.prototype.moveTo;
-CanvasRenderingContext2D.prototype.lastMoveToLoc = &#123;&#125;;  <span class="hljs-comment">//增加的新属性</span>
-CanvasRenderingContext2D.prototype.moveTo = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">x,y</span>)</span>&#123;
-    originalMoveTo.apply(context,[x,y]);
-    <span class="hljs-keyword">this</span>.lastMoveToLoc.x = x;
-    <span class="hljs-keyword">this</span>.lastMoveToLoc.y = y;
+<pre><code class="hljs javascript"><span class="hljs-keyword">var</span> canvas = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&quot;canvas&quot;</span>);
+<span class="hljs-keyword">var</span> context = canvas.<span class="hljs-title function_">getContext</span>(<span class="hljs-string">&#x27;2d&#x27;</span>);
+<span class="hljs-keyword">var</span> originalMoveTo = <span class="hljs-title class_">CanvasRenderingContext2D</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">moveTo</span>;
+<span class="hljs-title class_">CanvasRenderingContext2D</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">lastMoveToLoc</span> = &#123;&#125;;  <span class="hljs-comment">//增加的新属性</span>
+<span class="hljs-title class_">CanvasRenderingContext2D</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">moveTo</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params">x,y</span>)&#123;
+    originalMoveTo.<span class="hljs-title function_">apply</span>(context,[x,y]);
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">lastMoveToLoc</span>.<span class="hljs-property">x</span> = x;
+    <span class="hljs-variable language_">this</span>.<span class="hljs-property">lastMoveToLoc</span>.<span class="hljs-property">y</span> = y;
 &#125;</code></pre>
 
 <h4 id="Canvas兼容"><a href="#Canvas兼容" class="headerlink" title="Canvas兼容"></a>Canvas兼容</h4><p>1、IE6,7,8可以添加explorecanvas库来兼容。</p>
-<h4 id="Canvas图形库"><a href="#Canvas图形库" class="headerlink" title="Canvas图形库"></a>Canvas图形库</h4><p>1、<a href="https://code.google.com/archive/p/canvasplus" target="_blank" rel="noopener">canvasplus</a></p>
-<p>2、<a href="https://northwardcompass.com/artisanjs-a-generative-art-and-canvas-extension/" target="_blank" rel="noopener">Artisan JS</a></p>
-<p>3、<a href="https://www.rgraph.net/" target="_blank" rel="noopener">Rgraph:图表图形库</a></p>
+<h4 id="Canvas图形库"><a href="#Canvas图形库" class="headerlink" title="Canvas图形库"></a>Canvas图形库</h4><p>1、<a target="_blank" rel="noopener" href="https://code.google.com/archive/p/canvasplus">canvasplus</a></p>
+<p>2、<a target="_blank" rel="noopener" href="https://northwardcompass.com/artisanjs-a-generative-art-and-canvas-extension/">Artisan JS</a></p>
+<p>3、<a target="_blank" rel="noopener" href="https://www.rgraph.net/">Rgraph:图表图形库</a></p>
 <h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><pre><code class="hljs javascript"><span class="hljs-comment">//canvas是基于状态来绘制的，只使用最后一次赋值的属性</span>
-<span class="hljs-built_in">window</span>.onload=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;
-    <span class="hljs-keyword">var</span> canvas=<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"canvas"</span>);
+<span class="hljs-variable language_">window</span>.<span class="hljs-property">onload</span>=<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;
+    <span class="hljs-keyword">var</span> canvas=<span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&quot;canvas&quot;</span>);
     <span class="hljs-comment">//使用Context绘制</span>
-    <span class="hljs-keyword">var</span> context=canvas.getContext(<span class="hljs-string">'2d'</span>);
+    <span class="hljs-keyword">var</span> context=canvas.<span class="hljs-title function_">getContext</span>(<span class="hljs-string">&#x27;2d&#x27;</span>);
     
-    context.moveTo(<span class="hljs-number">100</span>,<span class="hljs-number">100</span>);
-    context.lineTo(<span class="hljs-number">700</span>,<span class="hljs-number">700</span>);
-    context.lineTo(<span class="hljs-number">100</span>,<span class="hljs-number">700</span>);
-    context.lineTo(<span class="hljs-number">100</span>,<span class="hljs-number">100</span>);
+    context.<span class="hljs-title function_">moveTo</span>(<span class="hljs-number">100</span>,<span class="hljs-number">100</span>);
+    context.<span class="hljs-title function_">lineTo</span>(<span class="hljs-number">700</span>,<span class="hljs-number">700</span>);
+    context.<span class="hljs-title function_">lineTo</span>(<span class="hljs-number">100</span>,<span class="hljs-number">700</span>);
+    context.<span class="hljs-title function_">lineTo</span>(<span class="hljs-number">100</span>,<span class="hljs-number">100</span>);
     <span class="hljs-comment">//设置画笔的属性</span>
-    context.fillStyle= <span class="hljs-string">"rgb(2,100,222)"</span>;
-    context.fill();
+    context.<span class="hljs-property">fillStyle</span>= <span class="hljs-string">&quot;rgb(2,100,222)&quot;</span>;
+    context.<span class="hljs-title function_">fill</span>();
 
     <span class="hljs-comment">//设置画笔的属性</span>
-    context.lineWidth = <span class="hljs-number">5</span>;
-    context.strokeStyle = <span class="hljs-string">"#ff0000"</span>;
-    context.stroke();  
-    context.moveTo(<span class="hljs-number">200</span>,<span class="hljs-number">100</span>);
-    context.lineTo(<span class="hljs-number">800</span>,<span class="hljs-number">700</span>);
-    context.strokeStyle = <span class="hljs-string">"black"</span>;  <span class="hljs-comment">//black会覆盖上面的 "#ff0000"，所以最后都是黑色线条</span>
-    context.stroke();  
+    context.<span class="hljs-property">lineWidth</span> = <span class="hljs-number">5</span>;
+    context.<span class="hljs-property">strokeStyle</span> = <span class="hljs-string">&quot;#ff0000&quot;</span>;
+    context.<span class="hljs-title function_">stroke</span>();  
+    context.<span class="hljs-title function_">moveTo</span>(<span class="hljs-number">200</span>,<span class="hljs-number">100</span>);
+    context.<span class="hljs-title function_">lineTo</span>(<span class="hljs-number">800</span>,<span class="hljs-number">700</span>);
+    context.<span class="hljs-property">strokeStyle</span> = <span class="hljs-string">&quot;black&quot;</span>;  <span class="hljs-comment">//black会覆盖上面的 &quot;#ff0000&quot;，所以最后都是黑色线条</span>
+    context.<span class="hljs-title function_">stroke</span>();  
     
     <span class="hljs-comment">//绘制圆弧</span>
-    context.lineWidth = <span class="hljs-number">5</span>;
-    context.strokeStyle  =<span class="hljs-string">"#005588"</span>;
-    context.arc(<span class="hljs-number">300</span>,<span class="hljs-number">300</span>,<span class="hljs-number">200</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0.5</span>*<span class="hljs-built_in">Math</span>.PI,<span class="hljs-literal">true</span>);
-    context.stroke();
+    context.<span class="hljs-property">lineWidth</span> = <span class="hljs-number">5</span>;
+    context.<span class="hljs-property">strokeStyle</span>  =<span class="hljs-string">&quot;#005588&quot;</span>;
+    context.<span class="hljs-title function_">arc</span>(<span class="hljs-number">300</span>,<span class="hljs-number">300</span>,<span class="hljs-number">200</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0.5</span>*<span class="hljs-title class_">Math</span>.<span class="hljs-property">PI</span>,<span class="hljs-literal">true</span>);
+    context.<span class="hljs-title function_">stroke</span>();
 &#125;</code></pre>
 
 
 
 <h4 id="如何绘制两个不同的线条"><a href="#如何绘制两个不同的线条" class="headerlink" title="如何绘制两个不同的线条"></a>如何绘制两个不同的线条</h4><pre><code class="hljs javascript"><span class="hljs-comment">//绘制第一个图形</span>
-context.beginPath();
-context.moveTo(<span class="hljs-number">100</span>,<span class="hljs-number">100</span>);
-context.lineTo(<span class="hljs-number">700</span>,<span class="hljs-number">700</span>);
-context.lineTo(<span class="hljs-number">100</span>,<span class="hljs-number">700</span>);
-context.lineTo(<span class="hljs-number">100</span>,<span class="hljs-number">100</span>);
-context.closePath();
-context.lineWidth = <span class="hljs-number">5</span>;
-context.strokeStyle = <span class="hljs-string">"#ff0000"</span>;
-context.stroke();  
+context.<span class="hljs-title function_">beginPath</span>();
+context.<span class="hljs-title function_">moveTo</span>(<span class="hljs-number">100</span>,<span class="hljs-number">100</span>);
+context.<span class="hljs-title function_">lineTo</span>(<span class="hljs-number">700</span>,<span class="hljs-number">700</span>);
+context.<span class="hljs-title function_">lineTo</span>(<span class="hljs-number">100</span>,<span class="hljs-number">700</span>);
+context.<span class="hljs-title function_">lineTo</span>(<span class="hljs-number">100</span>,<span class="hljs-number">100</span>);
+context.<span class="hljs-title function_">closePath</span>();
+context.<span class="hljs-property">lineWidth</span> = <span class="hljs-number">5</span>;
+context.<span class="hljs-property">strokeStyle</span> = <span class="hljs-string">&quot;#ff0000&quot;</span>;
+context.<span class="hljs-title function_">stroke</span>();  
 
 <span class="hljs-comment">//绘制第二个图形</span>
-context.beginPath();
-context.moveTo(<span class="hljs-number">200</span>,<span class="hljs-number">100</span>);
-context.lineTo(<span class="hljs-number">800</span>,<span class="hljs-number">700</span>);
-context.closePath();
-context.strokeStyle = <span class="hljs-string">"black"</span>;
-context.stroke();</code></pre>
+context.<span class="hljs-title function_">beginPath</span>();
+context.<span class="hljs-title function_">moveTo</span>(<span class="hljs-number">200</span>,<span class="hljs-number">100</span>);
+context.<span class="hljs-title function_">lineTo</span>(<span class="hljs-number">800</span>,<span class="hljs-number">700</span>);
+context.<span class="hljs-title function_">closePath</span>();
+context.<span class="hljs-property">strokeStyle</span> = <span class="hljs-string">&quot;black&quot;</span>;
+context.<span class="hljs-title function_">stroke</span>();</code></pre>
 
 
 
-<h4 id="绘制七巧板"><a href="#绘制七巧板" class="headerlink" title="绘制七巧板"></a>绘制七巧板</h4><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<h4 id="绘制七巧板"><a href="#绘制七巧板" class="headerlink" title="绘制七巧板"></a>绘制七巧板</h4><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">head</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"zh-CN"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">head</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;zh-CN&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Canvas Demo<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">canvas</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"canvas"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"800"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"800"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"border:1px solid gray;margin:50px auto;display:block"</span>&gt;</span>
-            当前浏览器不支持canvas.../或者在js中判断canvas.getContext('2d')是否为空。
+        <span class="hljs-tag">&lt;<span class="hljs-name">canvas</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;canvas&quot;</span> <span class="hljs-attr">width</span>=<span class="hljs-string">&quot;800&quot;</span> <span class="hljs-attr">height</span>=<span class="hljs-string">&quot;800&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;border:1px solid gray;margin:50px auto;display:block&quot;</span>&gt;</span>
+            当前浏览器不支持canvas.../或者在js中判断canvas.getContext(&#x27;2d&#x27;)是否为空。
         <span class="hljs-tag">&lt;/<span class="hljs-name">canvas</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span>
-<span class="actionscript">            <span class="hljs-comment">//定义七巧板</span></span>
-<span class="javascript">            <span class="hljs-keyword">let</span> tangram = [</span>
-<span class="actionscript">                &#123;p:[&#123;x:<span class="hljs-number">0</span>,y:<span class="hljs-number">0</span>&#125;,&#123;x:<span class="hljs-number">800</span>,y:<span class="hljs-number">0</span>&#125;,&#123;x:<span class="hljs-number">400</span>,y:<span class="hljs-number">400</span>&#125;],color:<span class="hljs-string">"#caff67"</span>&#125;,</span>
-<span class="actionscript">                &#123;p:[&#123;x:<span class="hljs-number">0</span>,y:<span class="hljs-number">0</span>&#125;,&#123;x:<span class="hljs-number">400</span>,y:<span class="hljs-number">400</span>&#125;,&#123;x:<span class="hljs-number">0</span>,y:<span class="hljs-number">800</span>&#125;],color:<span class="hljs-string">"#67becf"</span>&#125;,</span>
-<span class="actionscript">                &#123;p:[&#123;x:<span class="hljs-number">800</span>,y:<span class="hljs-number">0</span>&#125;,&#123;x:<span class="hljs-number">800</span>,y:<span class="hljs-number">400</span>&#125;,&#123;x:<span class="hljs-number">600</span>,y:<span class="hljs-number">600</span>&#125;,&#123;x:<span class="hljs-number">600</span>,y:<span class="hljs-number">200</span>&#125;],color:<span class="hljs-string">"#ef2d61"</span>&#125;,</span>
-<span class="actionscript">                &#123;p:[&#123;x:<span class="hljs-number">600</span>,y:<span class="hljs-number">200</span>&#125;,&#123;x:<span class="hljs-number">600</span>,y:<span class="hljs-number">600</span>&#125;,&#123;x:<span class="hljs-number">400</span>,y:<span class="hljs-number">400</span>&#125;],color:<span class="hljs-string">"#f9f51a"</span>&#125;,</span>
-<span class="actionscript">                &#123;p:[&#123;x:<span class="hljs-number">400</span>,y:<span class="hljs-number">400</span>&#125;,&#123;x:<span class="hljs-number">600</span>,y:<span class="hljs-number">600</span>&#125;,&#123;x:<span class="hljs-number">400</span>,y:<span class="hljs-number">800</span>&#125;,&#123;x:<span class="hljs-number">200</span>,y:<span class="hljs-number">600</span>&#125;],color:<span class="hljs-string">"#a594c0"</span>&#125;,</span>
-<span class="actionscript">                &#123;p:[&#123;x:<span class="hljs-number">200</span>,y:<span class="hljs-number">600</span>&#125;,&#123;x:<span class="hljs-number">400</span>,y:<span class="hljs-number">800</span>&#125;,&#123;x:<span class="hljs-number">0</span>,y:<span class="hljs-number">800</span>&#125;],color:<span class="hljs-string">"#fa8ecc"</span>&#125;,</span>
-<span class="actionscript">                &#123;p:[&#123;x:<span class="hljs-number">800</span>,y:<span class="hljs-number">400</span>&#125;,&#123;x:<span class="hljs-number">800</span>,y:<span class="hljs-number">800</span>&#125;,&#123;x:<span class="hljs-number">400</span>,y:<span class="hljs-number">800</span>&#125;],color:<span class="hljs-string">"#f6ca29"</span>&#125;,</span>
-            ]
-
-<span class="javascript">            <span class="hljs-built_in">window</span>.onload=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;</span>
-<span class="javascript">                <span class="hljs-keyword">var</span> canvas=<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"canvas"</span>);</span>
-<span class="actionscript">                <span class="hljs-keyword">var</span> context=canvas.getContext(<span class="hljs-string">'2d'</span>);    <span class="hljs-comment">//使用Context绘制</span></span>
-<span class="actionscript">                tangram.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(item)</span></span>&#123;</span>
-                    draw(item,context);
-                &#125;)
-            &#125;
-
-<span class="actionscript">            <span class="hljs-comment">//画图方法</span></span>
-<span class="actionscript">            <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">draw</span><span class="hljs-params">(piece,cxt)</span></span></span>
-            &#123;
-                cxt.beginPath();
-                cxt.moveTo(piece.p[0].x,piece.p[0].y);
-<span class="actionscript">                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">1</span>; i &lt; piece.p.length; i++)</span>
-                &#123;
-                    cxt.lineTo(piece.p[i].x,piece.p[i].y);
-                &#125;
-                cxt.closePath();
-<span class="actionscript">                <span class="hljs-comment">//设置画笔的属性</span></span>
-                cxt.fillStyle= piece.color;
-                cxt.fill();
-<span class="actionscript">                cxt.strokeStyle=<span class="hljs-string">"black"</span>;</span>
-                cxt.lineWidth=2;
-                cxt.stroke();
-            &#125;
-        <span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span>
+<span class="language-javascript">            <span class="hljs-comment">//定义七巧板</span></span>
+<span class="language-javascript">            <span class="hljs-keyword">let</span> tangram = [</span>
+<span class="language-javascript">                &#123;<span class="hljs-attr">p</span>:[&#123;<span class="hljs-attr">x</span>:<span class="hljs-number">0</span>,<span class="hljs-attr">y</span>:<span class="hljs-number">0</span>&#125;,&#123;<span class="hljs-attr">x</span>:<span class="hljs-number">800</span>,<span class="hljs-attr">y</span>:<span class="hljs-number">0</span>&#125;,&#123;<span class="hljs-attr">x</span>:<span class="hljs-number">400</span>,<span class="hljs-attr">y</span>:<span class="hljs-number">400</span>&#125;],<span class="hljs-attr">color</span>:<span class="hljs-string">&quot;#caff67&quot;</span>&#125;,</span>
+<span class="language-javascript">                &#123;<span class="hljs-attr">p</span>:[&#123;<span class="hljs-attr">x</span>:<span class="hljs-number">0</span>,<span class="hljs-attr">y</span>:<span class="hljs-number">0</span>&#125;,&#123;<span class="hljs-attr">x</span>:<span class="hljs-number">400</span>,<span class="hljs-attr">y</span>:<span class="hljs-number">400</span>&#125;,&#123;<span class="hljs-attr">x</span>:<span class="hljs-number">0</span>,<span class="hljs-attr">y</span>:<span class="hljs-number">800</span>&#125;],<span class="hljs-attr">color</span>:<span class="hljs-string">&quot;#67becf&quot;</span>&#125;,</span>
+<span class="language-javascript">                &#123;<span class="hljs-attr">p</span>:[&#123;<span class="hljs-attr">x</span>:<span class="hljs-number">800</span>,<span class="hljs-attr">y</span>:<span class="hljs-number">0</span>&#125;,&#123;<span class="hljs-attr">x</span>:<span class="hljs-number">800</span>,<span class="hljs-attr">y</span>:<span class="hljs-number">400</span>&#125;,&#123;<span class="hljs-attr">x</span>:<span class="hljs-number">600</span>,<span class="hljs-attr">y</span>:<span class="hljs-number">600</span>&#125;,&#123;<span class="hljs-attr">x</span>:<span class="hljs-number">600</span>,<span class="hljs-attr">y</span>:<span class="hljs-number">200</span>&#125;],<span class="hljs-attr">color</span>:<span class="hljs-string">&quot;#ef2d61&quot;</span>&#125;,</span>
+<span class="language-javascript">                &#123;<span class="hljs-attr">p</span>:[&#123;<span class="hljs-attr">x</span>:<span class="hljs-number">600</span>,<span class="hljs-attr">y</span>:<span class="hljs-number">200</span>&#125;,&#123;<span class="hljs-attr">x</span>:<span class="hljs-number">600</span>,<span class="hljs-attr">y</span>:<span class="hljs-number">600</span>&#125;,&#123;<span class="hljs-attr">x</span>:<span class="hljs-number">400</span>,<span class="hljs-attr">y</span>:<span class="hljs-number">400</span>&#125;],<span class="hljs-attr">color</span>:<span class="hljs-string">&quot;#f9f51a&quot;</span>&#125;,</span>
+<span class="language-javascript">                &#123;<span class="hljs-attr">p</span>:[&#123;<span class="hljs-attr">x</span>:<span class="hljs-number">400</span>,<span class="hljs-attr">y</span>:<span class="hljs-number">400</span>&#125;,&#123;<span class="hljs-attr">x</span>:<span class="hljs-number">600</span>,<span class="hljs-attr">y</span>:<span class="hljs-number">600</span>&#125;,&#123;<span class="hljs-attr">x</span>:<span class="hljs-number">400</span>,<span class="hljs-attr">y</span>:<span class="hljs-number">800</span>&#125;,&#123;<span class="hljs-attr">x</span>:<span class="hljs-number">200</span>,<span class="hljs-attr">y</span>:<span class="hljs-number">600</span>&#125;],<span class="hljs-attr">color</span>:<span class="hljs-string">&quot;#a594c0&quot;</span>&#125;,</span>
+<span class="language-javascript">                &#123;<span class="hljs-attr">p</span>:[&#123;<span class="hljs-attr">x</span>:<span class="hljs-number">200</span>,<span class="hljs-attr">y</span>:<span class="hljs-number">600</span>&#125;,&#123;<span class="hljs-attr">x</span>:<span class="hljs-number">400</span>,<span class="hljs-attr">y</span>:<span class="hljs-number">800</span>&#125;,&#123;<span class="hljs-attr">x</span>:<span class="hljs-number">0</span>,<span class="hljs-attr">y</span>:<span class="hljs-number">800</span>&#125;],<span class="hljs-attr">color</span>:<span class="hljs-string">&quot;#fa8ecc&quot;</span>&#125;,</span>
+<span class="language-javascript">                &#123;<span class="hljs-attr">p</span>:[&#123;<span class="hljs-attr">x</span>:<span class="hljs-number">800</span>,<span class="hljs-attr">y</span>:<span class="hljs-number">400</span>&#125;,&#123;<span class="hljs-attr">x</span>:<span class="hljs-number">800</span>,<span class="hljs-attr">y</span>:<span class="hljs-number">800</span>&#125;,&#123;<span class="hljs-attr">x</span>:<span class="hljs-number">400</span>,<span class="hljs-attr">y</span>:<span class="hljs-number">800</span>&#125;],<span class="hljs-attr">color</span>:<span class="hljs-string">&quot;#f6ca29&quot;</span>&#125;,</span>
+<span class="language-javascript">            ]</span>
+<span class="language-javascript"></span>
+<span class="language-javascript">            <span class="hljs-variable language_">window</span>.<span class="hljs-property">onload</span>=<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;</span>
+<span class="language-javascript">                <span class="hljs-keyword">var</span> canvas=<span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&quot;canvas&quot;</span>);</span>
+<span class="language-javascript">                <span class="hljs-keyword">var</span> context=canvas.<span class="hljs-title function_">getContext</span>(<span class="hljs-string">&#x27;2d&#x27;</span>);    <span class="hljs-comment">//使用Context绘制</span></span>
+<span class="language-javascript">                tangram.<span class="hljs-title function_">forEach</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params">item</span>)&#123;</span>
+<span class="language-javascript">                    <span class="hljs-title function_">draw</span>(item,context);</span>
+<span class="language-javascript">                &#125;)</span>
+<span class="language-javascript">            &#125;</span>
+<span class="language-javascript"></span>
+<span class="language-javascript">            <span class="hljs-comment">//画图方法</span></span>
+<span class="language-javascript">            <span class="hljs-keyword">function</span> <span class="hljs-title function_">draw</span>(<span class="hljs-params">piece,cxt</span>)</span>
+<span class="language-javascript">            &#123;</span>
+<span class="language-javascript">                cxt.<span class="hljs-title function_">beginPath</span>();</span>
+<span class="language-javascript">                cxt.<span class="hljs-title function_">moveTo</span>(piece.<span class="hljs-property">p</span>[<span class="hljs-number">0</span>].<span class="hljs-property">x</span>,piece.<span class="hljs-property">p</span>[<span class="hljs-number">0</span>].<span class="hljs-property">y</span>);</span>
+<span class="language-javascript">                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">1</span>; i &lt; piece.<span class="hljs-property">p</span>.<span class="hljs-property">length</span>; i++)</span>
+<span class="language-javascript">                &#123;</span>
+<span class="language-javascript">                    cxt.<span class="hljs-title function_">lineTo</span>(piece.<span class="hljs-property">p</span>[i].<span class="hljs-property">x</span>,piece.<span class="hljs-property">p</span>[i].<span class="hljs-property">y</span>);</span>
+<span class="language-javascript">                &#125;</span>
+<span class="language-javascript">                cxt.<span class="hljs-title function_">closePath</span>();</span>
+<span class="language-javascript">                <span class="hljs-comment">//设置画笔的属性</span></span>
+<span class="language-javascript">                cxt.<span class="hljs-property">fillStyle</span>= piece.<span class="hljs-property">color</span>;</span>
+<span class="language-javascript">                cxt.<span class="hljs-title function_">fill</span>();</span>
+<span class="language-javascript">                cxt.<span class="hljs-property">strokeStyle</span>=<span class="hljs-string">&quot;black&quot;</span>;</span>
+<span class="language-javascript">                cxt.<span class="hljs-property">lineWidth</span>=<span class="hljs-number">2</span>;</span>
+<span class="language-javascript">                cxt.<span class="hljs-title function_">stroke</span>();</span>
+<span class="language-javascript">            &#125;</span>
+<span class="language-javascript">        </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
 
 
 
-<h4 id="简单的球体掉落"><a href="#简单的球体掉落" class="headerlink" title="简单的球体掉落"></a>简单的球体掉落</h4><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> ball = &#123;<span class="hljs-attr">x</span>:<span class="hljs-number">512</span>,<span class="hljs-attr">y</span>:<span class="hljs-number">100</span>,<span class="hljs-attr">r</span>:<span class="hljs-number">20</span>,<span class="hljs-attr">g</span>:<span class="hljs-number">2</span>,<span class="hljs-attr">vx</span>:<span class="hljs-number">-4</span>,<span class="hljs-attr">vy</span>:<span class="hljs-number">-10</span>,<span class="hljs-attr">color</span>:<span class="hljs-string">"#005588"</span>&#125;;
-<span class="hljs-built_in">window</span>.onload=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;
-    <span class="hljs-keyword">var</span> canvas = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"cv"</span>);
-    canvas.width = <span class="hljs-number">1024</span>;
-    canvas.height = <span class="hljs-number">768</span>;
-    <span class="hljs-keyword">var</span> context = canvas.getContext(<span class="hljs-string">"2d"</span>);
-    setInterval(
-        <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;
-            render(context);
-            update();
+<h4 id="简单的球体掉落"><a href="#简单的球体掉落" class="headerlink" title="简单的球体掉落"></a>简单的球体掉落</h4><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> ball = &#123;<span class="hljs-attr">x</span>:<span class="hljs-number">512</span>,<span class="hljs-attr">y</span>:<span class="hljs-number">100</span>,<span class="hljs-attr">r</span>:<span class="hljs-number">20</span>,<span class="hljs-attr">g</span>:<span class="hljs-number">2</span>,<span class="hljs-attr">vx</span>:-<span class="hljs-number">4</span>,<span class="hljs-attr">vy</span>:-<span class="hljs-number">10</span>,<span class="hljs-attr">color</span>:<span class="hljs-string">&quot;#005588&quot;</span>&#125;;
+<span class="hljs-variable language_">window</span>.<span class="hljs-property">onload</span>=<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;
+    <span class="hljs-keyword">var</span> canvas = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&quot;cv&quot;</span>);
+    canvas.<span class="hljs-property">width</span> = <span class="hljs-number">1024</span>;
+    canvas.<span class="hljs-property">height</span> = <span class="hljs-number">768</span>;
+    <span class="hljs-keyword">var</span> context = canvas.<span class="hljs-title function_">getContext</span>(<span class="hljs-string">&quot;2d&quot;</span>);
+    <span class="hljs-built_in">setInterval</span>(
+        <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;
+            <span class="hljs-title function_">render</span>(context);
+            <span class="hljs-title function_">update</span>();
         &#125;,<span class="hljs-number">20</span> <span class="hljs-comment">//50ms执行一次，所以帧率是20</span>
     );
 &#125;;
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">update</span> (<span class="hljs-params"></span>)</span>&#123;
-    ball.x+=ball.vx;
-    ball.y+=ball.vy;
-    ball.vy+=ball.g;
-    <span class="hljs-keyword">if</span>(ball.y&gt;=<span class="hljs-number">768</span>-ball.r)
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">update</span> ()&#123;
+    ball.<span class="hljs-property">x</span>+=ball.<span class="hljs-property">vx</span>;
+    ball.<span class="hljs-property">y</span>+=ball.<span class="hljs-property">vy</span>;
+    ball.<span class="hljs-property">vy</span>+=ball.<span class="hljs-property">g</span>;
+    <span class="hljs-keyword">if</span>(ball.<span class="hljs-property">y</span>&gt;=<span class="hljs-number">768</span>-ball.<span class="hljs-property">r</span>)
     &#123;
-        ball.y = <span class="hljs-number">768</span>-ball.r;
-        ball.vy = -ball.vy*<span class="hljs-number">0.5</span>;  <span class="hljs-comment">//0.5的摩擦系数</span>
+        ball.<span class="hljs-property">y</span> = <span class="hljs-number">768</span>-ball.<span class="hljs-property">r</span>;
+        ball.<span class="hljs-property">vy</span> = -ball.<span class="hljs-property">vy</span>*<span class="hljs-number">0.5</span>;  <span class="hljs-comment">//0.5的摩擦系数</span>
     &#125;
 &#125;
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">render</span>(<span class="hljs-params">cxt</span>)</span>&#123;
-    cxt.clearRect(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,cxt.canvas.width,cxt.canvas.height);
-    cxt.fillStyle = ball.color;
-    cxt.beginPath();
-    cxt.arc(ball.x,ball.y,ball.r,<span class="hljs-number">0</span>,<span class="hljs-number">2</span>*<span class="hljs-built_in">Math</span>.PI);
-    cxt.fill();
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">render</span>(<span class="hljs-params">cxt</span>)&#123;
+    cxt.<span class="hljs-title function_">clearRect</span>(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,cxt.<span class="hljs-property">canvas</span>.<span class="hljs-property">width</span>,cxt.<span class="hljs-property">canvas</span>.<span class="hljs-property">height</span>);
+    cxt.<span class="hljs-property">fillStyle</span> = ball.<span class="hljs-property">color</span>;
+    cxt.<span class="hljs-title function_">beginPath</span>();
+    cxt.<span class="hljs-title function_">arc</span>(ball.<span class="hljs-property">x</span>,ball.<span class="hljs-property">y</span>,ball.<span class="hljs-property">r</span>,<span class="hljs-number">0</span>,<span class="hljs-number">2</span>*<span class="hljs-title class_">Math</span>.<span class="hljs-property">PI</span>);
+    cxt.<span class="hljs-title function_">fill</span>();
 &#125;</code></pre>
 
-<h4 id="五角星"><a href="#五角星" class="headerlink" title="五角星"></a>五角星</h4><pre><code class="hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">drawStar</span>(<span class="hljs-params">cxt,x,y,R,rot</span>)</span>
-<span class="hljs-function"></span>&#123;
-    cxt.save();
+<h4 id="五角星"><a href="#五角星" class="headerlink" title="五角星"></a>五角星</h4><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">drawStar</span>(<span class="hljs-params">cxt,x,y,R,rot</span>)
+&#123;
+    cxt.<span class="hljs-title function_">save</span>();
 
-    cxt.translate(x,y);
-    cxt.rotate(rot/<span class="hljs-number">180</span>*<span class="hljs-built_in">Math</span>.PI);
-    cxt.scale(R,R);
-    starPath(cxt);
+    cxt.<span class="hljs-title function_">translate</span>(x,y);
+    cxt.<span class="hljs-title function_">rotate</span>(rot/<span class="hljs-number">180</span>*<span class="hljs-title class_">Math</span>.<span class="hljs-property">PI</span>);
+    cxt.<span class="hljs-title function_">scale</span>(R,R);
+    <span class="hljs-title function_">starPath</span>(cxt);
 
-    cxt.fillStyle = <span class="hljs-string">"#fb3"</span>;
-    <span class="hljs-comment">//cxt.strokeStyle = "#fd5";</span>
+    cxt.<span class="hljs-property">fillStyle</span> = <span class="hljs-string">&quot;#fb3&quot;</span>;
+    <span class="hljs-comment">//cxt.strokeStyle = &quot;#fd5&quot;;</span>
     <span class="hljs-comment">//cxt.lineWidth = 3;  // scale()方法会影响该属性</span>
-    cxt.lineJoin = <span class="hljs-string">"round"</span>;
-    cxt.fill();
+    cxt.<span class="hljs-property">lineJoin</span> = <span class="hljs-string">&quot;round&quot;</span>;
+    cxt.<span class="hljs-title function_">fill</span>();
     <span class="hljs-comment">//cxt.stroke();</span>
 
-    cxt.restore();
+    cxt.<span class="hljs-title function_">restore</span>();
 &#125;
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">starPath</span>(<span class="hljs-params">cxt</span>)  //标准五角星</span>
-<span class="hljs-function"></span>&#123;
-    cxt.beginPath();
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">starPath</span>(<span class="hljs-params">cxt</span>)  <span class="hljs-comment">//标准五角星</span>
+&#123;
+    cxt.<span class="hljs-title function_">beginPath</span>();
     <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i =<span class="hljs-number">0</span>;i&lt;<span class="hljs-number">5</span>;i++)
     &#123;
-        cxt.lineTo(<span class="hljs-built_in">Math</span>.cos((<span class="hljs-number">18</span>+i*<span class="hljs-number">72</span>)/<span class="hljs-number">180</span>*<span class="hljs-built_in">Math</span>.PI),
-                   -<span class="hljs-built_in">Math</span>.sin((<span class="hljs-number">18</span>+i*<span class="hljs-number">72</span>)/<span class="hljs-number">180</span>*<span class="hljs-built_in">Math</span>.PI));
-        cxt.lineTo(<span class="hljs-built_in">Math</span>.cos((<span class="hljs-number">54</span>+i*<span class="hljs-number">72</span>)/<span class="hljs-number">180</span>*<span class="hljs-built_in">Math</span>.PI)*<span class="hljs-number">0.5</span>,
-                   -<span class="hljs-built_in">Math</span>.sin((<span class="hljs-number">54</span>+i*<span class="hljs-number">72</span>)/<span class="hljs-number">180</span>*<span class="hljs-built_in">Math</span>.PI)*<span class="hljs-number">0.5</span>);
+        cxt.<span class="hljs-title function_">lineTo</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">cos</span>((<span class="hljs-number">18</span>+i*<span class="hljs-number">72</span>)/<span class="hljs-number">180</span>*<span class="hljs-title class_">Math</span>.<span class="hljs-property">PI</span>),
+                   -<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">sin</span>((<span class="hljs-number">18</span>+i*<span class="hljs-number">72</span>)/<span class="hljs-number">180</span>*<span class="hljs-title class_">Math</span>.<span class="hljs-property">PI</span>));
+        cxt.<span class="hljs-title function_">lineTo</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">cos</span>((<span class="hljs-number">54</span>+i*<span class="hljs-number">72</span>)/<span class="hljs-number">180</span>*<span class="hljs-title class_">Math</span>.<span class="hljs-property">PI</span>)*<span class="hljs-number">0.5</span>,
+                   -<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">sin</span>((<span class="hljs-number">54</span>+i*<span class="hljs-number">72</span>)/<span class="hljs-number">180</span>*<span class="hljs-title class_">Math</span>.<span class="hljs-property">PI</span>)*<span class="hljs-number">0.5</span>);
     &#125;
-    cxt.closePath();
+    cxt.<span class="hljs-title function_">closePath</span>();
 &#125;</code></pre>
 
 <p><strong>渐变色</strong></p>
-<pre><code class="hljs javascript"><span class="hljs-keyword">var</span> grd = context.createLinearGradient(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">800</span>,<span class="hljs-number">800</span>);
-grd.addColorStop(<span class="hljs-number">0.0</span>,<span class="hljs-string">"#f00"</span>);
-grd.addColorStop(<span class="hljs-number">0.5</span>,<span class="hljs-string">"#0f0"</span>);
-grd.addColorStop(<span class="hljs-number">1.0</span>,<span class="hljs-string">"#00f"</span>);
-context.fillStyle = grd;
-context.fillRect(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">800</span>,<span class="hljs-number">600</span>);</code></pre>
+<pre><code class="hljs javascript"><span class="hljs-keyword">var</span> grd = context.<span class="hljs-title function_">createLinearGradient</span>(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">800</span>,<span class="hljs-number">800</span>);
+grd.<span class="hljs-title function_">addColorStop</span>(<span class="hljs-number">0.0</span>,<span class="hljs-string">&quot;#f00&quot;</span>);
+grd.<span class="hljs-title function_">addColorStop</span>(<span class="hljs-number">0.5</span>,<span class="hljs-string">&quot;#0f0&quot;</span>);
+grd.<span class="hljs-title function_">addColorStop</span>(<span class="hljs-number">1.0</span>,<span class="hljs-string">&quot;#00f&quot;</span>);
+context.<span class="hljs-property">fillStyle</span> = grd;
+context.<span class="hljs-title function_">fillRect</span>(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">800</span>,<span class="hljs-number">600</span>);</code></pre>
 
-<h4 id="图片填充"><a href="#图片填充" class="headerlink" title="图片填充"></a>图片填充</h4><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> backgroundImage = <span class="hljs-keyword">new</span> Image;
-backgroundImage.src = <span class="hljs-string">""</span> ;
-backgroundImage.onload=<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;
-	<span class="hljs-keyword">var</span> pattern = context.createPattern(backgroundImage,<span class="hljs-string">"no-repeat"</span>); 
-    context.fillStyle = pattern;
-    context.fillRect(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,widht,height);
+<h4 id="图片填充"><a href="#图片填充" class="headerlink" title="图片填充"></a>图片填充</h4><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> backgroundImage = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Image</span>;
+backgroundImage.<span class="hljs-property">src</span> = <span class="hljs-string">&quot;&quot;</span> ;
+backgroundImage.<span class="hljs-property">onload</span>=<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;
+	<span class="hljs-keyword">var</span> pattern = context.<span class="hljs-title function_">createPattern</span>(backgroundImage,<span class="hljs-string">&quot;no-repeat&quot;</span>); 
+    context.<span class="hljs-property">fillStyle</span> = pattern;
+    context.<span class="hljs-title function_">fillRect</span>(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,widht,height);
 &#125;</code></pre>
 
-<h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><p>1、<a href="https://www.w3.org/TR/2dcontext/" target="_blank" rel="noopener">Canvas,W3C标准</a></p>
-<p>2、<a href="https://html.spec.whatwg.org/" target="_blank" rel="noopener">WHATWG标准</a></p>
+<h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><p>1、<a target="_blank" rel="noopener" href="https://www.w3.org/TR/2dcontext/">Canvas,W3C标准</a></p>
+<p>2、<a target="_blank" rel="noopener" href="https://html.spec.whatwg.org/">WHATWG标准</a></p>
 
             </article>
             <hr>
@@ -749,7 +751,7 @@ backgroundImage.onload=<span class="hljs-function"><span class="hljs-keyword">fu
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">

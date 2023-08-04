@@ -47,7 +47,7 @@
 
 
   <script  src="/js/utils.js" ></script>
-<meta name="generator" content="Hexo 4.2.1"></head>
+<meta name="generator" content="Hexo 7.0.0-rc2"></head>
 
 
 <body>
@@ -163,7 +163,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      76 字
+      351 字
     </span>
   
 
@@ -173,7 +173,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      5
        分钟
     </span>
   
@@ -213,19 +213,97 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2022年3月9日 上午
+                  本文最后更新于：2023年8月3日 下午
                 
               </p>
             
             <article class="markdown-body">
               <h3 id="Web-Deploy发布"><a href="#Web-Deploy发布" class="headerlink" title="Web Deploy发布"></a>Web Deploy发布</h3><h4 id="1、不信任的证书"><a href="#1、不信任的证书" class="headerlink" title="1、不信任的证书"></a>1、不信任的证书</h4><blockquote>
-<p>Severity    Code    Description    Project    File    Line    Suppression State<br>Error        Web deployment task failed. (Connected to the remote computer (“10.136.16.135”) using the specified process (“Web Management Service”), but could not verify the server’s certificate. If you trust the server, connect again and allow untrusted certificates.  </p>
+<p>Severity	Code	Description	Project	File	Line	Suppression State<br>Error		Web deployment task failed. (Connected to the remote computer (“10.136.16.135”) using the specified process (“Web Management Service”), but could not verify the server’s certificate. If you trust the server, connect again and allow untrusted certificates.  </p>
 </blockquote>
 <pre><code class="hljs html">在Properties-&gt;PublishProfiles-&gt;IISProfile.pubxml
 文件中添加
 <span class="hljs-tag">&lt;<span class="hljs-name">AllowUntrustedCertificate</span>&gt;</span>True<span class="hljs-tag">&lt;/<span class="hljs-name">AllowUntrustedCertificate</span>&gt;</span></code></pre>
 
 
+<h3 id="Web-Api"><a href="#Web-Api" class="headerlink" title="Web Api"></a>Web Api</h3><blockquote>
+<p>ApiController: 当在控制器类上应用了 ApiController 特性时，它会启用复杂类型参数绑定功能。可以传递List<myclass> 作为 request body，但是会导致int 这种简单参数无法获取到 。</p>
+<p>不推荐使用 ApiController，想获取复杂类型的参数，可以直接使用 FromBody 定义函数的参数来源</p>
+</blockquote>
+<pre><code class="hljs c">public IActionResult <span class="hljs-title function_">AddLists</span><span class="hljs-params">( [FromBody] List&lt;ReminderContact&gt; items)</span></code></pre>
+<blockquote>
+<p>Route(“[controller]&#x2F;[action]”) : 用于定义 API 控制器的行为和路由。</p>
+</blockquote>
+<pre><code class="hljs C">namespace Esclate_Reminder.Controllers
+&#123;
+    [ApiController]
+    [Route(<span class="hljs-string">&quot;[controller]/[action]&quot;</span>)]
+    public <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">EscalateContactController</span> :</span> Controller
+    &#123;
+        private EsclateContactService _escService = new EsclateContactService();
+        [HttpGet]
+        public IActionResult <span class="hljs-title function_">QueryEnable</span><span class="hljs-params">()</span>
+        &#123;
+            try
+            &#123;
+                <span class="hljs-keyword">return</span> Json(_escService.QueryEnable());
+            &#125;
+            catch (Exception err)
+            &#123;
+                <span class="hljs-keyword">return</span> new CustomError(HttpStatusCode.BadRequest, err.Message);
+            &#125;
+        &#125;
+        [HttpGet]
+        public IActionResult <span class="hljs-title function_">QueryAll</span><span class="hljs-params">()</span>
+        &#123;
+            try
+            &#123;
+                <span class="hljs-keyword">return</span> Json(_escService.QueryAll());
+            &#125;
+            catch (Exception err)
+            &#123;
+                <span class="hljs-keyword">return</span> new CustomError(HttpStatusCode.BadRequest, err.Message);
+            &#125;
+        &#125;
+        [HttpGet]
+        public IActionResult <span class="hljs-title function_">Query_byCategory</span><span class="hljs-params">(<span class="hljs-built_in">string</span> category)</span>
+        &#123;
+            try
+            &#123;
+                <span class="hljs-keyword">return</span> Json(_escService.Query_byCategory(category));
+            &#125;
+            catch (Exception err)
+            &#123;
+                <span class="hljs-keyword">return</span> new CustomError(HttpStatusCode.BadRequest, err.Message);
+            &#125;
+        &#125;
+
+        [HttpPost]
+        public IActionResult <span class="hljs-title function_">AddLists</span><span class="hljs-params">(List&lt;ReminderContact&gt; items)</span> &#123;
+            try
+            &#123;
+                <span class="hljs-keyword">return</span> Json(_escService.AddLists(items));
+            &#125;
+            catch (Exception err)
+            &#123;
+                <span class="hljs-keyword">return</span> new CustomError(HttpStatusCode.BadRequest, err.Message);
+            &#125;
+        &#125;
+
+        [HttpPost]
+        public IActionResult <span class="hljs-title function_">Add</span><span class="hljs-params">(ReminderContact item)</span>
+        &#123;
+            try
+            &#123;
+                <span class="hljs-keyword">return</span> Json(_escService.Add(item));
+            &#125;
+            catch (Exception err)
+            &#123;
+                <span class="hljs-keyword">return</span> new CustomError(HttpStatusCode.BadRequest, err.Message);
+            &#125;
+        &#125;
+    &#125;
+&#125;</code></pre>
             </article>
             <hr>
             <div>
@@ -241,7 +319,7 @@
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
               
               
                 <div class="post-prevnext row">
