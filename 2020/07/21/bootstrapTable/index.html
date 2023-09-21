@@ -163,7 +163,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.1k 字
+      2.3k 字
     </span>
   
 
@@ -173,7 +173,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      36
+      39
        分钟
     </span>
   
@@ -213,7 +213,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2023年6月7日 上午
+                  本文最后更新于：2023年9月19日 下午
                 
               </p>
             
@@ -441,6 +441,7 @@ $(<span class="hljs-string">&quot;#table&quot;</span>).<span class="hljs-title f
         <span class="hljs-title class_">EmployeeID</span>: $(<span class="hljs-string">&quot;#epid-input&quot;</span>).<span class="hljs-title function_">val</span>(),
         <span class="hljs-title class_">Department</span>: $(<span class="hljs-string">&quot;#departsele&quot;</span>).<span class="hljs-title function_">val</span>()[<span class="hljs-number">0</span>] == <span class="hljs-literal">null</span> ? <span class="hljs-title function_">getCookie</span>(<span class="hljs-string">&quot;epm-Department&quot;</span>) == <span class="hljs-string">&quot;ALL&quot;</span> ? <span class="hljs-literal">null</span> : <span class="hljs-title function_">getCookie</span>(<span class="hljs-string">&quot;epm-Department&quot;</span>) : $(<span class="hljs-string">&quot;#departsele&quot;</span>).<span class="hljs-title function_">val</span>(),
     &#125;,
+    <span class="hljs-attr">idField</span>: <span class="hljs-string">&quot;project&quot;</span>,
     <span class="hljs-attr">dataType</span>: <span class="hljs-string">&#x27;json&#x27;</span>,
     <span class="hljs-attr">pagination</span>: <span class="hljs-literal">true</span>,  <span class="hljs-comment">//设置为 true 会在表格底部显示分页条。</span>
     <span class="hljs-attr">paginationLoop</span>: <span class="hljs-literal">false</span>, <span class="hljs-comment">//设置为 true 启用分页条无限循环的功能。</span>
@@ -483,20 +484,27 @@ $(<span class="hljs-string">&quot;#table&quot;</span>).<span class="hljs-title f
             <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;e-Mail&#x27;</span>
         &#125;, &#123;
             <span class="hljs-attr">field</span>: <span class="hljs-string">&#x27;PhoneNum&#x27;</span>,
-            <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Phone&#x27;</span>
-        &#125;, &#123;
+            <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Phone&#x27;</span>,
+            <span class="hljs-attr">editable</span>: &#123;
+                <span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;select&#x27;</span>,
+                <span class="hljs-attr">emptytext</span>: <span class="hljs-string">&#x27;--&#x27;</span>,
+                <span class="hljs-attr">mode</span>: <span class="hljs-string">&#x27;inline&#x27;</span>,  <span class="hljs-comment">//不可缺少，否则 this.tip().addClass(this.containerClass);会报错</span>
+                <span class="hljs-attr">source</span>: [&#123; <span class="hljs-attr">value</span>: <span class="hljs-string">&quot;1&quot;</span>, <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;是&quot;</span> &#125;, &#123; <span class="hljs-attr">value</span>: <span class="hljs-string">&quot;0&quot;</span>, <span class="hljs-attr">text</span>: <span class="hljs-string">&quot;否&quot;</span> &#125;],    <span class="hljs-comment">//shource 显示的内容和选择的内容一一对应</span>
+            &#125;,
+    &#125;, &#123;
             <span class="hljs-attr">field</span>: <span class="hljs-string">&#x27;role&#x27;</span>,
             <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Role&#x27;</span>,
-            <span class="hljs-attr">editable</span>: &#123;
-                <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Role&#x27;</span>,
+             <span class="hljs-attr">editable</span>: &#123;
                 <span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;select&#x27;</span>,
-                <span class="hljs-attr">separator</span>: <span class="hljs-string">&quot;,&quot;</span>,
-                <span class="hljs-attr">source</span>: res[<span class="hljs-number">1</span>],
+                <span class="hljs-attr">emptytext</span>: <span class="hljs-string">&#x27;--&#x27;</span>,
                 <span class="hljs-attr">mode</span>: <span class="hljs-string">&#x27;inline&#x27;</span>,
-                <span class="hljs-attr">validate</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">value</span>) &#123;
-                    <span class="hljs-keyword">if</span> ($.<span class="hljs-title function_">trim</span>(value) == <span class="hljs-string">&#x27;&#x27;</span>) <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;Value can not be empty.&#x27;</span>;
-                &#125;
-            &#125;
+                <span class="hljs-attr">source</span>:  <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;   <span class="hljs-comment">//source 可以根据行的内容而改变</span>
+                    <span class="hljs-keyword">var</span> pk = $(<span class="hljs-variable language_">this</span>).<span class="hljs-title function_">attr</span>(<span class="hljs-string">&quot;data-pk&quot;</span>);  <span class="hljs-comment">//data-pk的内容是idField所指定的列的内容</span>
+                    <span class="hljs-keyword">var</span> tmp = cateList.<span class="hljs-title function_">filter</span>(<span class="hljs-function"><span class="hljs-params">obj</span> =&gt;</span> obj.<span class="hljs-property">category</span> === pk).<span class="hljs-title function_">map</span>(<span class="hljs-function"><span class="hljs-params">obj</span> =&gt;</span> obj.<span class="hljs-property">subCategory</span>);
+                    <span class="hljs-keyword">if</span> (tmp !=<span class="hljs-literal">undefined</span>)
+                        <span class="hljs-keyword">return</span> tmp;
+                &#125;,
+            &#125;,
         &#125;, &#123;
             <span class="hljs-attr">field</span>: <span class="hljs-string">&#x27;Operate&#x27;</span>,
             <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;Operate&#x27;</span>,
@@ -573,6 +581,23 @@ $(<span class="hljs-string">&quot;#table&quot;</span>).<span class="hljs-title f
 <span class="language-javascript">        &#125;)</span>
 <span class="language-javascript">    &#125;</span>
 <span class="language-javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
+
+<h3 id="6、固定表头（thead）"><a href="#6、固定表头（thead）" class="headerlink" title="6、固定表头（thead）"></a>6、固定表头（thead）</h3><p>添加配置信息 <code>height</code>,可以使<code>thead</code>固定不动，<code>tbody</code>中的内容实现<code>overflow-y: scroll</code></p>
+<pre><code class="hljs js"><span class="hljs-attr">height</span>: <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">round</span>($(<span class="hljs-string">&#x27;#silder-right-body&#x27;</span>).<span class="hljs-title function_">height</span>() - $(<span class="hljs-string">&quot;#searchbox&quot;</span>).<span class="hljs-title function_">height</span>() - <span class="hljs-number">40</span>, <span class="hljs-number">0</span>),</code></pre>
+
+<p>增加监听事件，使表头在屏幕发生变化时随之改变</p>
+<pre><code class="hljs js">$(<span class="hljs-variable language_">document</span>).<span class="hljs-title function_">ready</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;
+    <span class="hljs-comment">// 获取要监听的目标元素</span>
+    <span class="hljs-keyword">var</span> target = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;table&#x27;</span>);
+    <span class="hljs-comment">// 创建一个新的 ResizeObserver 实例</span>
+    <span class="hljs-keyword">var</span> observer = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ResizeObserver</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params">entries</span>) &#123;
+        entries.<span class="hljs-title function_">forEach</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params">entry</span>) &#123;
+            $(<span class="hljs-string">&quot;#table&quot;</span>).<span class="hljs-title function_">bootstrapTable</span>(<span class="hljs-string">&#x27;resetView&#x27;</span>);
+        &#125;);
+    &#125;);
+    <span class="hljs-comment">// 开始监听目标元素的大小变化</span>
+    observer.<span class="hljs-title function_">observe</span>(target);
+&#125;)</code></pre>
 
 
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>1、<a target="_blank" rel="noopener" href="https://www.bootstrap-table.com.cn/examples/options/table-height/">Bootstrap Table官网实例</a></p>

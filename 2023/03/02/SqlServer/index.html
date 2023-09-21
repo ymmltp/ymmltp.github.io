@@ -163,7 +163,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      176 字
+      230 字
     </span>
   
 
@@ -173,7 +173,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      2
+      3
        分钟
     </span>
   
@@ -213,7 +213,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2023年8月4日 上午
+                  本文最后更新于：2023年8月24日 上午
                 
               </p>
             
@@ -254,6 +254,11 @@ GO
 
 <span class="hljs-comment">-- 如果您想要撤销更新，请使用以下命令：</span>
 <span class="hljs-keyword">ROLLBACK</span> TRANSACTION;</code></pre>
+
+<h2 id="Select-一个新表"><a href="#Select-一个新表" class="headerlink" title="Select 一个新表"></a>Select 一个新表</h2><pre><code class="hljs sql">
+<span class="hljs-keyword">select</span> <span class="hljs-operator">*</span>  <span class="hljs-keyword">into</span> new_table <span class="hljs-keyword">from</span> old_table <span class="hljs-comment">--将old_table的内容复制到new_table中，会创建一个新表</span>
+<span class="hljs-keyword">select</span> <span class="hljs-operator">*</span>  <span class="hljs-keyword">into</span> #new_table <span class="hljs-keyword">from</span> old_table <span class="hljs-comment">--将old_table的内容输入到一个临时表new_table中，会话结束时，自动删除。</span>
+</code></pre>
             </article>
             <hr>
             <div>
@@ -275,6 +280,12 @@ GO
                 <div class="post-prevnext row">
                   <div class="post-prev col-6">
                     
+                    
+                      <a href="/2023/08/24/python/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">python</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </div>
                   <div class="post-next col-6">

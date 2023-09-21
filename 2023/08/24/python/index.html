@@ -17,10 +17,19 @@
   <meta name="description" content="半吊子">
   <meta name="author" content="今年依旧12岁">
   <meta name="keywords" content="">
-  <title>World is what you see</title>
+  <title>python - World is what you see</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+  
+
+  
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -42,7 +51,7 @@
 
 
 <body>
-  <header style="height: 100vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -130,7 +139,7 @@
 </nav>
 
     <div class="view intro-2" id="background" parallax=true
-         style="background: url('/img/background.jpg') no-repeat center center;
+         style="background: url('/img/bg2.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -140,12 +149,50 @@
             </span>
 
             
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2023-08-24 15:56">
+      2023年8月24日 下午
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      12 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      1
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
           </div>
 
-          
-            <div class="scroll-down-bar">
-              <i class="iconfont icon-arrowdown"></i>
-            </div>
           
         </div>
       </div>
@@ -154,396 +201,82 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5" id="board"
-          style=margin-top:0>
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+              <p class="note note-info">
                 
-
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2023/08/24/python/">python</a>
-
-      <a href="/2023/08/24/python/" class="index-excerpt">
-        
-        
-          
-        
-        <div>Python模块打包工具cx_Freeze ：cx_Freeze使用方法pyinstaller
-</div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2023-08-24
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
+                  本文最后更新于：2023年8月24日 下午
+                
+              </p>
             
-              <a href="/tags/%E5%AD%A6%E6%97%A0%E6%AD%A2%E5%A2%83/">学无止境</a>
-            
-          </div>
-        
-      </div>
-    </div>
-  </div>
+            <article class="markdown-body">
+              <h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h1><h2 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h2><h3 id="打包工具"><a href="#打包工具" class="headerlink" title="打包工具"></a>打包工具</h3><p><code>cx_Freeze</code> ：<a target="_blank" rel="noopener" href="https://www.diaoyc.cn/archives/python%E4%BD%BF%E7%94%A8cxfreeze%E6%89%93%E5%8C%85fastapi%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%96%B9%E6%B3%95%E4%BB%A5%E5%8F%8A%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98#post-content">cx_Freeze使用方法</a><br><code>pyinstaller</code></p>
 
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2023/03/02/SqlServer/">SqlServer</a>
-
-      <a href="/2023/03/02/SqlServer/" class="index-excerpt">
-        
-        
-          
-        
-        <div>SQL Server触发器 （Triggers）-- 创建 Trigger
-
-USE [e_DMS]
-GO
-/****** Object:  Trigger [dbo].[updateWeekLength]    Script Date: 3/2/2023 11:03:17 AM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
---</div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2023-03-02
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E5%AD%A6%E6%97%A0%E6%AD%A2%E5%A2%83/">学无止境</a>
-            
-          </div>
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2023/02/17/WindowsService/">WindowsService</a>
-
-      <a href="/2023/02/17/WindowsService/" class="index-excerpt">
-        
-        
-          
-        
-        <div>Windows Service程序安装、拆卸、调试Windows服务1、安装New-Service -Name &quot;WorkingHoursDataSyncer&quot; -BinaryPathName &quot;C:\Working Hour Data Syncer\WorkingHoursDataSyncer.exe&quot;
-
-2、拆卸
-查看PowerShell版本 $PSVe</div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2023-02-17
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E5%AD%A6%E6%97%A0%E6%AD%A2%E5%A2%83/">学无止境</a>
-            
-          </div>
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2022/10/24/gitCommand/">gitCommand</a>
-
-      <a href="/2022/10/24/gitCommand/" class="index-excerpt">
-        
-        
-          
-        
-        <div></div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2022-10-24
-          </div>
-        
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2022/05/04/linux/">linux</a>
-
-      <a href="/2022/05/04/linux/" class="index-excerpt">
-        
-        
-          
-        
-        <div>Linux常见指令:
-
-
-指令
-描述
-
-
-
-ls
-查看文件
-
-
-ls -al
-查看所有文件和权限
-
-
-chmode
-修改用户权限(用数字表示权限:chmod 777 fileName)(chmod ug&#x3D;rwx,o&#x3D;x fileName)(用加减法表示权限的增加和删除:chmod ugo+r fileName)(chmod ug+w,o-w fileName)(a:all;u:</div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2022-05-04
-          </div>
-        
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2022/04/08/socket/">socket</a>
-
-      <a href="/2022/04/08/socket/" class="index-excerpt">
-        
-        
-          
-        
-        <div>Socket(套接字)DefineTCP&#x2F;IP的上层接口有两种传输文件的方式1、TCP 数据流传输，需要定义主机和客机2、UDP 报文传输，不稳定，但是实时性强
-import socket
-
-# 服务器
-with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:   # AF_INET:使用IPv4;SOCK_STREAM:T</div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2022-04-08
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E5%AD%A6%E6%97%A0%E6%AD%A2%E5%A2%83/">学无止境</a>
-            
-          </div>
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2022/04/06/arithmetic/">arithmetic</a>
-
-      <a href="/2022/04/06/arithmetic/" class="index-excerpt">
-        
-        
-          
-        
-        <div>算法MiniMax (极小化极大算法)查询出最坏的情况下最好的那个结果1、CSDN MiniMax 讲解
-Alpha-Beta剪枝算法删除 MiniMax 算法中不影响结局的中间节点对 MiniMax 树进行中序遍历
-
-alpha 为下限，初始为 -inifbeta 为上限,初始为 +inif
-
-1、在 MiniMax 算法树中，每一个 min 节点修改 beta 值，每一个 max 节点修改 a</div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2022-04-06
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E5%AD%A6%E6%97%A0%E6%AD%A2%E5%A2%83/">学无止境</a>
-            
-          </div>
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2022/03/10/Vue/">Vue</a>
-
-      <a href="/2022/03/10/Vue/" class="index-excerpt">
-        
-        
-          
-        
-        <div>VueVue in VSC1、安装手脚架
-
-npm install -g -vue-cli2、安装打包工具npm install -g webpack3、创建Vue项目vue init webpack projectName4、配置信息5、进入创建的项目目录运行projectnpm run dev
-
-vite创建Vue项目npm init vite@latest
-</div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2022-03-10
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E5%AD%A6%E6%97%A0%E6%AD%A2%E5%A2%83/">学无止境</a>
-            
-          </div>
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2022/03/08/eCharts/">eCharts</a>
-
-      <a href="/2022/03/08/eCharts/" class="index-excerpt">
-        
-        
-          
-        
-        <div>eCharts配置项option = &#123;
-  title: &#123;            //坐标的title
-    text: &#x27;Stacked Line&#x27;,
-    subtext
-  &#125;,
-  tooltip: &#123;
-    trigger: &#x27;item&#x27;,  //悬浮提示框:&quot;axis&quot;:显示该</div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2022-03-08
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E5%AD%A6%E6%97%A0%E6%AD%A2%E5%A2%83/">学无止境</a>
-            
-          </div>
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a class="index-header" href="/2022/02/17/Express/">Express</a>
-
-      <a href="/2022/02/17/Express/" class="index-excerpt">
-        
-        
-          
-        
-        <div></div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2022-02-17
-          </div>
-        
-        
-        
-      </div>
-    </div>
-  </div>
-
-
-
-  <nav aria-label="navigation">
-    <span class="pagination" id="pagination">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="iconfont icon-arrowright"></i></a>
-    </span>
-  </nav>
-  
-  <script>
-    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
-      ele.href += '#board';
-    }
-  </script>
-
-
-
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%AD%A6%E6%97%A0%E6%AD%A2%E5%A2%83/">学无止境</a>
+                    
+                  </div>
+                
               </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2023/03/02/SqlServer/">
+                        <span class="hidden-mobile">SqlServer</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
             </div>
+
+            
           </div>
         </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
     
   </main>
 
@@ -670,6 +403,31 @@ vite创建Vue项目npm init vite@latest
 
 
 
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: 'article.markdown-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
 
 
   <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
@@ -677,7 +435,7 @@ vite创建Vue项目npm init vite@latest
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "World is what you see&nbsp;",
+        "python&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
@@ -692,6 +450,23 @@ vite创建Vue项目npm init vite@latest
 
 
 
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+      icon: "❡"
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
 
 
   <script  src="/js/local-search.js" ></script>
@@ -705,6 +480,20 @@ vite创建Vue项目npm init vite@latest
   </script>
 
 
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
 
 
 
