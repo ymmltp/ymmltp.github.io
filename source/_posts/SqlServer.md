@@ -50,3 +50,12 @@ UPDATE your_table SET column1 = 'new_value' WHERE id = 1;
 -- 如果您想要撤销更新，请使用以下命令：
 ROLLBACK TRANSACTION;
 ```
+
+## Select 一个新表
+
+```sql
+
+select *  into new_table from old_table --将old_table的内容复制到new_table中，会创建一个新表
+select *  into #new_table from old_table --将old_table的内容输入到一个临时表new_table中，会话结束时，自动删除。
+
+```

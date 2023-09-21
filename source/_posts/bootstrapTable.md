@@ -259,6 +259,7 @@ $("#table").bootstrapTable('destroy').bootstrapTable({
         EmployeeID: $("#epid-input").val(),
         Department: $("#departsele").val()[0] == null ? getCookie("epm-Department") == "ALL" ? null : getCookie("epm-Department") : $("#departsele").val(),
     },
+    idField: "project",
     dataType: 'json',
     pagination: true,  //设置为 true 会在表格底部显示分页条。
     paginationLoop: false, //设置为 true 启用分页条无限循环的功能。
@@ -301,20 +302,27 @@ $("#table").bootstrapTable('destroy').bootstrapTable({
             title: 'e-Mail'
         }, {
             field: 'PhoneNum',
-            title: 'Phone'
-        }, {
+            title: 'Phone',
+            editable: {
+                type: 'select',
+                emptytext: '--',
+                mode: 'inline',  //不可缺少，否则 this.tip().addClass(this.containerClass);会报错
+                source: [{ value: "1", text: "是" }, { value: "0", text: "否" }],    //shource 显示的内容和选择的内容一一对应
+            },
+    }, {
             field: 'role',
             title: 'Role',
-            editable: {
-                title: 'Role',
+             editable: {
                 type: 'select',
-                separator: ",",
-                source: res[1],
+                emptytext: '--',
                 mode: 'inline',
-                validate: function (value) {
-                    if ($.trim(value) == '') return 'Value can not be empty.';
-                }
-            }
+                source:  function () {   //source 可以根据行的内容而改变
+                    var pk = $(this).attr("data-pk");  //data-pk的内容是idField所指定的列的内容
+                    var tmp = cateList.filter(obj => obj.category === pk).map(obj => obj.subCategory);
+                    if (tmp !=undefined)
+                        return tmp;
+                },
+            },
         }, {
             field: 'Operate',
             title: 'Operate',
@@ -395,6 +403,31 @@ $("#table").bootstrapTable('destroy').bootstrapTable({
         })
     }
 </script>
+```
+
+### 6、固定表头（thead）
+
+添加配置信息 `height`,可以使`thead`固定不动，`tbody`中的内容实现`overflow-y: scroll`
+
+```js
+height: Math.round($('#silder-right-body').height() - $("#searchbox").height() - 40, 0),
+```
+
+增加监听事件，使表头在屏幕发生变化时随之改变
+
+```js
+$(document).ready(function () {
+    // 获取要监听的目标元素
+    var target = document.getElementById('table');
+    // 创建一个新的 ResizeObserver 实例
+    var observer = new ResizeObserver(function (entries) {
+        entries.forEach(function (entry) {
+            $("#table").bootstrapTable('resetView');
+        });
+    });
+    // 开始监听目标元素的大小变化
+    observer.observe(target);
+})
 ```
 
 
