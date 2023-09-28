@@ -17,7 +17,7 @@
   <meta name="description" content="半吊子">
   <meta name="author" content="今年依旧12岁">
   <meta name="keywords" content="">
-  <title>World is what you see</title>
+  <title>Bootstrap Table学习笔记 - World is what you see</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -152,8 +152,8 @@
               
   <div class="mt-3 post-meta">
     <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-    <time datetime="2021-11-04 14:50">
-      2021年11月4日 下午
+    <time datetime="2020-07-21 14:15">
+      2020年7月21日 下午
     </time>
   </div>
 
@@ -163,7 +163,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      114 字
+      474 字
     </span>
   
 
@@ -173,7 +173,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      7
        分钟
     </span>
   
@@ -213,12 +213,12 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2023年6月2日 上午
+                  本文最后更新于：2023年9月28日 下午
                 
               </p>
             
             <article class="markdown-body">
-              <h2 id="Bootstrap-Select"><a href="#Bootstrap-Select" class="headerlink" title="Bootstrap Select"></a>Bootstrap Select</h2><pre><code class="hljs javascript"><span class="hljs-attr">function</span>:
+              <h2 id="Bootstrap-Select"><a href="#Bootstrap-Select" class="headerlink" title="Bootstrap Select"></a>Bootstrap Select</h2><h3 id="1、常见配置"><a href="#1、常见配置" class="headerlink" title="1、常见配置"></a>1、常见配置</h3><pre><code class="hljs javascript"><span class="hljs-attr">function</span>:
 全选：data-none-selected-text=<span class="hljs-string">&quot;All&quot;</span> data-actions-box=<span class="hljs-string">&quot;true&quot;</span>
 是否支持多选：multiple
 多选最多：data-max-options=<span class="hljs-string">&quot;5&quot;</span> 
@@ -226,11 +226,41 @@
 下拉框显示的option个数：data-size=<span class="hljs-string">&quot;6&quot;</span>
 </code></pre>
 
+<p>当设置<code>multiple</code>时，<code>.val()</code>获取的是一个Array对象</p>
 <pre><code class="hljs javascript">&lt;select id=<span class="hljs-string">&quot;machine-select&quot;</span> <span class="hljs-keyword">class</span>=<span class="hljs-string">&quot;form-control selectpicker&quot;</span> title=<span class="hljs-string">&quot;Select Machine&quot;</span>  multiple data-size=<span class="hljs-string">&quot;6&quot;</span> data-live-search=<span class="hljs-string">&quot;true&quot;</span> data-max-options=<span class="hljs-string">&quot;5&quot;</span> &gt;&lt;/select&gt;</code></pre>
 
-<p>bootstrap-select js 控制选择</p>
-<pre><code class="hljs javascript"></code></pre>
+<h3 id="2、可输入自定义内容的搜索框"><a href="#2、可输入自定义内容的搜索框" class="headerlink" title="2、可输入自定义内容的搜索框"></a>2、可输入自定义内容的搜索框</h3><h4 id="2-1-安装插件：jquery-editable-select"><a href="#2-1-安装插件：jquery-editable-select" class="headerlink" title="2.1 安装插件：jquery-editable-select"></a>2.1 安装插件：jquery-editable-select</h4><pre><code class="hljs js">&lt;script src=<span class="hljs-string">&quot;js/lib/jquery.min.js&quot;</span>&gt;&lt;/script&gt;
+<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;js/lib/jquery-editable-select.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span>
+&lt;link href=&quot;css/bootstrap.css&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;link href=&quot;css/jquery-editable-select.css&quot; rel=&quot;stylesheet&quot;&gt;
 
+//配置可编辑属性
+
+&lt;div class=&quot;col-lg-5&quot;&gt;
+    &lt;label for=&quot;ca-machine&quot; class=&quot;form-label text-right&quot;&gt;Machine:&lt;/label&gt;
+    &lt;select class=&quot;form-control&quot; id=&#x27;ca-machine&#x27; &gt;
+        &lt;option value=&quot;&quot;&gt;&lt;/option&gt;
+        &lt;option value=&quot;aa&quot;&gt;aa&lt;/option&gt;
+        &lt;option value=&quot;bb&quot;&gt;bb&lt;/option&gt;
+        &lt;option value=&quot;cc&quot;&gt;cc&lt;/option&gt;
+        &lt;option value=&quot;dd&quot;&gt;dd&lt;/option&gt;
+        &lt;option value=&quot;ee&quot;&gt;ee&lt;/option&gt;
+    &lt;/select&gt;
+&lt;/div&gt;
+&lt;script&gt;
+    $(document).ready(function()&#123;
+        $(&quot;#ca-machine&quot;).editableSelect(&#123; filter: true &#125;);
+    &#125;);           
+&lt;/script&gt;</code></pre>
+
+<h4 id="2-2-使用-select2-模组"><a href="#2-2-使用-select2-模组" class="headerlink" title="2.2 使用 select2 模组"></a>2.2 使用 select2 模组</h4><pre><code class="hljs js"><span class="hljs-comment">//正常向 select 元素添加 option 之后再设置 select2</span>
+$(<span class="hljs-string">&quot;#ca-machine&quot;</span>).<span class="hljs-title function_">select2</span>(&#123;
+    <span class="hljs-attr">tags</span>: <span class="hljs-literal">false</span>, <span class="hljs-comment">//不允许用户输入新的选项，只能选择已有的选项。设为True 则可以输入自定义的内容</span>
+    <span class="hljs-attr">maximumInputLength</span>: <span class="hljs-number">40</span>, <span class="hljs-comment">//最大可输入长度</span>
+    <span class="hljs-attr">minimumInputLength</span>: <span class="hljs-number">2</span>, <span class="hljs-comment">//至少输入 2 个字符之后才会开始搜索。</span>
+    <span class="hljs-attr">minimumResultsForSearch</span>: <span class="hljs-number">10</span>, <span class="hljs-comment">//只有当下拉列表中的选项数量大于等于10个时，才会显示搜索框。</span>
+    <span class="hljs-attr">placeholder</span>: <span class="hljs-string">&quot;请输入设备ID&quot;</span>
+&#125;);</code></pre>
 
 <h3 id="参考文件"><a href="#参考文件" class="headerlink" title="参考文件"></a>参考文件</h3><p><a target="_blank" rel="noopener" href="https://developer.snapappointments.com/bootstrap-select/examples/">bootstrap-select Document</a></p>
 
@@ -239,6 +269,13 @@
             <div>
               <div class="post-metas mb-3">
                 
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%AD%A6%E6%97%A0%E6%AD%A2%E5%A2%83/">学无止境</a>
+                    
+                  </div>
                 
               </div>
               
@@ -249,9 +286,9 @@
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2021/11/10/EntityFramework/">
+                      <a href="/2020/07/27/reader-1/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Entity Framework</span>
+                        <span class="hidden-mobile">《朱生豪情书》节选</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -259,8 +296,8 @@
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2021/10/18/openCV/">
-                        <span class="hidden-mobile"></span>
+                      <a href="/2020/07/21/bootstrapTable/">
+                        <span class="hidden-mobile">Bootstrap Table学习笔记</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -448,7 +485,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "&nbsp;",
+        "Bootstrap Table学习笔记&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
