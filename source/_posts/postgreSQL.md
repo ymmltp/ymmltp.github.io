@@ -54,6 +54,13 @@ where x.dparametername IS NOT NULL
 round(8/3::numeric,2)
 ```
 
+#### （3）时间的增减
+
+```sql
+Update incident_det set ctime=ctime + INTERVAL '5 months' , occurtime =occurtime + INTERVAL '5 months' ,finishtime=finishtime + INTERVAL '5 months' , repairtime=repairtime + INTERVAL '5 months'  where project='M58'  and calcdowntime=true AND machine='JPF-P15028' 
+```
+
+
 ### 4、Core EF使用原生sql
 
 ```C
@@ -63,3 +70,6 @@ var items = db.CtDet.FromSqlRaw(sql).ToList();//只能查询实体类，不能�
 
 var items = db.Database.ExecuteSqlRaw(sql);//返回被影响的行 update,delete,insert
 ```
+
+
+### 进阶

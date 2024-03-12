@@ -49,7 +49,7 @@ Scaffold-DbContext "server=cnwuxg0te01;uid=root;pwd=Jabil12345;port=3306;databas
 Install-Package Microsoft.EntityFrameworkCore.Tools
 Install-Package Microsoft.EntityFrameworkCore.SqlServer.Design
 > 2. cmd->cd 进入工程文件.csproj所在的文件夹 -> 
-Scaffold-DbContext 'Data Source=cnwuxm0lsql01;Initial Catalog=PMMS;User ID=pmms_readonly;Password=Jabil123;MultipleActiveResultSets=True;Connection Timeout=120' Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models\PMMS -Table EQ,PMrecord,PMItems
+Scaffold-DbContext 'Data Source=cnwuxm0lsql01;Initial Catalog=PMMS;User ID=pmms_readonly;Password=Jabil123;MultipleActiveResultSets=True;Connection Timeout=120;TrustServerCertificate=true' Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models\PMMS -Table EQ,PMrecord,PMItems
 
 Scaffold-DbContext "Data Source=cnwuxg0te01;Initial Catalog=Apps;User ID=sa;Password=Jabil12345;MultipleActiveResultSets=True;Connection Timeout=120;TrustServerCertificate=true" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models\Common -Table Calendar
 
@@ -111,4 +111,11 @@ EF.Functions
 
 ```C#
 EF 中 Equals方法，只能用于引用类型(例如：string)，不能用于值类型(例如：int)
+```
+
+#### EF 常用属性
+
+```C#
+//检索A中的某个属性与B表相同的B表中的内容
+var i=b.where(e=>a.any(i=>i.eqid=e.eqid)).toList();
 ```

@@ -151,7 +151,8 @@ $('#table').bootstrapTable('destroy').bootstrapTable({
         visible: false,     //该列不可见
     }, {
         field: 'root',
-        title: 'Root'
+        title: 'Root',
+        sortable: true,      //可排序
     }，{
         field: 'option',
         title: 'Option',
