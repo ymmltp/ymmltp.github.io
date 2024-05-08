@@ -6,9 +6,12 @@ tags:
 
 # Git
 
-## 从Git Commands 中移除某些内容
+## 从Git Commit 中移除某些内容
 
 ```git
 git rm -r --cached "Escalation Mail/obj/"
 ```
+
+## 查看分支
+
 
