@@ -163,7 +163,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      655 字
+      697 字
     </span>
   
 
@@ -173,7 +173,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      10
+      11
        分钟
     </span>
   
@@ -213,7 +213,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2023年5月23日 下午
+                  本文最后更新于：2023年12月13日 下午
                 
               </p>
             
@@ -261,7 +261,7 @@
 <p>通过数据库结构建立实体：</p>
 <ol>
 <li>Install-Package Microsoft.EntityFrameworkCore.SqlServer<br>Install-Package Microsoft.EntityFrameworkCore.Tools<br>Install-Package Microsoft.EntityFrameworkCore.SqlServer.Design</li>
-<li>cmd-&gt;cd 进入工程文件.csproj所在的文件夹 -&gt;<br>Scaffold-DbContext ‘Data Source&#x3D;cnwuxm0lsql01;Initial Catalog&#x3D;PMMS;User ID&#x3D;pmms_readonly;Password&#x3D;Jabil123;MultipleActiveResultSets&#x3D;True;Connection Timeout&#x3D;120’ Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models\PMMS -Table EQ,PMrecord,PMItems</li>
+<li>cmd-&gt;cd 进入工程文件.csproj所在的文件夹 -&gt;<br>Scaffold-DbContext ‘Data Source&#x3D;cnwuxm0lsql01;Initial Catalog&#x3D;PMMS;User ID&#x3D;pmms_readonly;Password&#x3D;Jabil123;MultipleActiveResultSets&#x3D;True;Connection Timeout&#x3D;120;TrustServerCertificate&#x3D;true’ Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models\PMMS -Table EQ,PMrecord,PMItems</li>
 </ol>
 </blockquote>
 <p>Scaffold-DbContext “Data Source&#x3D;cnwuxg0te01;Initial Catalog&#x3D;Apps;User ID&#x3D;sa;Password&#x3D;Jabil12345;MultipleActiveResultSets&#x3D;True;Connection Timeout&#x3D;120;TrustServerCertificate&#x3D;true” Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models\Common -Table Calendar</p>
@@ -305,6 +305,9 @@ inspect db = <span class="hljs-keyword">new</span> inspect();
 EF.Functions</code></pre>
 
 <pre><code class="hljs C#">EF 中 Equals方法，只能用于引用类型(例如：<span class="hljs-built_in">string</span>)，不能用于值类型(例如：<span class="hljs-built_in">int</span>)</code></pre>
+
+<h4 id="EF-常用属性"><a href="#EF-常用属性" class="headerlink" title="EF 常用属性"></a>EF 常用属性</h4><pre><code class="hljs C#"><span class="hljs-comment">//检索A中的某个属性与B表相同的B表中的内容</span>
+<span class="hljs-keyword">var</span> i=b.<span class="hljs-keyword">where</span>(e=&gt;a.any(i=&gt;i.eqid=e.eqid)).toList();</code></pre>
 
             </article>
             <hr>

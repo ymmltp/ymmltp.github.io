@@ -163,7 +163,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      230 字
+      257 字
     </span>
   
 
@@ -213,12 +213,18 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2023年2月17日 下午
+                  本文最后更新于：2024年6月18日 下午
                 
               </p>
             
             <article class="markdown-body">
-              <h1 id="Windows-Service程序"><a href="#Windows-Service程序" class="headerlink" title="Windows Service程序"></a>Windows Service程序</h1><h2 id="安装、拆卸、调试Windows服务"><a href="#安装、拆卸、调试Windows服务" class="headerlink" title="安装、拆卸、调试Windows服务"></a>安装、拆卸、调试Windows服务</h2><h3 id="1、安装"><a href="#1、安装" class="headerlink" title="1、安装"></a>1、安装</h3><pre><code class="hljs c">New-Service -Name <span class="hljs-string">&quot;WorkingHoursDataSyncer&quot;</span> -BinaryPathName <span class="hljs-string">&quot;C:\Working Hour Data Syncer\WorkingHoursDataSyncer.exe&quot;</span></code></pre>
+              <h1 id="Windows-Service程序"><a href="#Windows-Service程序" class="headerlink" title="Windows Service程序"></a>Windows Service程序</h1><h2 id="安装、拆卸、调试Windows服务"><a href="#安装、拆卸、调试Windows服务" class="headerlink" title="安装、拆卸、调试Windows服务"></a>安装、拆卸、调试Windows服务</h2><h3 id="1、安装"><a href="#1、安装" class="headerlink" title="1、安装"></a>1、安装</h3><pre><code class="hljs c">New-Service -Name <span class="hljs-string">&quot;WorkingHoursDataSyncer&quot;</span> -BinaryPathName <span class="hljs-string">&quot;C:\Working Hour Data Syncer\WorkingHoursDataSyncer.exe&quot;</span>
+
+或者：
+sc.exe create DowntimeMonitor binPath= <span class="hljs-string">&quot;C:\Caroline File\DowntimeMonitorService\NewDowntimeIncidentMonitorService.exe&quot;</span> DisplayName= <span class="hljs-string">&quot;Downtime Monitor Service&quot;</span> start= <span class="hljs-keyword">auto</span> 
+
+sc.exe start DowntimeMonitor
+</code></pre>
 
 <h3 id="2、拆卸"><a href="#2、拆卸" class="headerlink" title="2、拆卸"></a>2、拆卸</h3><ul>
 <li>查看PowerShell版本 <code>$PSVersionTable</code></li>

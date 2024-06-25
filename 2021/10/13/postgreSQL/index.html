@@ -163,7 +163,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      372 字
+      460 字
     </span>
   
 
@@ -173,7 +173,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      5
+      7
        分钟
     </span>
   
@@ -213,7 +213,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2022年6月22日 上午
+                  本文最后更新于：2024年6月25日 下午
                 
               </p>
             
@@ -246,12 +246,19 @@
 
 <h4 id="（2）保留小数"><a href="#（2）保留小数" class="headerlink" title="（2）保留小数"></a>（2）保留小数</h4><pre><code class="hljs sql">round(<span class="hljs-number">8</span><span class="hljs-operator">/</span><span class="hljs-number">3</span>::<span class="hljs-type">numeric</span>,<span class="hljs-number">2</span>)</code></pre>
 
+<h4 id="（3）时间的增减"><a href="#（3）时间的增减" class="headerlink" title="（3）时间的增减"></a>（3）时间的增减</h4><pre><code class="hljs sql"><span class="hljs-keyword">Update</span> incident_det <span class="hljs-keyword">set</span> ctime<span class="hljs-operator">=</span>ctime <span class="hljs-operator">+</span> <span class="hljs-type">INTERVAL</span> <span class="hljs-string">&#x27;5 months&#x27;</span> , occurtime <span class="hljs-operator">=</span>occurtime <span class="hljs-operator">+</span> <span class="hljs-type">INTERVAL</span> <span class="hljs-string">&#x27;5 months&#x27;</span> ,finishtime<span class="hljs-operator">=</span>finishtime <span class="hljs-operator">+</span> <span class="hljs-type">INTERVAL</span> <span class="hljs-string">&#x27;5 months&#x27;</span> , repairtime<span class="hljs-operator">=</span>repairtime <span class="hljs-operator">+</span> <span class="hljs-type">INTERVAL</span> <span class="hljs-string">&#x27;5 months&#x27;</span>  <span class="hljs-keyword">where</span> project<span class="hljs-operator">=</span><span class="hljs-string">&#x27;M58&#x27;</span>  <span class="hljs-keyword">and</span> calcdowntime<span class="hljs-operator">=</span><span class="hljs-literal">true</span> <span class="hljs-keyword">AND</span> machine<span class="hljs-operator">=</span><span class="hljs-string">&#x27;JPF-P15028&#x27;</span></code></pre>
+
+
 <h3 id="4、Core-EF使用原生sql"><a href="#4、Core-EF使用原生sql" class="headerlink" title="4、Core EF使用原生sql"></a>4、Core EF使用原生sql</h3><pre><code class="hljs C">using Microsoft.EntityFrameworkCore;
 var items = db.CtDet.FromSqlRaw(sql).ToList();<span class="hljs-comment">//只能查询实体类，不能查询自定义类 select</span>
 <span class="hljs-comment">//如果查询自定义类，需要在model中写出实体并注册到dataset中</span>
 
 var items = db.Database.ExecuteSqlRaw(sql);<span class="hljs-comment">//返回被影响的行 update,delete,insert</span></code></pre>
 
+<h3 id="5、一些指令"><a href="#5、一些指令" class="headerlink" title="5、一些指令"></a>5、一些指令</h3><h4 id="（1）快速生成表结构文件"><a href="#（1）快速生成表结构文件" class="headerlink" title="（1）快速生成表结构文件"></a>（1）快速生成表结构文件</h4><pre><code class="hljs pgsql">pg_dump -U postgres -h <span class="hljs-number">10.136</span><span class="hljs-number">.18</span><span class="hljs-number">.133</span> -p <span class="hljs-number">5432</span> -s -d EC -f C:\Users\<span class="hljs-number">1382919</span>\Desktop\output_file.<span class="hljs-keyword">sql</span>
+</code></pre>
+
+<h3 id="进阶"><a href="#进阶" class="headerlink" title="进阶"></a>进阶</h3>
             </article>
             <hr>
             <div>
