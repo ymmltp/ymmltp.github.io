@@ -71,5 +71,13 @@ var items = db.CtDet.FromSqlRaw(sql).ToList();//只能查询实体类，不能�
 var items = db.Database.ExecuteSqlRaw(sql);//返回被影响的行 update,delete,insert
 ```
 
+### 5、一些指令
+
+#### （1）快速生成表结构文件
+
+```
+pg_dump -U postgres -h 10.136.18.133 -p 5432 -s -d EC -f C:\Users\1382919\Desktop\output_file.sql
+
+```
 
 ### 进阶

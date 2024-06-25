@@ -12,6 +12,12 @@ tags: 学无止境
 
 ```c
 New-Service -Name "WorkingHoursDataSyncer" -BinaryPathName "C:\Working Hour Data Syncer\WorkingHoursDataSyncer.exe"
+
+或者：
+sc.exe create DowntimeMonitor binPath= "C:\Caroline File\DowntimeMonitorService\NewDowntimeIncidentMonitorService.exe" DisplayName= "Downtime Monitor Service" start= auto 
+
+sc.exe start DowntimeMonitor
+
 ```
 
 ### 2、拆卸
@@ -23,6 +29,7 @@ New-Service -Name "WorkingHoursDataSyncer" -BinaryPathName "C:\Working Hour Data
 ### 3、调试
 
 - 将 Windows服务，改成 Console 程序调试。具体步骤参考[如何：调试 Windows 服务应用程序](https://learn.microsoft.com/zh-cn/dotnet/framework/windows-services/how-to-debug-windows-service-applications)
+
 
 ## Q&A
 
