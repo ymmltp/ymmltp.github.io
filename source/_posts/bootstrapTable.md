@@ -244,7 +244,7 @@ $('#table').bootstrapTable('updateCell', {
 
 ### 4、edit Table
 
-插件 bootstrap-editable.js 和 bootstrap-table-editable.js
+- 插件 bootstrap-editable.js 和 bootstrap-table-editable.js
 
 ```javascript
 <script src="~/Scripts/bootstrap-table.min.js"></script>
@@ -355,6 +355,80 @@ $("#table").bootstrapTable('destroy').bootstrapTable({
         })
     },
 });
+```
+
+- 根据条件自定义一个column的edit样式
+
+```javascript
+$('#table').bootstrapTable({
+    columns: [{
+        field: 'id',
+        title: 'ID'
+    }, {
+        field: 'name',
+        title: 'Name',
+        editable: {
+            type: 'text',
+            mode: 'inline',
+        }
+    }, {
+        field: 'date',
+        title: 'Date',
+
+        editable: {
+            type: 'date',
+            mode: 'inline',
+            datetimepicker: {
+                format: 'yyyy-mm-dd',
+                autoclose: true,
+                todayBtn: true,
+                pickerPosition: 'bottom-left',
+                language: 'zh-CN'
+            }
+        }
+    }, {
+        field: 'conditional',
+        title: 'Conditional Edit',
+        editable: function (index) {
+            // Get the row data using the index
+            var rowData = $('#table').bootstrapTable('getData')[index];
+            if (rowData.condition) {
+                // Set up a date editor
+                return{
+                    type: 'date',
+                    mode: 'inline',
+                    viewformat: 'dd/mm/yyyy',
+                    datetimepicker: {
+                        format: 'yyyy-mm-dd',
+                        autoclose: true,
+                        todayBtn: true,
+                        pickerPosition: 'bottom-left',
+                        language: 'zh-CN'
+                    }
+                };
+            } else {
+                return {
+                    type: 'text',
+                    mode: 'inline',
+                };
+
+            }
+        }
+    }],
+    data: [{
+        id: 1,
+        name: 'Alice',
+        date: '2021-01-01',
+        conditional: '2021-02-01',
+        condition: true
+    }, {
+        id: 2,
+        name: 'Bob',
+        date: '2021-01-02',
+        conditional: 'Text',
+        condition: false
+    }]
+});       
 ```
 
 ### 5、添加自定义按钮
