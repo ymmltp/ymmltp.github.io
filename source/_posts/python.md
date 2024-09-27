@@ -16,3 +16,16 @@ tags: 学无止境
 ```python
  pyinstaller --hidden-import -F tmp.py
 ```
+
+### 环境搭建
+
+```python
+## 新建环境
+python.exe -m venv yolo_env
+## 启动
+yolo_env\Scripts\activate 
+
+## 创建Jupyter环境
+## 使用绝对路径的python.exe
+C:\Users\1382919\AppData\Local\Programs\Python\Python310\yolo_env\Scripts\python.exe -m ipykernel install --user --name=yolo_env --display-name "Python 3.10 (yolo_env)"
+```
