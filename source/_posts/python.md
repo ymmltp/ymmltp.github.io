@@ -21,11 +21,17 @@ tags: 学无止境
 
 ```python
 ## 新建环境
-python.exe -m venv yolo_env
+python.exe -m venv yolo_env  (yolo_env所在路径是当前路径,而不是使用的python.exe的路径)
 ## 启动
 yolo_env\Scripts\activate 
 
 ## 创建Jupyter环境
 ## 使用绝对路径的python.exe
 C:\Users\1382919\AppData\Local\Programs\Python\Python310\yolo_env\Scripts\python.exe -m ipykernel install --user --name=yolo_env --display-name "Python 3.10 (yolo_env)"
+```
+
+### cmd运行Python脚本
+
+```
+.\Scripts\python.exe filepath
 ```

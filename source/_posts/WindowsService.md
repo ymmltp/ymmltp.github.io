@@ -14,7 +14,7 @@ tags: 学无止境
 New-Service -Name "WorkingHoursDataSyncer" -BinaryPathName "C:\Working Hour Data Syncer\WorkingHoursDataSyncer.exe"
 
 或者：
-sc.exe create DowntimeMonitor binPath= "C:\Caroline File\DowntimeMonitorService\NewDowntimeIncidentMonitorService.exe" DisplayName= "Downtime Monitor Service" start= auto 
+sc.exe create DowntimeMonitorMQTT1 binPath= "C:\Caroline File\DowntimeMonitorMQTTService\DowntimeIncidentMonitor_MQTT.exe" DisplayName= "Downtime Monitor MQTT Service1" start= auto 
 
 sc.exe start DowntimeMonitor
 
@@ -31,6 +31,14 @@ sc.exe start DowntimeMonitor
 - 将 Windows服务，改成 Console 程序调试。具体步骤参考[如何：调试 Windows 服务应用程序](https://learn.microsoft.com/zh-cn/dotnet/framework/windows-services/how-to-debug-windows-service-applications)
 
 
+### 4、强制kill进程
+
+- 查询PID : tasklist /FI "SERVICES eq <ServiceName>"
+- Kill进程：taskkill /F /PID <ProcessID>
+
+### 5、查看Domain Group里面有哪些人
+
+
 ## Q&A
 
 **1、 windows服务启动时：The system cannot find the file specified.**
@@ -42,6 +50,9 @@ New-Service -Name "WorkingHoursDataSyncer" -BinaryPathName "C:\Working Hour Data
 ```
 
 在 ```BinaryPathName``` 中使用完整路径。
+
+
+
 
 ## 参考文档
 

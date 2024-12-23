@@ -39,7 +39,7 @@ dotnet ef dbcontext scaffold "Host=cnwuxm1medb01;Database=EC;Username=ECUser;Pas
 >2. Microsoft.EntityFrameworkCore.Tools
 >3. 安装 Mysql.Data
 >4. 安装 Pomelo.EntityFrameworkCore.MySql(官方插件有问题，使用这个社区版本)
->5. cmd->cd 进入工程文件.csproj所在的文件夹 -> 
+>5. cmd->cd 进入工程文件.csproj所在的文件夹 -> 将 Default Project 设置成该Project
 Scaffold-DbContext "server=cnwuxg0te01;uid=root;pwd=Jabil12345;port=3306;database=sparepart_current;" Pomelo.EntityFrameworkCore.MySql -OutputDir Models -f
 
 #### 1.4、Core EF 链接 SQL Server
@@ -119,3 +119,14 @@ EF 中 Equals方法，只能用于引用类型(例如：string)，不能用于�
 //检索A中的某个属性与B表相同的B表中的内容
 var i=b.where(e=>a.any(i=>i.eqid=e.eqid)).toList();
 ```
+
+## EF Code First
+
+### 生成表结构的步骤
+
+1、设计class
+2、`get-help EntityFramework` 查看EF帮助项
+3、将实体所在的 Project 设为启动程序
+4、`dotnet ef migrations add <MigrationName>` 生成迁移文件
+5、`dotnet ef database update <MigrationName>` 根据迁移文件内容更新数据库结构
+6、有多个context时使用 `dotnet ef migrations add <MigrationName> --context YourDbContextName` 和`dotnet ef database update <MigrationName> --context YourDbContextName`
