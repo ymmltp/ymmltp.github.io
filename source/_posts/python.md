@@ -13,9 +13,22 @@ tags: 学无止境
 `cx_Freeze` ：[cx_Freeze使用方法](https://www.diaoyc.cn/archives/python%E4%BD%BF%E7%94%A8cxfreeze%E6%89%93%E5%8C%85fastapi%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%96%B9%E6%B3%95%E4%BB%A5%E5%8F%8A%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98#post-content)
 `pyinstaller`：[pyinstaller打包讲解](https://blog.csdn.net/qq_39621009/article/details/122308590)
 
-```python
- pyinstaller --hidden-import -F tmp.py
-```
+#### 使用 pyinstaller 命令行进行打包
+
+- pyinstaller your_script.py   会生成disk文件夹,可以手动配置环境
+- 其他指令：
+  
+| 指令  | 解释 |
+|---------|---------|
+| --hidden-import=requests1,requests2    | 打包时添加隐式调用的包|
+| -D 或 --onedir    | 生成一个目录，其中包含可执行文件及其所有依赖文件（默认选项）|
+| -F 或 --onefile   | 打包成一个.exe文件   |
+
+#### 使用.spec文件进行打包
+
+- 先使用pyinstaller打包,生成.spec文件
+- 在.spec文件里添加需要的包
+- 使用 pyinstaller name.spec
 
 ### 环境搭建
 
