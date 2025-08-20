@@ -52,21 +52,6 @@ Console.ReadKey();
 
 ```
 
-## 使用 VSC 创建 C# 项目
-
-1. 创建项目：`dotnet new console -n YourProjectName`
-2. 引入需要的包：`dotnet add package Newtonsoft.Json`
-3. 编译不包含依赖：`dotnet build YourMainProject.csproj --no-dependencies`
-4. 查看编译具体内容：`dotnet build -v diag`
-5. 编译发行版本：`dotnet publish -c Release`
-   - 编译结果保存在Release/Publish文件夹下
-
-6. 移除不需要的project:`dotnet sln SPMAPI.sln remove path\to\project.csproj`
-
-
-
-
-
 ## 参考文件 ##
 
 [^注释1]： [委托，事件和Lambda表达式](https://www.cnblogs.com/zcqiand/p/13656161.html)
